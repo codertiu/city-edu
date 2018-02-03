@@ -1,0 +1,66 @@
+RewriteEngine On
+
+# deal with admin first
+RewriteCond %{REQUEST_URI} ^/(admin)
+RewriteRule ^admin/assets/(.*)$ backend/web/assets/$1 [L]
+RewriteRule ^admin/css/(.*)$ backend/web/css/$1 [L]
+RewriteRule ^admin/vendor/animsition/(.*)$ backend/web/vendor/animsition/$1 [L]
+RewriteRule ^admin/vendor/animsition/(.*)$ backend/web/vendor/animsition/$1 [L]
+RewriteRule ^admin/vendor/asscrollable/(.*)$ backend/web/vendor/asscrollable/$1 [L]
+RewriteRule ^admin/vendor/switchery/(.*)$ backend/web/vendor/switchery/$1 [L]
+RewriteRule ^admin/vendor/intro-js/(.*)$ backend/web/vendor/intro-js/$1 [L]
+RewriteRule ^admin/vendor/slidepanel/(.*)$ backend/web/vendor/slidepanel/$1 [L]
+RewriteRule ^admin/vendor/flag-icon-css/(.*)$ backend/web/vendor/flag-icon-css/$1 [L]
+RewriteRule ^admin/vendor/waves/(.*)$ backend/web/vendor/waves/$1 [L]
+RewriteRule ^admin/vendor/chartist-js/(.*)$ backend/web/vendor/chartist-js/$1 [L]
+RewriteRule ^admin/vendor/jvectormap/(.*)$ backend/web/vendor/jvectormap/$1 [L]
+RewriteRule ^admin/vendor/chartist-plugin-tooltip/(.*)$ backend/web/vendor/chartist-plugin-tooltip/$1 [L]
+RewriteRule ^admin/css/dashboard/(.*)$ backend/web/css/dashboard/$1 [L]
+RewriteRule ^admin/fonts/material-design/(.*)$ backend/web/fonts/material-design/$1 [L]
+RewriteRule ^admin/fonts/brand-icons/(.*)$ backend/web/fonts/brand-icons/$1 [L]
+
+RewriteRule ^admin/vendor/jquery/(.*)$ backend/web/vendor/jquery/$1 [L]
+RewriteRule ^admin/vendor/bootstrap/(.*)$ backend/web/vendor/bootstrap/$1 [L]
+RewriteRule ^admin/vendor/modernizr/(.*)$ backend/web/vendor/modernizr/$1 [L]
+RewriteRule ^admin/vendor/breakpoints/(.*)$ backend/web/vendor/breakpoints/$1 [L]
+RewriteRule ^admin/vendor/animsition/(.*)$ backend/web/vendor/animsition/$1 [L]
+RewriteRule ^admin/vendor/asscroll/(.*)$ backend/web/vendor/asscroll/$1 [L]
+RewriteRule ^admin/vendor/mousewheel/(.*)$ backend/web/vendor/mousewheel/$1 [L]
+RewriteRule ^admin/vendor/asscrollable/(.*)$ backend/web/vendor/asscrollable/$1 [L]
+RewriteRule ^admin/vendor/ashoverscroll/(.*)$ backend/web/vendor/ashoverscroll/$1 [L]
+RewriteRule ^admin/vendor/waves/(.*)$ backend/web/vendor/waves/$1 [L]
+RewriteRule ^admin/vendor/switchery/(.*)$ backend/web/vendor/switchery/$1 [L]
+RewriteRule ^admin/vendor/intro-js/(.*)$ backend/web/vendor/intro-js/$1 [L]
+RewriteRule ^admin/vendor/screenfull/(.*)$ backend/web/vendor/screenfull/$1 [L]
+RewriteRule ^admin/vendor/slidepanel/(.*)$ backend/web/vendor/slidepanel/$1 [L]
+RewriteRule ^admin/vendor/chartist-js/(.*)$ backend/web/vendor/chartist-js/$1 [L]
+RewriteRule ^admin/vendor/chartist-plugin-tooltip/(.*)$ backend/web/vendor/chartist-plugin-tooltip/$1 [L]
+RewriteRule ^admin/vendor/jvectormap/(.*)$ backend/web/vendor/jvectormap/$1 [L]
+RewriteRule ^admin/vendor/jvectormap/maps/(.*)$ backend/web/vendor/jvectormap/maps/$1 [L]
+RewriteRule ^admin/vendor/matchheight/(.*)$ backend/web/vendor/matchheight/$1 [L]
+RewriteRule ^admin/vendor/peity/(.*)$ backend/web/vendor/peity/$1 [L]
+RewriteRule ^admin/js/(.*)$ backend/web/js/$1 [L]
+RewriteRule ^admin/js/sections/(.*)$ backend/web/js/sections/$1 [L]
+RewriteRule ^admin/js/configs/(.*)$ backend/web/js/configs/$1 [L]
+RewriteRule ^admin/js/components/(.*)$ backend/web/js/components/$1 [L]
+RewriteRule ^admin/js/dashboard/(.*)$ backend/web/js/dashboard/$1 [L]
+
+RewriteRule ^admin/images/(.*)$ backend/web/images/$1 [L]
+RewriteRule ^admin/images/logo/(.*)$ backend/web/images/logo/$1 [L]
+RewriteRule ^admin/images/modal/(.*)$ backend/web/images/modal/$1 [L]
+RewriteRule ^admin/images/navbar/(.*)$ backend/web/images/navbar/$1 [L]
+
+RewriteCond %{REQUEST_URI} !^/backend/web/(assets|css)/
+RewriteCond %{REQUEST_URI} ^/(admin)
+RewriteRule ^.*$ backend/web/index.php [L]
+
+
+RewriteCond %{REQUEST_URI} ^/(assets|css)
+RewriteRule ^assets/(.*)$ frontend/web/assets/$1 [L]
+RewriteRule ^css/(.*)$ frontend/web/css/$1 [L]
+
+RewriteCond %{REQUEST_URI} !^/(frontend|backend)/web/(assets|css)/
+RewriteCond %{REQUEST_URI} !index.php
+RewriteCond %{REQUEST_FILENAME} !-f [OR]
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^.*$ frontend/web/index.php
