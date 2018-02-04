@@ -66,8 +66,13 @@ class ReceptionController extends Controller
     {
         $model = new Reception();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+        if ($model->load(Yii::$app->request->post())) {
+            $model->creater = Yii::$app->user->identity->id;
+            if ($model->save()) {
+                return $this->redirect(['view', 'id' => $model->id]);
+            }else{
+                return print_r($model->errors);
+            }
         }
 
         return $this->render('create', [

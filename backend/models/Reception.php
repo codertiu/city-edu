@@ -3,6 +3,9 @@
 namespace backend\models;
 
 use Yii;
+use yii\db\Expression;
+use yii\db\ActiveRecord;
+use yii\behaviors\TimestampBehavior;
 
 /**
  * This is the model class for table "reception".
@@ -20,7 +23,7 @@ use Yii;
  * @property int $instance_id
  * @property int $comment_id
  */
-class Reception extends \yii\db\ActiveRecord
+class Reception extends ActiveRecord
 {
     /**
      * @inheritdoc
@@ -30,13 +33,29 @@ class Reception extends \yii\db\ActiveRecord
         return 'reception';
     }
 
+
+
+    public function behaviors()
+    {
+        return [
+            [
+                'class' => TimestampBehavior::className(),
+                'attributes' => [
+                    ActiveRecord::EVENT_BEFORE_INSERT => ['create_date', 'update_date'],
+                    ActiveRecord::EVENT_BEFORE_UPDATE => ['update_date'],
+                ],
+                'value' => new Expression('NOW()'),
+            ],
+        ];
+    }
+
     /**
      * @inheritdoc
      */
     public function rules()
     {
         return [
-            [['edu_center_id', 'fio', 'tel', 'coming_id', 'type_edu_id', 'date_coming', 'creater', 'create_date', 'update_date', 'instance_id'], 'required'],
+            [['edu_center_id', 'fio', 'tel', 'coming_id', 'type_edu_id', 'date_coming', 'creater', 'instance_id'], 'required'],
             [['edu_center_id', 'coming_id', 'type_edu_id', 'creater', 'create_date', 'update_date', 'instance_id', 'comment_id'], 'integer'],
             [['date_coming'], 'safe'],
             [['fio'], 'string', 'max' => 255],
@@ -64,5 +83,9 @@ class Reception extends \yii\db\ActiveRecord
             'instance_id' => Yii::t('main', 'Instance ID'),
             'comment_id' => Yii::t('main', 'Comment ID'),
         ];
+    }
+
+    public function getCreateDate(){
+        return date("Y-m-d H:i:s", strtotime($this->create_date));
     }
 }

@@ -30,6 +30,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'fio',
             'tel',
             'coming_id',
+            'createDate',
             //'type_edu_id',
             //'date_coming',
             //'creater',
