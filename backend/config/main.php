@@ -104,6 +104,15 @@ return [
             ],
         ],
 
+        'i18n' => [
+            'translations' => [
+                'main' => [
+                    'class' => 'yii\i18n\PhpMessageSource',
+                    'basePath' => '@common/messages',
+                ],
+            ],
+        ],
+
     ],
 
     'params' => $params,
