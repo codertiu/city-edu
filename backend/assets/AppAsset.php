@@ -67,7 +67,7 @@ class AppAsset extends AssetBundle
         'js/components/matchheight.js',
         'js/components/jvectormap.js',
         'js/components/peity.js',
-        //'js/dashboard/v1.js',
+        'js/dashboard/v1.js',
     ];
     public $depends = [
         'yii\web\YiiAsset',
