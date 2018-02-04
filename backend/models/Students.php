@@ -7,15 +7,17 @@ use Yii;
 /**
  * This is the model class for table "students".
  *
- * @property int $id
+ * @property integer $id
  * @property string $fio
  * @property string $tel
- * @property int $gendar
+ * @property integer $gendar
  * @property string $address
- * @property int $member_id
- * @property int $reg_date
- * @property int $edu_center_id
- * @property int $active
+ * @property integer $member_id
+ * @property integer $reg_date
+ * @property integer $edu_center_id
+ * @property integer $active
+ * @property string $image
+ * @property string $file
  */
 class Students extends \yii\db\ActiveRecord
 {
@@ -35,7 +37,7 @@ class Students extends \yii\db\ActiveRecord
         return [
             [['fio', 'tel', 'gendar', 'address', 'reg_date', 'edu_center_id', 'active'], 'required'],
             [['gendar', 'member_id', 'reg_date', 'edu_center_id', 'active'], 'integer'],
-            [['fio', 'address'], 'string', 'max' => 255],
+            [['fio', 'address', 'image', 'file'], 'string', 'max' => 255],
             [['tel'], 'string', 'max' => 35],
             [['tel'], 'unique'],
         ];
@@ -56,6 +58,8 @@ class Students extends \yii\db\ActiveRecord
             'reg_date' => Yii::t('main', 'Reg Date'),
             'edu_center_id' => Yii::t('main', 'Edu Center ID'),
             'active' => Yii::t('main', 'Active'),
+            'image' => Yii::t('main', 'Image'),
+            'file' => Yii::t('main', 'File'),
         ];
     }
 }
