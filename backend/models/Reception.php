@@ -89,3 +89,5 @@ class Reception extends ActiveRecord
         return date("Y-m-d H:i:s", strtotime($this->create_date));
     }
 }
+
+

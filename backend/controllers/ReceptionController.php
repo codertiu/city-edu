@@ -130,3 +130,5 @@ class ReceptionController extends Controller
         throw new NotFoundHttpException(Yii::t('main', 'The requested page does not exist.'));
     }
 }
+
+
