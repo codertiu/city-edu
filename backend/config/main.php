@@ -11,6 +11,7 @@ return [
     'basePath' => dirname(__DIR__),
     'controllerNamespace' => 'backend\controllers',
     'bootstrap' => ['log'],
+    'language'=>'ru',
     'modules' => [
         'user-management' => [
             'class' => 'webvimark\modules\UserManagement\UserManagementModule',

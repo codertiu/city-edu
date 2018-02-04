@@ -34,7 +34,7 @@ class AppAsset extends AssetBundle
     public $js = [
         ['vendor/modernizr/modernizr.js','position' => \yii\web\View::POS_HEAD],
         ['vendor/breakpoints/breakpoints.js','position' => \yii\web\View::POS_HEAD],
-        //'vendor/jquery/jquery.js',
+        //['vendor/jquery/jquery.js','position' => \yii\web\View::POS_HEAD],
         //'vendor/bootstrap/bootstrap.js',
         'vendor/animsition/animsition.js',
         'vendor/asscroll/jquery-asScroll.js',
