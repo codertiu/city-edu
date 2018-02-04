@@ -20,7 +20,8 @@
         "yiisoft/yii2-swiftmailer": "~2.0.0 || ~2.1.0",
         "wbraganca/yii2-dynamicform": "*",
         "mdmsoft/yii2-admin": "2.x-dev",
-        "webvimark/module-user-management": "^1.0"
+        "webvimark/module-user-management": "^1.0",
+        "kartik-v/yii2-widget-select2": "@dev"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.0.0",
