@@ -34,8 +34,8 @@ class AppAsset extends AssetBundle
     public $js = [
         ['vendor/modernizr/modernizr.js','position' => \yii\web\View::POS_HEAD],
         ['vendor/breakpoints/breakpoints.js','position' => \yii\web\View::POS_HEAD],
-        'vendor/jquery/jquery.js',
-        'vendor/bootstrap/bootstrap.js',
+        //'vendor/jquery/jquery.js',
+        //'vendor/bootstrap/bootstrap.js',
         'vendor/animsition/animsition.js',
         'vendor/asscroll/jquery-asScroll.js',
         'vendor/mousewheel/jquery.mousewheel.js',
@@ -46,8 +46,8 @@ class AppAsset extends AssetBundle
         'vendor/intro-js/intro.js',
         'vendor/screenfull/screenfull.js',
         'vendor/slidepanel/jquery-slidePanel.js',
-        'vendor/chartist-js/chartist.min.js',
-        'vendor/chartist-plugin-tooltip/chartist-plugin-tooltip.min.js',
+        //'vendor/chartist-js/chartist.min.js',
+        //'vendor/chartist-plugin-tooltip/chartist-plugin-tooltip.min.js',
         'vendor/jvectormap/jquery-jvectormap.min.js',
         'vendor/jvectormap/maps/jquery-jvectormap-world-mill-en.js',
         'vendor/matchheight/jquery.matchHeight-min.js',
@@ -67,11 +67,11 @@ class AppAsset extends AssetBundle
         'js/components/matchheight.js',
         'js/components/jvectormap.js',
         'js/components/peity.js',
-        'js/dashboard/v1.js',
+        //'js/dashboard/v1.js',
     ];
     public $depends = [
-        //'yii\web\YiiAsset',
-        //'yii\bootstrap\BootstrapAsset',
-        //'yii\bootstrap\BootstrapPluginAsset',
+        'yii\web\YiiAsset',
+        'yii\bootstrap\BootstrapAsset',
+        'yii\bootstrap\BootstrapPluginAsset',
     ];
 }
