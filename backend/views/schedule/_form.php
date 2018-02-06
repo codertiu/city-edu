@@ -7,9 +7,13 @@ use yii\widgets\ActiveForm;
 /* @var $model backend\models\Schedule */
 /* @var $form yii\widgets\ActiveForm */
 ?>
-
-<div class="schedule-form">
-
+<div class="panel">
+    <div class="panel-heading">
+        <h3 class="panel-title">Schedule
+            <span class="panel-desc">Created </span>
+        </h3>
+    </div>
+    <div class="panel-body">
     <?php $form = ActiveForm::begin(); ?>
 
     <?= $form->field($model, 'edu_center_id')->textInput() ?>
@@ -27,5 +31,5 @@ use yii\widgets\ActiveForm;
     </div>
 
     <?php ActiveForm::end(); ?>
-
+    </div>
 </div>
