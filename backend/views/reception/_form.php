@@ -147,7 +147,7 @@ use backend\models\Instance;
         </div>
 
         <div class="form-group">
-            <?= Html::submitButton(Yii::t('main', 'Save'), ['class' => 'btn btn-success']) ?>
+            <?= Html::submitButton($model->isNewRecord ? Yii::t('main', 'Create') : Yii::t('main', 'Update'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
         </div>
         <?php ActiveForm::end(); ?>
     </div>
