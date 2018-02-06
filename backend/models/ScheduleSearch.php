@@ -19,7 +19,7 @@ class ScheduleSearch extends Schedule
     {
         return [
             [['id', 'edu_center_id', 'group_id', 'day_id', 'room_id'], 'integer'],
-            [['time'], 'safe'],
+            [['begin_time', 'end_time'], 'safe'],
         ];
     }
 
@@ -63,10 +63,10 @@ class ScheduleSearch extends Schedule
             'edu_center_id' => $this->edu_center_id,
             'group_id' => $this->group_id,
             'day_id' => $this->day_id,
+            'begin_time' => $this->begin_time,
+            'end_time' => $this->end_time,
             'room_id' => $this->room_id,
         ]);
-
-        $query->andFilterWhere(['like', 'time', $this->time]);
 
         return $dataProvider;
     }

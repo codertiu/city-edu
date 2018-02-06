@@ -17,7 +17,8 @@ class m180204_134253_create_schedule_table extends Migration
             'edu_center_id' => $this->integer()->notNull(),
             'group_id' => $this->integer()->notNull(),
             'day_id' => $this->integer()->notNull(),
-            'time' => $this->string()->notNull(),
+            'begin_time' => $this->time()->notNull(),
+            'end_time'=>$this->time()->notNull(),
             'room_id' => $this->integer()->notNull(),
         ]);
     }
