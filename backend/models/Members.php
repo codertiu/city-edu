@@ -23,6 +23,9 @@ class Members extends \yii\db\ActiveRecord
     /**
      * @inheritdoc
      */
+    public $filecv;
+    public $fileimg;
+
     public static function tableName()
     {
         return 'members';
@@ -59,6 +62,8 @@ class Members extends \yii\db\ActiveRecord
             'active' => Yii::t('main', 'Active'),
             'img' => Yii::t('main', 'Img'),
             'file' => Yii::t('main', 'File'),
+            'filecv' => Yii::t('main', 'File'),
+            'fileru' => Yii::t('main', 'Img'),
         ];
     }
 }
