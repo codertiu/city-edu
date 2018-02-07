@@ -65,6 +65,7 @@ class EduCenterController extends Controller
     public function actionCreate()
     {
         $model = new EduCenter();
+        $model->active = 1;
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);

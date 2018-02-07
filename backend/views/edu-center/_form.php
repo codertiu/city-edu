@@ -87,7 +87,7 @@ use yii\widgets\ActiveForm;
             <div class="col-lg-3  form-horizontal">
                 <div class="form-group form-material">
                     <div class=" col-lg-12 col-sm-9">
-                        <?= $form->field($model, 'active')->textInput(['maxlength' => true]) ?>
+                        <?= $form->field($model, 'active')->checkbox() ?>
                     </div>
                 </div>
             </div>
