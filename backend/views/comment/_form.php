@@ -8,8 +8,13 @@ use yii\widgets\ActiveForm;
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
-<div class="comment-form">
-
+<div class="panel">
+    <div class="panel-heading">
+        <h3 class="panel-title">Comment
+            <span class="panel-desc">Created </span>
+        </h3>
+    </div>
+    <div class="panel-body">
     <?php $form = ActiveForm::begin(); ?>
 
     <?= $form->field($model, 'name')->textarea(['rows' => 6]) ?>
@@ -19,5 +24,5 @@ use yii\widgets\ActiveForm;
     </div>
 
     <?php ActiveForm::end(); ?>
-
+    </div>
 </div>
