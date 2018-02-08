@@ -66,7 +66,11 @@ class EduCenterController extends Controller
     {
         $model = new EduCenter();
         $model->active = 1;
-
+        if (Yii::$app->request->isAjax && $model->load(Yii::$app->request->post()))
+        {
+            Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+            return \yii\widgets\ActiveForm::validate($model);
+        }
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         }
@@ -86,7 +90,11 @@ class EduCenterController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
-
+        if (Yii::$app->request->isAjax && $model->load(Yii::$app->request->post()))
+        {
+            Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+            return \yii\widgets\ActiveForm::validate($model);
+        }
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         }

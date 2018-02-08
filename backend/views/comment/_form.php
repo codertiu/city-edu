@@ -15,7 +15,10 @@ use yii\widgets\ActiveForm;
         </h3>
     </div>
     <div class="panel-body">
-    <?php $form = ActiveForm::begin(); ?>
+    <?php $form = ActiveForm::begin([
+        'enableAjaxValidation' => false,
+        'enableClientValidation' => true,
+    ]); ?>
 
     <?= $form->field($model, 'name')->textarea(['rows' => 6]) ?>
 

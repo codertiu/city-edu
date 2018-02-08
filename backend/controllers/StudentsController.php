@@ -66,7 +66,11 @@ class StudentsController extends Controller
     public function actionCreate()
     {
         $model = new Students();
-
+        if (Yii::$app->request->isAjax && $model->load(Yii::$app->request->post()))
+        {
+            Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+            return \yii\widgets\ActiveForm::validate($model);
+        }
 
         if ($model->load(Yii::$app->request->post())) {
             $model->filecv = UploadedFile::getInstance($model,'filecv');
@@ -102,7 +106,11 @@ class StudentsController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
-
+        if (Yii::$app->request->isAjax && $model->load(Yii::$app->request->post()))
+        {
+            Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+            return \yii\widgets\ActiveForm::validate($model);
+        }
         if ($model->load(Yii::$app->request->post())) {
 
             $model->filecv = UploadedFile::getInstance($model,'filecv');

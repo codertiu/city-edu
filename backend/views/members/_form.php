@@ -19,12 +19,15 @@ use kartik\select2\Select2;
         </h3>
     </div>
     <div class="panel-body">
-    <?php $form = ActiveForm::begin(); ?>
+        <?php $form = ActiveForm::begin([
+            'enableAjaxValidation' => false,
+            'enableClientValidation' => true,
+        ]); ?>
         <div class="row row-lg">
             <div class="col-lg-4  form-horizontal">
                 <div class="form-group form-material">
                     <div class=" col-lg-12 col-sm-9">
-                        <?=$form->field($model, 'edu_center_id')->widget(Select2::classname(), [
+                        <?= $form->field($model, 'edu_center_id')->widget(Select2::classname(), [
                             'data' => ArrayHelper::map(EduCenter::find()->all(), 'id', 'name'),
                             'language' => 'ru',
                             'options' => ['placeholder' => 'Выберите Вид ...'],
@@ -61,40 +64,39 @@ use kartik\select2\Select2;
             </div>
         </div>
 
-    <?= $form->field($model, 'about')->textarea(['rows' => 6]) ?>
+        <?= $form->field($model, 'about')->textarea(['rows' => 6]) ?>
         <div class="row row-lg">
 
-        <div class="col-lg-3 form-horizontal">
+            <div class="col-lg-3 form-horizontal">
                 <div class=" col-lg-12 col-sm-9">
                     <?= $form->field($model, 'gendar')
-                        ->radioList(array(1 => 'Male', 0 =>'Female'), array('class' => 'i-checks'));   ?>
+                        ->radioList(array(1 => 'Male', 0 => 'Female'), array('class' => 'i-checks')); ?>
                 </div>
-        </div>
+            </div>
             <div class="col-lg-3 form-horizontal">
                 <div class=" col-lg-12 col-sm-9">
-                        <?= $form->field($model, 'active')->checkbox() ?>
+                    <?= $form->field($model, 'active')->checkbox() ?>
                 </div>
             </div>
             <div class="col-lg-3 form-horizontal">
-                    <div class=" col-lg-12 col-sm-9">
-                        <?= $form->field($model, 'fileimg')->fileInput() ?>
-                    </div>
+                <div class=" col-lg-12 col-sm-9">
+                    <?= $form->field($model, 'fileimg')->fileInput() ?>
+                </div>
             </div>
             <div class="col-lg-3 form-horizontal">
-                    <div class=" col-lg-12 col-sm-9">
-                        <?= $form->field($model, 'filecv')->fileInput() ?>
-                    </div>
+                <div class=" col-lg-12 col-sm-9">
+                    <?= $form->field($model, 'filecv')->fileInput() ?>
+                </div>
             </div>
 
         </div>
 
 
-
-    <div class="form-group">
-        <?= Html::submitButton($model->isNewRecord ? Yii::t('main', 'Create') : Yii::t('main', 'Update'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
-    </div>
-
-    <?php ActiveForm::end(); ?>
+        <div class="form-group">
+            <?= Html::submitButton($model->isNewRecord ? Yii::t('main', 'Create') : Yii::t('main', 'Update'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
         </div>
+
+        <?php ActiveForm::end(); ?>
+    </div>
 
 </div>

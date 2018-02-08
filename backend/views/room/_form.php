@@ -7,7 +7,6 @@ use kartik\select2\Select2;
 use yii\helpers\ArrayHelper;
 
 
-
 /* @var $this yii\web\View */
 /* @var $model backend\models\Room */
 /* @var $form yii\widgets\ActiveForm */
@@ -20,9 +19,12 @@ use yii\helpers\ArrayHelper;
         </h3>
     </div>
     <div class="panel-body">
-    <?php $form = ActiveForm::begin(); ?>
+        <?php $form = ActiveForm::begin([
+            'enableAjaxValidation' => false,
+            'enableClientValidation' => true,
+        ]); ?>
 
-        <?=$form->field($model, 'edu_center_id')->widget(Select2::classname(), [
+        <?= $form->field($model, 'edu_center_id')->widget(Select2::classname(), [
             'data' => ArrayHelper::map(EduCenter::find()->all(), 'id', 'name'),
             'language' => 'ru',
             'options' => ['placeholder' => 'Выберите Вид ...'],
@@ -34,12 +36,12 @@ use yii\helpers\ArrayHelper;
 
         ?>
 
-    <?= $form->field($model, 'room')->textInput(['maxlength' => true]) ?>
+        <?= $form->field($model, 'room')->textInput(['maxlength' => true]) ?>
 
-    <div class="form-group">
-        <?= Html::submitButton($model->isNewRecord ? Yii::t('main', 'Create') : Yii::t('main', 'Update'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
-    </div>
+        <div class="form-group">
+            <?= Html::submitButton($model->isNewRecord ? Yii::t('main', 'Create') : Yii::t('main', 'Update'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+        </div>
 
-    <?php ActiveForm::end(); ?>
+        <?php ActiveForm::end(); ?>
     </div>
 </div>

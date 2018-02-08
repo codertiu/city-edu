@@ -15,7 +15,10 @@ use yii\widgets\ActiveForm;
         </h3>
     </div>
     <div class="panel-body">
-    <?php $form = ActiveForm::begin(); ?>
+    <?php $form = ActiveForm::begin([
+        'enableAjaxValidation' => false,
+        'enableClientValidation' => true,
+    ]); ?>
         <div class="row row-lg">
             <div class="col-lg-6  form-horizontal">
                 <div class="form-group form-material">
