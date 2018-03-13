@@ -21,6 +21,8 @@ class m180204_130658_create_students_table extends Migration
             'member_id' => $this->integer()->null(),
             'reg_date' => $this->integer()->notNull(),
             'edu_center_id' => $this->integer()->notNull(),
+            'image' => $this->string(255)->notNull(),
+            'file' => $this->string(255)->notNull(),
             'active' => $this->integer()->notNull(),
         ]);
     }
