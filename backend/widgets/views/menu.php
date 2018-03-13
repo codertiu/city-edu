@@ -1,3 +1,6 @@
+<?
+use yii\helpers\Url;
+?>
 <div class="site-menubar">
     <div class="site-menubar-body">
         <div>
@@ -16,8 +19,8 @@
                                     <div>
                                         <ul class="site-menu-sub site-menu-normal-list">
                                             <li class="site-menu-item">
-                                                <a class="animsition-link" href="grids.html">
-                                                    <span class="site-menu-title">Сетка Bootstrap</span>
+                                                <a class="animsition-link" href="<?= Url::to(['/reception/index'])?>">
+                                                    <span class="site-menu-title">Reception</span>
                                                 </a>
                                             </li>
                                             <li class="site-menu-item">

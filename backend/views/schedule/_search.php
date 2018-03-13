@@ -23,7 +23,9 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'day_id') ?>
 
-    <?= $form->field($model, 'time') ?>
+    <?= $form->field($model, 'begin_time') ?>
+
+    <?php // echo $form->field($model, 'end_time') ?>
 
     <?php // echo $form->field($model, 'room_id') ?>
 

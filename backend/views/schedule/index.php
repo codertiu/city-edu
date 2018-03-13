@@ -29,7 +29,8 @@ $this->params['breadcrumbs'][] = $this->title;
             'edu_center_id',
             'group_id',
             'day_id',
-            'time',
+            'begin_time',
+            //'end_time',
             //'room_id',
 
             ['class' => 'yii\grid\ActionColumn'],

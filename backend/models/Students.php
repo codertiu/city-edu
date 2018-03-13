@@ -3,6 +3,11 @@
 namespace backend\models;
 
 use Yii;
+use yii\behaviors\TimestampBehavior;
+use yii\db\ActiveRecord;
+use yii\db\Expression;
+
+
 
 /**
  * This is the model class for table "students".
@@ -24,9 +29,26 @@ class Students extends \yii\db\ActiveRecord
     /**
      * @inheritdoc
      */
+
+    public $filecv;
+    public $fileimg;
+
     public static function tableName()
     {
         return 'students';
+    }
+
+    public function behaviors()
+    {
+        return [
+            [
+                'class' => TimestampBehavior::className(),
+                'attributes' => [
+                    ActiveRecord::EVENT_BEFORE_INSERT => ['reg_date'],
+                ],
+                'value' => new Expression('NOW()'),
+            ],
+        ];
     }
 
     /**
@@ -35,7 +57,7 @@ class Students extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['fio', 'tel', 'gendar', 'address', 'reg_date', 'edu_center_id', 'active'], 'required'],
+            [['fio', 'tel', 'gendar', 'address', 'edu_center_id', 'active'], 'required'],
             [['gendar', 'member_id', 'reg_date', 'edu_center_id', 'active'], 'integer'],
             [['fio', 'address', 'image', 'file'], 'string', 'max' => 255],
             [['tel'], 'string', 'max' => 35],
@@ -57,9 +79,15 @@ class Students extends \yii\db\ActiveRecord
             'member_id' => Yii::t('main', 'Member ID'),
             'reg_date' => Yii::t('main', 'Reg Date'),
             'edu_center_id' => Yii::t('main', 'Edu Center ID'),
-            'active' => Yii::t('main', 'Active'),
+            'active' => Yii::t('main', 'Status'),
             'image' => Yii::t('main', 'Image'),
             'file' => Yii::t('main', 'File'),
+            'filecv' => Yii::t('main', 'File'),
+            'fileimg' => Yii::t('main', 'Image'),
         ];
+    }
+
+    public function getRegDate(){
+        return date("Y-m-d H:i:s", strtotime($this->reg_date));
     }
 }

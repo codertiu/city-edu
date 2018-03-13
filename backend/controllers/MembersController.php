@@ -8,6 +8,7 @@ use backend\models\MembersSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\web\UploadedFile;
 
 /**
  * MembersController implements the CRUD actions for Members model.
@@ -65,8 +66,28 @@ class MembersController extends Controller
     public function actionCreate()
     {
         $model = new Members();
+        if (Yii::$app->request->isAjax && $model->load(Yii::$app->request->post()))
+        {
+            Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+            return \yii\widgets\ActiveForm::validate($model);
+        }
+        if ($model->load(Yii::$app->request->post())) {
+            $model->filecv = UploadedFile::getInstance($model,'filecv');
+            $model->fileimg = UploadedFile::getInstance($model,'fileimg');
+            if ($model->filecv) {
+                $fileNameuz=Yii::$app->getSecurity()->generateRandomString().'.'.$model->filecv->extension;
+                $upload_path = Yii::getAlias('@backend/web/uploads/').$fileNameuz;
+                $model->filecv->saveAs( $upload_path.'.'.$model->filecv->extension );
+                $model->file = $fileNameuz.'.'.$model->filecv->extension;
+            }
+            if ($model->fileimg) {
+                $imageName=Yii::$app->getSecurity()->generateRandomString().'.'.$model->fileimg->extension;
+                $upload_path = Yii::getAlias('@backend/web/uploads/').$imageName;
+                $model->fileimg->saveAs( $upload_path.'.'.$model->fileimg->extension);
+                $model->img = $imageName.'.'.$model->fileimg->extension;
+            }
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            $model->save();
             return $this->redirect(['view', 'id' => $model->id]);
         }
 
@@ -85,8 +106,29 @@ class MembersController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
+        if (Yii::$app->request->isAjax && $model->load(Yii::$app->request->post()))
+        {
+            Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+            return \yii\widgets\ActiveForm::validate($model);
+        }
+        if ($model->load(Yii::$app->request->post())) {
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            $model->filecv = UploadedFile::getInstance($model,'filecv');
+            $model->fileimg = UploadedFile::getInstance($model,'fileimg');
+            if ($model->filecv) {
+                $fileNameuz=Yii::$app->getSecurity()->generateRandomString().'.'.$model->filecv->extension;
+                $upload_path = Yii::getAlias('@backend/web/uploads/').$fileNameuz;
+                $model->filecv->saveAs( $upload_path.'.'.$model->filecv->extension );
+                $model->file = $fileNameuz.'.'.$model->filecv->extension;
+            }
+            if ($model->fileimg) {
+                $imageName=Yii::$app->getSecurity()->generateRandomString().'.'.$model->fileimg->extension;
+                $upload_path = Yii::getAlias('@backend/web/uploads/').$imageName;
+                $model->fileimg->saveAs( $upload_path.'.'.$model->fileimg->extension);
+                $model->img = $imageName.'.'.$model->fileimg->extension;
+            }
+
+            $model->save();
             return $this->redirect(['view', 'id' => $model->id]);
         }
 

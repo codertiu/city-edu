@@ -65,7 +65,11 @@ class ReceptionController extends Controller
     public function actionCreate()
     {
         $model = new Reception();
-
+        if (Yii::$app->request->isAjax && $model->load(Yii::$app->request->post()))
+        {
+            Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+            return \yii\widgets\ActiveForm::validate($model);
+        }
         if ($model->load(Yii::$app->request->post())) {
             $model->creater = Yii::$app->user->identity->id;
             if ($model->save()) {
@@ -90,7 +94,11 @@ class ReceptionController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
-
+        if (Yii::$app->request->isAjax && $model->load(Yii::$app->request->post()))
+        {
+            Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+            return \yii\widgets\ActiveForm::validate($model);
+        }
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         }

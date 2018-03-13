@@ -22,57 +22,60 @@ use backend\models\Instance;
         </h3>
     </div>
     <div class="panel-body">
-        <?php $form = ActiveForm::begin(); ?>
+        <?php $form = ActiveForm::begin([
+            'enableAjaxValidation' => false,
+            'enableClientValidation' => true,
+        ]); ?>
         <div class="row row-lg">
-                <div class="col-lg-4  form-horizontal">
-                    <div class="form-group form-material">
-                        <div class=" col-lg-12 col-sm-9">
-                            <?=$form->field($model, 'edu_center_id')->widget(Select2::classname(), [
-                                'data' => ArrayHelper::map(EduCenter::find()->all(), 'id', 'name'),
+            <div class="col-lg-4  form-horizontal">
+                <div class="form-group form-material">
+                    <div class=" col-lg-12 col-sm-9">
+                        <?= $form->field($model, 'edu_center_id')->widget(Select2::classname(), [
+                            'data' => ArrayHelper::map(EduCenter::find()->all(), 'id', 'name'),
+                            'language' => 'ru',
+                            'options' => ['placeholder' => 'Выберите Вид ...'],
+                            'pluginOptions' => [
+                                'allowClear' => true,
+                                'multiple' => false,
+                            ],
+                        ]);
+
+                        ?>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 form-horizontal">
+                <div class="form-group form-material">
+                    <div class=" col-lg-12 col-sm-9">
+                        <?= $form->field($model, 'type_edu_id')->widget(Select2::classname(), [
+                            'data' => ArrayHelper::map(TypeEdu::find()->all(), 'id', 'name'),
+                            'language' => 'ru',
+                            'options' => ['placeholder' => 'Выберите Вид ...'],
+                            'pluginOptions' => [
+                                'allowClear' => true,
+                                'multiple' => false,
+                            ],
+                        ]);
+
+                        ?>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 form-horizontal">
+                <div class="form-group form-material">
+                    <div class=" col-lg-12 col-sm-9">
+                        <?= $form->field($model, 'date_coming')
+                            ->widget(DatePicker::classname(), [
                                 'language' => 'ru',
-                                'options' => ['placeholder' => 'Выберите Вид ...'],
                                 'pluginOptions' => [
-                                    'allowClear' => true,
-                                    'multiple' => false,
+                                    'format' => 'yyyy-mm-dd',
+                                    'todayHighlight' => true
                                 ],
                             ]);
-
-                            ?>
-                        </div>
+                        ?>
                     </div>
                 </div>
-                <div class="col-lg-4 form-horizontal">
-                    <div class="form-group form-material">
-                        <div class=" col-lg-12 col-sm-9">
-                            <?=$form->field($model, 'type_edu_id')->widget(Select2::classname(), [
-                                'data' => ArrayHelper::map(TypeEdu::find()->all(), 'id', 'name'),
-                                'language' => 'ru',
-                                'options' => ['placeholder' => 'Выберите Вид ...'],
-                                'pluginOptions' => [
-                                    'allowClear' => true,
-                                    'multiple' => false,
-                                ],
-                            ]);
-
-                            ?>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 form-horizontal">
-                    <div class="form-group form-material">
-                        <div class=" col-lg-12 col-sm-9">
-                            <?= $form->field($model, 'date_coming')
-                                ->widget(DatePicker::classname(), [
-                                    'language' => 'ru',
-                                    'pluginOptions' => [
-                                        'format' => 'yyyy-mm-dd',
-                                        'todayHighlight' => true
-                                    ],
-                                ]);
-                            ?>
-                        </div>
-                    </div>
-                </div>
+            </div>
         </div>
 
         <div class="row row-lg">
@@ -96,7 +99,7 @@ use backend\models\Instance;
             <div class="col-lg-4  form-horizontal">
                 <div class="form-group form-material">
                     <div class=" col-lg-12 col-sm-9">
-                        <?=$form->field($model, 'coming_id')->widget(Select2::classname(), [
+                        <?= $form->field($model, 'coming_id')->widget(Select2::classname(), [
                             'data' => ArrayHelper::map(Coming::find()->all(), 'id', 'name'),
                             'language' => 'ru',
                             'options' => ['placeholder' => 'Выберите Вид ...'],
@@ -113,7 +116,7 @@ use backend\models\Instance;
             <div class="col-lg-4 form-horizontal">
                 <div class="form-group form-material">
                     <div class=" col-lg-12 col-sm-9">
-                        <?=$form->field($model, 'instance_id')->widget(Select2::classname(), [
+                        <?= $form->field($model, 'instance_id')->widget(Select2::classname(), [
                             'data' => ArrayHelper::map(Instance::find()->all(), 'id', 'name'),
                             'language' => 'ru',
                             'options' => ['placeholder' => 'Выберите Вид ...'],
@@ -130,7 +133,7 @@ use backend\models\Instance;
             <div class="col-lg-4 form-horizontal">
                 <div class="form-group form-material">
                     <div class=" col-lg-12 col-sm-9">
-                        <?=$form->field($model, 'comment_id')->widget(Select2::classname(), [
+                        <?= $form->field($model, 'comment_id')->widget(Select2::classname(), [
                             'data' => ArrayHelper::map(Comment::find()->all(), 'id', 'name'),
                             'language' => 'ru',
                             'options' => ['placeholder' => 'Выберите Вид ...'],
@@ -147,7 +150,7 @@ use backend\models\Instance;
         </div>
 
         <div class="form-group">
-            <?= Html::submitButton(Yii::t('main', 'Save'), ['class' => 'btn btn-success']) ?>
+            <?= Html::submitButton($model->isNewRecord ? Yii::t('main', 'Create') : Yii::t('main', 'Update'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
         </div>
         <?php ActiveForm::end(); ?>
     </div>

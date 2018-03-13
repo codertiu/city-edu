@@ -18,7 +18,7 @@ class EduCenterSearch extends EduCenter
     public function rules()
     {
         return [
-            [['id'], 'integer'],
+            [['id','active'], 'integer'],
             [['name', 'address', 'tel', 'director', 'inn', 'checking_account', 'mfo', 'oked'], 'safe'],
         ];
     }
@@ -60,6 +60,7 @@ class EduCenterSearch extends EduCenter
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
+            'active'=>$this->active
         ]);
 
         $query->andFilterWhere(['like', 'name', $this->name])

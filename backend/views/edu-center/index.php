@@ -30,6 +30,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'address',
             'tel',
             'director',
+            'active',
             //'inn',
             //'checking_account',
             //'mfo',

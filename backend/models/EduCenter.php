@@ -33,7 +33,7 @@ class EduCenter extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['name', 'address', 'tel', 'director', 'inn', 'checking_account', 'mfo', 'oked'], 'required'],
+            [['name', 'address', 'tel', 'director', 'inn', 'checking_account', 'mfo', 'oked','active'], 'required'],
             [['name', 'address', 'director', 'checking_account'], 'string', 'max' => 255],
             [['tel', 'inn', 'mfo', 'oked'], 'string', 'max' => 35],
         ];
@@ -54,6 +54,7 @@ class EduCenter extends \yii\db\ActiveRecord
             'checking_account' => Yii::t('main', 'Checking Account'),
             'mfo' => Yii::t('main', 'Mfo'),
             'oked' => Yii::t('main', 'Oked'),
+            'active'=>Yii::t('main','Active')
         ];
     }
 }

@@ -11,7 +11,8 @@ use Yii;
  * @property int $edu_center_id
  * @property int $group_id
  * @property int $day_id
- * @property string $time
+ * @property string $begin_time
+ * @property string $end_time
  * @property int $room_id
  */
 class Schedule extends \yii\db\ActiveRecord
@@ -30,9 +31,9 @@ class Schedule extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['edu_center_id', 'group_id', 'day_id', 'time', 'room_id'], 'required'],
+            [['edu_center_id', 'group_id', 'day_id', 'begin_time', 'end_time', 'room_id'], 'required'],
             [['edu_center_id', 'group_id', 'day_id', 'room_id'], 'integer'],
-            [['time'], 'string', 'max' => 255],
+            [['begin_time', 'end_time'], 'safe'],
         ];
     }
 
@@ -46,7 +47,8 @@ class Schedule extends \yii\db\ActiveRecord
             'edu_center_id' => Yii::t('main', 'Edu Center ID'),
             'group_id' => Yii::t('main', 'Group ID'),
             'day_id' => Yii::t('main', 'Day ID'),
-            'time' => Yii::t('main', 'Time'),
+            'begin_time' => Yii::t('main', 'Begin Time'),
+            'end_time' => Yii::t('main', 'End Time'),
             'room_id' => Yii::t('main', 'Room ID'),
         ];
     }

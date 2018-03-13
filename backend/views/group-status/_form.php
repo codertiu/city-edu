@@ -8,16 +8,24 @@ use yii\widgets\ActiveForm;
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
-<div class="group-status-form">
-
-    <?php $form = ActiveForm::begin(); ?>
-
-    <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
-
-    <div class="form-group">
-        <?= Html::submitButton(Yii::t('main', 'Save'), ['class' => 'btn btn-success']) ?>
+<div class="panel">
+    <div class="panel-heading">
+        <h3 class="panel-title">GroupStatus
+            <span class="panel-desc">Created </span>
+        </h3>
     </div>
+    <div class="panel-body">
+        <?php $form = ActiveForm::begin([
+            'enableAjaxValidation' => false,
+            'enableClientValidation' => true,
+        ]); ?>
 
-    <?php ActiveForm::end(); ?>
+        <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
 
+        <div class="form-group">
+            <?= Html::submitButton($model->isNewRecord ? Yii::t('main', 'Create') : Yii::t('main', 'Update'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+        </div>
+
+        <?php ActiveForm::end(); ?>
+    </div>
 </div>
