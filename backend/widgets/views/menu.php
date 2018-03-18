@@ -31,6 +31,12 @@ use yii\helpers\Url;
                             <span class="site-menu-title">Group</span>
                         </a>
                     </li>
+                    <li class="dropdown site-menu-item has-sub">
+                        <a class="dropdown-toggle" href="<?= Url::to(['/schedule/index']) ?>" data-dropdown-toggle="false">
+                            <i class="site-menu-icon md-apps" aria-hidden="true"></i>
+                            <span class="site-menu-title">Schedules</span>
+                        </a>
+                    </li>
                 </ul>
             </div>
         </div>

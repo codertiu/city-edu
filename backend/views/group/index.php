@@ -10,7 +10,12 @@ use yii\grid\GridView;
 $this->title = Yii::t('main', 'Groups');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="group-index">
+<div class="page animsition">
+<div class="page-content">
+<div class="panel">
+        <div class="panel-body container-fluid">
+          <div class="row row-lg">
+            <div class="col-md-12">
 
     <h1><?= Html::encode($this->title) ?></h1>
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
@@ -38,4 +43,11 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>
+</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
 </div>
