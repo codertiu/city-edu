@@ -1,3 +1,6 @@
+<?
+use yii\helpers\Url;
+?>
 <nav class="site-navbar navbar navbar-inverse navbar-fixed-top navbar-mega navbar-inverse"
      role="navigation">
     <div class="navbar-header">
@@ -10,12 +13,12 @@
                 data-toggle="collapse">
             <i class="icon md-more" aria-hidden="true"></i>
         </button>
-        <a class="navbar-brand navbar-brand-center" href="<?= Yii::$app->homeUrl ?>">
+        <a class="navbar-brand navbar-brand-center" href="<?= Url::to(['/reception/index']); ?>">
             <img class="navbar-brand-logo navbar-brand-logo-normal" src="<?=\yii\helpers\Url::base();?>/images/logo.png"
                  title="Material">
             <img class="navbar-brand-logo navbar-brand-logo-special" src="<?=\yii\helpers\Url::base();?>/images/logo-blue.png"
                  title="Material">
-            <span class="navbar-brand-text hidden-xs"> Material</span>
+            <span class="navbar-brand-text hidden-xs"> City-Edu</span>
         </a>
         <button type="button" class="navbar-toggle collapsed" data-target="#site-navbar-search"
                 data-toggle="collapse">
@@ -47,7 +50,7 @@
                         <span class="sr-only">Переключить Поиск</span>
                     </a>
                 </li>
-                <li class="dropdown dropdown-fw dropdown-mega">
+              <!--  <li class="dropdown dropdown-fw dropdown-mega">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false"
                        data-animation="fade" role="button">Мегаменю <i class="icon md-chevron-down"
                                                                        aria-hidden="true"></i></a>
@@ -149,7 +152,6 @@
                                     </div>
                                     <div class="col-sm-4">
                                         <h5 class="margin-bottom-0">Аккордион</h5>
-                                        <!-- Accordion -->
                                         <div class="panel-group panel-group-simple" id="siteMegaAccordion"
                                              aria-multiselectable="true"
                                              role="tablist">
@@ -218,13 +220,12 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <!-- End Accordion -->
                                     </div>
                                 </div>
                             </div>
                         </li>
                     </ul>
-                </li>
+                </li>-->
             </ul>
             <!-- End Navbar Toolbar -->
             <!-- Navbar Toolbar Right -->

@@ -10,7 +10,6 @@ use yii\grid\GridView;
 $this->title = Yii::t('main', 'Receptions');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<<<<<<< HEAD
 <div class="page animsition">
 <div class="page-content">
 <div class="panel">
@@ -57,40 +56,6 @@ $this->params['breadcrumbs'][] = $this->title;
             </div>
         </div>
     </div>
-=======
-<div class="reception-index">
-
-    <h1><?= Html::encode($this->title) ?></h1>
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
-
-    <p>
-        <?= Html::a(Yii::t('main', 'Create Reception'), ['create'], ['class' => 'btn btn-success']) ?>
-    </p>
-
-    <?= GridView::widget([
-        'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
-        'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
-
-            //'id',
-            'edu_center_id',
-            'fio',
-            'tel',
-            'coming_id',
-            'createDate',
-            //'type_edu_id',
-            //'date_coming',
-            //'creater',
-            //'create_date',
-            //'update_date',
-            //'instance_id',
-            //'comment_id',
-
-            ['class' => 'yii\grid\ActionColumn'],
-        ],
-    ]); ?>
->>>>>>> 246e79f9ce9829552e41a7549956df610c14565c
 </div>
 </div>
 </div>
