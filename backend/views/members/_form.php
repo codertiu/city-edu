@@ -20,9 +20,9 @@ use yii\helpers\ArrayHelper;
 
 $gendar = [
 
-  '1' => 'Erkak',
+    '1' => 'Erkak',
 
-  '0' => 'Ayol',
+    '0' => 'Ayol',
 
 ];
 ?>
@@ -34,11 +34,11 @@ $gendar = [
         </h3>
     </div>
     <div class="panel-body">
-    <?php $form = ActiveForm::begin(); ?>
+        <?php $form = ActiveForm::begin(); ?>
         <div class="row row-lg">
             <div class="col-lg-3  form-horizontal">
                 <div class="form-group form-material">
-                    
+
                     <div class=" col-lg-12 col-sm-9">
                         <?= $form->field($model, 'edu_center_id')->widget(Select2::classname(), [
                             'data' => ArrayHelper::map(EduCenter::find()->all(), 'id', 'name'),
@@ -76,22 +76,22 @@ $gendar = [
                 </div>
             </div>
         </div>
-        
-                <?= $form->field($model, 'about')->textarea(['rows' => 6]) ?>
 
-                <?= $form->field($model, 'gendar')->dropDownlist($gendar, ['prompt' => '---']); ?>
-            <div class="col-lg-12 form-horizontal" >
-                <div class="col-lg-3 form-horizontal" >
-                    <div class=" col-lg-12 col-sm-9" >
-                <?= $form->field($model, 'active')->checkbox() ?>
-                    </div>
+        <?= $form->field($model, 'about')->textarea(['rows' => 6]) ?>
+
+        <?= $form->field($model, 'gendar')->dropDownlist($gendar, ['prompt' => '---']); ?>
+        <div class="col-lg-12 form-horizontal" >
+            <div class="col-lg-3 form-horizontal" >
+                <div class=" col-lg-12 col-sm-9" >
+                    <?= $form->field($model, 'active')->checkbox() ?>
                 </div>
+            </div>
             <div class="col-lg-3 form-horizontal" >
                 <div class=" col-lg-12 col-sm-9">
                     <?= $form->field($model, 'fileimg')->fileInput() ?>
                 </div>
             </div>
-            
+
             <div class="col-lg-3 form-horizontal">
                 <div class=" col-lg-12 col-sm-9">
                     <?= $form->field($model, 'filecv')->fileInput() ?>

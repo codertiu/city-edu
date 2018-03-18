@@ -230,12 +230,14 @@ use yii\helpers\Url;
             <!-- End Navbar Toolbar -->
             <!-- Navbar Toolbar Right -->
             <ul class="nav navbar-toolbar navbar-right navbar-toolbar-right">
-                <li class="dropdown">
+                <!--<li class="dropdown">
+
                     <a class="dropdown-toggle" data-toggle="dropdown" href="javascript:void(0)"
                        data-animation="scale-up"
                        aria-expanded="false" role="button">
                         <span class="flag-icon flag-icon-ru"></span>
                     </a>
+
                     <ul class="dropdown-menu" role="menu">
                         <li role="presentation">
                             <a href="javascript:void(0)" role="menuitem">
@@ -258,7 +260,8 @@ use yii\helpers\Url;
                                 <span class="flag-icon flag-icon-nl"></span> Dutch</a>
                         </li>
                     </ul>
-                </li>
+
+                </li>-->
                 <li class="dropdown">
                     <a class="navbar-avatar dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false"
                        data-animation="scale-up" role="button">
@@ -268,7 +271,7 @@ use yii\helpers\Url;
               </span>
                     </a>
                     <ul class="dropdown-menu" role="menu">
-                        <li role="presentation">
+                        <!--<li role="presentation">
                             <a href="javascript:void(0)" role="menuitem"><i class="icon md-account" aria-hidden="true"></i> Профиль</a>
                         </li>
                         <li role="presentation">
@@ -277,12 +280,13 @@ use yii\helpers\Url;
                         <li role="presentation">
                             <a href="javascript:void(0)" role="menuitem"><i class="icon md-settings" aria-hidden="true"></i> Настройки</a>
                         </li>
-                        <li class="divider" role="presentation"></li>
+                        <li class="divider" role="presentation"></li>-->
                         <li role="presentation">
                             <?=\yii\helpers\Html::a(Yii::t('main','<i class="icon md-power" aria-hidden="true"></i> Выход'),['/site/logout'],['data-method'=>'post'])?>
                         </li>
                     </ul>
                 </li>
+                <!--
                 <li class="dropdown">
                     <a data-toggle="dropdown" href="javascript:void(0)" title="Notifications" aria-expanded="false"
                        data-animation="scale-up" role="button">
@@ -500,7 +504,7 @@ use yii\helpers\Url;
                        data-url="site-sidebar.tpl">
                         <i class="icon md-comment" aria-hidden="true"></i>
                     </a>
-                </li>
+                </li>-->
             </ul>
             <!-- End Navbar Toolbar Right -->
         </div>

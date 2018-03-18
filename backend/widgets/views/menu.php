@@ -25,7 +25,7 @@ use yii\helpers\Url;
                             <span class="site-menu-title">Students</span>
                         </a>
                     </li>
-                   <li class="dropdown site-menu-item has-sub">
+                    <li class="dropdown site-menu-item has-sub">
                         <a class="dropdown-toggle" href="<?= Url::to(['/group/index']) ?>" data-dropdown-toggle="false">
                             <i class="site-menu-icon md-apps" aria-hidden="true"></i>
                             <span class="site-menu-title">Group</span>
@@ -41,4 +41,4 @@ use yii\helpers\Url;
             </div>
         </div>
     </div>
-</div> 
+</div>
