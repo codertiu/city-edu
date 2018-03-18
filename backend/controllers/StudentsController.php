@@ -105,7 +105,9 @@ class StudentsController extends Controller
      */
     public function actionUpdate($id)
     {
+
         $model = $this->findModel($id);
+
         if (Yii::$app->request->isAjax && $model->load(Yii::$app->request->post()))
         {
             Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;

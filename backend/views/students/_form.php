@@ -24,8 +24,8 @@ $gendar = [
 
 <div class="panel">
     <div class="panel-heading">
-        <h3 class="panel-title">Students
-            <span class="panel-desc">Created </span>
+        <h3 class="panel-title"><?=Yii::t('main','Students')?>
+            <span class="panel-desc"><?=Yii::t('main','Created')?> </span>
         </h3>
     </div>
     <div class="panel-body">

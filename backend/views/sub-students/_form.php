@@ -10,12 +10,15 @@ use yii\widgets\ActiveForm;
 
 <div class="panel">
     <div class="panel-heading">
-        <h3 class="panel-title">Sub Students
-            <span class="panel-desc">Created </span>
+        <h3 class="panel-title"><?=Yii::t('main','Sub Students')?>
+            <span class="panel-desc"><?=Yii::t('Created')?> </span>
         </h3>
     </div>
     <div class="panel-body">
-    <?php $form = ActiveForm::begin(); ?>
+    <?php $form = ActiveForm::begin([
+        'enableAjaxValidation' => false,
+        'enableClientValidation' => true,
+    ]); ?>
 
     <?= $form->field($model, 'students_id')->textInput() ?>
 
