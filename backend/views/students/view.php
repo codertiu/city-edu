@@ -10,7 +10,12 @@ $this->title = $model->id;
 $this->params['breadcrumbs'][] = ['label' => Yii::t('main', 'Students'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="students-view">
+<div class="page animsition">
+<div class="page-content">
+<div class="panel">
+        <div class="panel-body container-fluid">
+          <div class="row row-lg">
+            <div class="col-md-12">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
@@ -24,7 +29,8 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
         ]) ?>
     </p>
-
+<div class="example-wrap">
+                    <div class="example table-responsive">
     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
@@ -42,4 +48,11 @@ $this->params['breadcrumbs'][] = $this->title;
         ],
     ]) ?>
 
+</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
 </div>

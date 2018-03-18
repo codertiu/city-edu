@@ -19,7 +19,18 @@ use yii\helpers\Url;
                             <span class="site-menu-title">Members</span>
                         </a>
                     </li>
-                   
+                    <li class="dropdown site-menu-item has-sub">
+                        <a class="dropdown-toggle" href="<?= Url::to(['/students/index']) ?>" data-dropdown-toggle="false">
+                            <i class="site-menu-icon md-apps" aria-hidden="true"></i>
+                            <span class="site-menu-title">Students</span>
+                        </a>
+                    </li>
+                   <li class="dropdown site-menu-item has-sub">
+                        <a class="dropdown-toggle" href="<?= Url::to(['/group/index']) ?>" data-dropdown-toggle="false">
+                            <i class="site-menu-icon md-apps" aria-hidden="true"></i>
+                            <span class="site-menu-title">Group</span>
+                        </a>
+                    </li>
                 </ul>
             </div>
         </div>

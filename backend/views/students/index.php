@@ -10,7 +10,12 @@ use yii\grid\GridView;
 $this->title = Yii::t('main', 'Students');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="students-index">
+<div class="page animsition">
+<div class="page-content">
+<div class="panel">
+        <div class="panel-body container-fluid">
+          <div class="row row-lg">
+            <div class="col-md-12">
 
     <h1><?= Html::encode($this->title) ?></h1>
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
@@ -18,25 +23,34 @@ $this->params['breadcrumbs'][] = $this->title;
     <p>
         <?= Html::a(Yii::t('main', 'Create Students'), ['create'], ['class' => 'btn btn-success']) ?>
     </p>
+    <div class="example-wrap">
+                    <div class="example table-responsive">
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'id',
+           // 'id',
             'fio',
             'tel',
             'gendar',
             'address',
             // 'member_id',
             // 'reg_date',
-            // 'edu_center_id',
-            // 'active',
+             'edu_center_id',
+             'active',
             // 'image',
             // 'file',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>
+</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
 </div>
