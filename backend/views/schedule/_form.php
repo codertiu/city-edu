@@ -26,8 +26,8 @@ $day_id = [
 
 <div class="panel">
     <div class="panel-heading">
-        <h3 class="panel-title">Schedule
-            <span class="panel-desc">Created </span>
+        <h3 class="panel-title"><?=Yii::t('main','Schedule')?>
+            <span class="panel-desc"><?=Yii::t('main','Created')?></span>
         </h3>
     </div>
     <div class="panel-body">
