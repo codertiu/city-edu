@@ -78,6 +78,11 @@ use yii\helpers\Url;
                                                     <span class="site-menu-title"><?=Yii::t('main','Comment')?></span>
                                                 </a>
                                             </li>
+                                            <li class="site-menu-item">
+                                                <a class="animsition-link waves-effect waves-classic" href="<?= Url::to(['/edu-center/index']) ?>">
+                                                    <span class="site-menu-title"><?=Yii::t('main','Edu center')?></span>
+                                                </a>
+                                            </li>
                                         </ul>
                                     </div>
                                 </div>
