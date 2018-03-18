@@ -1,4 +1,4 @@
-<?
+<? 
 use yii\helpers\Url;
 ?>
 <nav class="site-navbar navbar navbar-inverse navbar-fixed-top navbar-mega navbar-inverse"
