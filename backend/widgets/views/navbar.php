@@ -269,21 +269,17 @@ use yii\helpers\Url;
                     </a>
                     <ul class="dropdown-menu" role="menu">
                         <li role="presentation">
-                            <a href="javascript:void(0)" role="menuitem"><i class="icon md-account"
-                                                                            aria-hidden="true"></i> Профиль</a>
+                            <a href="javascript:void(0)" role="menuitem"><i class="icon md-account" aria-hidden="true"></i> Профиль</a>
                         </li>
                         <li role="presentation">
-                            <a href="javascript:void(0)" role="menuitem"><i class="icon md-card"
-                                                                            aria-hidden="true"></i> Биллинг</a>
+                            <a href="javascript:void(0)" role="menuitem"><i class="icon md-card" aria-hidden="true"></i> Биллинг</a>
                         </li>
                         <li role="presentation">
-                            <a href="javascript:void(0)" role="menuitem"><i class="icon md-settings"
-                                                                            aria-hidden="true"></i> Настройки</a>
+                            <a href="javascript:void(0)" role="menuitem"><i class="icon md-settings" aria-hidden="true"></i> Настройки</a>
                         </li>
                         <li class="divider" role="presentation"></li>
                         <li role="presentation">
-                            <a href="javascript:void(0)" role="menuitem"><i class="icon md-power"
-                                                                            aria-hidden="true"></i> Выход</a>
+                            <?=\yii\helpers\Html::a(Yii::t('main','<i class="icon md-power" aria-hidden="true"></i> Выход'),['/site/logout'],['data-method'=>'post'])?>
                         </li>
                     </ul>
                 </li>
