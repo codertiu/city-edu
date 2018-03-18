@@ -64,11 +64,6 @@ use yii\helpers\Url;
                                                 </a>
                                             </li>
                                             <li class="site-menu-item">
-                                                <a class="animsition-link waves-effect waves-classic" href="<?= Url::to(['/coming/index']) ?>">
-                                                    <span class="site-menu-title"><?=Yii::t('main','Coming')?></span>
-                                                </a>
-                                            </li>
-                                            <li class="site-menu-item">
                                                 <a class="animsition-link waves-effect waves-classic" href="<?= Url::to(['/instance/index']) ?>">
                                                     <span class="site-menu-title"><?=Yii::t('main','Instance')?></span>
                                                 </a>

@@ -10,33 +10,46 @@ use yii\grid\GridView;
 $this->title = Yii::t('main', 'Edu Centers');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="edu-center-index">
+<div class="page">
+    <div class="page-content">
+        <div class="panel">
+            <div class="panel-body container-fluid">
+                <div class="row row-lg">
+                    <div class="col-md-12">
+                        <h1><?= Html::encode($this->title) ?></h1>
+                        <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
-    <h1><?= Html::encode($this->title) ?></h1>
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
+                        <p>
+                            <?= Html::a(Yii::t('main', 'Create Edu Center'), ['create'], ['class' => 'btn btn-success']) ?>
+                        </p>
+                        <div class="example-wrap">
+                            <div class="example table-responsive">
 
-    <p>
-        <?= Html::a(Yii::t('main', 'Create Edu Center'), ['create'], ['class' => 'btn btn-success']) ?>
-    </p>
+                                <?= GridView::widget([
+                                    'dataProvider' => $dataProvider,
+                                    'filterModel' => $searchModel,
+                                    'columns' => [
+                                        ['class' => 'yii\grid\SerialColumn'],
 
-    <?= GridView::widget([
-        'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
-        'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
+                                        'id',
+                                        'name',
+                                        'address',
+                                        'tel',
+                                        'director',
+                                        'active',
+                                        //'inn',
+                                        //'checking_account',
+                                        //'mfo',
+                                        //'oked',
 
-            'id',
-            'name',
-            'address',
-            'tel',
-            'director',
-            'active',
-            //'inn',
-            //'checking_account',
-            //'mfo',
-            //'oked',
-
-            ['class' => 'yii\grid\ActionColumn'],
-        ],
-    ]); ?>
+                                        ['class' => 'yii\grid\ActionColumn'],
+                                    ],
+                                ]); ?>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
