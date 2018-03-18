@@ -10,7 +10,7 @@ use yii\grid\GridView;
 $this->title = Yii::t('main', 'Students');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="page animsition">
+<div class="page">
 <div class="page-content">
 <div class="panel">
         <div class="panel-body container-fluid">

@@ -30,11 +30,11 @@ JS;
     </head>
     <body class="site-navbar-small dashboard layout-boxed">
     <?php $this->beginBody() ?>
-    <?=\backend\widgets\NavBar::widget() ?>
-    <?=\backend\widgets\Menu::widget() ?>
-    <?=$content?>
+    <?= \backend\widgets\NavBar::widget() ?>
+    <?= \backend\widgets\Menu::widget() ?>
+    <?= $content ?>
     <!-- Footer -->
-    <?=\backend\widgets\Footer::widget()?>
+    <?= \backend\widgets\Footer::widget() ?>
     <?php $this->endBody() ?>
     </body>
     </html>
