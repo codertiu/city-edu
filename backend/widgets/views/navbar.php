@@ -1,5 +1,9 @@
-<? 
+<?
 use yii\helpers\Url;
+
+use webvimark\modules\UserManagement\components\GhostMenu;
+use webvimark\modules\UserManagement\UserManagementModule;
+
 ?>
 <nav class="site-navbar navbar navbar-inverse navbar-fixed-top navbar-mega navbar-inverse"
      role="navigation">
@@ -14,15 +18,17 @@ use yii\helpers\Url;
             <i class="icon md-more" aria-hidden="true"></i>
         </button>
         <a class="navbar-brand navbar-brand-center" href="<?= Url::to(['/reception/index']); ?>">
-            <img class="navbar-brand-logo navbar-brand-logo-normal" src="<?=\yii\helpers\Url::base();?>/images/logo.png"
+            <img class="navbar-brand-logo navbar-brand-logo-normal"
+                 src="<?= \yii\helpers\Url::base(); ?>/images/logo.png"
                  title="Material">
-            <img class="navbar-brand-logo navbar-brand-logo-special" src="<?=\yii\helpers\Url::base();?>/images/logo-blue.png"
+            <img class="navbar-brand-logo navbar-brand-logo-special"
+                 src="<?= \yii\helpers\Url::base(); ?>/images/logo-blue.png"
                  title="Material">
             <span class="navbar-brand-text hidden-xs"> City-Edu</span>
         </a>
         <button type="button" class="navbar-toggle collapsed" data-target="#site-navbar-search"
                 data-toggle="collapse">
-            <span class="sr-only">Переключить Поиск</span>
+            <span class="sr-only"><?=Yii::t('main','Переключить Поиск')?></span>
             <i class="icon md-search" aria-hidden="true"></i>
         </button>
     </div>
@@ -34,23 +40,23 @@ use yii\helpers\Url;
                 <li class="hidden-float" id="toggleMenubar">
                     <a data-toggle="menubar" href="#" role="button">
                         <i class="icon hamburger hamburger-arrow-left">
-                            <span class="sr-only">Переключить Менюбар</span>
+                            <span class="sr-only"><?= Yii::t('main', 'Переключить Менюбар') ?></span>
                             <span class="hamburger-bar"></span>
                         </i>
                     </a>
                 </li>
                 <li class="hidden-xs" id="toggleFullscreen">
                     <a class="icon icon-fullscreen" data-toggle="fullscreen" href="#" role="button">
-                        <span class="sr-only">Переключить Полный экран</span>
+                        <span class="sr-only"><?= Yii::t('main', 'Переключить Полный экран') ?></span>
                     </a>
                 </li>
                 <li class="hidden-float">
                     <a class="icon md-search" data-toggle="collapse" href="#" data-target="#site-navbar-search"
                        role="button">
-                        <span class="sr-only">Переключить Поиск</span>
+                        <span class="sr-only"><?= Yii::t('main', 'Переключить Поиск') ?></span>
                     </a>
                 </li>
-              <!--  <li class="dropdown dropdown-fw dropdown-mega">
+                <!--  <li class="dropdown dropdown-fw dropdown-mega">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false"
                        data-animation="fade" role="button">Мегаменю <i class="icon md-chevron-down"
                                                                        aria-hidden="true"></i></a>
@@ -114,37 +120,37 @@ use yii\helpers\Url;
                                         <ul class="blocks-3">
                                             <li>
                                                 <a class="thumbnail margin-0" href="javascript:void(0)">
-                                                    <img class="width-full" src="<?=\yii\helpers\Url::base();?>/images/placeholder.png" alt="..."
+                                                    <img class="width-full" src="<?= \yii\helpers\Url::base(); ?>/images/placeholder.png" alt="..."
                                                     />
                                                 </a>
                                             </li>
                                             <li>
                                                 <a class="thumbnail margin-0" href="javascript:void(0)">
-                                                    <img class="width-full" src="<?=\yii\helpers\Url::base();?>/images/placeholder.png" alt="..."
+                                                    <img class="width-full" src="<?= \yii\helpers\Url::base(); ?>/images/placeholder.png" alt="..."
                                                     />
                                                 </a>
                                             </li>
                                             <li>
                                                 <a class="thumbnail margin-0" href="javascript:void(0)">
-                                                    <img class="width-full" src="<?=\yii\helpers\Url::base();?>/images/placeholder.png" alt="..."
+                                                    <img class="width-full" src="<?= \yii\helpers\Url::base(); ?>/images/placeholder.png" alt="..."
                                                     />
                                                 </a>
                                             </li>
                                             <li>
                                                 <a class="thumbnail margin-0" href="javascript:void(0)">
-                                                    <img class="width-full" src="<?=\yii\helpers\Url::base();?>/images/placeholder.png" alt="..."
+                                                    <img class="width-full" src="<?= \yii\helpers\Url::base(); ?>/images/placeholder.png" alt="..."
                                                     />
                                                 </a>
                                             </li>
                                             <li>
                                                 <a class="thumbnail margin-0" href="javascript:void(0)">
-                                                    <img class="width-full" src="<?=\yii\helpers\Url::base();?>/images/placeholder.png" alt="..."
+                                                    <img class="width-full" src="<?= \yii\helpers\Url::base(); ?>/images/placeholder.png" alt="..."
                                                     />
                                                 </a>
                                             </li>
                                             <li>
                                                 <a class="thumbnail margin-0" href="javascript:void(0)">
-                                                    <img class="width-full" src="<?=\yii\helpers\Url::base();?>/images/placeholder.png" alt="..."
+                                                    <img class="width-full" src="<?= \yii\helpers\Url::base(); ?>/images/placeholder.png" alt="..."
                                                     />
                                                 </a>
                                             </li>
@@ -230,6 +236,38 @@ use yii\helpers\Url;
             <!-- End Navbar Toolbar -->
             <!-- Navbar Toolbar Right -->
             <ul class="nav navbar-toolbar navbar-right navbar-toolbar-right">
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="javascript:void(0)"
+                       data-animation="scale-up"
+                       aria-expanded="false" role="button">
+                        <i class="site-menu-icon icon md-accounts-alt" aria-hidden="true"></i>
+                    </a>
+                    <ul class="dropdown-menu" role="menu">
+                    <?
+                    echo GhostMenu::widget([
+                        'encodeLabels'=>false,
+                        'activateParents'=>true,
+                        'items' => [
+                            [
+                                'label' => 'Backend routes',
+                                'items'=>UserManagementModule::menuItems()
+                            ],
+                            [
+                                'label' => 'Frontend routes',
+                                'items'=>[
+                                    ['label'=>'Login', 'url'=>['/user-management/auth/login']],
+                                    ['label'=>'Logout', 'url'=>['/user-management/auth/logout']],
+                                    ['label'=>'Registration', 'url'=>['/user-management/auth/registration']],
+                                    ['label'=>'Change own password', 'url'=>['/user-management/auth/change-own-password']],
+                                    ['label'=>'Password recovery', 'url'=>['/user-management/auth/password-recovery']],
+                                    ['label'=>'E-mail confirmation', 'url'=>['/user-management/auth/confirm-email']],
+                                ],
+                            ],
+                        ],
+                    ]);
+                    ?>
+                    </ul>
+                </li>
                 <!--<li class="dropdown">
 
                     <a class="dropdown-toggle" data-toggle="dropdown" href="javascript:void(0)"
@@ -266,7 +304,7 @@ use yii\helpers\Url;
                     <a class="navbar-avatar dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false"
                        data-animation="scale-up" role="button">
               <span class="avatar avatar-online">
-                <img src="<?=\yii\helpers\Url::base();?>/images/5.jpg" alt="...">
+                <img src="<?= \yii\helpers\Url::base(); ?>/images/5.jpg" alt="...">
                 <i></i>
               </span>
                     </a>
@@ -282,7 +320,7 @@ use yii\helpers\Url;
                         </li>
                         <li class="divider" role="presentation"></li>-->
                         <li role="presentation">
-                            <?=\yii\helpers\Html::a(Yii::t('main','<i class="icon md-power" aria-hidden="true"></i> Выход'),['/site/logout'],['data-method'=>'post'])?>
+                            <?= \yii\helpers\Html::a(Yii::t('main', '<i class="icon md-power" aria-hidden="true"></i> Выход'), ['/site/logout'], ['data-method' => 'post']) ?>
                         </li>
                     </ul>
                 </li>
@@ -414,7 +452,7 @@ use yii\helpers\Url;
                                         <div class="media">
                                             <div class="media-left padding-right-10">
                           <span class="avatar avatar-sm avatar-online">
-                            <img src="<?=\yii\helpers\Url::base();?>/images/2.jpg" alt="..."/>
+                            <img src="<?= \yii\helpers\Url::base(); ?>/images/2.jpg" alt="..."/>
                             <i></i>
                           </span>
                                             </div>
@@ -433,7 +471,7 @@ use yii\helpers\Url;
                                         <div class="media">
                                             <div class="media-left padding-right-10">
                           <span class="avatar avatar-sm avatar-off">
-                            <img src="<?=\yii\helpers\Url::base();?>/images/3.jpg" alt="..."/>
+                            <img src="<?= \yii\helpers\Url::base(); ?>/images/3.jpg" alt="..."/>
                             <i></i>
                           </span>
                                             </div>
@@ -453,7 +491,7 @@ use yii\helpers\Url;
                                         <div class="media">
                                             <div class="media-left padding-right-10">
                           <span class="avatar avatar-sm avatar-busy">
-                            <img src="<?=\yii\helpers\Url::base();?>/images/4.jpg" alt="..."/>
+                            <img src="<?= \yii\helpers\Url::base(); ?>/images/4.jpg" alt="..."/>
                             <i></i>
                           </span>
                                             </div>
@@ -472,7 +510,7 @@ use yii\helpers\Url;
                                         <div class="media">
                                             <div class="media-left padding-right-10">
                           <span class="avatar avatar-sm avatar-away">
-                            <img src="<?=\yii\helpers\Url::base();?>/images/5.jpg" alt="..."/>
+                            <img src="<?= \yii\helpers\Url::base(); ?>/images/5.jpg" alt="..."/>
                             <i></i>
                           </span>
                                             </div>
@@ -505,6 +543,7 @@ use yii\helpers\Url;
                         <i class="icon md-comment" aria-hidden="true"></i>
                     </a>
                 </li>-->
+
             </ul>
             <!-- End Navbar Toolbar Right -->
         </div>
@@ -515,7 +554,7 @@ use yii\helpers\Url;
                 <div class="form-group">
                     <div class="input-search">
                         <i class="input-search-icon md-search" aria-hidden="true"></i>
-                        <input type="text" class="form-control" name="site-search" placeholder="Я ищю...">
+                        <input type="text" class="form-control" name="site-search" placeholder="<?=Yii::t('main','Я ищю...')?>">
                         <button type="button" class="input-search-close icon md-close"
                                 data-target="#site-navbar-search"
                                 data-toggle="collapse" aria-label="Закрыть"></button>

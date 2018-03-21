@@ -5,7 +5,7 @@
 $this->title = 'My Yii Application';
 ?>
 <!-- Page -->
-<div class="page animsition">
+<div class="page">
     <div class="page-content container-fluid">
         <div class="row" data-plugin="matchHeight" data-by-row="true">
             <div class="col-lg-3 col-sm-6">
