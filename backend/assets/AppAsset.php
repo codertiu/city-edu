@@ -52,6 +52,7 @@ class AppAsset extends AssetBundle
         'vendor/jvectormap/maps/jquery-jvectormap-world-mill-en.js',
         'vendor/matchheight/jquery.matchHeight-min.js',
         'vendor/peity/jquery.peity.min.js',
+        'vendor/formatter-js/jquery.formatter.js',
         'js/core.js',
         'js/site.js',
         'js/sections/menu.js',

@@ -51,6 +51,11 @@ class ReceptionController extends Controller
         $searchModel = new ReceptionSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
+        if (Yii::$app->request->isAjax && $form->load(Yii::$app->request->post()))
+        {
+            Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+            return \yii\widgets\ActiveForm::validate($form);
+        }
         return $this->render('index', [
             'form'=>$form,
             'searchModel' => $searchModel,
@@ -85,12 +90,13 @@ class ReceptionController extends Controller
             return \yii\widgets\ActiveForm::validate($model);
         }
         if ($model->load(Yii::$app->request->post())) {
-            $model->creater = Yii::$app->user->identity->id;
-
+            $model->instance_id = 1;
             if ($model->save()) {
                 return $this->redirect(['index']);
             }else{
-                return print_r($model->errors);
+                return $this->render('create',[
+                    'model'=>$model
+                    ]);
             }
         }
 

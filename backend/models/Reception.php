@@ -38,13 +38,13 @@ class Reception extends ActiveRecord
     public function behaviors()
     {
         return [
-            [
+            'timestamp' => [
                 'class' => TimestampBehavior::className(),
                 'attributes' => [
                     ActiveRecord::EVENT_BEFORE_INSERT => ['create_date', 'update_date'],
                     ActiveRecord::EVENT_BEFORE_UPDATE => ['update_date'],
                 ],
-                'value' => new Expression('NOW()'),
+                'value' => date('U'),
             ],
         ];
     }
@@ -55,12 +55,12 @@ class Reception extends ActiveRecord
     public function rules()
     {
         return [
-            [['edu_center_id', 'name', 'tel', 'coming_id', 'type_edu_id', 'date_coming', 'creater', 'instance_id'], 'required'],
+            [['edu_center_id', 'name', 'tel', 'coming_id', 'type_edu_id', 'date_coming', 'creater'], 'required'],
             [['edu_center_id', 'coming_id', 'type_edu_id', 'creater', 'create_date', 'update_date', 'instance_id', 'comment_id'], 'integer'],
             [['date_coming'], 'safe'],
-            [['name'], 'string', 'max' => 255],
+            [['name','surname'], 'string', 'max' => 255],
             [['tel'], 'string', 'max' => 35],
-            [['tel'], 'unique'],
+            [['tel'], 'unique','message'=>Yii::t('main','Mobile No Already Exist')],
         ];
     }
 
@@ -73,6 +73,7 @@ class Reception extends ActiveRecord
             'id' => Yii::t('main', 'ID'),
             'edu_center_id' => Yii::t('main', 'Edu Center ID'),
             'name' => Yii::t('main', 'Name'),
+            'surname'=>Yii::t('main', 'Surname'),
             'tel' => Yii::t('main', 'Tel'),
             'coming_id' => Yii::t('main', 'Coming ID'),
             'type_edu_id' => Yii::t('main', 'Type Edu ID'),
@@ -86,7 +87,11 @@ class Reception extends ActiveRecord
     }
 
     public function getCreateDate(){
-        return date("Y-m-d H:i:s", strtotime($this->create_date));
+        return date("d/M/Y H:i:s", $this->create_date);
+    }
+
+    public function getInstance(){
+        return $this->hasOne(Instance::className(),['id'=>'instance_id']);
     }
 }
 
