@@ -95,7 +95,10 @@ $this->params['breadcrumbs'][] = $this->title;
                                         ],
                                         //'comment_id',
 
-                                        ['class' => 'yii\grid\ActionColumn'],
+                                        [
+                                                'class' => 'yii\grid\ActionColumn',
+
+                                        ],
                                     ],
                                 ]); ?>
                                 <?php Pjax::end() ?>
