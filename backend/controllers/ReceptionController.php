@@ -20,6 +20,18 @@ class ReceptionController extends Controller
     public function behaviors()
     {
         return [
+            /*[
+                'class' => 'yii\filters\PageCache',
+                'only' => ['index'],
+                'duration' => 60,
+                'variations' => [
+                    \Yii::$app->language,
+                ],
+                'dependency' => [
+                    'class' => 'yii\caching\DbDependency',
+                    'sql' => 'SELECT COUNT(*) FROM reception',
+                ],
+            ],*/
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
@@ -35,10 +47,12 @@ class ReceptionController extends Controller
      */
     public function actionIndex()
     {
+        $form = new Reception();
         $searchModel = new ReceptionSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
+            'form'=>$form,
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
         ]);
@@ -72,8 +86,9 @@ class ReceptionController extends Controller
         }
         if ($model->load(Yii::$app->request->post())) {
             $model->creater = Yii::$app->user->identity->id;
+
             if ($model->save()) {
-                return $this->redirect(['view', 'id' => $model->id]);
+                return $this->redirect(['index']);
             }else{
                 return print_r($model->errors);
             }

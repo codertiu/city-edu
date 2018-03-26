@@ -55,10 +55,10 @@ class Reception extends ActiveRecord
     public function rules()
     {
         return [
-            [['edu_center_id', 'fio', 'tel', 'coming_id', 'type_edu_id', 'date_coming', 'creater', 'instance_id'], 'required'],
+            [['edu_center_id', 'name', 'tel', 'coming_id', 'type_edu_id', 'date_coming', 'creater', 'instance_id'], 'required'],
             [['edu_center_id', 'coming_id', 'type_edu_id', 'creater', 'create_date', 'update_date', 'instance_id', 'comment_id'], 'integer'],
             [['date_coming'], 'safe'],
-            [['fio'], 'string', 'max' => 255],
+            [['name'], 'string', 'max' => 255],
             [['tel'], 'string', 'max' => 35],
             [['tel'], 'unique'],
         ];
@@ -72,7 +72,7 @@ class Reception extends ActiveRecord
         return [
             'id' => Yii::t('main', 'ID'),
             'edu_center_id' => Yii::t('main', 'Edu Center ID'),
-            'fio' => Yii::t('main', 'Fio'),
+            'name' => Yii::t('main', 'Name'),
             'tel' => Yii::t('main', 'Tel'),
             'coming_id' => Yii::t('main', 'Coming ID'),
             'type_edu_id' => Yii::t('main', 'Type Edu ID'),

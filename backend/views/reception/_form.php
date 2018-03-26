@@ -16,11 +16,6 @@ use backend\models\Instance;
 /* @var $form yii\widgets\ActiveForm */
 ?>
 <div class="panel">
-    <div class="panel-heading">
-        <h3 class="panel-title">Reception
-            <span class="panel-desc">Created </span>
-        </h3>
-    </div>
     <div class="panel-body">
         <?php $form = ActiveForm::begin([
             'enableAjaxValidation' => false,
@@ -82,7 +77,7 @@ use backend\models\Instance;
             <div class="col-lg-6  form-horizontal">
                 <div class="form-group form-material">
                     <div class=" col-lg-12 col-sm-9">
-                        <?= $form->field($model, 'fio')->textInput(['maxlength' => true]) ?>
+                        <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
                     </div>
                 </div>
             </div>

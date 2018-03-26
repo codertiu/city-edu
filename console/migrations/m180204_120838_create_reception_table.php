@@ -15,7 +15,7 @@ class m180204_120838_create_reception_table extends Migration
         $this->createTable('reception', [
             'id' => $this->primaryKey(),
             'edu_center_id' => $this->integer()->notNull(),
-            'fio' => $this->string(255)->notNull(),
+            'name' => $this->string(255)->notNull(),
             'tel' => $this->string(35)->unique()->notNull(),
             'coming_id' => $this->integer()->notNull(),
             'type_edu_id' => $this->integer()->notNull(),

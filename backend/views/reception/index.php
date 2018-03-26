@@ -18,12 +18,12 @@ $this->params['breadcrumbs'][] = $this->title;
                     <div class="col-md-12">
 
                         <h1><?= Html::encode($this->title) ?></h1>
-                        <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
+                        <?php echo $this->render('_form', ['model' => $form]); ?>
 
-                        <p>
+                        <!--<p>
                             <?= Html::a(Yii::t('main', 'Create Reception'), ['create'], ['class' => 'btn btn-success']) ?>
                         </p>
-
+                        -->
                         <div class="example-wrap">
                             <div class="example table-responsive">
 
@@ -35,7 +35,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
                                         //'id',
                                         'edu_center_id',
-                                        'fio',
+                                        'name',
                                         'tel',
                                         'coming_id',
                                         'createDate',
