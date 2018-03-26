@@ -5,12 +5,12 @@ namespace backend\models;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use backend\models\Reception;
+use backend\models\Note;
 
 /**
- * ReceptionSearch represents the model behind the search form of `backend\models\Reception`.
+ * NoteSearch represents the model behind the search form of `backend\models\Note`.
  */
-class ReceptionSearch extends Reception
+class NoteSearch extends Note
 {
     /**
      * @inheritdoc
@@ -18,8 +18,8 @@ class ReceptionSearch extends Reception
     public function rules()
     {
         return [
-            [['id', 'edu_center_id', 'coming_id', 'type_edu_id', 'creater', 'create_date', 'update_date', 'instance_id', 'comment_id'], 'integer'],
-            [['name', 'tel', 'date_coming'], 'safe'],
+            [['id', 'reception_id', 'creator'], 'integer'],
+            [['create_date', 'text', 'admin_name'], 'safe'],
         ];
     }
 
@@ -41,7 +41,7 @@ class ReceptionSearch extends Reception
      */
     public function search($params)
     {
-        $query = Reception::find();
+        $query = Note::find();
 
         // add conditions that should always apply here
 
@@ -60,19 +60,13 @@ class ReceptionSearch extends Reception
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
-            'edu_center_id' => $this->edu_center_id,
-            'coming_id' => $this->coming_id,
-            'type_edu_id' => $this->type_edu_id,
-            'date_coming' => $this->date_coming,
-            'creater' => $this->creater,
+            'reception_id' => $this->reception_id,
             'create_date' => $this->create_date,
-            'update_date' => $this->update_date,
-            'instance_id' => $this->instance_id,
-            'comment_id' => $this->comment_id,
+            'creator' => $this->creator,
         ]);
 
-        $query->andFilterWhere(['like', 'name', $this->name])
-            ->andFilterWhere(['like', 'tel', $this->tel]);
+        $query->andFilterWhere(['like', 'text', $this->text])
+            ->andFilterWhere(['like', 'admin_name', $this->admin_name]);
 
         return $dataProvider;
     }
