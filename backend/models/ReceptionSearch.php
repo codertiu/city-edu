@@ -15,12 +15,11 @@ class ReceptionSearch extends Reception
     /**
      * @inheritdoc
      */
-    public $createDate;
     public function rules()
     {
         return [
-            [['id', 'edu_center_id', 'coming_id', 'type_edu_id', 'creater',  'create_date','update_date', 'instance_id', 'comment_id'], 'integer'],
-            [['name','surname', 'tel', 'date_coming','createDate'], 'safe'],
+            [['id', 'edu_center_id', 'coming_id', 'type_edu_id', 'creater',  'instance_id', 'comment_id'], 'integer'],
+            [['name','surname', 'tel', 'date_coming','create_date','update_date'], 'safe'],
         ];
     }
 
@@ -66,14 +65,15 @@ class ReceptionSearch extends Reception
             'type_edu_id' => $this->type_edu_id,
             'date_coming' => $this->date_coming,
             'creater' => $this->creater,
-            'create_date' => $this->create_date,
-            'update_date' => $this->update_date,
+//            'create_date' => $this->create_date,
+//            'update_date' => $this->update_date,
             'instance_id' => $this->instance_id,
             'comment_id' => $this->comment_id,
         ]);
 
         $query->andFilterWhere(['like', 'name', $this->name])
             ->andFilterWhere(['like', 'surname', $this->surname])
+            ->andFilterWhere(['like', 'create_date', $this->create_date])
             ->andFilterWhere(['like', 'tel', $this->tel]);
 
         return $dataProvider;

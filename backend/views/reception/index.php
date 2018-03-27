@@ -60,11 +60,11 @@ $this->params['breadcrumbs'][] = $this->title;
                                         'tel',
                                         //'coming_id',
                                         [
-                                            'attribute' => 'createDate',
-                                            'value' => 'createDate',
+                                            'attribute' => 'create_date',
+                                            'value' => 'create_date',
                                             'filter' => kartik\date\DatePicker::widget([
                                                 'model' => $searchModel,
-                                                'attribute' => 'createDate',
+                                                'attribute' => 'create_date',
                                                 'language' => 'ru',
                                                 'pluginOptions' => [
                                                     'autoclose' => true,
@@ -90,7 +90,10 @@ $this->params['breadcrumbs'][] = $this->title;
                                                 'hideSearch' => true,
                                                 'options' => [
                                                     'placeholder' => Yii::t('main','Select'),
-                                                ]
+                                                ],
+                                                'pluginOptions' => [
+                                                    'allowClear' => true
+                                                ],
                                             ]),
                                         ],
                                         //'comment_id',

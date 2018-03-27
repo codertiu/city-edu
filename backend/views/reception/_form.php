@@ -125,7 +125,7 @@ use backend\models\Instance;
                 <div class="form-group form-material">
                     <div class=" col-lg-12 col-sm-9">
                         <?= $form->field($model, 'language')->radioList(
-                            ['uz' => 'Uz', 'ru' => 'Ru', 'uz-ru' => 'Uz RU']
+                            [1 => 'Uz', 2 => 'Ru', 3 => 'Uz-RU']
                         ) ?>
                     </div>
                 </div>
