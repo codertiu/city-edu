@@ -15,7 +15,7 @@ class m180326_161350_create_note_table extends Migration
         $this->createTable('note', [
             'id' => $this->primaryKey(),
             'reception_id'=>$this->integer()->notNull(),
-            'create_date'=>$this->date()->notNull(),
+            'create_date'=>$this->dateTime()->notNull(),
             'creator'=>$this->integer()->notNull(),
             'text'=>$this->string()->notNull(),
             'admin_name'=>$this->string()->notNull()

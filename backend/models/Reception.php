@@ -2,6 +2,7 @@
 
 namespace backend\models;
 
+use common\models\User;
 use Yii;
 use yii\db\Expression;
 use yii\db\ActiveRecord;
@@ -100,6 +101,17 @@ class Reception extends ActiveRecord
 
     public function getInstance(){
         return $this->hasOne(Instance::className(),['id'=>'instance_id']);
+    }
+
+    public function getComing(){
+        return $this->hasOne(Coming::className(),['id'=>'coming_id']);
+    }
+
+    public function getTypeEdu(){
+        return $this->hasOne(TypeEdu::className(),['id'=>'type_edu_id']);
+    }
+    public function getUser(){
+        return $this->hasOne(User::className(),['id'=>'creater']);
     }
 }
 

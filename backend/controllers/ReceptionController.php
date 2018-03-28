@@ -2,6 +2,7 @@
 
 namespace backend\controllers;
 
+use backend\models\Note;
 use Yii;
 use backend\models\Reception;
 use backend\models\ReceptionSearch;
@@ -71,8 +72,12 @@ class ReceptionController extends Controller
      */
     public function actionView($id)
     {
+        $note = new Note();
+        $note_info = Note::find()->where(['reception_id'=>$id])->orderBy(['create_date'=>SORT_DESC])->all();
         return $this->render('view', [
             'model' => $this->findModel($id),
+            'note' => $note,
+            'note_info'=>$note_info
         ]);
     }
 
@@ -157,6 +162,17 @@ class ReceptionController extends Controller
         }
 
         throw new NotFoundHttpException(Yii::t('main', 'The requested page does not exist.'));
+    }
+
+
+    public function actionNote(){
+        $note = new Note();
+        if($note->load(Yii::$app->request->post())) {
+            $note->create_date = date('Y-m-d H:i:s');
+            $note->creator = Yii::$app->user->identity->id;
+            $note->save(false);
+            return $this->redirect(Yii::$app->request->referrer);
+        }
     }
 }
 

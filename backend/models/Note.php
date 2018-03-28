@@ -3,6 +3,7 @@
 namespace backend\models;
 
 use Yii;
+use common\models\User;
 
 /**
  * This is the model class for table "note".
@@ -50,5 +51,9 @@ class Note extends \yii\db\ActiveRecord
             'text' => Yii::t('main', 'Text'),
             'admin_name' => Yii::t('main', 'Admin Name'),
         ];
+    }
+
+    public function getUser(){
+        return $this->hasOne(User::className(),['id'=>'creator']);
     }
 }

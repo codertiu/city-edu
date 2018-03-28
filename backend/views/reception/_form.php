@@ -8,6 +8,7 @@ use kartik\select2\Select2;
 use backend\models\Coming;
 use backend\models\TypeEdu;
 use kartik\date\DatePicker;
+use kartik\datetime\DateTimePicker;
 use backend\models\Comment;
 use backend\models\Instance;
 
@@ -152,11 +153,12 @@ use backend\models\Instance;
             <div class="col-lg-4 form-horizontal">
                 <div class="form-group form-material">
                     <div class=" col-lg-12 col-sm-9">
-                        <?= $form->field($model, 'date_coming')->widget(DatePicker::classname(), [
+                        <?= $form->field($model, 'date_coming')->widget(DateTimePicker::classname(), [
                             'language' => 'ru',
-                            'type' => DatePicker::TYPE_COMPONENT_APPEND,
+                            'type' => DateTimePicker::TYPE_COMPONENT_APPEND,
                             'pluginOptions' => [
-                                'format' => 'yyyy-mm-dd',
+                                'format' => 'yyyy-mm-dd hh:ii',
+                                'autoclose' => true,
                                 'todayHighlight' => true,
                                 'orientation' => "bottom"
                             ],
