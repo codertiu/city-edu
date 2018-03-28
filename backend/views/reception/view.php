@@ -156,7 +156,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                         'method' => 'post'])?>
                                         <?=$form->field($note,'reception_id')->hiddenInput(['value'=>$model->id])->label(false)?>
                                         <?=$form->field($note,'text')->textarea()?>
-                                        <?=Html::submitButton(Yii::t('main','create'),['class'=>'btn btn-success'])?>
+                                        <?=Html::submitButton(Yii::t('main','create'),['class'=>'btn btn-success pull-right'])?>
                                     <? \yii\widgets\ActiveForm::end()?>
                                 </div>
                             </div>
