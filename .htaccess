@@ -16,6 +16,7 @@ RewriteRule ^admin/vendor/chartist-js/(.*)$ backend/web/vendor/chartist-js/$1 [L
 RewriteRule ^admin/vendor/jvectormap/(.*)$ backend/web/vendor/jvectormap/$1 [L]
 RewriteRule ^admin/vendor/chartist-plugin-tooltip/(.*)$ backend/web/vendor/chartist-plugin-tooltip/$1 [L]
 RewriteRule ^admin/css/dashboard/(.*)$ backend/web/css/dashboard/$1 [L]
+RewriteRule ^admin/fonts/web-icons/(.*)$ backend/web/fonts/web-icons/$1 [L]
 RewriteRule ^admin/fonts/material-design/(.*)$ backend/web/fonts/material-design/$1 [L]
 RewriteRule ^admin/fonts/brand-icons/(.*)$ backend/web/fonts/brand-icons/$1 [L]
 
@@ -38,6 +39,8 @@ RewriteRule ^admin/vendor/chartist-plugin-tooltip/(.*)$ backend/web/vendor/chart
 RewriteRule ^admin/vendor/jvectormap/(.*)$ backend/web/vendor/jvectormap/$1 [L]
 RewriteRule ^admin/vendor/jvectormap/maps/(.*)$ backend/web/vendor/jvectormap/maps/$1 [L]
 RewriteRule ^admin/vendor/matchheight/(.*)$ backend/web/vendor/matchheight/$1 [L]
+RewriteRule ^admin/vendor/formatter-js/(.*)$ backend/web/vendor/formatter-js/$1 [L]
+
 RewriteRule ^admin/vendor/peity/(.*)$ backend/web/vendor/peity/$1 [L]
 RewriteRule ^admin/js/(.*)$ backend/web/js/$1 [L]
 RewriteRule ^admin/js/sections/(.*)$ backend/web/js/sections/$1 [L]

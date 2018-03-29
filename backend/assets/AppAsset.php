@@ -26,6 +26,7 @@ class AppAsset extends AssetBundle
         'vendor/jvectormap/jquery-jvectormap.css',
         'vendor/chartist-plugin-tooltip/chartist-plugin-tooltip.css',
         //'css/dashboard/v1.css',
+        'fonts/web-icons/web-icons.css',
         'fonts/material-design/material-design.min.css',
         'fonts/brand-icons/brand-icons.min.css',
         'http://fonts.googleapis.com/css?family=Roboto:300,400,500,300italic'
