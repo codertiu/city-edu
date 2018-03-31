@@ -2,7 +2,8 @@
 
 use yii\helpers\Html;
 use yii\widgets\DetailView;
-
+use yii\helpers\Url;
+use yii\bootstrap\Modal;
 /* @var $this yii\web\View */
 /* @var $model backend\models\Reception */
 
@@ -31,6 +32,15 @@ $this->params['breadcrumbs'][] = $this->title;
                                     'method' => 'post',
                                 ],
                             ]) ?>
+                            <? if($model->instance_id==1){?>
+                                <?=Html::button(Yii::t('main', 'Come'),['value'=>Url::to(['/reception-tech/create', 'id' => $model->id]), 'class' => 'btn btn-info','id'=>'modalButton'])?>
+
+                            <?} else if($model->instance_id==2) {?>
+                                <?= Html::a(Yii::t('main', 'Qatnashib ko\'rdi'), ['update', 'id' => $model->id], ['class' => 'btn btn-warning']) ?>
+                            <?}else if($model->instance_id==3){?>
+                                <?= Html::a(Yii::t('main', 'Royxatdan o\'tdi'), ['update', 'id' => $model->id], ['class' => 'btn btn-success']) ?>
+                                <?= Html::a(Yii::t('main', 'Rad etdi'), ['update', 'id' => $model->id], ['class' => 'btn btn-danger']) ?>
+                            <?}?>
                         </p>
                         <table class="table table-bordered">
                             <thead>
@@ -167,3 +177,25 @@ $this->params['breadcrumbs'][] = $this->title;
         </div>
     </div>
 </div>
+
+<?php
+Modal::begin([
+    'header'=>Yii::t('main','Tech'),
+    'id'=>'modal',
+    'size'=>'modal-lg'
+]);
+echo "<div id='modalContent'></div>";
+Modal::end();
+?>
+<?php
+$js = <<<JS
+    $(function(){
+        $('#modalButton').click(function(){
+            $('#modal').modal('show')
+              .find('#modalContent')
+              .load($(this).attr('value'));
+        });
+    });
+JS;
+$this->registerJs($js);
+?>
