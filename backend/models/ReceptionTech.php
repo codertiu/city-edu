@@ -46,4 +46,7 @@ class ReceptionTech extends \yii\db\ActiveRecord
             'member_id' => Yii::t('main', 'Member ID'),
         ];
     }
+    public function getMember(){
+        return $this->hasOne(Members::className(),['id'=>'member_id']);
+    }
 }

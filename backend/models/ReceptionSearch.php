@@ -41,7 +41,7 @@ class ReceptionSearch extends Reception
      */
     public function search($params)
     {
-        $query = Reception::find();
+        $query = Reception::find()->where(['!=','instance_id',4])->orderBy(['create_date'=>SORT_DESC]);
 
         // add conditions that should always apply here
 

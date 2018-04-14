@@ -59,9 +59,11 @@ class Reception extends ActiveRecord
             [['edu_center_id', 'name', 'tel', 'coming_id', 'type_edu_id', 'date_coming', 'creater'], 'required'],
             [['edu_center_id', 'coming_id', 'type_edu_id', 'creater',  'instance_id', 'comment_id','language'], 'integer'],
             [['date_coming','dob','create_date', 'update_date'], 'safe'],
-            [['name','surname','lavel'], 'string', 'max' => 255],
+            [['name','surname','lavel','time','comfortable_time','comment'], 'string', 'max' => 255],
             [['tel','phone2','phone3','phone4'], 'string', 'max' => 35],
-            [['tel'], 'unique','message'=>Yii::t('main','Mobile No Already Exist')],
+            [['tel'], 'unique','targetClass' => '\backend\models\Reception', 'message'=>Yii::t('main','Mobile No Already Exist'),'when' => function ($model, $attribute) {
+                return $model->{$attribute} !== $model->getOldAttribute($attribute);
+            },],
         ];
     }
 
@@ -91,7 +93,8 @@ class Reception extends ActiveRecord
             'lavel'=>Yii::t('main','Lavel'),
             'comfortable_time'=>Yii::t('main','Comfortable time'),
             'comment'=>Yii::t('main','Comment'),
-            'language'=>Yii::t('main','Language')
+            'language'=>Yii::t('main','Language'),
+            'time'=>Yii::t('main','Time')
         ];
     }
 

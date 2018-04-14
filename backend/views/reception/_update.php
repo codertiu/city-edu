@@ -21,10 +21,7 @@ use backend\models\Instance;
         <?php  ?>
         <?php $form = ActiveForm::begin([
             'enableAjaxValidation' => false,
-            'enableClientValidation' => true,
-            'action' =>['reception/create'],
-            'method' => 'post'
-
+            'enableClientValidation' => true
         ]); ?>
 
 
