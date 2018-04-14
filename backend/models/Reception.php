@@ -116,6 +116,9 @@ class Reception extends ActiveRecord
     public function getUser(){
         return $this->hasOne(User::className(),['id'=>'creater']);
     }
+    public function getEduCenter(){
+        return $this->hasOne(EduCenter::className(),['id'=>'edu_center_id']);
+    }
 }
 
 

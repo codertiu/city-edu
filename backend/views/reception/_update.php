@@ -195,7 +195,7 @@ use backend\models\Instance;
             <div class="col-lg-4 form-horizontal">
                 <div class="form-group form-material">
                     <div class=" col-lg-12 col-sm-9">
-                        <?= $form->field($model, 'comfortable_time')->radioList(Yii::$app->params['cofortable_time']) ?>
+                        <?= $form->field($model, 'comfortable_time')->radioList(Yii::$app->params['comfortable_time']) ?>
                     </div>
                 </div>
             </div>

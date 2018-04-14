@@ -8,20 +8,14 @@ use kartik\select2\Select2;
 use backend\models\Group;
 use backend\models\Room;
 use kartik\time\TimePicker;
-
+use backend\models\Members;
+use backend\models\GroupStatus;
+use kartik\date\DatePicker;
+use backend\models\Since;
 
 /* @var $this yii\web\View */
 /* @var $model backend\models\Schedule */
 /* @var $form yii\widgets\ActiveForm */
-$day_id = [
-    '1' => 'Dushanba',
-    '2' => 'Seshanba',
-    '3' => 'Chorshanba',
-    '4' => 'Payshanba',
-    '5' => 'Juma',
-    '6' => 'Shanba',
-    '7' => 'Yakshanba',
-];
 ?>
 
 <div class="panel">
@@ -56,8 +50,15 @@ $day_id = [
             <div class="col-lg-4  form-horizontal">
                 <div class="form-group form-material">
                     <div class=" col-lg-12 col-sm-9">
-                        <?= $form->field($model, 'group_id')->widget(Select2::classname(), [
-                            'data' => ArrayHelper::map(Group::find()->all(), 'id', 'name'),
+                        <?= $form->field($model, 'day_id')->radioList(Yii::$app->params['comfortable_time']); ?>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4  form-horizontal">
+                <div class="form-group form-material">
+                    <div class=" col-lg-12 col-sm-9">
+                        <?= $form->field($model, 'room_id')->widget(Select2::classname(), [
+                            'data' => ArrayHelper::map(Room::find()->all(), 'id', 'room'),
                             'language' => 'ru',
                             'options' => ['placeholder' => 'Выберите Вид ...'],
                             'pluginOptions' => [
@@ -70,15 +71,8 @@ $day_id = [
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4  form-horizontal">
-                <div class="form-group form-material">
-                    <div class=" col-lg-12 col-sm-9">
-                        <?= $form->field($model, 'day_id')->dropDownList($day_id,
-                            ['prompt' => 'Hafta kunlari ...']);
-                        ?>
-                    </div>
-                </div>
-            </div>
+        </div>
+        <div class="row row-lg">
             <div class="col-lg-4  form-horizontal">
                 <div class="form-group form-material">
                     <div class=" col-lg-12 col-sm-9">
@@ -120,8 +114,17 @@ $day_id = [
             <div class="col-lg-4  form-horizontal">
                 <div class="form-group form-material">
                     <div class=" col-lg-12 col-sm-9">
-                        <?= $form->field($model, 'room_id')->widget(Select2::classname(), [
-                            'data' => ArrayHelper::map(Room::find()->all(), 'id', 'room'),
+                        <?= $form->field($group, 'name')->textInput(['maxlength' => true]) ?>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row row-lg">
+            <div class="col-lg-4  form-horizontal">
+                <div class="form-group form-material">
+                    <div class=" col-lg-12 col-sm-9">
+                        <?= $form->field($group, 'member_id')->widget(Select2::classname(), [
+                            'data' => ArrayHelper::map(Members::find()->all(), 'id', 'fio'),
                             'language' => 'ru',
                             'options' => ['placeholder' => 'Выберите Вид ...'],
                             'pluginOptions' => [
@@ -132,6 +135,77 @@ $day_id = [
 
                         ?>
                     </div>
+                </div>
+            </div>
+            <div class="col-lg-4  form-horizontal">
+                <div class="form-group form-material">
+                    <div class=" col-lg-12 col-sm-9">
+                        <?= $form->field($group, 'group_status_id')->widget(Select2::classname(), [
+                            'data' => ArrayHelper::map(GroupStatus::find()->all(), 'id', 'name'),
+                            'language' => 'ru',
+                            'options' => ['placeholder' => 'Выберите Вид ...'],
+                            'pluginOptions' => [
+                                'allowClear' => true,
+                                'multiple' => false,
+                            ],
+                        ]);
+
+                        ?>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4  form-horizontal">
+                <div class="form-group form-material">
+                    <div class=" col-lg-12 col-sm-9">
+                        <?= $form->field($group, 'since_id')->widget(Select2::classname(), [
+                            'data' => ArrayHelper::map(Since::find()->all(), 'id', 'name'),
+                            'language' => 'ru',
+                            'options' => ['placeholder' => 'Выберите Вид ...'],
+                            'pluginOptions' => [
+                                'allowClear' => true,
+                                'multiple' => false,
+                            ],
+                        ]);
+
+                        ?>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row row-lg">
+            <div class="col-lg-4  form-horizontal">
+                <div class="form-group form-material">
+                    <div class=" col-lg-12 col-sm-9">
+                        <?= $form->field($group, 'begin_date')
+                            ->widget(DatePicker::classname(), [
+                                'language' => 'ru',
+                                'pluginOptions' => [
+                                    'format' => 'yyyy-mm-dd',
+                                    'todayHighlight' => true
+                                ],
+                            ]);
+                        ?>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4  form-horizontal">
+                <div class="form-group form-material">
+                    <div class=" col-lg-12 col-sm-9">
+                        <?= $form->field($group, 'end_date')
+                            ->widget(DatePicker::classname(), [
+                                'language' => 'ru',
+                                'pluginOptions' => [
+                                    'format' => 'yyyy-mm-dd',
+                                    'todayHighlight' => true
+                                ],
+                            ]);
+                        ?>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4  form-horizontal">
+                <div class=" col-lg-12 col-sm-9">
+                    <?= $form->field($group, 'comment')->textarea(['rows' => 6]) ?>
                 </div>
             </div>
         </div>

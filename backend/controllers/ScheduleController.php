@@ -2,6 +2,7 @@
 
 namespace backend\controllers;
 
+use backend\models\Group;
 use Yii;
 use backend\models\Schedule;
 use backend\models\ScheduleSearch;
@@ -65,6 +66,7 @@ class ScheduleController extends Controller
     public function actionCreate()
     {
         $model = new Schedule();
+        $group = new Group();
         if (Yii::$app->request->isAjax && $model->load(Yii::$app->request->post()))
         {
             Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
@@ -76,6 +78,7 @@ class ScheduleController extends Controller
 
         return $this->render('create', [
             'model' => $model,
+            'group' =>$group
         ]);
     }
 

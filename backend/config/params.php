@@ -14,7 +14,7 @@ return [
         4=>'Ro\'yxatdan o\'tdi',
         5=>'Rad etdi'
     ],
-    'cofortable_time'=>[
+    'comfortable_time'=>[
         1 => 'Monday Wednesday Friday',
         2 => 'Tuesday Thursday Saturday'
     ]

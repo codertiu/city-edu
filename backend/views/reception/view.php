@@ -20,20 +20,20 @@ $this->params['breadcrumbs'][] = $this->title;
                 <div class="panel-heading">
                     <div class="panel-actions">
                         <div class="item-actions">
-                        <span class="btn btn-pure btn-icon waves-effect waves-classic" data-toggle="list-editable">
-                            <?= Html::a('<i class="icon md-arrow-left"></i>', ['/reception']) ?>
-                        </span>
                             <span class="btn btn-pure btn-icon waves-effect waves-classic" data-toggle="list-editable">
-                            <?= Html::a('<i class="icon md-edit" aria-hidden="true"></i>', ['update', 'id' => $model->id]) ?>
-                        </span>
-                            <span class="btn btn-pure btn-icon waves-effect waves-classic" data-toggle="list-editable">
-                            <?= Html::a('<i class="icon md-delete" aria-hidden="true"></i>', ['delete', 'id' => $model->id], [
-                                'data' => [
-                                    'confirm' => Yii::t('main', 'Are you sure you want to delete this item?'),
-                                    'method' => 'post',
-                                ],
-                            ]) ?>
-                        </span>
+                                <?= Html::a('<i class="icon md-arrow-left"></i>', ['/reception']) ?>
+                            </span>
+                                <span class="btn btn-pure btn-icon waves-effect waves-classic" data-toggle="list-editable">
+                                <?= Html::a('<i class="icon md-edit" aria-hidden="true"></i>', ['update', 'id' => $model->id]) ?>
+                            </span>
+                                <span class="btn btn-pure btn-icon waves-effect waves-classic" data-toggle="list-editable">
+                                <?= Html::a('<i class="icon md-delete" aria-hidden="true"></i>', ['delete', 'id' => $model->id], [
+                                    'data' => [
+                                        'confirm' => Yii::t('main', 'Are you sure you want to delete this item?'),
+                                        'method' => 'post',
+                                    ],
+                                ]) ?>
+                            </span>
                         </div>
                     </div>
                     <h3 class="panel-title"><?= $model->name . " " . $model->surname ?></h3>
@@ -42,10 +42,8 @@ $this->params['breadcrumbs'][] = $this->title;
                     <div class="row row-lg">
                         <div class="col-lg-5">
                             <p>
-
                                 <? if ($model->instance_id == 1) { ?>
                                     <?= Html::button(Yii::t('main', 'Come'), ['value' => Url::to(['/reception-tech/create', 'id' => $model->id]), 'class' => 'btn btn-info', 'id' => 'modalButton']) ?>
-
                                 <? } else if ($model->instance_id == 2) { ?>
                                     <?= Html::a(Yii::t('main', 'Qatnashib ko\'rdi'), ['update', 'id' => $model->id], ['class' => 'btn btn-warning']) ?>
                                 <? } else if ($model->instance_id == 3) { ?>
@@ -61,6 +59,10 @@ $this->params['breadcrumbs'][] = $this->title;
                                 </tr>
                                 </thead>
                                 <tbody>
+                                <tr>
+                                    <td class="text-middle"><?= Yii::t('main', 'Edu Center') ?></td>
+                                    <td><?= $model->eduCenter->name ?></td>
+                                </tr>
                                 <tr>
                                     <td class="text-middle"><?= Yii::t('main', 'Name') ?></td>
                                     <td><?= $model->name ?></td>
@@ -126,7 +128,18 @@ $this->params['breadcrumbs'][] = $this->title;
                             <?php
                             $teacher = \backend\models\ReceptionTech::find()->where(['reception_id' => $model->id])->one();
                             if($teacher){
+                                if($model->instance_id == 2 || $model->instance_id == 3){
                                 ?>
+                                <div class="row">
+                                    <div class="col-md-offset-10 col-md-6">
+                                        <div class="item-actions">
+                                            <span class="btn btn-pure btn-icon waves-effect waves-classic" data-toggle="list-editable">
+                                                <?= Html::button('<i class="icon md-edit" aria-hidden="true"></i>', ['value' => Url::to(['/reception-tech/update', 'id' => $teacher->id]), 'class' => 'btn btn-info', 'id' => 'modalButton']) ?>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <?}?>
                                 <table class="table table-bordered">
                                     <thead>
                                     <th><?= Yii::t('main', 'Date Coming') ?></th>
