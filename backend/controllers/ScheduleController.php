@@ -72,7 +72,12 @@ class ScheduleController extends Controller
             Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
             return \yii\widgets\ActiveForm::validate($model);
         }
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        if ($model->load(Yii::$app->request->post()) && $group->load(Yii::$app->request->post())) {
+            $group->edu_center_id = $model->edu_center_id;
+            $group->save();
+            $model->group_id = $group->id;
+            $model->save();
+
             return $this->redirect(['view', 'id' => $model->id]);
         }
 

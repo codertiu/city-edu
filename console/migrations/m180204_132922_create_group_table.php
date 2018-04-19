@@ -15,7 +15,7 @@ class m180204_132922_create_group_table extends Migration
         $this->createTable('group', [
             'id' => $this->primaryKey(),
             'edu_center_id' => $this->integer()->notNull(),
-            'name' => $this->string(255)->notNull(),
+            'name' => $this->string(255)->notNull()->unique(),
             'member_id' => $this->integer()->notNull(),
             'begin_date' => $this->date()->notNull(),
             'end_date' => $this->date()->notNull(),

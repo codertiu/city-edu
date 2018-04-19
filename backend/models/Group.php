@@ -38,6 +38,9 @@ class Group extends \yii\db\ActiveRecord
             [['begin_date', 'end_date'], 'safe'],
             [['comment'], 'string'],
             [['name'], 'string', 'max' => 255],
+            [['name'],'unique','targetClass' => '\backend\models\Group', 'message'=>Yii::t('main','Group  Already Exist'),'when' => function ($model, $attribute) {
+                return $model->{$attribute} !== $model->getOldAttribute($attribute);
+            },]
         ];
     }
 

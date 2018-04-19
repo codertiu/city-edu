@@ -26,23 +26,8 @@ use backend\models\Instance;
 
 
         <div class="row row-lg">
-            <div class="col-lg-3  form-horizontal">
-                <div class="form-group form-material">
-                    <div class=" col-lg-12 col-sm-9">
-                        <?= $form->field($model, 'edu_center_id',[
-                            'template' => '{label} * {input}{error}{hint}'])->widget(Select2::classname(), [
-                            'data' => ArrayHelper::map(EduCenter::find()->all(), 'id', 'name'),
-                            'language' => 'ru',
-                            'options' => ['placeholder' => Yii::t('main','Выберите Вид ...'), 'orientation' => 'bottom'],
-                            'pluginOptions' => [
-                                'allowClear' => true,
-                                'multiple' => false,
-                            ],
-                        ]); ?>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3  form-horizontal">
+
+            <div class="col-lg-4  form-horizontal">
                 <div class="form-group form-material">
                     <div class=" col-lg-12 col-sm-9">
                         <?= $form->field($model, 'name',[
@@ -51,14 +36,14 @@ use backend\models\Instance;
                     </div>
                 </div>
             </div>
-            <div class="col-lg-3  form-horizontal">
+            <div class="col-lg-4  form-horizontal">
                 <div class="form-group form-material">
                     <div class=" col-lg-12 col-sm-9">
                         <?= $form->field($model, 'surname')->textInput(['maxlength' => true]) ?>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-3 form-horizontal">
+            <div class="col-lg-4 form-horizontal">
                 <div class="form-group form-material">
                     <div class=" col-lg-12 col-sm-9">
                         <?= $form->field($model, 'dob')->widget(DatePicker::classname(), [
@@ -139,7 +124,16 @@ use backend\models\Instance;
             <div class="col-lg-3 form-horizontal">
                 <div class="form-group form-material">
                     <div class=" col-lg-12 col-sm-9">
-                        <?= $form->field($model, 'lavel')->textInput(['maxlength' => true]) ?>
+                        <?= $form->field($model, 'lavel')->widget(Select2::classname(), [
+                            'data' => Yii::$app->params['lavel'],
+                            'language' => 'ru',
+                            'options' => ['placeholder' => 'Выберите Вид ...'],
+                            'pluginOptions' => [
+                                'allowClear' => true,
+                                'multiple' => false,
+                            ],
+                        ]);
+                        ?>
                     </div>
                 </div>
             </div>
@@ -147,7 +141,7 @@ use backend\models\Instance;
                 <div class="form-group form-material">
                     <div class=" col-lg-12 col-sm-9">
                         <?= $form->field($model, 'language')->radioList(
-                            [1 => 'Uz', 2 => 'Ru', 3 => 'Uz-RU']
+                            Yii::$app->params['language']
                         ) ?>
                     </div>
                 </div>
@@ -220,7 +214,32 @@ use backend\models\Instance;
             </div>
         </div>
         <div class="row row-lg">
-            <div class="col-lg-12 form-horizontal">
+            <div class="col-lg-4 form-horizontal">
+                <div class="form-group form-material">
+                    <div class=" col-lg-12 col-sm-9">
+                        <?= $form->field($model, 'study_type')->radioList(
+                            Yii::$app->params['study_type']
+                        ) ?>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 form-horizontal">
+                <div class="form-group form-material">
+                    <div class=" col-lg-12 col-sm-9">
+                        <?= $form->field($model, 'edu_center_id',[
+                            'template' => '{label} * {input}{error}{hint}'])->widget(Select2::classname(), [
+                            'data' => ArrayHelper::map(EduCenter::find()->all(), 'id', 'name'),
+                            'language' => 'ru',
+                            'options' => ['placeholder' => Yii::t('main','Выберите Вид ...'), 'orientation' => 'bottom'],
+                            'pluginOptions' => [
+                                'allowClear' => true,
+                                'multiple' => false,
+                            ],
+                        ]); ?>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 form-horizontal">
                 <div class="form-group form-material">
                     <div class="col-lg-12 col-sm-9">
                         <?= $form->field($model, 'creater',[

@@ -12,12 +12,13 @@ $this->params['breadcrumbs'][] = ['label' => Yii::t('main', 'Receptions'), 'url'
 $this->params['breadcrumbs'][] = ['label' => $model->id, 'url' => ['view', 'id' => $model->id]];
 $this->params['breadcrumbs'][] = Yii::t('main', 'Update');
 ?>
-<div class="reception-update">
+<div class="panel">
+    <div class="panel-body">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
     <?= $this->render('_update', [
         'model' => $model,
     ]) ?>
-
+    </div>
 </div>

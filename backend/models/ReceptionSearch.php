@@ -18,7 +18,7 @@ class ReceptionSearch extends Reception
     public function rules()
     {
         return [
-            [['id', 'edu_center_id', 'coming_id', 'type_edu_id', 'creater',  'instance_id', 'comment_id'], 'integer'],
+            [['id', 'edu_center_id', 'coming_id', 'type_edu_id', 'creater',  'instance_id', 'comment_id','study_type'], 'integer'],
             [['name','surname', 'tel', 'date_coming','create_date','update_date'], 'safe'],
         ];
     }
@@ -65,6 +65,7 @@ class ReceptionSearch extends Reception
             'type_edu_id' => $this->type_edu_id,
             'date_coming' => $this->date_coming,
             'creater' => $this->creater,
+            'study_type'=>$this->study_type,
 //            'create_date' => $this->create_date,
 //            'update_date' => $this->update_date,
             'instance_id' => $this->instance_id,

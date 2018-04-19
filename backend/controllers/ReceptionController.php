@@ -39,7 +39,12 @@ class ReceptionController extends Controller
                     'delete' => ['POST'],
                 ],
             ],
-        ];
+        ];/*
+        return [
+            'ghost-access'=> [
+                'class' => 'webvimark\modules\UserManagement\components\GhostAccessControl',
+            ],
+        ];*/
     }
 
     /**
@@ -175,6 +180,13 @@ class ReceptionController extends Controller
             $note->save(false);
             return $this->redirect(Yii::$app->request->referrer);
         }
+    }
+
+    public function actionChange($changeId = null, $position = null){
+        $model = Reception::findOne($changeId);
+        $model->instance_id = $position;
+        $model->save();
+        return $this->redirect(Yii::$app->request->referrer);
     }
 }
 

@@ -45,10 +45,21 @@ $this->params['breadcrumbs'][] = $this->title;
                                 <? if ($model->instance_id == 1) { ?>
                                     <?= Html::button(Yii::t('main', 'Come'), ['value' => Url::to(['/reception-tech/create', 'id' => $model->id]), 'class' => 'btn btn-info', 'id' => 'modalButton']) ?>
                                 <? } else if ($model->instance_id == 2) { ?>
-                                    <?= Html::a(Yii::t('main', 'Qatnashib ko\'rdi'), ['update', 'id' => $model->id], ['class' => 'btn btn-warning']) ?>
+                                    <?= Html::a(Yii::t('main', 'Qatnashib ko\'rdi'), ['change', 'changeId' => $model->id, 'position'=>3], ['class' => 'btn btn-warning']) ?>
                                 <? } else if ($model->instance_id == 3) { ?>
-                                    <?= Html::a(Yii::t('main', 'Royxatdan o\'tdi'), ['update', 'id' => $model->id], ['class' => 'btn btn-success']) ?>
-                                    <?= Html::a(Yii::t('main', 'Rad etdi'), ['update', 'id' => $model->id], ['class' => 'btn btn-danger']) ?>
+                                    <?= Html::a(Yii::t('main', 'Royxatdan o\'tdi'), ['change', 'changeId' => $model->id, 'position'=>4], ['class' => 'btn btn-success']) ?>
+                                    <?= Html::a(Yii::t('main', 'Rad etdi'), ['change', 'changeId' => $model->id, 'position'=>5], ['class' => 'btn btn-danger']) ?>
+                                    <?= Html::button(Yii::t('main', 'Rad etdi'), ['value' => Url::to(['/comment/create', 'id' => $model->id]), 'class' => 'btn btn-info', 'id' => 'modalButton']) ?>
+                                <? } else if ($model->instance_id = 5) {?>
+                                    <?= Html::a(Yii::t('main', 'Qayta urunish'), ['change', 'changeId' => $model->id, 'position'=>1], ['class' => 'btn btn-info']) ?>
+                                    <? if ($model->instance_id == 1) { ?>
+                                        <?= Html::button(Yii::t('main', 'Come'), ['value' => Url::to(['/reception-tech/create', 'id' => $model->id]), 'class' => 'btn btn-info', 'id' => 'modalButton']) ?>
+                                    <? } else if ($model->instance_id == 2) { ?>
+                                        <?= Html::a(Yii::t('main', 'Qatnashib ko\'rdi'), ['change', 'changeId' => $model->id, 'position'=>3], ['class' => 'btn btn-warning']) ?>
+                                    <? } else if ($model->instance_id == 3) { ?>
+                                        <?= Html::a(Yii::t('main', 'Royxatdan o\'tdi'), ['change', 'changeId' => $model->id, 'position'=>4], ['class' => 'btn btn-success']) ?>
+                                        <?= Html::a(Yii::t('main', 'Rad etdi'), ['change', 'changeId' => $model->id, 'position'=>6], ['class' => 'btn btn-danger']) ?>
+                                    <? } ?>
                                 <? } ?>
                             </p>
                             <table class="table table-bordered">
@@ -97,11 +108,15 @@ $this->params['breadcrumbs'][] = $this->title;
                                 </tr>
                                 <tr>
                                     <td class="text-middle"><?= Yii::t('main', 'Lavel') ?></td>
-                                    <td><?= $model->lavel ?></td>
+                                    <td><?= Yii::$app->params['lavel'][$model->lavel] ?></td>
                                 </tr>
                                 <tr>
                                     <td class="text-middle"><?= Yii::t('main', 'Language') ?></td>
                                     <td><?= Yii::$app->params['language'][$model->language] ?></td>
+                                </tr>
+                                <tr>
+                                    <td class="text-middle"><?= Yii::t('main', 'Study Type') ?></td>
+                                    <td><?= Yii::$app->params['study_type'][$model->study_type] ?></td>
                                 </tr>
                                 <tr>
                                     <td class="text-middle"><?= Yii::t('main', 'Coming ID') ?></td>
@@ -113,11 +128,11 @@ $this->params['breadcrumbs'][] = $this->title;
                                 </tr>
                                 <tr>
                                     <td class="text-middle"><?= Yii::t('main', 'Comfortable time') ?></td>
-                                    <td><?= $model->comfortable_time ?></td>
+                                    <td><?= Yii::$app->params['comfortable_time'][$model->comfortable_time] ?> - <?=$model->time?></td>
                                 </tr>
                                 <tr>
                                     <td class="text-middle"><?= Yii::t('main', 'Instance') ?></td>
-                                    <td><?= $model->instance->name ?></td>
+                                    <td><?= Yii::$app->params['instance_id'][$model->instance_id] ?></td>
                                 </tr>
                                 <tr>
                                     <td class="text-middle"><?= Yii::t('main', 'Creator') ?></td>
@@ -128,7 +143,7 @@ $this->params['breadcrumbs'][] = $this->title;
                             <?php
                             $teacher = \backend\models\ReceptionTech::find()->where(['reception_id' => $model->id])->one();
                             if($teacher){
-                                if($model->instance_id == 2 || $model->instance_id == 3){
+                                if($model->instance_id == 2 ){
                                 ?>
                                 <div class="row">
                                     <div class="col-md-offset-10 col-md-6">
