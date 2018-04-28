@@ -8,7 +8,7 @@ use yii\data\ActiveDataProvider;
 use backend\models\Students;
 
 /**
- * StudentsSearch represents the model behind the search form about `backend\models\Students`.
+ * StudentsSearch represents the model behind the search form of `backend\models\Students`.
  */
 class StudentsSearch extends Students
 {
@@ -19,7 +19,7 @@ class StudentsSearch extends Students
     {
         return [
             [['id', 'gendar', 'member_id', 'reg_date', 'edu_center_id', 'active'], 'integer'],
-            [['fio', 'tel', 'address', 'image', 'file'], 'safe'],
+            [['name', 'surname', 'tel', 'phone2', 'phone3', 'phone4', 'address', 'image', 'file', 'pass_file', 'email', 'dob'], 'safe'],
         ];
     }
 
@@ -64,14 +64,21 @@ class StudentsSearch extends Students
             'member_id' => $this->member_id,
             'reg_date' => $this->reg_date,
             'edu_center_id' => $this->edu_center_id,
+            'dob' => $this->dob,
             'active' => $this->active,
         ]);
 
-        $query->andFilterWhere(['like', 'fio', $this->fio])
+        $query->andFilterWhere(['like', 'name', $this->name])
+            ->andFilterWhere(['like', 'surname', $this->surname])
             ->andFilterWhere(['like', 'tel', $this->tel])
+            ->andFilterWhere(['like', 'phone2', $this->phone2])
+            ->andFilterWhere(['like', 'phone3', $this->phone3])
+            ->andFilterWhere(['like', 'phone4', $this->phone4])
             ->andFilterWhere(['like', 'address', $this->address])
             ->andFilterWhere(['like', 'image', $this->image])
-            ->andFilterWhere(['like', 'file', $this->file]);
+            ->andFilterWhere(['like', 'file', $this->file])
+            ->andFilterWhere(['like', 'pass_file', $this->pass_file])
+            ->andFilterWhere(['like', 'email', $this->email]);
 
         return $dataProvider;
     }

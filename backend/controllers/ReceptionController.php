@@ -2,6 +2,7 @@
 
 namespace backend\controllers;
 
+use backend\models\Comment;
 use backend\models\Note;
 use Yii;
 use backend\models\Reception;
@@ -185,8 +186,37 @@ class ReceptionController extends Controller
     public function actionChange($changeId = null, $position = null){
         $model = Reception::findOne($changeId);
         $model->instance_id = $position;
-        $model->save();
+        $model->save(false);
         return $this->redirect(Yii::$app->request->referrer);
+    }
+
+    // comment yaratish
+
+    public function actionComment($changeId=null)
+    {
+        $model = Reception::findOne($changeId);
+        $comment = new Comment();
+        if (Yii::$app->request->isAjax && $model->load(Yii::$app->request->post()))
+        {
+            Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+            return \yii\widgets\ActiveForm::validate($model);
+        }
+
+        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
+
+            if(empty($model->comment_id)){
+                $comment->name = $model->commentId;
+                $comment->save();
+                $model->comment_id=$comment->id;
+            }
+            $model->instance_id = 5;
+            $model->save();
+            return $this->redirect(Yii::$app->request->referrer);
+        }
+
+        return $this->renderAjax('comment', [
+            'model' => $model,
+        ]);
     }
 }
 

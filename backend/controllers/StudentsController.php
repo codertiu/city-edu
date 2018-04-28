@@ -9,8 +9,6 @@ use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\web\UploadedFile;
-
-
 /**
  * StudentsController implements the CRUD actions for Students model.
  */
@@ -50,6 +48,7 @@ class StudentsController extends Controller
      * Displays a single Students model.
      * @param integer $id
      * @return mixed
+     * @throws NotFoundHttpException if the model cannot be found
      */
     public function actionView($id)
     {
@@ -66,35 +65,49 @@ class StudentsController extends Controller
     public function actionCreate()
     {
         $model = new Students();
-        if (Yii::$app->request->isAjax && $model->load(Yii::$app->request->post()))
-        {
+
+        if (Yii::$app->request->isAjax && $model->load(Yii::$app->request->post())) {
             Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
             return \yii\widgets\ActiveForm::validate($model);
         }
 
         if ($model->load(Yii::$app->request->post())) {
-            $model->filecv = UploadedFile::getInstance($model,'filecv');
-            $model->fileimg = UploadedFile::getInstance($model,'fileimg');
-            if ($model->filecv) {
-                $fileNameuz=Yii::$app->getSecurity()->generateRandomString().'.'.$model->filecv->extension;
-                $upload_path = Yii::getAlias('@backend/web/uploads/').$fileNameuz;
-                $model->filecv->saveAs( $upload_path.'.'.$model->filecv->extension );
-                $model->file = $fileNameuz.'.'.$model->filecv->extension;
+            //img
+            $model->image = UploadedFile::getInstance($model, 'image');
+            if($model->image) {
+                $filename = md5(time() . Yii::$app->user->id . $model->image->baseName . rand(1, 1000000) . rand(1, 1000000)) . '.' . $model->image->extension;
+
+                $model->image->saveAs('uploads/img/' . $filename);
+                $model->image = 'uploads/img/' . $filename;
+
             }
-            if ($model->fileimg) {
-                $imageName=Yii::$app->getSecurity()->generateRandomString().'.'.$model->fileimg->extension;
-                $upload_path = Yii::getAlias('@backend/web/uploads/').$imageName;
-                $model->fileimg->saveAs( $upload_path.'.'.$model->fileimg->extension);
-                $model->image = $imageName.'.'.$model->fileimg->extension;
+            //pass_file
+            $model->pass_file = UploadedFile::getInstance($model, 'pass_file');
+            if($model->pass_file) {
+                $filename = md5(time() . Yii::$app->user->id . $model->pass_file->baseName . rand(1, 1000000) . rand(1, 1000000)) . '.' . $model->pass_file->extension;
+                $model->pass_file->saveAs('uploads/pass/' . $filename);
+                $model->pass_file = 'uploads/pass/' .$filename;
+            }
+            //file
+            $model->file = UploadedFile::getInstance($model, 'file');
+            if($model->file) {
+                $filename = md5(time() . Yii::$app->user->id . $model->file->baseName . rand(1, 1000000) . rand(1, 1000000)) . '.' . $model->file->extension;
+                $model->file->saveAs('uploads/file/' . $filename);
+                $model->file = 'uploads/file/' . $filename;
             }
 
-            $model->save();
-            return $this->redirect(['view', 'id' => $model->id]);
-        } else {
-            return $this->render('create', [
-                'model' => $model,
-            ]);
+            $model->active = 1;
+
+            if ($model->save()) {
+                return $this->redirect(['view', 'id' => $model->id]);
+            } /*else {
+                return print_r($model->errors);
+            }*/
         }
+
+        return $this->render('create', [
+            'model' => $model,
+        ]);
     }
 
     /**
@@ -102,41 +115,24 @@ class StudentsController extends Controller
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
+     * @throws NotFoundHttpException if the model cannot be found
      */
     public function actionUpdate($id)
     {
-
         $model = $this->findModel($id);
 
-        if (Yii::$app->request->isAjax && $model->load(Yii::$app->request->post()))
-        {
+        if (Yii::$app->request->isAjax && $model->load(Yii::$app->request->post())) {
             Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
             return \yii\widgets\ActiveForm::validate($model);
         }
-        if ($model->load(Yii::$app->request->post())) {
 
-            $model->filecv = UploadedFile::getInstance($model,'filecv');
-            $model->fileimg = UploadedFile::getInstance($model,'fileimg');
-            if ($model->filecv) {
-                $fileNameuz=Yii::$app->getSecurity()->generateRandomString().'.'.$model->filecv->extension;
-                $upload_path = Yii::getAlias('@backend/web/uploads/').$fileNameuz;
-                $model->filecv->saveAs( $upload_path.'.'.$model->filecv->extension );
-                $model->file = $fileNameuz.'.'.$model->filecv->extension;
-            }
-            if ($model->fileimg) {
-                $imageName=Yii::$app->getSecurity()->generateRandomString().'.'.$model->fileimg->extension;
-                $upload_path = Yii::getAlias('@backend/web/uploads/').$imageName;
-                $model->fileimg->saveAs( $upload_path.'.'.$model->fileimg->extension);
-                $model->image = $imageName.'.'.$model->fileimg->extension;
-            }
-
-            $model->save();
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
-        } else {
-            return $this->render('update', [
-                'model' => $model,
-            ]);
         }
+
+        return $this->render('update', [
+            'model' => $model,
+        ]);
     }
 
     /**
@@ -144,6 +140,7 @@ class StudentsController extends Controller
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
+     * @throws NotFoundHttpException if the model cannot be found
      */
     public function actionDelete($id)
     {
@@ -163,8 +160,8 @@ class StudentsController extends Controller
     {
         if (($model = Students::findOne($id)) !== null) {
             return $model;
-        } else {
-            throw new NotFoundHttpException('The requested page does not exist.');
         }
+
+        throw new NotFoundHttpException(Yii::t('main', 'The requested page does not exist.'));
     }
 }

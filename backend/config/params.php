@@ -36,5 +36,11 @@ return [
     'gender' =>[
         0=>'female',
         1=>'male'
+    ],
+    'active'=>[
+        1=>'active',
+        2=>'Ketdi',
+        3=>'Vaqtinchalik ketdi',
+        4=>'Tugatib ketdi'
     ]
 ];

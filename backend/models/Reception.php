@@ -29,6 +29,8 @@ class Reception extends ActiveRecord
     /**
      * @inheritdoc
      */
+    public $commentId;
+
     public static function tableName()
     {
         return 'reception';
@@ -59,11 +61,13 @@ class Reception extends ActiveRecord
             [['edu_center_id', 'name', 'tel', 'coming_id', 'type_edu_id', 'date_coming', 'creater'], 'required'],
             [['edu_center_id', 'coming_id', 'type_edu_id', 'creater',  'instance_id', 'comment_id','language','study_type'], 'integer'],
             [['date_coming','dob','create_date', 'update_date'], 'safe'],
-            [['name','surname','lavel','time','comfortable_time','comment'], 'string', 'max' => 255],
+            [['name','surname','lavel','time','comfortable_time','comment','commentId'], 'string', 'max' => 255],
             [['tel','phone2','phone3','phone4'], 'string', 'max' => 35],
+            [['comment_id', 'commentId'], 'my_required','skipOnEmpty' => false],
             [['tel'], 'unique','targetClass' => '\backend\models\Reception', 'message'=>Yii::t('main','Mobile No Already Exist'),'when' => function ($model, $attribute) {
                 return $model->{$attribute} !== $model->getOldAttribute($attribute);
             },],
+
         ];
     }
 
@@ -95,9 +99,22 @@ class Reception extends ActiveRecord
             'comment'=>Yii::t('main','Comment'),
             'language'=>Yii::t('main','Language'),
             'time'=>Yii::t('main','Time'),
-            'study_type'=>Yii::t('main','Study Type')
-
+            'study_type'=>Yii::t('main','Study Type'),
+            'commentId'=>Yii::t('main','commentId')
         ];
+    }
+
+    //validation
+
+    public function my_required($attribute_name)
+    {
+        if (empty($this->commentId)&& empty($this->comment_id)
+        ) {
+            $this->addError($attribute_name, Yii::t('main', 'At least 1 of the field must be filled up properly'));
+            return false;
+        }
+
+        return true;
     }
 
     public function getCreateDate(){
@@ -120,6 +137,9 @@ class Reception extends ActiveRecord
     }
     public function getEduCenter(){
         return $this->hasOne(EduCenter::className(),['id'=>'edu_center_id']);
+    }
+    public function getCommentIDT(){
+        return $this->hasOne(Comment::className(),['id'=>'comment_id']);
     }
 }
 

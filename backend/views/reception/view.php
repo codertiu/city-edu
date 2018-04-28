@@ -48,18 +48,9 @@ $this->params['breadcrumbs'][] = $this->title;
                                     <?= Html::a(Yii::t('main', 'Qatnashib ko\'rdi'), ['change', 'changeId' => $model->id, 'position'=>3], ['class' => 'btn btn-warning']) ?>
                                 <? } else if ($model->instance_id == 3) { ?>
                                     <?= Html::a(Yii::t('main', 'Royxatdan o\'tdi'), ['change', 'changeId' => $model->id, 'position'=>4], ['class' => 'btn btn-success']) ?>
-                                    <?= Html::a(Yii::t('main', 'Rad etdi'), ['change', 'changeId' => $model->id, 'position'=>5], ['class' => 'btn btn-danger']) ?>
-                                    <?= Html::button(Yii::t('main', 'Rad etdi'), ['value' => Url::to(['/comment/create', 'id' => $model->id]), 'class' => 'btn btn-info', 'id' => 'modalButton']) ?>
-                                <? } else if ($model->instance_id = 5) {?>
+                                    <?= Html::button(Yii::t('main', 'Rad etdi'), ['value' => Url::to(['/reception/comment', 'changeId' => $model->id]), 'class' => 'btn btn-danger', 'id' => 'modalButton']) ?>
+                                <? } else if ($model->instance_id == 5) {?>
                                     <?= Html::a(Yii::t('main', 'Qayta urunish'), ['change', 'changeId' => $model->id, 'position'=>1], ['class' => 'btn btn-info']) ?>
-                                    <? if ($model->instance_id == 1) { ?>
-                                        <?= Html::button(Yii::t('main', 'Come'), ['value' => Url::to(['/reception-tech/create', 'id' => $model->id]), 'class' => 'btn btn-info', 'id' => 'modalButton']) ?>
-                                    <? } else if ($model->instance_id == 2) { ?>
-                                        <?= Html::a(Yii::t('main', 'Qatnashib ko\'rdi'), ['change', 'changeId' => $model->id, 'position'=>3], ['class' => 'btn btn-warning']) ?>
-                                    <? } else if ($model->instance_id == 3) { ?>
-                                        <?= Html::a(Yii::t('main', 'Royxatdan o\'tdi'), ['change', 'changeId' => $model->id, 'position'=>4], ['class' => 'btn btn-success']) ?>
-                                        <?= Html::a(Yii::t('main', 'Rad etdi'), ['change', 'changeId' => $model->id, 'position'=>6], ['class' => 'btn btn-danger']) ?>
-                                    <? } ?>
                                 <? } ?>
                             </p>
                             <table class="table table-bordered">
@@ -130,14 +121,21 @@ $this->params['breadcrumbs'][] = $this->title;
                                     <td class="text-middle"><?= Yii::t('main', 'Comfortable time') ?></td>
                                     <td><?= Yii::$app->params['comfortable_time'][$model->comfortable_time] ?> - <?=$model->time?></td>
                                 </tr>
-                                <tr>
-                                    <td class="text-middle"><?= Yii::t('main', 'Instance') ?></td>
-                                    <td><?= Yii::$app->params['instance_id'][$model->instance_id] ?></td>
-                                </tr>
+
                                 <tr>
                                     <td class="text-middle"><?= Yii::t('main', 'Creator') ?></td>
                                     <td><?= $model->user->username ?></td>
                                 </tr>
+                                <tr>
+                                    <td class="text-middle"><?= Yii::t('main', 'Instance') ?></td>
+                                    <td><?= Yii::$app->params['instance_id'][$model->instance_id] ?></td>
+                                </tr>
+                                <?php if($model->comment_id!=null){?>
+                                    <tr>
+                                        <td class="text-middle"><?= Yii::t('main', 'Coment Id') ?></td>
+                                        <td><?=$model->commentIDT->name?></td>
+                                    </tr>
+                                <?php }?>
                                 </tbody>
                             </table>
                             <?php

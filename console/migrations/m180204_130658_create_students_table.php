@@ -14,15 +14,22 @@ class m180204_130658_create_students_table extends Migration
     {
         $this->createTable('students', [
             'id' => $this->primaryKey(),
-            'fio' => $this->string(255)->notNull(),
+            'name' => $this->string(255)->notNull(),
+            'surname'=>$this->string(255)->notNull(),
             'tel' => $this->string(35)->unique()->notNull(),
+            'phone2'=>$this->string(25)->null(),
+            'phone3'=>$this->string(25)->null(),
+            'phone4'=>$this->string(25)->null(),
             'gendar' => $this->integer()->notNull(),
             'address' => $this->string(255)->notNull(),
             'member_id' => $this->integer()->null(),
             'reg_date' => $this->integer()->notNull(),
             'edu_center_id' => $this->integer()->notNull(),
-            'image' => $this->string(255)->notNull(),
-            'file' => $this->string(255)->notNull(),
+            'image' => $this->string(255)->null(),
+            'file' => $this->string(255)->null(),
+            'pass_file' => $this->string(255)->null(),
+            'email' => $this->string(255)->Null(),
+            'dob'=>$this->date()->notNull(),
             'active' => $this->integer()->notNull(),
         ]);
     }

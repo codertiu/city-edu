@@ -53,6 +53,10 @@ RewriteRule ^admin/images/logo/(.*)$ backend/web/images/logo/$1 [L]
 RewriteRule ^admin/images/modal/(.*)$ backend/web/images/modal/$1 [L]
 RewriteRule ^admin/images/navbar/(.*)$ backend/web/images/navbar/$1 [L]
 
+RewriteRule ^admin/uploads/img/(.*)$ backend/web/uploads/img/$1 [L]
+RewriteRule ^admin/uploads/file/(.*)$ backend/web/uploads/file/$1 [L]
+RewriteRule ^admin/uploads/pass/(.*)$ backend/web/uploads/pass/$1 [L]
+
 RewriteCond %{REQUEST_URI} !^/backend/web/(assets|css)/
 RewriteCond %{REQUEST_URI} ^/(admin)
 RewriteRule ^.*$ backend/web/index.php [L]

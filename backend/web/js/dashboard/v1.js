@@ -3,7 +3,7 @@ $(document).ready(function($) {
 
   // Widget Linearea One
   // ---------------------
-  (function() {
+  /*(function() {
     //chart-linearea-one
     new Chartist.Line('#widgetLineareaOne .ct-chart', {
       labels: ['1', '2', '3', '4', '5', '6', '7', '8'],
@@ -33,11 +33,11 @@ $(document).ready(function($) {
         offset: 0
       }
     });
-  })();
+  })();*/
 
   // Widget Linearea Two
   // ---------------------
-  (function() {
+  /*(function() {
     //chart-linearea-two
     new Chartist.Line('#widgetLineareaTwo .ct-chart', {
       labels: ['1', '2', '3', '4', '5', '6', '7', '8', '9'],
@@ -68,10 +68,10 @@ $(document).ready(function($) {
       }
     });
   })();
-
+*/
   // Widget Linearea Three
   // ---------------------
-  (function() {
+  /*(function() {
     //chart-linearea-three
     new Chartist.Line('#widgetLineareaThree .ct-chart', {
       labels: ['1', '2', '3', '4', '5', '6', '7', '8'],
@@ -188,5 +188,5 @@ $(document).ready(function($) {
     });
   })();
 
-  Waves.attach('.page-content .btn-floating', ['waves-light']);
+  Waves.attach('.page-content .btn-floating', ['waves-light']);*/
 });

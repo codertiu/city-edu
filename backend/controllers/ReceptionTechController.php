@@ -69,9 +69,9 @@ class ReceptionTechController extends Controller
         $reception = Reception::findOne($id);
         if ($model->load(Yii::$app->request->post())) {
             $model->reception_id = $id;
-            $model->save();
+            $model->save(false);
             $reception->instance_id=2;
-            $reception->save();
+            $reception->save(false);
             return $this->redirect(Yii::$app->request->referrer);
         }
 

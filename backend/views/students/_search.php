@@ -17,13 +17,21 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'id') ?>
 
-    <?= $form->field($model, 'fio') ?>
+    <?= $form->field($model, 'name') ?>
+
+    <?= $form->field($model, 'surname') ?>
 
     <?= $form->field($model, 'tel') ?>
 
-    <?= $form->field($model, 'gendar') ?>
+    <?= $form->field($model, 'phone2') ?>
 
-    <?= $form->field($model, 'address') ?>
+    <?php // echo $form->field($model, 'phone3') ?>
+
+    <?php // echo $form->field($model, 'phone4') ?>
+
+    <?php // echo $form->field($model, 'gendar') ?>
+
+    <?php // echo $form->field($model, 'address') ?>
 
     <?php // echo $form->field($model, 'member_id') ?>
 
@@ -31,11 +39,17 @@ use yii\widgets\ActiveForm;
 
     <?php // echo $form->field($model, 'edu_center_id') ?>
 
-    <?php // echo $form->field($model, 'active') ?>
-
     <?php // echo $form->field($model, 'image') ?>
 
     <?php // echo $form->field($model, 'file') ?>
+
+    <?php // echo $form->field($model, 'pass_file') ?>
+
+    <?php // echo $form->field($model, 'email') ?>
+
+    <?php // echo $form->field($model, 'dob') ?>
+
+    <?php // echo $form->field($model, 'active') ?>
 
     <div class="form-group">
         <?= Html::submitButton(Yii::t('main', 'Search'), ['class' => 'btn btn-primary']) ?>
