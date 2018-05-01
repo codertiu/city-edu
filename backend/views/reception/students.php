@@ -11,6 +11,17 @@ use kartik\file\FileInput;
 /* @var $this yii\web\View */
 /* @var $model backend\models\Students */
 /* @var $form yii\widgets\ActiveForm */
+$css=<<<CSS
+.datepicker {
+      z-index: 9999 !important; /* has to be larger than 1050 */
+    }
+.select2-dropdown {  
+  z-index: 10060 !important;/*1051;*/
+}
+CSS;
+$this->registerCss($css);
+
+\kartik\select2\Select2Asset::register($this);
 ?>
 
 
@@ -25,7 +36,7 @@ use kartik\file\FileInput;
             <div class=" col-lg-12 col-sm-9">
                 <?= $form->field($model, 'name', [
                     'template' => '{label} * {input}{error}{hint}'
-                ])->textInput(['maxlength' => true]) ?>
+                ])->textInput(['maxlength' => true,'value'=>$reception->name]) ?>
 
             </div>
         </div>
@@ -35,7 +46,7 @@ use kartik\file\FileInput;
             <div class=" col-lg-12 col-sm-9">
                 <?= $form->field($model, 'surname', [
                     'template' => '{label} * {input}{error}{hint}'
-                ])->textInput(['maxlength' => true]) ?>
+                ])->textInput(['maxlength' => true,'value'=>$reception->surname]) ?>
 
             </div>
         </div>
@@ -46,14 +57,14 @@ use kartik\file\FileInput;
                 <?= $form->field($model, 'dob', [
                     'template' => '{label} * {input}{error}{hint}'
                 ])->widget(DatePicker::classname(), [
+                    'value'=>date('yyyy-mm-dd',strtotime($reception->dob)),
                     'language' => 'ru',
                     'type' => DatePicker::TYPE_COMPONENT_APPEND,
-                    'value'=>'2018-04-12',
                     'pluginOptions' => [
-                        'autoclose'=>true,
                         'format' => 'yyyy-mm-dd',
-                        'todayHighlight' => true,
-                        'orientation' => "bottom"
+                        //'todayHighlight' => true,
+                        'autoclose'=>true,
+
                     ],
                 ]); ?>
 
@@ -70,7 +81,7 @@ use kartik\file\FileInput;
                 <?= $form->field($model, 'tel', [
                     'template' => '{label} * {input}{error}{hint}'
                 ])->widget(\yii\widgets\MaskedInput::className(), [
-                    'mask' => '+\9\9899-999-99-99',
+                    'mask' => '+\9\9899-999-99-99','value'=>$reception->tel,
                 ]) ?>
 
             </div>
@@ -178,7 +189,7 @@ use kartik\file\FileInput;
 <div class="row row-lg">
     <div class="col-lg-12  form-horizontal">
         <div class="form-group form-material">
-            <div class=" col-lg-12 col-sm-9">
+            <div class="col-lg-12 col-sm-8">
                 <?= $form->field($model, 'edu_center_id')->widget(Select2::classname(), [
                     'data' => ArrayHelper::map(EduCenter::find()->all(), 'id', 'name'),
                     'language' => 'ru',

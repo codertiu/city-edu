@@ -6,7 +6,7 @@ use yii\widgets\DetailView;
 /* @var $this yii\web\View */
 /* @var $model backend\models\Students */
 
-$this->title = $model->name;
+$this->title = $model->getFullName();
 $this->params['breadcrumbs'][] = ['label' => Yii::t('main', 'Students'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
@@ -69,7 +69,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                     </tr>
                                     <tr>
                                         <td><?= Yii::t('main', 'Email') ?></td>
-                                        <td><a href="mailto:<?= $model->email ?>"><?= $mode->email ?></a></td>
+                                        <td><a href="mailto:<?= $model->email ?>"><?= $model->email ?></a></td>
                                     </tr>
                                     <tr>
                                         <td><?= Yii::t('main', 'Phone Number') ?></td>
@@ -88,7 +88,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                     </tr>
                                     <tr>
                                         <td><?= Yii::t('main', 'reg date') ?></td>
-                                        <td><?= $model->regDate ?></td>
+                                        <td><?= date('d/M/Y  H:i:s',strtotime($model->regDate)) ?></td>
                                     </tr>
                                     <tr>
                                         <td><?= Yii::t('main', 'Edu Center ID') ?></td>
@@ -102,7 +102,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                         <td><?= Yii::t('main', 'Pass File') ?></td>
                                         <td>
                                             <?if($model->pass_file){?>
-                                            <a href="/admin/<?=$model->pass_file?>"><?=Yii::t('main','Passport')?></a>
+                                            <a href="/admin/<?=$model->pass_file?>" target="_blank"><?=Yii::t('main','Passport')?></a>
                                             <?}?>
                                         </td>
                                     </tr>
@@ -110,7 +110,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                         <td><?= Yii::t('main', 'File') ?></td>
                                         <td>
                                             <?if($model->file){?>
-                                            <a href="/admin/<?=$model->file?>"><?=Yii::t('main','File')?></a>
+                                            <a href="/admin/<?=$model->file?>" target="_blank"><?=Yii::t('main','File')?></a>
                                             <?}?>
                                         </td>
                                     </tr>
@@ -134,30 +134,6 @@ $this->params['breadcrumbs'][] = $this->title;
                     </div>
 
                 </div>
-
-                <?= DetailView::widget([
-                    'model' => $model,
-                    'attributes' => [
-                        'id',
-                        'name',
-                        'surname',
-                        'tel',
-                        'phone2',
-                        'phone3',
-                        'phone4',
-                        'gendar',
-                        'address',
-                        'member_id',
-                        'reg_date',
-                        'edu_center_id',
-                        'image',
-                        'file',
-                        'pass_file',
-                        'email:email',
-                        'dob',
-                        'active',
-                    ],
-                ]) ?>
             </div>
         </div>
     </div>

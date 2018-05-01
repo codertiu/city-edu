@@ -42,5 +42,19 @@ return [
         2=>'Ketdi',
         3=>'Vaqtinchalik ketdi',
         4=>'Tugatib ketdi'
+    ],
+    'month'=>[
+        1=>'Yanvar',
+        2=>'Fevral',
+        3=>'Mart',
+        4=>'Aprel',
+        5=>'May',
+        6=>'Iyul',
+        7=>'Iyun',
+        8=>'Avgust',
+        9=>'Sentabr',
+        10=>'Oktabr',
+        11=>'Noyabr',
+        12=>'Dekabr'
     ]
 ];

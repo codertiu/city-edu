@@ -120,14 +120,57 @@ class StudentsController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
-
+        $old_image = $model->image;
+        $old_file = $model->file;
+        $old_pass = $model->pass_file;
         if (Yii::$app->request->isAjax && $model->load(Yii::$app->request->post())) {
             Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
             return \yii\widgets\ActiveForm::validate($model);
         }
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+        if ($model->load(Yii::$app->request->post())) {
+            //img
+            $model->image = UploadedFile::getInstance($model, 'image');
+            if(!empty($model->image)) {
+                $filename = md5(time() . Yii::$app->user->id . $model->image->baseName . rand(1, 1000000) . rand(1, 1000000)) . '.' . $model->image->extension;
+                $model->image->saveAs('uploads/img/' . $filename);
+                $model->image = 'uploads/img/' . $filename;
+                if(is_file($old_image)) {
+                    @unlink($old_image);
+                }
+            }else{
+                $model->image = $old_image;
+            }
+            //pass_file
+            $model->pass_file = UploadedFile::getInstance($model, 'pass_file');
+            if(!empty($model->pass_file)) {
+                $filename = md5(time() . Yii::$app->user->id . $model->pass_file->baseName . rand(1, 1000000) . rand(1, 1000000)) . '.' . $model->pass_file->extension;
+                $model->pass_file->saveAs('uploads/pass/' . $filename);
+                $model->pass_file = 'uploads/pass/' .$filename;
+                if(is_file($old_pass)) {
+                    @unlink($old_pass);
+                }
+            }else{
+                $model->pass_file = $old_pass;
+            }
+            //file
+            $model->file = UploadedFile::getInstance($model, 'file');
+            if(!empty($model->file)) {
+                $filename = md5(time() . Yii::$app->user->id . $model->file->baseName . rand(1, 1000000) . rand(1, 1000000)) . '.' . $model->file->extension;
+                $model->file->saveAs('uploads/file/' . $filename);
+                $model->file = 'uploads/file/' . $filename;
+                if(is_file($old_pass)) {
+                    @unlink($old_pass);
+                }
+            }else{
+                $model->file = $old_file;
+            }
+
+            if($model->save()) {
+                return $this->redirect(['view', 'id' => $model->id]);
+            }else{
+                return print_r($model->errors);
+            }
         }
 
         return $this->render('update', [

@@ -23,7 +23,7 @@ class m180204_130658_create_students_table extends Migration
             'gendar' => $this->integer()->notNull(),
             'address' => $this->string(255)->notNull(),
             'member_id' => $this->integer()->null(),
-            'reg_date' => $this->integer()->notNull(),
+            'reg_date' => $this->dateTime()->notNull(),
             'edu_center_id' => $this->integer()->notNull(),
             'image' => $this->string(255)->null(),
             'file' => $this->string(255)->null(),

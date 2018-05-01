@@ -48,9 +48,7 @@ use kartik\file\FileInput;
                 ])->widget(DatePicker::classname(), [
                     'language' => 'ru',
                     'type' => DatePicker::TYPE_COMPONENT_APPEND,
-                    'value'=>'2018-04-12',
                     'pluginOptions' => [
-                        'autoclose'=>true,
                         'format' => 'yyyy-mm-dd',
                         'todayHighlight' => true,
                         'orientation' => "bottom"
@@ -176,7 +174,14 @@ use kartik\file\FileInput;
     </div>
 </div>
 <div class="row row-lg">
-    <div class="col-lg-12  form-horizontal">
+    <div class="col-lg-6  form-horizontal">
+        <div class="form-group form-material">
+            <div class=" col-lg-12 col-sm-9">
+                <?= $form->field($model, 'active')->radioList(Yii::$app->params['active']) ?>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-6  form-horizontal">
         <div class="form-group form-material">
             <div class=" col-lg-12 col-sm-9">
                 <?= $form->field($model, 'edu_center_id')->widget(Select2::classname(), [

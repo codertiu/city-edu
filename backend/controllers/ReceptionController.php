@@ -4,6 +4,7 @@ namespace backend\controllers;
 
 use backend\models\Comment;
 use backend\models\Note;
+use backend\models\Students;
 use Yii;
 use backend\models\Reception;
 use backend\models\ReceptionSearch;
@@ -58,13 +59,12 @@ class ReceptionController extends Controller
         $searchModel = new ReceptionSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
-        if (Yii::$app->request->isAjax && $form->load(Yii::$app->request->post()))
-        {
+        if (Yii::$app->request->isAjax && $form->load(Yii::$app->request->post())) {
             Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
             return \yii\widgets\ActiveForm::validate($form);
         }
         return $this->render('index', [
-            'form'=>$form,
+            'form' => $form,
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
         ]);
@@ -79,11 +79,11 @@ class ReceptionController extends Controller
     public function actionView($id)
     {
         $note = new Note();
-        $note_info = Note::find()->where(['reception_id'=>$id])->orderBy(['create_date'=>SORT_DESC])->all();
+        $note_info = Note::find()->where(['reception_id' => $id])->orderBy(['create_date' => SORT_DESC])->all();
         return $this->render('view', [
             'model' => $this->findModel($id),
             'note' => $note,
-            'note_info'=>$note_info
+            'note_info' => $note_info
         ]);
     }
 
@@ -95,8 +95,7 @@ class ReceptionController extends Controller
     public function actionCreate()
     {
         $model = new Reception();
-        if (Yii::$app->request->isAjax && $model->load(Yii::$app->request->post()))
-        {
+        if (Yii::$app->request->isAjax && $model->load(Yii::$app->request->post())) {
             Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
             return \yii\widgets\ActiveForm::validate($model);
         }
@@ -104,10 +103,10 @@ class ReceptionController extends Controller
             $model->instance_id = 1;
             if ($model->save()) {
                 return $this->redirect(['index']);
-            }else{
-                return $this->render('create',[
-                    'model'=>$model
-                    ]);
+            } else {
+                return $this->render('create', [
+                    'model' => $model
+                ]);
             }
         }
 
@@ -127,8 +126,7 @@ class ReceptionController extends Controller
     {
         $model = $this->findModel($id);
 
-        if (Yii::$app->request->isAjax && $model->load(Yii::$app->request->post()))
-        {
+        if (Yii::$app->request->isAjax && $model->load(Yii::$app->request->post())) {
             Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
             return \yii\widgets\ActiveForm::validate($model);
         }
@@ -173,9 +171,10 @@ class ReceptionController extends Controller
     }
 
 
-    public function actionNote(){
+    public function actionNote()
+    {
         $note = new Note();
-        if($note->load(Yii::$app->request->post())) {
+        if ($note->load(Yii::$app->request->post())) {
             $note->create_date = date('Y-m-d H:i:s');
             $note->creator = Yii::$app->user->identity->id;
             $note->save(false);
@@ -183,7 +182,8 @@ class ReceptionController extends Controller
         }
     }
 
-    public function actionChange($changeId = null, $position = null){
+    public function actionChange($changeId = null, $position = null)
+    {
         $model = Reception::findOne($changeId);
         $model->instance_id = $position;
         $model->save(false);
@@ -192,22 +192,21 @@ class ReceptionController extends Controller
 
     // comment yaratish
 
-    public function actionComment($changeId=null)
+    public function actionComment($changeId = null)
     {
         $model = Reception::findOne($changeId);
         $comment = new Comment();
-        if (Yii::$app->request->isAjax && $model->load(Yii::$app->request->post()))
-        {
+        if (Yii::$app->request->isAjax && $model->load(Yii::$app->request->post())) {
             Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
             return \yii\widgets\ActiveForm::validate($model);
         }
 
         if ($model->load(Yii::$app->request->post()) && $model->validate()) {
 
-            if(empty($model->comment_id)){
+            if (empty($model->comment_id)) {
                 $comment->name = $model->commentId;
                 $comment->save();
-                $model->comment_id=$comment->id;
+                $model->comment_id = $comment->id;
             }
             $model->instance_id = 5;
             $model->save();
@@ -216,6 +215,27 @@ class ReceptionController extends Controller
 
         return $this->renderAjax('comment', [
             'model' => $model,
+        ]);
+    }
+
+    // Ro'yxatdan o'tish uchun
+    public function actionRegister($id = null)
+    {
+        $model = new Students();
+        $reception = Reception::findOne($id);
+        if (Yii::$app->request->isAjax && $model->load(Yii::$app->request->post())) {
+            Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+            return \yii\widgets\ActiveForm::validate($model);
+        }
+        if ($model->load(Yii::$app->request->post())) {
+            if ($model->save()){
+
+            }
+        }
+
+        return $this->renderAjax('students', [
+            'model' => $model,
+            'reception' => $reception
         ]);
     }
 }

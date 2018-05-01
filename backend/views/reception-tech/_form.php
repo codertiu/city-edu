@@ -10,6 +10,13 @@ use backend\models\Members;
 /* @var $this yii\web\View */
 /* @var $model backend\models\ReceptionTech */
 /* @var $form yii\widgets\ActiveForm */
+$css=<<<CSS
+.select2-dropdown {  
+  z-index: 10060 !important;/*1051;*/
+}
+CSS;
+$this->registerCss($css);
+\kartik\select2\Select2Asset::register($this);
 ?>
 
 <div class="reception-tech-form">
@@ -21,10 +28,15 @@ use backend\models\Members;
 
     <div class="row">
         <div class="col-md-6">
-            <?= $form->field($model, 'member_id')->dropDownList(
-                ArrayHelper::map(Members::find()->all(), 'id', 'fio'),
-                ['prompt' => Yii::t('main', 'Выберите Вид ...')]
-            ) ?>
+            <?= $form->field($model, 'member_id')->widget(Select2::classname(), [
+                'data' => ArrayHelper::map(Members::find()->all(), 'id', 'fio'),
+                'language' => 'ru',
+                'options' => ['placeholder' => Yii::t('main', 'Выберите Вид ...'), 'orientation' => 'bottom'],
+                'pluginOptions' => [
+                    'allowClear' => true,
+                    'multiple' => false,
+                ],
+            ]) ?>
         </div>
         <div class="col-md-6">
             <?= $form->field($model, 'date')->widget(DateTimePicker::classname(), [

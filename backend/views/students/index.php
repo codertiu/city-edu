@@ -38,7 +38,10 @@ $this->params['breadcrumbs'][] = $this->title;
                                         //'phone2',
                                         //'phone3',
                                         //'phone4',
-                                        'gendar',
+                                        [
+                                                'attribute'=>'gendar',
+                                                'value'=>Yii::$app->params['gender']['gendar'],
+                                        ],
                                         //'address',
                                         //'member_id',
                                         //'reg_date',

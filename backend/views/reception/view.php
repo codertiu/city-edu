@@ -43,12 +43,12 @@ $this->params['breadcrumbs'][] = $this->title;
                         <div class="col-lg-5">
                             <p>
                                 <? if ($model->instance_id == 1) { ?>
-                                    <?= Html::button(Yii::t('main', 'Come'), ['value' => Url::to(['/reception-tech/create', 'id' => $model->id]), 'class' => 'btn btn-info', 'id' => 'modalButton']) ?>
+                                    <?= Html::button(Yii::t('main', 'Come'), ['value' => Url::to(['/reception-tech/create', 'id' => $model->id]), 'class' => 'btn btn-info modalButton']) ?>
                                 <? } else if ($model->instance_id == 2) { ?>
                                     <?= Html::a(Yii::t('main', 'Qatnashib ko\'rdi'), ['change', 'changeId' => $model->id, 'position'=>3], ['class' => 'btn btn-warning']) ?>
                                 <? } else if ($model->instance_id == 3) { ?>
-                                    <?= Html::a(Yii::t('main', 'Royxatdan o\'tdi'), ['change', 'changeId' => $model->id, 'position'=>4], ['class' => 'btn btn-success']) ?>
-                                    <?= Html::button(Yii::t('main', 'Rad etdi'), ['value' => Url::to(['/reception/comment', 'changeId' => $model->id]), 'class' => 'btn btn-danger', 'id' => 'modalButton']) ?>
+                                    <?= Html::button(Yii::t('main', 'Ro\'yxatdan o\'tdi'), ['value' => Url::to(['/reception/register', 'id' => $model->id]), 'class' => 'btn btn-success modalButton']) ?>
+                                    <?= Html::button(Yii::t('main', 'Rad etdi'), ['value' => Url::to(['/reception/comment', 'changeId' => $model->id]), 'class' => 'btn btn-danger modalButton']) ?>
                                 <? } else if ($model->instance_id == 5) {?>
                                     <?= Html::a(Yii::t('main', 'Qayta urunish'), ['change', 'changeId' => $model->id, 'position'=>1], ['class' => 'btn btn-info']) ?>
                                 <? } ?>
@@ -197,6 +197,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                                     <?
                                                 endforeach
                                                 ?>
+                                                <?if($model->comment){?>
                                                 <div class="chat chat-right">
                                                     <div class="chat-body">
                                                         <div class="chat-content">
@@ -210,7 +211,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                                         </div>
                                                     </div>
                                                 </div>
-
+                                                <?}?>
                                             </div>
                                         </div>
                                     </div>
@@ -241,7 +242,11 @@ $this->params['breadcrumbs'][] = $this->title;
 
 <?php
 Modal::begin([
-    'header' => Yii::t('main', 'Tech'),
+    'options' => [
+        //'id'=>'kartik-modal',
+        //'tabindex' => false,
+    ],
+    'header' => Yii::t('main', 'Modal'),
     'id' => 'modal',
     'size' => 'modal-lg'
 ]);
@@ -251,7 +256,7 @@ Modal::end();
 <?php
 $js = <<<JS
     $(function(){
-        $('#modalButton').click(function(){
+        $('.modalButton').click(function(){
             $('#modal').modal('show')
               .find('#modalContent')
               .load($(this).attr('value'));

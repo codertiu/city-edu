@@ -54,6 +54,7 @@ use backend\models\Instance;
                             'type' => DatePicker::TYPE_COMPONENT_APPEND,
                             'pluginOptions' => [
                                 'format' => 'yyyy-mm-dd',
+
                                 'todayHighlight' => true,
                                 'orientation' => "bottom"
                             ],
