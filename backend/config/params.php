@@ -13,7 +13,8 @@ return [
         3=>'Qatnashib ko\'rdi',
         4=>'Ro\'yxatdan o\'tdi',
         5=>'Rad etdi',
-        6=>'Qayta rad etildi'
+        6=>'Qayta rad etildi',
+        7=>'Kelmasdan rad etdi'
     ],
     'comfortable_time'=>[
         1 => 'Monday Wednesday Friday',
@@ -38,7 +39,7 @@ return [
         1=>'male'
     ],
     'active'=>[
-        1=>'active',
+        1=>'Active',
         2=>'Ketdi',
         3=>'Vaqtinchalik ketdi',
         4=>'Tugatib ketdi'
@@ -56,5 +57,9 @@ return [
         10=>'Oktabr',
         11=>'Noyabr',
         12=>'Dekabr'
+    ],
+    'type_of_reg'=>[
+        1=>'call-center',
+        2=>'reception'
     ]
 ];

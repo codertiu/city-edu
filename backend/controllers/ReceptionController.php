@@ -4,6 +4,7 @@ namespace backend\controllers;
 
 use backend\models\Comment;
 use backend\models\Note;
+use backend\models\ReceptionTech;
 use backend\models\Students;
 use Yii;
 use backend\models\Reception;
@@ -11,7 +12,7 @@ use backend\models\ReceptionSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
-
+use yii\web\UploadedFile;
 /**
  * ReceptionController implements the CRUD actions for Reception model.
  */
@@ -58,7 +59,8 @@ class ReceptionController extends Controller
         $form = new Reception();
         $searchModel = new ReceptionSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
-
+        $session = Yii::$app->session;
+        $session->set('type_of_reg',2);
         if (Yii::$app->request->isAjax && $form->load(Yii::$app->request->post())) {
             Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
             return \yii\widgets\ActiveForm::validate($form);
@@ -101,8 +103,14 @@ class ReceptionController extends Controller
         }
         if ($model->load(Yii::$app->request->post())) {
             $model->instance_id = 1;
-            if ($model->save()) {
-                return $this->redirect(['index']);
+            if($model->save(false)) {
+                if(Yii::$app->session->get('type_of_reg')==1){
+                    Yii::$app->session->remove('type_of_reg');
+                    return $this->redirect(['call-center']);
+                }else{
+                    Yii::$app->session->remove('type_of_reg');
+                    return $this->redirect(['index']);
+                }
             } else {
                 return $this->render('create', [
                     'model' => $model
@@ -196,6 +204,7 @@ class ReceptionController extends Controller
     {
         $model = Reception::findOne($changeId);
         $comment = new Comment();
+        $tech = ReceptionTech::find()->where(['reception_id'=>$model->id,'member_id'])->one();
         if (Yii::$app->request->isAjax && $model->load(Yii::$app->request->post())) {
             Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
             return \yii\widgets\ActiveForm::validate($model);
@@ -205,11 +214,11 @@ class ReceptionController extends Controller
 
             if (empty($model->comment_id)) {
                 $comment->name = $model->commentId;
-                $comment->save();
+                $comment->save(false);
                 $model->comment_id = $comment->id;
             }
             $model->instance_id = 5;
-            $model->save();
+            $model->save(false);
             return $this->redirect(Yii::$app->request->referrer);
         }
 
@@ -227,15 +236,61 @@ class ReceptionController extends Controller
             Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
             return \yii\widgets\ActiveForm::validate($model);
         }
-        if ($model->load(Yii::$app->request->post())) {
-            if ($model->save()){
+        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
 
+                //img
+                $model->image = UploadedFile::getInstance($model, 'image');
+                if($model->image) {
+                    $filename = md5(time() . Yii::$app->user->id . $model->image->baseName . rand(1, 1000000) . rand(1, 1000000)) . '.' . $model->image->extension;
+
+                    $model->image->saveAs('uploads/img/' . $filename);
+                    $model->image = 'uploads/img/' . $filename;
+
+                }
+                //pass_file
+                $model->pass_file = UploadedFile::getInstance($model, 'pass_file');
+                if($model->pass_file) {
+                    $filename = md5(time() . Yii::$app->user->id . $model->pass_file->baseName . rand(1, 1000000) . rand(1, 1000000)) . '.' . $model->pass_file->extension;
+                    $model->pass_file->saveAs('uploads/pass/' . $filename);
+                    $model->pass_file = 'uploads/pass/' .$filename;
+                }
+                //file
+                $model->file = UploadedFile::getInstance($model, 'file');
+                if($model->file) {
+                    $filename = md5(time() . Yii::$app->user->id . $model->file->baseName . rand(1, 1000000) . rand(1, 1000000)) . '.' . $model->file->extension;
+                    $model->file->saveAs('uploads/file/' . $filename);
+                    $model->file = 'uploads/file/' . $filename;
+                }
+
+                $model->active = 1;
+                $reception->instance_id = 4;
+                $reception->save();
+            if ($model->save()){
+                return $this->redirect(Yii::$app->request->referrer);
             }
         }
 
         return $this->renderAjax('students', [
             'model' => $model,
             'reception' => $reception
+        ]);
+    }
+
+    // class - center
+    public function actionCallCenter(){
+        $form = new Reception();
+        $searchModel = new ReceptionSearch();
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        $session = Yii::$app->session;
+        $session->set('type_of_reg',1);
+        if (Yii::$app->request->isAjax && $form->load(Yii::$app->request->post())) {
+            Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+            return \yii\widgets\ActiveForm::validate($form);
+        }
+        return $this->render('call-center', [
+            'form' => $form,
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
         ]);
     }
 }

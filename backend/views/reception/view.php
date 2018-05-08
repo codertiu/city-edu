@@ -44,6 +44,7 @@ $this->params['breadcrumbs'][] = $this->title;
                             <p>
                                 <? if ($model->instance_id == 1) { ?>
                                     <?= Html::button(Yii::t('main', 'Come'), ['value' => Url::to(['/reception-tech/create', 'id' => $model->id]), 'class' => 'btn btn-info modalButton']) ?>
+                                    <?= Html::a(Yii::t('main', 'Rad etdi'), ['change', 'changeId' => $model->id, 'position'=>7], ['class' => 'btn btn-danger']) ?>
                                 <? } else if ($model->instance_id == 2) { ?>
                                     <?= Html::a(Yii::t('main', 'Qatnashib ko\'rdi'), ['change', 'changeId' => $model->id, 'position'=>3], ['class' => 'btn btn-warning']) ?>
                                 <? } else if ($model->instance_id == 3) { ?>
@@ -139,7 +140,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                 </tbody>
                             </table>
                             <?php
-                            $teacher = \backend\models\ReceptionTech::find()->where(['reception_id' => $model->id])->one();
+                            $teacher = \backend\models\ReceptionTech::find()->where(['reception_id' => $model->id])->orderBy('id')->all();
                             if($teacher){
                                 if($model->instance_id == 2 ){
                                 ?>
@@ -159,10 +160,12 @@ $this->params['breadcrumbs'][] = $this->title;
                                     <th><?= Yii::t('main', 'Teacher') ?></th>
                                     </thead>
                                     <tbody>
+                                    <? foreach($teacher as $t) {?>
                                     <tr>
-                                        <td><?= $teacher->date ?></td>
-                                        <td><?= $teacher->member->fio ?></td>
+                                        <td><?= $t->date ?></td>
+                                        <td><?= $t->member->fio ?></td>
                                     </tr>
+                                    <?}?>
                                     </tbody>
                                 </table>
                             <?}?>

@@ -30,6 +30,7 @@ $this->registerCss($css);
     'enableClientValidation' => true,
     'options' => ['enctype' => 'multipart/form-data']
 ]); ?>
+<?= $form->field($model, 'reception_id')->hiddenInput(['value'=>$reception->id])->label(false) ?>
 <div class="row row-lg">
     <div class="col-lg-4  form-horizontal">
         <div class="form-group form-material">
@@ -80,9 +81,7 @@ $this->registerCss($css);
             <div class=" col-lg-12 col-sm-9">
                 <?= $form->field($model, 'tel', [
                     'template' => '{label} * {input}{error}{hint}'
-                ])->widget(\yii\widgets\MaskedInput::className(), [
-                    'mask' => '+\9\9899-999-99-99','value'=>$reception->tel,
-                ]) ?>
+                ])->textInput(['value'=>$reception->tel,'placeholder'=>'+99890-999-99-99']) ?>
 
             </div>
         </div>

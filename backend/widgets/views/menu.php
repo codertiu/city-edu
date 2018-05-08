@@ -7,7 +7,13 @@ use yii\helpers\Url;
         <div>
             <div>
                 <ul class="site-menu">
-                    <li class="site-menu-category">Основное</li>
+                    <li class="site-menu-category"><?=Yii::t('main','Основное')?></li>
+                    <li class="dropdown site-menu-item has-sub">
+                        <a class="dropdown-toggle" href="<?= Url::to(['/reception/call-center']) ?>" data-dropdown-toggle="false">
+                            <i class="site-menu-icon md-view-compact" aria-hidden="true"></i>
+                            <span class="site-menu-title"><?=Yii::t('main','Call Center')?></span>
+                        </a>
+                    </li>
                     <li class="dropdown site-menu-item has-sub">
                         <a class="dropdown-toggle" href="<?= Url::to(['/reception/index']) ?>" data-dropdown-toggle="false">
                             <i class="site-menu-icon md-view-compact" aria-hidden="true"></i>

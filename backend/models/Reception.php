@@ -58,8 +58,8 @@ class Reception extends ActiveRecord
     public function rules()
     {
         return [
-            [['edu_center_id', 'name', 'tel', 'coming_id', 'type_edu_id', 'date_coming', 'creater'], 'required'],
-            [['edu_center_id', 'coming_id', 'type_edu_id', 'creater',  'instance_id', 'comment_id','language','study_type'], 'integer'],
+            [['edu_center_id', 'name', 'tel', 'coming_id', 'type_edu_id', 'date_coming', 'creater','type_of_reg'], 'required'],
+            [['edu_center_id', 'coming_id', 'type_edu_id', 'creater',  'type_of_reg','instance_id', 'comment_id','language','study_type'], 'integer'],
             [['date_coming','dob','create_date', 'update_date'], 'safe'],
             [['name','surname','lavel','time','comfortable_time','comment','commentId'], 'string', 'max' => 255],
             [['tel','phone2','phone3','phone4'], 'string', 'max' => 35],
@@ -100,7 +100,8 @@ class Reception extends ActiveRecord
             'language'=>Yii::t('main','Language'),
             'time'=>Yii::t('main','Time'),
             'study_type'=>Yii::t('main','Study Type'),
-            'commentId'=>Yii::t('main','commentId')
+            'commentId'=>Yii::t('main','commentId'),
+            'type_of_reg'=>Yii::t('main','Type Of Reg')
         ];
     }
 

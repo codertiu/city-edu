@@ -58,8 +58,8 @@ class Students extends ActiveRecord
     public function rules()
     {
         return [
-            [['name', 'surname', 'tel', 'gendar', 'address', 'edu_center_id',  'dob', 'active'], 'required'],
-            [['gendar', 'member_id', 'reg_date', 'edu_center_id', 'active'], 'integer'],
+            [['name', 'surname', 'tel', 'gendar', 'address', 'edu_center_id',  'dob', 'active','reception_id'], 'required'],
+            [['gendar', 'member_id', 'reg_date', 'edu_center_id', 'active','reception_id'], 'integer'],
             [['dob'], 'safe'],
             [['name', 'surname', 'address', 'image', 'file', 'pass_file', 'email'], 'string', 'max' => 255],
             [['tel'], 'string', 'max' => 35],
@@ -97,6 +97,7 @@ class Students extends ActiveRecord
             'email' => Yii::t('main', 'Email'),
             'dob' => Yii::t('main', 'Dob'),
             'active' => Yii::t('main', 'Active'),
+            'reception_id' =>Yii::t('main','Reception Id')
         ];
     }
 

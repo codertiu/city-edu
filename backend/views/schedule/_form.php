@@ -29,6 +29,7 @@ use backend\models\Since;
             'enableAjaxValidation' => false,
             'enableClientValidation' => true,
         ]); ?>
+        <?= $form->field($model, 'reception_id')->hiddenInput(['value'=>0])->label(false) ?>
         <div class="row row-lg">
             <div class="col-lg-4  form-horizontal">
                 <div class="form-group form-material">

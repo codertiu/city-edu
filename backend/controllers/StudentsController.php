@@ -98,7 +98,7 @@ class StudentsController extends Controller
 
             $model->active = 1;
 
-            if ($model->save()) {
+            if ($model->save(false)) {
                 return $this->redirect(['view', 'id' => $model->id]);
             } /*else {
                 return print_r($model->errors);

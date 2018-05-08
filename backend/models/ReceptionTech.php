@@ -28,8 +28,8 @@ class ReceptionTech extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['reception_id', 'date', 'member_id'], 'required'],
-            [['reception_id', 'member_id'], 'integer'],
+            [['reception_id', 'date', 'member_id','ban'], 'required'],
+            [['reception_id', 'member_id','ban'], 'integer'],
             [['date'], 'safe'],
         ];
     }
@@ -44,6 +44,7 @@ class ReceptionTech extends \yii\db\ActiveRecord
             'reception_id' => Yii::t('main', 'Reception ID'),
             'date' => Yii::t('main', 'Date'),
             'member_id' => Yii::t('main', 'Member ID'),
+            'ban'=>Yii::t('main','Ban')
         ];
     }
     public function getMember(){

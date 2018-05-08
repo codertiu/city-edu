@@ -24,10 +24,8 @@ use backend\models\Instance;
             'enableClientValidation' => true,
             'action' =>['reception/create'],
             'method' => 'post'
-
         ]); ?>
-
-
+        <?= $form->field($model, 'type_of_reg')->hiddenInput(['value'=>Yii::$app->session->get('type_of_reg')])->label(false) ?>
         <div class="row row-lg">
 
             <div class="col-lg-4  form-horizontal">

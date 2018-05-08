@@ -18,7 +18,7 @@ class StudentsSearch extends Students
     public function rules()
     {
         return [
-            [['id', 'gendar', 'member_id', 'reg_date', 'edu_center_id', 'active'], 'integer'],
+            [['id', 'gendar', 'member_id', 'reg_date', 'edu_center_id', 'active','reception_id'], 'integer'],
             [['name', 'surname', 'tel', 'phone2', 'phone3', 'phone4', 'address', 'image', 'file', 'pass_file', 'email', 'dob'], 'safe'],
         ];
     }
@@ -66,6 +66,7 @@ class StudentsSearch extends Students
             'edu_center_id' => $this->edu_center_id,
             'dob' => $this->dob,
             'active' => $this->active,
+            'reception_id'=>$this->reception_id
         ]);
 
         $query->andFilterWhere(['like', 'name', $this->name])
