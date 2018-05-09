@@ -320,7 +320,7 @@ use webvimark\modules\UserManagement\UserManagementModule;
                         </li>
                         <li class="divider" role="presentation"></li>-->
                         <li role="presentation">
-                            <?= \yii\helpers\Html::a(Yii::t('main', '<i class="icon md-power" aria-hidden="true"></i> Выход'), ['/site/logout'], ['data-method' => 'post']) ?>
+                            <?= \yii\helpers\Html::a(Yii::t('main', '<i class="icon md-power" aria-hidden="true"></i> Выход'), ['/user-management/auth/logout'], ['data-method' => 'post']) ?>
                         </li>
                     </ul>
                 </li>

@@ -57,7 +57,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                     </tr>
                                     <tr>
                                         <td><?= Yii::t('main', 'Date of Birth') ?></td>
-                                        <td><?= $model->dob ?></td>
+                                        <td><?= date('d/M/Y',strtotime($model->dob)) ?></td>
                                     </tr>
                                     <tr>
                                         <td><?= Yii::t('main', 'Gender') ?></td>

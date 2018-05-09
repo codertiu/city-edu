@@ -1,6 +1,6 @@
 <?
 use yii\helpers\Url;
-
+use webvimark\modules\UserManagement\models\User;
 ?>
 <div class="site-menubar">
     <div class="site-menubar-body">
@@ -8,12 +8,19 @@ use yii\helpers\Url;
             <div>
                 <ul class="site-menu">
                     <li class="site-menu-category"><?=Yii::t('main','Основное')?></li>
+                    <?
+                    if (User::hasRole('call-center')) {
+                    ?>
                     <li class="dropdown site-menu-item has-sub">
                         <a class="dropdown-toggle" href="<?= Url::to(['/reception/call-center']) ?>" data-dropdown-toggle="false">
                             <i class="site-menu-icon md-view-compact" aria-hidden="true"></i>
                             <span class="site-menu-title"><?=Yii::t('main','Call Center')?></span>
                         </a>
                     </li>
+                    <? }?>
+                    <?
+                        if(User::hasRole('Administration')){
+                    ?>
                     <li class="dropdown site-menu-item has-sub">
                         <a class="dropdown-toggle" href="<?= Url::to(['/reception/index']) ?>" data-dropdown-toggle="false">
                             <i class="site-menu-icon md-view-compact" aria-hidden="true"></i>
@@ -96,6 +103,7 @@ use yii\helpers\Url;
                                 <div class="scrollable-bar scrollable-bar-vertical scrollable-bar-hide is-disabled" draggable="false"><div class="scrollable-bar-handle"></div></div></div>
                         </div>
                     </li>
+                    <?}?>
                 </ul>
             </div>
         </div>

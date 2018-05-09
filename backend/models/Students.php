@@ -58,7 +58,7 @@ class Students extends ActiveRecord
     public function rules()
     {
         return [
-            [['name', 'surname', 'tel', 'gendar', 'address', 'edu_center_id',  'dob', 'active','reception_id'], 'required'],
+            [['name', 'surname', 'tel', 'gendar', 'address', 'edu_center_id',  'dob', 'active','reception_id','pass_file','image'], 'required'],
             [['gendar', 'member_id', 'reg_date', 'edu_center_id', 'active','reception_id'], 'integer'],
             [['dob'], 'safe'],
             [['name', 'surname', 'address', 'image', 'file', 'pass_file', 'email'], 'string', 'max' => 255],

@@ -197,7 +197,7 @@ use backend\models\Instance;
             </div>
             <div class="col-lg-4 form-horizontal">
                 <div class="form-group form-material">
-                    <div class=" col-lg-12 col-sm-9">
+                    <div class="col-lg-12 col-sm-9">
                         <?= $form->field($model, 'time')->widget(\yii\widgets\MaskedInput::className(), [
                             'mask' => '99:99 from 99:99 to',
                         ])

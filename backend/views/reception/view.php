@@ -4,7 +4,7 @@ use yii\helpers\Html;
 use yii\widgets\DetailView;
 use yii\helpers\Url;
 use yii\bootstrap\Modal;
-
+use webvimark\modules\UserManagement\models\User;
 /* @var $this yii\web\View */
 /* @var $model backend\models\Reception */
 
@@ -41,6 +41,9 @@ $this->params['breadcrumbs'][] = $this->title;
                 <div class="panel-body">
                     <div class="row row-lg">
                         <div class="col-lg-5">
+                            <?php
+                                if (User::hasRole('Teacher')) {
+                            ?>
                             <p>
                                 <? if ($model->instance_id == 1) { ?>
                                     <?= Html::button(Yii::t('main', 'Come'), ['value' => Url::to(['/reception-tech/create', 'id' => $model->id]), 'class' => 'btn btn-info modalButton']) ?>
@@ -48,12 +51,13 @@ $this->params['breadcrumbs'][] = $this->title;
                                 <? } else if ($model->instance_id == 2) { ?>
                                     <?= Html::a(Yii::t('main', 'Qatnashib ko\'rdi'), ['change', 'changeId' => $model->id, 'position'=>3], ['class' => 'btn btn-warning']) ?>
                                 <? } else if ($model->instance_id == 3) { ?>
-                                    <?= Html::button(Yii::t('main', 'Ro\'yxatdan o\'tdi'), ['value' => Url::to(['/reception/register', 'id' => $model->id]), 'class' => 'btn btn-success modalButton']) ?>
+                                    <?= Html::a(Yii::t('main', 'Ro\'yxatdan o\'tdi'), ['/reception/register', 'id' => $model->id], ['class' => 'btn btn-success']) ?>
                                     <?= Html::button(Yii::t('main', 'Rad etdi'), ['value' => Url::to(['/reception/comment', 'changeId' => $model->id]), 'class' => 'btn btn-danger modalButton']) ?>
-                                <? } else if ($model->instance_id == 5) {?>
+                                <? } else if ($model->instance_id == 5 || $model->instance_id == 7) {?>
                                     <?= Html::a(Yii::t('main', 'Qayta urunish'), ['change', 'changeId' => $model->id, 'position'=>1], ['class' => 'btn btn-info']) ?>
                                 <? } ?>
                             </p>
+                                    <?}?>
                             <table class="table table-bordered">
                                 <thead>
                                 <tr>
