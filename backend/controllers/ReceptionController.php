@@ -10,6 +10,7 @@ use backend\models\StudentsInfo;
 use Yii;
 use backend\models\Reception;
 use backend\models\ReceptionSearch;
+use yii\data\Pagination;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -215,7 +216,7 @@ class ReceptionController extends Controller
     {
         $model = Reception::findOne($changeId);
         $comment = new Comment();
-        $tech = ReceptionTech::find()->where(['reception_id' => $model->id, 'member_id'])->one();
+        //$tech = ReceptionTech::find()->where(['reception_id' => $model->id, 'member_id'])->one();
         if (Yii::$app->request->isAjax && $model->load(Yii::$app->request->post())) {
             Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
             return \yii\widgets\ActiveForm::validate($model);
@@ -317,6 +318,24 @@ class ReceptionController extends Controller
         } else {
             throw new NotFoundHttpException('#404.');
         }
+    }
+
+    // Cancel list
+
+    public function actionCancel(){
+        $model = Reception::find()->where(['in','instance_id',[5,6,7]]);
+        $pagination = new Pagination([
+           'defaultPageSize'=>20,
+            'totalCount'=>$model->count()
+        ]);
+        $model = $model->orderBy(['update_date'=>SORT_DESC])
+                        ->offset($pagination->offset)
+                        ->limit($pagination->limit)
+                        ->all();
+        return $this->render('cancel',[
+            'model'=>$model,
+            'pagination'=>$pagination
+        ]);
     }
 }
 

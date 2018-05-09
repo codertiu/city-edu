@@ -21,7 +21,7 @@ $this->params['breadcrumbs'][] = $this->title;
                             if(Yii::$app->session->hasFlash('success')){
                                 echo "<div class='alert alert-success'>".Yii::$app->session->getFlash('success')."</div>";
                             }
-                        ?>>
+                        ?>
                         <h1><?= Html::encode($this->title) ?></h1>
                         <?php echo $this->render('_form', ['model' => $form]); ?>
 

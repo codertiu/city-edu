@@ -16,16 +16,38 @@ use webvimark\modules\UserManagement\models\User;
                             <i class="site-menu-icon md-view-compact" aria-hidden="true"></i>
                             <span class="site-menu-title"><?=Yii::t('main','Call Center')?></span>
                         </a>
+
                     </li>
                     <? }?>
                     <?
                         if(User::hasRole('Administration')){
                     ?>
                     <li class="dropdown site-menu-item has-sub">
-                        <a class="dropdown-toggle" href="<?= Url::to(['/reception/index']) ?>" data-dropdown-toggle="false">
-                            <i class="site-menu-icon md-view-compact" aria-hidden="true"></i>
+                        <a class="dropdown-toggle waves-effect waves-classic" href="javascript:void(0)" data-dropdown-toggle="false">
+                            <i class="site-menu-icon md-apps" aria-hidden="true"></i>
                             <span class="site-menu-title"><?=Yii::t('main','Reception')?></span>
+                            <span class="site-menu-arrow"></span>
                         </a>
+                        <div class="dropdown-menu">
+                            <div class="site-menu-scroll-wrap is-list scrollable scrollable-inverse is-enabled scrollable-vertical" style="position: relative;">
+                                <div class="scrollable-container" style="height: 80px; width: 100px;">
+                                    <div class="scrollable-content" style="width: 100px;">
+                                        <ul class="site-menu-sub site-menu-normal-list">
+                                            <li class="site-menu-item">
+                                                <a class="animsition-link waves-effect waves-classic" href="<?= Url::to(['/reception/index']) ?>">
+                                                    <span class="site-menu-title"><?=Yii::t('main','Reception')?></span>
+                                                </a>
+                                            </li>
+                                            <li class="site-menu-item">
+                                                <a class="animsition-link waves-effect waves-classic" href="<?= Url::to(['/reception/cancel']) ?>">
+                                                    <span class="site-menu-title"><?=Yii::t('main','Rad etganlar')?></span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="scrollable-bar scrollable-bar-vertical scrollable-bar-hide is-disabled" draggable="false"><div class="scrollable-bar-handle"></div></div></div>
+                        </div>
                     </li>
                     <li class="dropdown site-menu-item has-sub">
                         <a class="dropdown-toggle" href="<?= Url::to(['/members/index']) ?>" data-dropdown-toggle="false">

@@ -32,6 +32,10 @@ JS;
     <?php $this->beginBody() ?>
     <?= \backend\widgets\NavBar::widget() ?>
     <?= \backend\widgets\Menu::widget() ?>
+    <!--<?= Breadcrumbs::widget([
+        'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
+    ]) ?>
+    <?= Alert::widget() ?>-->
     <?= $content ?>
     <!-- Footer -->
     <?= \backend\widgets\Footer::widget() ?>
