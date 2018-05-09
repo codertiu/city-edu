@@ -19,7 +19,7 @@ class ReceptionSearch extends Reception
     {
         return [
             [['id', 'edu_center_id', 'coming_id', 'type_edu_id', 'creater',  'instance_id', 'comment_id','study_type'], 'integer'],
-            [['name','surname', 'tel', 'date_coming','create_date','update_date'], 'safe'],
+            [['name','surname', 'tel', 'date_coming','create_date','update_date','call_name'], 'safe'],
         ];
     }
 
@@ -75,6 +75,7 @@ class ReceptionSearch extends Reception
         $query->andFilterWhere(['like', 'name', $this->name])
             ->andFilterWhere(['like', 'surname', $this->surname])
             ->andFilterWhere(['like', 'create_date', $this->create_date])
+            ->andFilterWhere(['like','call_name',$this->call_name])
             ->andFilterWhere(['like', 'tel', $this->tel]);
 
         return $dataProvider;

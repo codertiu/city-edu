@@ -46,6 +46,7 @@ $this->title = Yii::t('main', 'Students Reg');
                     'enableClientValidation' => true,
                     'options' => ['enctype' => 'multipart/form-data']
                 ]); ?>
+                <p><?=Yii::t('main','* belgi bor maydonlar to\'ldirilishi shart')?></p>
                 <?= $form->field($model, 'reception_id')->hiddenInput(['value' => $reception->id])->label(false) ?>
                 <div class="row row-lg">
                     <div class="col-lg-4  form-horizontal">

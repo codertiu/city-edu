@@ -23,7 +23,7 @@ use backend\models\Instance;
             'enableAjaxValidation' => false,
             'enableClientValidation' => true
         ]); ?>
-
+        <p><?=Yii::t('main','* belgi bor maydonlar to\'ldirilishi shart')?></p>
 
         <div class="row row-lg">
 
@@ -214,7 +214,7 @@ use backend\models\Instance;
             </div>
         </div>
         <div class="row row-lg">
-            <div class="col-lg-4 form-horizontal">
+            <div class="col-lg-3 form-horizontal">
                 <div class="form-group form-material">
                     <div class=" col-lg-12 col-sm-9">
                         <?= $form->field($model, 'study_type')->radioList(
@@ -223,7 +223,16 @@ use backend\models\Instance;
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4 form-horizontal">
+            <div class="col-lg-3 form-horizontal">
+                <div class="form-group form-material">
+                    <div class=" col-lg-12 col-sm-9">
+                        <?= $form->field($model, 'call_name',[
+                            'template' => '{label} * {input}{error}{hint}'
+                        ])->textInput() ?>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 form-horizontal">
                 <div class="form-group form-material">
                     <div class=" col-lg-12 col-sm-9">
                         <?= $form->field($model, 'edu_center_id',[
@@ -239,7 +248,7 @@ use backend\models\Instance;
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4 form-horizontal">
+            <div class="col-lg-3 form-horizontal">
                 <div class="form-group form-material">
                     <div class="col-lg-12 col-sm-9">
                         <?= $form->field($model, 'creater',[

@@ -178,8 +178,8 @@ $this->params['breadcrumbs'][] = $this->title;
                             <div class="example example-well margin-top-0 padding-30">
                                 <div id="examplePanel" class="panel margin-bottom-0">
                                     <div class="panel-heading">
-                                        <h3 class="panel-title"><?= Yii::t('main', 'Comment') ?>
-                                            - <?= $model->user->username ?></h3>
+                                        <h3 class="panel-title"><?= Yii::t('main', 'Call Name') ?>
+                                            - <?= $model->call_name ?></h3>
                                     </div>
                                     <div class="panel-body">
 

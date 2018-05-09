@@ -62,6 +62,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                         'name',
                                         'surname',
                                         'tel',
+                                        //'call_name'
                                         //'coming_id',
                                         [
                                             'attribute' => 'create_date',

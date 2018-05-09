@@ -58,11 +58,11 @@ class Reception extends ActiveRecord
     public function rules()
     {
         return [
-            [['edu_center_id', 'name', 'tel', 'coming_id', 'type_edu_id', 'date_coming', 'creater','type_of_reg'], 'required'],
+            [['edu_center_id', 'name', 'tel', 'coming_id', 'type_edu_id', 'date_coming', 'creater','type_of_reg','call_name'], 'required'],
             [['edu_center_id', 'coming_id', 'type_edu_id', 'creater',  'type_of_reg','instance_id', 'comment_id','language','study_type'], 'integer'],
             [['date_coming','dob','create_date', 'update_date'], 'safe'],
             [['name','surname','lavel','time','comfortable_time','comment','commentId'], 'string', 'max' => 255],
-            [['tel','phone2','phone3','phone4'], 'string', 'max' => 35],
+            [['tel','phone2','phone3','phone4','call_name'], 'string', 'max' => 35],
             [['comment_id', 'commentId'], 'my_required','skipOnEmpty' => false],
             [['tel'], 'unique','targetClass' => '\backend\models\Reception', 'message'=>Yii::t('main','Mobile No Already Exist'),'when' => function ($model, $attribute) {
                 return $model->{$attribute} !== $model->getOldAttribute($attribute);
@@ -101,7 +101,8 @@ class Reception extends ActiveRecord
             'time'=>Yii::t('main','Time'),
             'study_type'=>Yii::t('main','Study Type'),
             'commentId'=>Yii::t('main','commentId'),
-            'type_of_reg'=>Yii::t('main','Type Of Reg')
+            'type_of_reg'=>Yii::t('main','Type Of Reg'),
+            'call_name'=>Yii::t('main','Call Name')
         ];
     }
 
