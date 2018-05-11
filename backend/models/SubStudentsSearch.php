@@ -18,7 +18,7 @@ class SubStudentsSearch extends SubStudents
     public function rules()
     {
         return [
-            [['id', 'students_id', 'group_id', 'sub_std_status_id'], 'integer'],
+            [['id', 'students_id', 'group_id'], 'integer'],
             [['begin_date', 'end_date'], 'safe'],
         ];
     }
@@ -64,7 +64,6 @@ class SubStudentsSearch extends SubStudents
             'begin_date' => $this->begin_date,
             'end_date' => $this->end_date,
             'group_id' => $this->group_id,
-            'sub_std_status_id' => $this->sub_std_status_id,
         ]);
 
         return $dataProvider;

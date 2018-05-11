@@ -36,6 +36,9 @@ class Contract extends \yii\db\ActiveRecord
             [['date'], 'safe'],
             [['contract'], 'string', 'max' => 150],
             [['contract'], 'unique'],
+            [['contract'], 'unique','targetClass' => '\backend\models\Contract', 'message'=>Yii::t('main','Contract Already Exist'),'when' => function ($model, $attribute) {
+                return $model->{$attribute} !== $model->getOldAttribute($attribute);
+            },],
         ];
     }
 

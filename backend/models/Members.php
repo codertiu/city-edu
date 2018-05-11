@@ -3,6 +3,7 @@
 namespace backend\models;
 
 use Yii;
+use yii\web\User;
 
 /**
  * This is the model class for table "members".
@@ -37,12 +38,14 @@ class Members extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['fio', 'tel', 'address', 'gendar', 'edu_center_id', 'img', 'file'], 'required'],
+            [['fio', 'tel', 'address', 'gendar', 'edu_center_id', 'img', 'file','members_status'], 'required'],
             [['about'], 'string'],
-            [['gendar', 'edu_center_id', 'active'], 'integer'],
+            [['gendar', 'edu_center_id', 'active','user_id','members_status'], 'integer'],
             [['fio', 'address', 'img', 'file'], 'string', 'max' => 255],
             [['tel'], 'string', 'max' => 35],
-            [['tel'], 'unique'],
+            [['tel'], 'unique','targetClass' => '\backend\models\Members', 'message'=>Yii::t('main','Mobile No Already Exist'),'when' => function ($model, $attribute) {
+                return $model->{$attribute} !== $model->getOldAttribute($attribute);
+            },],
         ];
     }
 
@@ -64,6 +67,16 @@ class Members extends \yii\db\ActiveRecord
             'file' => Yii::t('main', 'File'),
             'filecv' => Yii::t('main', 'File'),
             'fileru' => Yii::t('main', 'Img'),
+            'user_id'=>Yii::t('main','User ID'),
+            'members_status'=>Yii::t('main','Members Status')
         ];
+    }
+
+    public function getUser(){
+        return $this->hasOne(User::className(),['id'=>'user_id']);
+    }
+
+    public function getEduCenter(){
+        return $this->hasOne(EduCenter::className(),['id'=>'edu_center_id']);
     }
 }

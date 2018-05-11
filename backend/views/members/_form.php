@@ -16,15 +16,6 @@ use yii\helpers\ArrayHelper;
 /* @var $this yii\web\View */
 /* @var $model backend\models\Members */
 /* @var $form yii\widgets\ActiveForm */
-
-
-$gendar = [
-
-    '1' => 'Erkak',
-
-    '0' => 'Ayol',
-
-];
 ?>
 
 <div class="panel">
@@ -34,7 +25,10 @@ $gendar = [
         </h3>
     </div>
     <div class="panel-body">
-        <?php $form = ActiveForm::begin(); ?>
+        <?php $form = ActiveForm::begin([
+            'enableAjaxValidation' => false,
+            'enableClientValidation' => true,
+        ]); ?>
         <div class="row row-lg">
             <div class="col-lg-3  form-horizontal">
                 <div class="form-group form-material">
@@ -79,7 +73,7 @@ $gendar = [
 
         <?= $form->field($model, 'about')->textarea(['rows' => 6]) ?>
 
-        <?= $form->field($model, 'gendar')->dropDownlist($gendar, ['prompt' => '---']); ?>
+        <?= $form->field($model, 'gendar')->radioList(Yii::$app->params['gender']); ?>
         <div class="col-lg-12 form-horizontal" >
             <div class="col-lg-3 form-horizontal" >
                 <div class=" col-lg-12 col-sm-9" >

@@ -51,4 +51,11 @@ class StudentsPay extends \yii\db\ActiveRecord
             'for_month' => Yii::t('main', 'For Month'),
         ];
     }
+
+    public function getStudents(){
+        return $this->hasOne(Students::className(),['id'=>'students_id']);
+    }
+    public function getContract(){
+        return $this->hasOne(Contract::className(),['id'=>'contract_id']);
+    }
 }

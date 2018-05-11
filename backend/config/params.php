@@ -61,5 +61,23 @@ return [
     'type_of_reg'=>[
         1=>'call-center',
         2=>'reception'
+    ],
+    'mark_status'=>[
+        1=>'Home work',
+        2=>'Discipline',
+        3=>'Like',
+        4=>'Grammer',
+        5=>'Vocabulary',
+        6=>'Speaking',
+        7=>'Listening',
+        8=>'Reading',
+        9=>'Writing'
+    ],
+    'member_status'=>[
+        1=>'Call - center',
+        2=>'Administration',
+        3=>'Students',
+        4=>'Teacher',
+        5=>'Admin'
     ]
 ];

@@ -31,6 +31,9 @@ use yii\db\ActiveRecord;
 class Students extends ActiveRecord
 {
 
+    public $file2;
+    public $pass_file2;
+    public $image2;
     public function behaviors()
     {
         return [
@@ -59,17 +62,17 @@ class Students extends ActiveRecord
     {
         return [
             [['name', 'surname', 'tel', 'gendar', 'address', 'edu_center_id',  'dob', 'active','reception_id','pass_file','image'], 'required'],
-            [['gendar', 'member_id', 'reg_date', 'edu_center_id', 'active','reception_id'], 'integer'],
+            [['gendar', 'member_id', 'edu_center_id', 'active','reception_id'], 'integer'],
             [['dob'], 'safe'],
-            [['name', 'surname', 'address', 'image', 'file', 'pass_file', 'email'], 'string', 'max' => 255],
+            [['name', 'surname', 'address', 'reg_date','image', 'file', 'pass_file', 'email'], 'string', 'max' => 255],
             [['tel'], 'string', 'max' => 35],
             [['phone2', 'phone3', 'phone4'], 'string', 'max' => 25],
             [['tel'], 'unique','targetClass' => '\backend\models\Reception', 'message'=>Yii::t('main','Mobile No Already Exist'),'when' => function ($model, $attribute) {
                 return $model->{$attribute} !== $model->getOldAttribute($attribute);
             },],
             [['email'],'email'],
-            [['file','pass_file','image'],'file']
-
+            [['file','pass_file','image'],'file'],
+            [['file2','pass_file2','image2'],'file']
         ];
     }
 
@@ -94,6 +97,9 @@ class Students extends ActiveRecord
             'image' => Yii::t('main', 'Image'),
             'file' => Yii::t('main', 'File'),
             'pass_file' => Yii::t('main', 'Pass File'),
+            'image2' => Yii::t('main', 'Image2'),
+            'file2' => Yii::t('main', 'File2'),
+            'pass_file2' => Yii::t('main', 'Pass File2'),
             'email' => Yii::t('main', 'Email'),
             'dob' => Yii::t('main', 'Dob'),
             'active' => Yii::t('main', 'Active'),
@@ -111,8 +117,19 @@ class Students extends ActiveRecord
         return $this->hasOne(EduCenter::className(),['id'=>'edu_center_id']);
     }
 
+    public function getWithUs(){
+        $date1=date_create(date('Y-m-d'));
+        $date2=date_create(date('Y-m-d', strtotime($this->reg_date)));
+        $diff=date_diff($date2,$date1);
+        return $diff->format("%R%a days");
+    }
     public function beforeDelete()
     {
+        $model = Students::find()->where(['students_id'=>$this->id])->all();
+        foreach($model as $one){
+            $one->delete();
+        }
+
         if(is_file($this->image)){
             @unlink($this->image);
         }

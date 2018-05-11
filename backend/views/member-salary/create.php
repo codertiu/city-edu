@@ -4,19 +4,18 @@ use yii\helpers\Html;
 
 
 /* @var $this yii\web\View */
-/* @var $model backend\models\Contract */
+/* @var $model backend\models\MemberSalary */
 
-$this->title = Yii::t('main', 'Create Contract');
-$this->params['breadcrumbs'][] = ['label' => Yii::t('main', 'Contracts'), 'url' => ['index']];
+$this->title = 'Create Member Salary';
+$this->params['breadcrumbs'][] = ['label' => 'Member Salaries', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="contract-create">
+<div class="member-salary-create">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
     <?= $this->render('_form', [
         'model' => $model,
-        'id'=>$id
     ]) ?>
 
 </div>

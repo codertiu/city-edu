@@ -10,7 +10,10 @@ use yii\widgets\ActiveForm;
 
 <div class="note-form">
 
-    <?php $form = ActiveForm::begin(); ?>
+    <?php $form = ActiveForm::begin([
+        'enableAjaxValidation' => false,
+        'enableClientValidation' => true,
+    ]); ?>
 
     <?= $form->field($model, 'reception_id')->textInput() ?>
 

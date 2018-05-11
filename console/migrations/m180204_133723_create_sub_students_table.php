@@ -18,8 +18,6 @@ class m180204_133723_create_sub_students_table extends Migration
             'begin_date' => $this->date()->notNull(),
             'end_date' => $this->date()->notNull(),
             'group_id' => $this->integer()->notNull(),
-            'sub_std_status_id' => $this->integer()->notNull(),
-
         ]);
     }
 

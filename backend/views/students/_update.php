@@ -144,7 +144,7 @@ use kartik\file\FileInput;
         <div class="form-group">
             <div class="col-lg-12 col-sm-9">
                 <div class="input-group input-group-file">
-                    <?= $form->field($model, 'image', [
+                    <?= $form->field($model, 'image2', [
                         'template' => '{label} * {input}{error}{hint}'
                     ])->fileInput(['class' => 'form-control']); ?>
                 </div>
@@ -155,7 +155,7 @@ use kartik\file\FileInput;
         <div class="form-group">
             <div class=" col-lg-12 col-sm-9">
                 <div class="input-group input-group-file">
-                    <?= $form->field($model, 'pass_file', [
+                    <?= $form->field($model, 'pass_file2', [
                         'template' => '{label} * {input}{error}{hint}'
                     ])->fileInput(['class' => 'form-control']); ?>
                 </div>
@@ -167,7 +167,7 @@ use kartik\file\FileInput;
         <div class="form-group">
             <div class=" col-lg-12 col-sm-9">
                 <div class="input-group input-group-file">
-                    <?= $form->field($model, 'file')->fileInput(['class' => 'form-control']); ?>
+                    <?= $form->field($model, 'file2')->fileInput(['class' => 'form-control']); ?>
                 </div>
             </div>
         </div>

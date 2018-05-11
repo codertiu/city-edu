@@ -3,19 +3,19 @@
 namespace backend\controllers;
 
 use Yii;
-use backend\models\StudentsPay;
-use backend\models\StudentsPaySearch;
+use backend\models\Mark;
+use backend\models\MarkSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * StudentsPayController implements the CRUD actions for StudentsPay model.
+ * MarkController implements the CRUD actions for Mark model.
  */
-class StudentsPayController extends Controller
+class MarkController extends Controller
 {
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function behaviors()
     {
@@ -30,12 +30,12 @@ class StudentsPayController extends Controller
     }
 
     /**
-     * Lists all StudentsPay models.
+     * Lists all Mark models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new StudentsPaySearch();
+        $searchModel = new MarkSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -45,7 +45,7 @@ class StudentsPayController extends Controller
     }
 
     /**
-     * Displays a single StudentsPay model.
+     * Displays a single Mark model.
      * @param integer $id
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
@@ -58,47 +58,45 @@ class StudentsPayController extends Controller
     }
 
     /**
-     * Creates a new StudentsPay model.
+     * Creates a new Mark model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
-    public function actionCreate($id)
+    public function actionCreate()
     {
-        $model = new StudentsPay();
+        $model = new Mark();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(Yii::$app->request->referrer);
+            return $this->redirect(['view', 'id' => $model->id]);
         }
 
-        return $this->renderAjax('create', [
+        return $this->render('create', [
             'model' => $model,
-            'id'=>$id
         ]);
     }
 
     /**
-     * Updates an existing StudentsPay model.
+     * Updates an existing Mark model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
-    public function actionUpdate($id,$st)
+    public function actionUpdate($id)
     {
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(Yii::$app->request->referrer);
+            return $this->redirect(['view', 'id' => $model->id]);
         }
 
-        return $this->renderAjax('update', [
+        return $this->render('update', [
             'model' => $model,
-            'id'=>$st
         ]);
     }
 
     /**
-     * Deletes an existing StudentsPay model.
+     * Deletes an existing Mark model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -112,18 +110,18 @@ class StudentsPayController extends Controller
     }
 
     /**
-     * Finds the StudentsPay model based on its primary key value.
+     * Finds the Mark model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return StudentsPay the loaded model
+     * @return Mark the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = StudentsPay::findOne($id)) !== null) {
+        if (($model = Mark::findOne($id)) !== null) {
             return $model;
         }
 
-        throw new NotFoundHttpException(Yii::t('main', 'The requested page does not exist.'));
+        throw new NotFoundHttpException('The requested page does not exist.');
     }
 }

@@ -48,7 +48,7 @@ use kartik\file\FileInput;
                 ])->widget(DatePicker::classname(), [
                     'language' => 'ru',
                     'type' => DatePicker::TYPE_COMPONENT_APPEND,
-                    'value'=>'2018-04-12',
+                    //'value'=>'2018-04-12',
                     'pluginOptions' => [
                         'autoclose'=>true,
                         'format' => 'yyyy-mm-dd',

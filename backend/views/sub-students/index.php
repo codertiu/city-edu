@@ -36,7 +36,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                         'begin_date',
                                         'end_date',
                                         'group_id',
-                                        //'sub_std_status_id',
+
 
                                         ['class' => 'yii\grid\ActionColumn'],
                                     ],

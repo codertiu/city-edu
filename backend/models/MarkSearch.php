@@ -5,26 +5,27 @@ namespace backend\models;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use backend\models\Members;
+use backend\models\Mark;
 
 /**
- * MembersSearch represents the model behind the search form of `backend\models\Members`.
+ * MarkSearch represents the model behind the search form of `backend\models\Mark`.
  */
-class MembersSearch extends Members
+class MarkSearch extends Mark
 {
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function rules()
     {
         return [
-            [['id', 'gendar', 'edu_center_id', 'active','user_id','members_status'], 'integer'],
-            [['fio', 'tel', 'address', 'about', 'img', 'file'], 'safe'],
+            [['id', 'mark_status', 'member_id', 'students_id'], 'integer'],
+            [['date', 'comment'], 'safe'],
+            [['mark'], 'number'],
         ];
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function scenarios()
     {
@@ -41,7 +42,7 @@ class MembersSearch extends Members
      */
     public function search($params)
     {
-        $query = Members::find();
+        $query = Mark::find();
 
         // add conditions that should always apply here
 
@@ -60,19 +61,14 @@ class MembersSearch extends Members
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
-            'gendar' => $this->gendar,
-            'edu_center_id' => $this->edu_center_id,
-            'active' => $this->active,
-            'user_id'=>$this->user_id,
-            'members_status'=>$this->members_status
+            'date' => $this->date,
+            'mark_status' => $this->mark_status,
+            'mark' => $this->mark,
+            'member_id' => $this->member_id,
+            'students_id' => $this->students_id,
         ]);
 
-        $query->andFilterWhere(['like', 'fio', $this->fio])
-            ->andFilterWhere(['like', 'tel', $this->tel])
-            ->andFilterWhere(['like', 'address', $this->address])
-            ->andFilterWhere(['like', 'about', $this->about])
-            ->andFilterWhere(['like', 'img', $this->img])
-            ->andFilterWhere(['like', 'file', $this->file]);
+        $query->andFilterWhere(['like', 'comment', $this->comment]);
 
         return $dataProvider;
     }

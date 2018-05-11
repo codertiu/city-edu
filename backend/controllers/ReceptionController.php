@@ -250,7 +250,7 @@ class ReceptionController extends Controller
                 Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
                 return \yii\widgets\ActiveForm::validate($model);
             }
-            if ($model->load(Yii::$app->request->post())) {
+            if ($model->load(Yii::$app->request->post()) && $students_info->load(Yii::$app->request->post())) {
 
                 //img
                 $model->image = UploadedFile::getInstance($model, 'image');
@@ -281,7 +281,7 @@ class ReceptionController extends Controller
                     $reception->instance_id = 4;
                     $reception->save(false);
                     $students_info->students_id = $model->id;
-                    $students_info->save(false);
+                    $students_info->save();
                     \Yii::$app->session->setFlash('success', Yii::t('main', 'Student Reg'));
                     return $this->redirect(['index']);
                 }

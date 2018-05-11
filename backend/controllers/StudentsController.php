@@ -65,7 +65,6 @@ class StudentsController extends Controller
     public function actionCreate()
     {
         $model = new Students();
-
         if (Yii::$app->request->isAjax && $model->load(Yii::$app->request->post())) {
             Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
             return \yii\widgets\ActiveForm::validate($model);
@@ -107,6 +106,7 @@ class StudentsController extends Controller
 
         return $this->render('create', [
             'model' => $model,
+
         ]);
     }
 
@@ -129,11 +129,11 @@ class StudentsController extends Controller
         }
 
         if ($model->load(Yii::$app->request->post())) {
-            //img
-            $model->image = UploadedFile::getInstance($model, 'image');
-            if(!empty($model->image)) {
-                $filename = md5(time() . Yii::$app->user->id . $model->image->baseName . rand(1, 1000000) . rand(1, 1000000)) . '.' . $model->image->extension;
-                $model->image->saveAs('uploads/img/' . $filename);
+            //img2
+            $model->image2 = UploadedFile::getInstance($model, 'image2');
+            if(!empty($model->image2)) {
+                $filename = md5(time() . Yii::$app->user->id . $model->image2->baseName . rand(1, 1000000) . rand(1, 1000000)) . '.' . $model->image2->extension;
+                $model->image2->saveAs('uploads/img/' . $filename);
                 $model->image = 'uploads/img/' . $filename;
                 if(is_file($old_image)) {
                     @unlink($old_image);
@@ -141,11 +141,11 @@ class StudentsController extends Controller
             }else{
                 $model->image = $old_image;
             }
-            //pass_file
-            $model->pass_file = UploadedFile::getInstance($model, 'pass_file');
-            if(!empty($model->pass_file)) {
-                $filename = md5(time() . Yii::$app->user->id . $model->pass_file->baseName . rand(1, 1000000) . rand(1, 1000000)) . '.' . $model->pass_file->extension;
-                $model->pass_file->saveAs('uploads/pass/' . $filename);
+            //pass_file2
+            $model->pass_file2 = UploadedFile::getInstance($model, 'pass_file2');
+            if(!empty($model->pass_file2)) {
+                $filename = md5(time() . Yii::$app->user->id . $model->pass_file2->baseName . rand(1, 1000000) . rand(1, 1000000)) . '.' . $model->pass_file2->extension;
+                $model->pass_file2->saveAs('uploads/pass/' . $filename);
                 $model->pass_file = 'uploads/pass/' .$filename;
                 if(is_file($old_pass)) {
                     @unlink($old_pass);
@@ -153,11 +153,11 @@ class StudentsController extends Controller
             }else{
                 $model->pass_file = $old_pass;
             }
-            //file
-            $model->file = UploadedFile::getInstance($model, 'file');
-            if(!empty($model->file)) {
-                $filename = md5(time() . Yii::$app->user->id . $model->file->baseName . rand(1, 1000000) . rand(1, 1000000)) . '.' . $model->file->extension;
-                $model->file->saveAs('uploads/file/' . $filename);
+            //file2
+            $model->file2 = UploadedFile::getInstance($model, 'file2');
+            if(!empty($model->file2)) {
+                $filename = md5(time() . Yii::$app->user->id . $model->file2->baseName . rand(1, 1000000) . rand(1, 1000000)) . '.' . $model->file2->extension;
+                $model->file2->saveAs('uploads/file/' . $filename);
                 $model->file = 'uploads/file/' . $filename;
                 if(is_file($old_pass)) {
                     @unlink($old_pass);

@@ -54,4 +54,11 @@ class StudentsInfo extends \yii\db\ActiveRecord
             'type_edu_id' => Yii::t('main', 'Type Edu ID'),
         ];
     }
+    public function getTypeEduId(){
+        return $this->hasOne(TypeEdu::className(),['id'=>'type_edu_id']);
+    }
+
+    public function getStudents(){
+        return $this->hasOne(Students::className(),['id'=>'students_id']);
+    }
 }
