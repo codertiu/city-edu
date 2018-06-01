@@ -61,4 +61,17 @@ class Group extends \yii\db\ActiveRecord
             'since_id' => Yii::t('main', 'Since ID'),
         ];
     }
+
+    public function getMember(){
+        return $this->hasOne(Members::className(),['id'=>'member_id']);
+    }
+    public function getEduCenter(){
+        return $this->hasOne(EduCenter::className(),['id'=>'edu_center_id']);
+    }
+    public function getSince(){
+        return $this->hasOne(Since::className(),['id'=>'since_id']);
+    }
+    public function getGroupStatus(){
+        return $this->hasOne(GroupStatus::className(),['id'=>'group_status_id']);
+    }
 }

@@ -1,3 +1,7 @@
+.clear{
+
+  clear:both;
+}
 .site-navbar .navbar-header .navbar-brand-logo {
   height: 24px;
 }

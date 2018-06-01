@@ -30,8 +30,8 @@ class SubStudents extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['students_id', 'begin_date', 'end_date', 'group_id'], 'required'],
-            [['students_id', 'group_id', 'sub_std_status_id'], 'integer'],
+            [['students_id', 'begin_date', 'group_id'], 'required'],
+            [['students_id', 'group_id'], 'integer'],
             [['begin_date', 'end_date'], 'safe'],
         ];
     }
@@ -48,5 +48,12 @@ class SubStudents extends \yii\db\ActiveRecord
             'end_date' => Yii::t('main', 'End Date'),
             'group_id' => Yii::t('main', 'Group ID'),
         ];
+    }
+    public function getStudents(){
+        return $this->hasOne(Students::className(),['id'=>'students_id']);
+
+    }
+    public function getGroup(){
+        return $this->hasOne(Group::className(),['id'=>'group_id']);
     }
 }

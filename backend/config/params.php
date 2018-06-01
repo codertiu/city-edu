@@ -8,18 +8,18 @@ return [
     ],
 
     'instance_id' =>[
-        1=>'Kutilmoqda',
-        2=>'Keldi',
-        3=>'Qatnashib ko\'rdi',
-        4=>'Ro\'yxatdan o\'tdi',
-        5=>'Rad etdi',
-        6=>'Qayta rad etildi',
-        7=>'Kelmasdan rad etdi'
+        1=>\Yii::t('main','Kutilmoqda'),
+        2=>\Yii::t('main','Keldi'),
+        3=>\Yii::t('main','Qatnashib ko\'rdi'),
+        4=>\Yii::t('main','Ro\'yxatdan o\'tdi'),
+        5=>\Yii::t('main','Rad etdi'),
+        6=>\Yii::t('main','Qayta rad etildi'),
+        7=>\Yii::t('main','Kelmasdan rad etdi')
     ],
     'comfortable_time'=>[
-        1 => 'Monday Wednesday Friday',
-        2 => 'Tuesday Thursday Saturday',
-        3 => 'Saturday Sunday'
+        1 => \Yii::t('main','Monday Wednesday Friday'),
+        2 => \Yii::t('main','Tuesday Thursday Saturday'),
+        3 => \Yii::t('main','Saturday Sunday')
     ],
     'lavel' =>[
         1 =>1,
@@ -31,53 +31,76 @@ return [
     ],
 
     'study_type'=>[
-        1 =>'Guruh',
-        2 =>'Individual'
+        1 =>\Yii::t('main','Guruh'),
+        2 =>\Yii::t('main','Individual')
     ],
     'gender' =>[
-        0=>'female',
-        1=>'male'
+        0=>\Yii::t('main','female'),
+        1=>\Yii::t('main','male')
     ],
     'active'=>[
-        1=>'Active',
-        2=>'Ketdi',
-        3=>'Vaqtinchalik ketdi',
-        4=>'Tugatib ketdi'
+        1=>\Yii::t('main','Active'),
+        2=>\Yii::t('main','Ketdi'),
+        3=>\Yii::t('main','Vaqtinchalik ketdi'),
+        4=>\Yii::t('main','Tugatib ketdi')
     ],
     'month'=>[
-        1=>'Yanvar',
-        2=>'Fevral',
-        3=>'Mart',
-        4=>'Aprel',
-        5=>'May',
-        6=>'Iyul',
-        7=>'Iyun',
-        8=>'Avgust',
-        9=>'Sentabr',
-        10=>'Oktabr',
-        11=>'Noyabr',
-        12=>'Dekabr'
+        1=>\Yii::t('main','Yanvar'),
+        2=>\Yii::t('main','Fevral'),
+        3=>\Yii::t('main','Mart'),
+        4=>\Yii::t('main','Aprel'),
+        5=>\Yii::t('main','May'),
+        6=>\Yii::t('main','Iyul'),
+        7=>\Yii::t('main','Iyun'),
+        8=>\Yii::t('main','Avgust'),
+        9=>\Yii::t('main','Sentabr'),
+        10=>\Yii::t('main','Oktabr'),
+        11=>\Yii::t('main','Noyabr'),
+        12=>\Yii::t('main','Dekabr')
     ],
     'type_of_reg'=>[
-        1=>'call-center',
-        2=>'reception'
+        1=>\Yii::t('main','call-center'),
+        2=>\Yii::t('main','reception')
     ],
     'mark_status'=>[
-        1=>'Home work',
-        2=>'Discipline',
-        3=>'Like',
-        4=>'Grammer',
-        5=>'Vocabulary',
-        6=>'Speaking',
-        7=>'Listening',
-        8=>'Reading',
-        9=>'Writing'
+        1=>\Yii::t('main','Home work'),
+        2=>\Yii::t('main','Discipline'),
+        3=>\Yii::t('main','Like'),
+        4=>\Yii::t('main','Grammer'),
+        5=>\Yii::t('main','Vocabulary'),
+        6=>\Yii::t('main','Speaking'),
+        7=>\Yii::t('main','Listening'),
+        8=>\Yii::t('main','Reading'),
+        9=>\Yii::t('main','Writing')
     ],
     'member_status'=>[
-        1=>'Call - center',
-        2=>'Administration',
-        3=>'Students',
-        4=>'Teacher',
-        5=>'Admin'
+        1=>\Yii::t('main','Call - center'),
+        2=>\Yii::t('main','Administration'),
+        3=>\Yii::t('main','Students'),
+        4=>\Yii::t('main','Teacher'),
+        5=>\Yii::t('main','Admin')
+    ],
+    'type_pay'=>[
+        1=>\Yii::t('main','Naqt'),
+        2=>\Yii::t('main','Plastik'),
+        3=>\Yii::t('main','Pul o\'tkazish')
+    ],
+    'type_of_study'=>[
+        1=>\Yii::t('main','Writing'),
+        2=>\Yii::t('main','Reading'),
+        3=>\Yii::t('main','Listening'),
+        4=>\Yii::t('main','Speaking'),
+        5=>\Yii::t('main','Grammar')
+    ],
+    'currency'=>[
+        1=>'UZS',
+        2=>'USD'
+    ],
+    'type_contract'=>[
+        1=>\Yii::t('main','Jismoniy'),
+        2=>\Yii::t('main','Yuridik')
+    ],
+    'settings'=>[
+        'title'=>\Yii::t('main','City')
     ]
 ];

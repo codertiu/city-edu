@@ -14,12 +14,17 @@ class m180204_134253_create_schedule_table extends Migration
     {
         $this->createTable('schedule', [
             'id' => $this->primaryKey(),
-            'edu_center_id' => $this->integer()->notNull(),
             'group_id' => $this->integer()->notNull(),
             'day_id' => $this->integer()->notNull(),
+            'teacher_id'=>$this->integer()->notNull(),
             'begin_time' => $this->time()->notNull(),
             'end_time'=>$this->time()->notNull(),
-            'room_id' => $this->integer()->notNull(), 
+            'room_id' => $this->integer()->notNull(),
+            'active'=>$this->integer(1)->defaultValue(1)->notNull(),
+            'create_date'=>$this->dateTime()->notNull(),
+            'update_date'=>$this->dateTime()->notNull(),
+            'since_id'=>$this->integer()->notNull(),
+            'type_of_study'=>$this->integer()->notNull()
         ]);
     }
 

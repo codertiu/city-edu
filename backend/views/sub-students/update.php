@@ -6,7 +6,7 @@ use yii\helpers\Html;
 /* @var $model backend\models\SubStudents */
 
 $this->title = Yii::t('main', 'Update Sub Students: {nameAttribute}', [
-    'nameAttribute' => $model->id,
+    'nameAttribute' => $model->students->fullName,
 ]);
 $this->params['breadcrumbs'][] = ['label' => Yii::t('main', 'Sub Students'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->id, 'url' => ['view', 'id' => $model->id]];

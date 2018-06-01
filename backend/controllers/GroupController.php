@@ -8,6 +8,7 @@ use backend\models\GroupSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use backend\models\SubStudents;
 
 /**
  * GroupController implements the CRUD actions for Group model.
@@ -24,6 +25,7 @@ class GroupController extends Controller
                 'class' => VerbFilter::className(),
                 'actions' => [
                     'delete' => ['POST'],
+                    'delete-sub'=>['POST']
                 ],
             ],
         ];
@@ -131,5 +133,11 @@ class GroupController extends Controller
         }
 
         throw new NotFoundHttpException(Yii::t('main', 'The requested page does not exist.'));
+    }
+    public function actionDeleteSub($id,$group){
+        $model = SubStudents::findOne(['students_id'=>$id, 'group_id'=>$group]);
+        $model->delete();
+        //echo $model;
+        return $this->redirect(Yii::$app->request->referrer);
     }
 }

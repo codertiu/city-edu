@@ -13,18 +13,18 @@ use backend\models\Schedule;
 class ScheduleSearch extends Schedule
 {
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function rules()
     {
         return [
-            [['id', 'edu_center_id', 'group_id', 'day_id', 'room_id'], 'integer'],
-            [['begin_time', 'end_time'], 'safe'],
+            [['id', 'group_id', 'day_id', 'teacher_id', 'room_id', 'active', 'since_id', 'type_of_study'], 'integer'],
+            [['begin_time', 'end_time', 'create_date', 'update_date'], 'safe'],
         ];
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function scenarios()
     {
@@ -60,12 +60,17 @@ class ScheduleSearch extends Schedule
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
-            'edu_center_id' => $this->edu_center_id,
             'group_id' => $this->group_id,
             'day_id' => $this->day_id,
+            'teacher_id' => $this->teacher_id,
             'begin_time' => $this->begin_time,
             'end_time' => $this->end_time,
             'room_id' => $this->room_id,
+            'active' => $this->active,
+            'create_date' => $this->create_date,
+            'update_date' => $this->update_date,
+            'since_id' => $this->since_id,
+            'type_of_study' => $this->type_of_study,
         ]);
 
         return $dataProvider;

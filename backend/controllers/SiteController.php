@@ -65,6 +65,7 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
+        //$this->controller->pageTitle=Yii::$app->params['settings']['title'];
         return $this->render('index');
     }
 
@@ -99,5 +100,27 @@ class SiteController extends Controller
         Yii::$app->user->logout();
 
         return $this->goHome();
+    }
+    public function actionLanguage($ln)
+    {
+        //$language = \app\models\Language::find()->joinWith('languageCode')->where(['language.status'=>'1','country.language_code'=>$ln])->one();
+        $language = $ln;
+        if($language != null){
+            //$lan_code = $language->languageCode->language_code;
+            $lan_code=$language;
+            Yii::$app->language = $lan_code;
+            $cookie = new Yii\web\cookie([
+                'name'=>'language',
+                'value'=>$lan_code
+            ]);
+            Yii::$app->getResponse()->getCookies()->add($cookie);
+
+
+            $session = Yii::$app->session;
+            $session->set('language', $lan_code);
+            return $this->redirect(Yii::$app->request->referrer);
+        }else{
+            return $this->redirect(Yii::$app->request->referrer);
+        }
     }
 }

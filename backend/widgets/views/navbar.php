@@ -268,7 +268,7 @@ use webvimark\modules\UserManagement\UserManagementModule;
                     ?>
                     </ul>
                 </li>
-                <!--<li class="dropdown">
+                <li class="dropdown">
 
                     <a class="dropdown-toggle" data-toggle="dropdown" href="javascript:void(0)"
                        data-animation="scale-up"
@@ -277,29 +277,22 @@ use webvimark\modules\UserManagement\UserManagementModule;
                     </a>
 
                     <ul class="dropdown-menu" role="menu">
+
                         <li role="presentation">
-                            <a href="javascript:void(0)" role="menuitem">
-                                <span class="flag-icon flag-icon-ru"></span> Русский</a>
+                            <a href="<?=Url::to(['/site/language','ln'=>"ru"])?> role="menuitem">
+                                <span class="flag-icon flag-icon-ru"></span> <?= Yii::t('main','Русский')?></a>
                         </li>
                         <li role="presentation">
-                            <a href="javascript:void(0)" role="menuitem">
-                                <span class="flag-icon flag-icon-fr"></span> French</a>
+                            <a href="<?=Url::to(['/site/language','ln'=>"uz"])?>" role="menuitem">
+                                <span class="flag-icon flag-icon-uz"></span> <?= Yii::t('main','O\'zbek')?></a>
                         </li>
                         <li role="presentation">
-                            <a href="javascript:void(0)" role="menuitem">
-                                <span class="flag-icon flag-icon-cn"></span> Chinese</a>
-                        </li>
-                        <li role="presentation">
-                            <a href="javascript:void(0)" role="menuitem">
-                                <span class="flag-icon flag-icon-de"></span> German</a>
-                        </li>
-                        <li role="presentation">
-                            <a href="javascript:void(0)" role="menuitem">
-                                <span class="flag-icon flag-icon-nl"></span> Dutch</a>
+                            <a href="<?=Url::to(['/site/language','ln'=>"en"])?>" role="menuitem">
+                                <span class="flag-icon flag-icon-us"></span> <?= Yii::t('main','Engilish')?></a>
                         </li>
                     </ul>
 
-                </li>-->
+                </li>
                 <li class="dropdown">
                     <a class="navbar-avatar dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false"
                        data-animation="scale-up" role="button">

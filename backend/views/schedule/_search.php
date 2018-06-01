@@ -17,11 +17,11 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'id') ?>
 
-    <?= $form->field($model, 'edu_center_id') ?>
-
     <?= $form->field($model, 'group_id') ?>
 
     <?= $form->field($model, 'day_id') ?>
+
+    <?= $form->field($model, 'teacher_id') ?>
 
     <?= $form->field($model, 'begin_time') ?>
 
@@ -29,9 +29,19 @@ use yii\widgets\ActiveForm;
 
     <?php // echo $form->field($model, 'room_id') ?>
 
+    <?php // echo $form->field($model, 'active') ?>
+
+    <?php // echo $form->field($model, 'create_date') ?>
+
+    <?php // echo $form->field($model, 'update_date') ?>
+
+    <?php // echo $form->field($model, 'since_id') ?>
+
+    <?php // echo $form->field($model, 'type_of_study') ?>
+
     <div class="form-group">
-        <?= Html::submitButton(Yii::t('main', 'Search'), ['class' => 'btn btn-primary']) ?>
-        <?= Html::resetButton(Yii::t('main', 'Reset'), ['class' => 'btn btn-default']) ?>
+        <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>
+        <?= Html::resetButton('Reset', ['class' => 'btn btn-default']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

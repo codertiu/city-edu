@@ -254,10 +254,13 @@ use backend\models\Instance;
             <div class="col-lg-3 form-horizontal">
                 <div class="form-group form-material">
                     <div class="col-lg-12 col-sm-9">
+                        <?php
+                            $type = Yii::$app->session->get('type_of_reg') == 1?1:2;
+                        ?>
                         <?= $form->field($model, 'creater',[
                             'template' => '{label} * {input}{error}{hint}'
                         ])->widget(Select2::classname(), [
-                            'data' => ArrayHelper::map(\common\models\User::find()->all(), 'id', 'username'),
+                            'data' => ArrayHelper::map(\backend\models\Members::find()->where(['members_status'=>$type,'active'=>1])->all(), 'id', 'fio'),
                             'language' => 'ru',
                             'options' => ['placeholder' => 'Выберите Вид ...'],
                             'pluginOptions' => [

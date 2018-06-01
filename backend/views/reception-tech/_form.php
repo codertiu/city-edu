@@ -29,7 +29,7 @@ $this->registerCss($css);
     <div class="row">
         <div class="col-md-6">
             <?= $form->field($model, 'member_id')->widget(Select2::classname(), [
-                'data' => ArrayHelper::map(Members::find()->all(), 'id', 'fio'),
+                'data' => ArrayHelper::map(Members::find()->where(['members_status'=>4,'active'=>1])->all(), 'id', 'fio'),
                 'language' => 'ru',
                 'options' => ['placeholder' => Yii::t('main', 'Выберите Вид ...'), 'orientation' => 'bottom'],
                 'pluginOptions' => [

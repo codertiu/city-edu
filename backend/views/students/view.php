@@ -158,7 +158,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                         </tbody>
                                     </table>
 
-                                    <?= Html::button(Yii::t('main','Add Group'), ['value' => Url::to(['/students-info/update', 'id' => $model->id]), 'class' => 'btn btn-primary modalButton']) ?>
+                                    <?= Html::button(Yii::t('main', 'Add Group'), ['value' => Url::to(['/sub-students/create', 'id' => $model->id]), 'class' => 'btn btn-primary modalButton']) ?>
 
                                     <a href="#" class="btn btn-primary">Team Sales Performance</a>
                                     <a href="#" class="btn btn-primary">Team Sales Performance</a>
@@ -171,8 +171,7 @@ $this->params['breadcrumbs'][] = $this->title;
                             <br/>
                             <div class="row">
                                 <?php $students_info = \backend\models\StudentsInfo::find()->where(['students_id' => $model->id]) ?>
-                                <div class="col-md-4 col-lg-4">
-
+                                <div class="col-md-6 col-lg-6">
                                     <?php if ($students_info->exists()) {
                                         $students_info = $students_info->one();
                                         ?>
@@ -250,34 +249,78 @@ $this->params['breadcrumbs'][] = $this->title;
                                                     <td><?= date('d/M/Y', strtotime($one->pay_date)) ?></td>
                                                     <td><?= $one->sum ?></td>
                                                     <td><?= Yii::$app->params['month'][$one->for_month] ?></td>
-                                                    <td><?= Html::button('<i class="icon md-edit"></i>', ['value' => Url::to(['/students-pay/update', 'id' => $one->id, 'st'=>$model->id]), 'class' => 'btn-pure waves-effect waves-classic waves-effect waves-classic modalButton waves-effect waves-classic']) ?></td>
+                                                    <td><?= Html::button('<i class="icon md-edit"></i>', ['value' => Url::to(['/students-pay/update', 'id' => $one->id, 'st' => $model->id]), 'class' => 'btn-pure waves-effect waves-classic waves-effect waves-classic modalButton waves-effect waves-classic']) ?></td>
                                                 </tr>
                                                 <? $i++;
                                             } ?>
                                             </tbody>
                                         </table>
                                     <?php } ?>
+                                </div>
+                            </div>
 
+                            <!--- end-row-->
+                            <hr/>
+                            <div class="row">
+                                <?
+                                $group = \backend\models\SubStudents::find()->where(['students_id' => $model->id]);
+                                ?>
+                                <div class="col-md-6 col-lg-6">
+                                    <? if ($group->exists()) { ?>
+                                        <h4 class="example-title"><?= Yii::t('main', 'Group') ?></h4>
+                                        <table class="table table-hover">
+                                            <thead>
+                                            <tr>
+                                                <td>#</td>
+                                                <td><?= Yii::t('main', 'Group') ?></td>
+                                                <td><?= Yii::t('main', 'Begin Date') ?></td>
+                                                <td><?= Yii::t('main', 'End Date') ?></td>
+                                                <td><?= Yii::t('main', 'Action') ?></td>
+                                            </tr>
 
-
+                                            </thead>
+                                            <tbody>
+                                            <? $i = 1;
+                                            foreach ($group->all() as $one) { ?>
+                                                <tr>
+                                                    <td><?= $i ?></td>
+                                                    <td>
+                                                        <a href="<?= Url::to(['/group/view', 'id' => $one->group->id]) ?>" target="_blank"><?= $one->group->name ?></a>
+                                                    </td>
+                                                    <td>
+                                                        <?=$one->begin_date?>
+                                                    </td>
+                                                    <td>
+                                                        <?=$one->end_date?>
+                                                    </td>
+                                                    <td>
+                                                        <?= Html::button(' <i class="icon md-edit"></i>', ['value' => Url::to(['/sub-students/update', 'id' => $one->id]), 'class' => 'btn-pure waves-effect waves-classic waves-effect waves-classic modalButton waves-effect waves-classic']) ?>
+                                                    </td>
+                                                </tr>
+                                                <? $i++;
+                                            } ?>
+                                            </tbody>
+                                        </table>
+                                    <? } ?>
                                 </div>
                             </div>
                         </div>
-                        <div class="panel-footer">
-                            <a data-original-title="Broadcast Message" data-toggle="tooltip" type="button"
-                               class="btn btn-sm btn-primary"><i class="glyphicon glyphicon-envelope"></i></a>
-                            <span class="pull-right">
+                    </div>
+                    <div class="panel-footer">
+                        <a data-original-title="Broadcast Message" data-toggle="tooltip" type="button"
+                           class="btn btn-sm btn-primary"><i class="glyphicon glyphicon-envelope"></i></a>
+                        <span class="pull-right">
                             <a href="edit.html" data-original-title="Edit this user" data-toggle="tooltip" type="button"
                                class="btn btn-sm btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
                             <a data-original-title="Remove this user" data-toggle="tooltip" type="button"
                                class="btn btn-sm btn-danger"><i class="glyphicon glyphicon-remove"></i></a>
                         </span>
-                        </div>
-
                     </div>
+
                 </div>
             </div>
         </div>
+    </div>
     </div>
 <?php
 Modal::begin([

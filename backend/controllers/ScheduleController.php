@@ -2,21 +2,20 @@
 
 namespace backend\controllers;
 
-use backend\models\Group;
 use Yii;
 use backend\models\Schedule;
 use backend\models\ScheduleSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
-
+use backend\models\Model;
 /**
  * ScheduleController implements the CRUD actions for Schedule model.
  */
 class ScheduleController extends Controller
 {
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function behaviors()
     {
@@ -65,26 +64,65 @@ class ScheduleController extends Controller
      */
     public function actionCreate()
     {
-        $model = new Schedule();
-        $group = new Group();
-        if (Yii::$app->request->isAjax && $model->load(Yii::$app->request->post()))
-        {
-            Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
-            return \yii\widgets\ActiveForm::validate($model);
-        }
-        if ($model->load(Yii::$app->request->post()) && $group->load(Yii::$app->request->post())) {
-            $group->edu_center_id = $model->edu_center_id;
-            $group->save();
-            $model->group_id = $group->id;
-            $model->save();
+        $first = new Schedule();
+        $model = [new Schedule];
+        if ($first->load(Yii::$app->request->post())) {
 
-            return $this->redirect(['view', 'id' => $model->id]);
+            $model = Model::createMultiple(Schedule::classname());
+            Model::loadMultiple($model, Yii::$app->request->post());
+
+            foreach ($model as $m) {
+                $m->day_id = $first->day_id;
+                $m->active = $first->active;
+                $m->group_id=$first->group_id;
+                $m->save();
+            }
+            return $this->redirect(['index']);
+            // ajax validation
+//            if (Yii::$app->request->isAjax) {
+//                Yii::$app->response->format = Response::FORMAT_JSON;
+//                return \yii\helpers\ArrayHelper::merge(
+//                    \yii\widgets\ActiveForm::validateMultiple($model),
+//                    \yii\widgets\ActiveForm::validate($first)
+//                );
+//            }
+
+           //  validate all models
+            //$valid = $first->validate();
+            //$valid = Model::validateMultiple($model) && $valid;
+
+            //if ($valid) {
+//                $transaction = \Yii::$app->db->beginTransaction();
+//                try {
+//                    //if ($flag = $first->save()) {
+//                        foreach ($model as $m) {
+//                            $m->day_id = $first->day_id;
+//                            $m->active = $first->active;
+//                            $m->group_id=$first->group_id;
+//                            $m->save();
+//                            //$modelAddress->save(false);
+//                            //if (!($flag = $modelAddress->save())) {
+//                              //  $transaction->rollBack();
+//                                //break;
+//                            //}
+//                        }
+//                    return $this->redirect(['index']);
+//                    //}
+//                    //if ($flag) {
+//                      //  $transaction->commit();
+//                        //return $this->redirect(['index']);
+//                    //}
+//                } catch (Exception $e) {
+//                    $transaction->rollBack();
+//                }
+            //}
         }
 
         return $this->render('create', [
-            'model' => $model,
-            'group' =>$group
+            'first' => $first,
+            'model' => (empty($model)) ? [new Schedule] : $model
         ]);
+
     }
 
     /**
@@ -97,11 +135,7 @@ class ScheduleController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
-        if (Yii::$app->request->isAjax && $model->load(Yii::$app->request->post()))
-        {
-            Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
-            return \yii\widgets\ActiveForm::validate($model);
-        }
+
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         }
@@ -138,6 +172,6 @@ class ScheduleController extends Controller
             return $model;
         }
 
-        throw new NotFoundHttpException(Yii::t('main', 'The requested page does not exist.'));
+        throw new NotFoundHttpException('The requested page does not exist.');
     }
 }

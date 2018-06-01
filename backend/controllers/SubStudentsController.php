@@ -8,7 +8,7 @@ use backend\models\SubStudentsSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
-
+use backend\models\Model;
 /**
  * SubStudentsController implements the CRUD actions for SubStudents model.
  */
@@ -24,6 +24,7 @@ class SubStudentsController extends Controller
                 'class' => VerbFilter::className(),
                 'actions' => [
                     'delete' => ['POST'],
+
                 ],
             ],
         ];
@@ -62,7 +63,7 @@ class SubStudentsController extends Controller
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
-    public function actionCreate()
+    public function actionCreate($id)
     {
         $model = new SubStudents();
         if (Yii::$app->request->isAjax && $model->load(Yii::$app->request->post()))
@@ -71,11 +72,12 @@ class SubStudentsController extends Controller
             return \yii\widgets\ActiveForm::validate($model);
         }
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+            return $this->redirect(Yii::$app->request->referrer);
         }
 
-        return $this->render('create', [
+        return $this->renderAjax('create', [
             'model' => $model,
+            'id'=>$id
         ]);
     }
 
@@ -96,10 +98,10 @@ class SubStudentsController extends Controller
             return \yii\widgets\ActiveForm::validate($model);
         }
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+            return $this->redirect(Yii::$app->request->referrer);
         }
 
-        return $this->render('update', [
+        return $this->renderAjax('update', [
             'model' => $model,
         ]);
     }
@@ -115,7 +117,7 @@ class SubStudentsController extends Controller
     {
         $this->findModel($id)->delete();
 
-        return $this->redirect(['index']);
+        return $this->redirect(Yii::$app->request->referrer);
     }
 
     /**
@@ -133,4 +135,29 @@ class SubStudentsController extends Controller
 
         throw new NotFoundHttpException(Yii::t('main', 'The requested page does not exist.'));
     }
+
+    // massivni  student qo'shish
+    public function actionAddStudents($group){
+        $first = new SubStudents();
+        $model = [new SubStudents];
+        if ($first->load(Yii::$app->request->post())) {
+            $model = Model::createMultiple(SubStudents::classname());
+            Model::loadMultiple($model, Yii::$app->request->post());
+            foreach ($model as $t) {
+                $t->begin_date = $first->begin_date;
+                $t->group_id = $first->group_id;
+                $t->save();
+            }
+            return $this->redirect(['/group/view','id'=>$first->group_id]);
+
+        }
+        return $this->render('add-students',
+            [
+                'group'=>$group,
+                'first' => $first,
+                'model' => (empty($model)) ? [new SubStudents] : $model,
+            ]);
+
+    }
+
 }

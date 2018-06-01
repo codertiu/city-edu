@@ -6,7 +6,7 @@ use yii\helpers\ArrayHelper;
 use kartik\select2\Select2;
 use kartik\date\DatePicker;
 use backend\models\EduCenter;
-use kartik\file\FileInput;
+
 
 /* @var $this yii\web\View */
 /* @var $model backend\models\Students */

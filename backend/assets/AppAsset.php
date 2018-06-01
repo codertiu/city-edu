@@ -29,7 +29,7 @@ class AppAsset extends AssetBundle
         'fonts/web-icons/web-icons.css',
         'fonts/material-design/material-design.min.css',
         'fonts/brand-icons/brand-icons.min.css',
-        'http://fonts.googleapis.com/css?family=Roboto:300,400,500,300italic'
+        //'http://fonts.googleapis.com/css?family=Roboto:300,400,500,300italic'
 
     ];
     public $js = [
@@ -54,6 +54,7 @@ class AppAsset extends AssetBundle
         'vendor/matchheight/jquery.matchHeight-min.js',
         'vendor/peity/jquery.peity.min.js',
         'vendor/formatter-js/jquery.formatter.js',
+
         'js/core.js',
         'js/site.js',
         'js/sections/menu.js',
