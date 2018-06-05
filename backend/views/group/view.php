@@ -87,7 +87,7 @@ $this->params['breadcrumbs'][] = $this->title;
                         <tbody>
                         <?
                         $i = 1;
-                        $students = \backend\models\SubStudents::find()->where(['group_id' => $model - id])->all();
+                        $students = \backend\models\SubStudents::find()->where(['group_id' => $model->id])->all();
                         foreach ($students as $one) {
                             ?>
                             <tr>

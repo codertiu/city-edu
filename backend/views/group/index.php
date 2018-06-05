@@ -32,7 +32,13 @@ $this->params['breadcrumbs'][] = $this->title;
 
             //'id',
             'eduCenter.name',
-            'name',
+            [
+                'attribute' => 'name',
+                'format' => 'raw',
+                'value' => function ($model) {
+                    return Html::a($model->name, ['/group/view', 'id' => $model->id]);
+                },
+            ],
             'member.fio',
             'begin_date',
             //'end_date',

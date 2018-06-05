@@ -34,7 +34,13 @@ $this->params['breadcrumbs'][] = $this->title;
                                         ['class' => 'yii\grid\SerialColumn'],
 
                                         //'id',
-                                        'fio',
+                                        [
+                                            'attribute' => 'fio',
+                                            'format' => 'raw',
+                                            'value' => function ($model) {
+                                                return Html::a($model->fio, ['/members/view', 'id' => $model->id]);
+                                            },
+                                        ],
                                         'tel',
                                         'address',
                                         'about:ntext',

@@ -6,6 +6,7 @@ use yii\helpers\Url;
 use yii\bootstrap\Modal;
 use kartik\select2\Select2;
 use webvimark\modules\UserManagement\models\User;
+
 /* @var $this yii\web\View */
 /* @var $searchModel backend\models\StudentsPaySearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
@@ -39,6 +40,10 @@ $this->params['breadcrumbs'][] = $this->title;
                                             [
                                                 'attribute' => 'students_id',
                                                 'value' => 'students.fullName',
+                                                'format' => 'raw',
+                                                'value' => function ($model) {
+                                                    return Html::a($model->students->fullName, ['/students-pay/view', 'id' => $model->id]);
+                                                },
                                                 'filter' => Select2::widget([
                                                     'model' => $searchModel,
                                                     'attribute' => 'students_id',
@@ -70,7 +75,22 @@ $this->params['breadcrumbs'][] = $this->title;
                                                     ],
                                                 ]),
                                             ],
-                                            'pay_date',
+                                            [
+                                                'attribute' => 'pay_date',
+                                                'value' => function ($model) {
+                                                    return date('d/M/Y', strtotime($model->pay_date));
+                                                },
+                                                'filter' => \kartik\date\DatePicker::widget([
+                                                    'model' => $searchModel,
+                                                    'attribute' => 'pay_date',
+                                                    'type' => \kartik\date\DatePicker::TYPE_COMPONENT_PREPEND,
+                                                    'pluginOptions' => [
+                                                        'autoclose' => true,
+                                                        'orientation' => "bottom",
+                                                        'format' => 'yyyy-mm-dd'
+                                                    ]
+                                                ])
+                                            ],
                                             /*[
                                                 'attribute'=>'user_id',
                                                 'value'=>'user.username'

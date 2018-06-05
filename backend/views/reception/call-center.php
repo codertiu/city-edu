@@ -55,7 +55,13 @@ $this->params['breadcrumbs'][] = $this->title;
 
                                         //'id',
                                         //'edu_center_id',
-                                        'name',
+                                        [
+                                            'attribute' => 'name',
+                                            'format' => 'raw',
+                                            'value' => function ($model) {
+                                                return Html::a($model->name, ['/reception/view', 'id' => $model->id]);
+                                            },
+                                        ],
                                         'surname',
                                         'tel',
                                         //'coming_id',
