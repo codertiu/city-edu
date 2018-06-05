@@ -3,6 +3,10 @@
 namespace backend\models;
 
 use Yii;
+use yii\db\Expression;
+use yii\db\ActiveRecord;
+use yii\behaviors\TimestampBehavior;
+use yii\web\User;
 
 /**
  * This is the model class for table "students_pay".
@@ -14,7 +18,7 @@ use Yii;
  * @property string $sum
  * @property int $for_month
  */
-class StudentsPay extends \yii\db\ActiveRecord
+class StudentsPay extends ActiveRecord
 {
     /**
      * @inheritdoc
@@ -24,15 +28,29 @@ class StudentsPay extends \yii\db\ActiveRecord
         return 'students_pay';
     }
 
+    public function behaviors()
+    {
+        return [
+            'timestamp' => [
+                'class' => TimestampBehavior::className(),
+                'attributes' => [
+                    ActiveRecord::EVENT_BEFORE_INSERT => ['create_date', 'update_date'],
+                    ActiveRecord::EVENT_BEFORE_UPDATE => ['update_date'],
+                ],
+                'value' => date('Y-m-d H:i:s'),
+            ],
+        ];
+    }
+
     /**
      * @inheritdoc
      */
     public function rules()
     {
         return [
-            [['pay_date', 'contract_id', 'students_id', 'sum', 'for_month'], 'required'],
-            [['pay_date'], 'safe'],
-            [['contract_id', 'students_id', 'for_month'], 'integer'],
+            [['pay_date', 'contract_id', 'students_id', 'sum', 'for_month','type_pay_id','currency_id'], 'required'],
+            [['pay_date','create_date','update_date'], 'safe'],
+            [['contract_id', 'students_id', 'for_month','type_pay_id','currency_id','user_id'], 'integer'],
             [['sum'], 'number'],
         ];
     }
@@ -49,6 +67,11 @@ class StudentsPay extends \yii\db\ActiveRecord
             'students_id' => Yii::t('main', 'Students ID'),
             'sum' => Yii::t('main', 'Sum'),
             'for_month' => Yii::t('main', 'For Month'),
+            'user_id'=>Yii::t('main','User ID'),
+            'type_pay_id'=>Yii::t('main','Type Pay Id'),
+            'currency_id'=>Yii::t('main','Currency Id'),
+            'create_date'=>Yii::t('main','create_date'),
+            'update_date'=>Yii::t('main','update_date')
         ];
     }
 
@@ -57,5 +80,9 @@ class StudentsPay extends \yii\db\ActiveRecord
     }
     public function getContract(){
         return $this->hasOne(Contract::className(),['id'=>'contract_id']);
+    }
+
+    public function getUser(){
+        return $this->hasOne(User::className(),['id'=>'user_id']);
     }
 }

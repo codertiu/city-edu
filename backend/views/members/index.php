@@ -21,7 +21,7 @@ $this->params['breadcrumbs'][] = $this->title;
                         <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
                         <p>
-                            <?= Html::a(Yii::t('main', 'Create Reception'), ['create'], ['class' => 'btn btn-success']) ?>
+                            <?= Html::a(Yii::t('main', 'Create Members'), ['create'], ['class' => 'btn btn-success']) ?>
                         </p>
 
                         <div class="example-wrap">
@@ -33,7 +33,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                     'columns' => [
                                         ['class' => 'yii\grid\SerialColumn'],
 
-                                        'id',
+                                        //'id',
                                         'fio',
                                         'tel',
                                         'address',

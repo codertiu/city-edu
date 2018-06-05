@@ -18,8 +18,8 @@ class ContractSearch extends Contract
     public function rules()
     {
         return [
-            [['id', 'students_id', 'type_edu_id'], 'integer'],
-            [['contract', 'date'], 'safe'],
+            [['id', 'students_id', 'type_edu_id','type_contract_id'], 'integer'],
+            [['contract', 'date','fio','pass_seria','pass_number','from','address','work','phone1','phone2','phone3','email','title','bill','b','inn','okohx','mfo','license','director'], 'safe'],
             [['sum'], 'number'],
         ];
     }
@@ -65,9 +65,28 @@ class ContractSearch extends Contract
             'sum' => $this->sum,
             'date' => $this->date,
             'type_edu_id' => $this->type_edu_id,
+            'type_contract_id'=>$this->type_contract_id
         ]);
 
-        $query->andFilterWhere(['like', 'contract', $this->contract]);
+        $query->andFilterWhere(['like', 'contract', $this->contract])
+            ->andFilterWhere(['like', 'fio', $this->fio])
+            ->andFilterWhere(['like', 'pass_seria', $this->pass_seria])
+            ->andFilterWhere(['like', 'pass_number', $this->pass_number])
+            ->andFilterWhere(['like', 'from', $this->from])
+            ->andFilterWhere(['like', 'address', $this->address])
+            ->andFilterWhere(['like', 'work', $this->work])
+            ->andFilterWhere(['like', 'phone1', $this->phone1])
+            ->andFilterWhere(['like', 'phone2', $this->phone2])
+            ->andFilterWhere(['like', 'phone3', $this->phone3])
+            ->andFilterWhere(['like', 'email', $this->email])
+            ->andFilterWhere(['like', 'title', $this->title])
+            ->andFilterWhere(['like', 'bill', $this->bill])
+            ->andFilterWhere(['like', 'b', $this->b])
+            ->andFilterWhere(['like', 'inn', $this->inn])
+            ->andFilterWhere(['like', 'okohx', $this->okohx])
+            ->andFilterWhere(['like', 'mfo', $this->mfo])
+            ->andFilterWhere(['like', 'license', $this->license])
+            ->andFilterWhere(['like', 'director', $this->director]);
 
         return $dataProvider;
     }
