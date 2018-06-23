@@ -34,14 +34,40 @@ $this->params['breadcrumbs'][] = $this->title;
                                         ['class' => 'yii\grid\SerialColumn'],
 
                                         //'id',
-                                        'member_id',
-                                        'aum',
-                                        'date',
-                                        'comment',
+                                        [
+                                            'attribute' => 'member_id',
+                                            'format' => 'raw',
+                                            'value' => function ($model) {
+                                                return Html::a($model->member->fio, ['/member-salary/list', 'id' => $model->member->id]);
+                                            },
+                                            'filter' => kartik\select2\Select2::widget([
+                                                'model' => $searchModel,
+                                                'attribute' => 'member_id',
+                                                //'data' => yii\helpers\ArrayHelper::map(\backend\models\Instance::find()->all(),'id','name'),
+                                                'data' => \yii\helpers\ArrayHelper::map(\backend\models\Members::find()->all(), 'id', 'fio'),
+                                                'theme' => kartik\select2\Select2::THEME_BOOTSTRAP,
+                                                'hideSearch' => true,
+                                                'options' => [
+                                                    'placeholder' => Yii::t('main', 'Select'),
+                                                ],
+                                                'pluginOptions' => [
+                                                    'allowClear' => true
+                                                ],
+                                            ]),
+                                        ],
+
+//                                        'sum',
+//                                        'currency_id',
+//                                        'date',
+//                                        'comment',
+//                                        'type_pay',
                                         //'create_date',
                                         //'update_date',
 
-                                        ['class' => 'yii\grid\ActionColumn'],
+                                        [
+                                            'class' => 'yii\grid\ActionColumn',
+                                            'template' => ''
+                                        ],
                                     ],
                                 ]); ?>
                                 <?php Pjax::end(); ?>

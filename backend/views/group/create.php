@@ -10,10 +10,13 @@ $this->title = Yii::t('main', 'Create Group');
 $this->params['breadcrumbs'][] = ['label' => Yii::t('main', 'Groups'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="group-create">
 
-<!--    <h1>--><?//= Html::encode($this->title) ?><!--</h1>-->
-
+<div class="panel">
+    <div class="panel-heading">
+        <h3 class="panel-title"><?= Html::encode($this->title) ?>
+            <span class="panel-desc"> </span>
+        </h3>
+    </div>
     <?= $this->render('_form', [
         'model' => $model,
     ]) ?>

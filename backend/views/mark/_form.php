@@ -22,6 +22,14 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'students_id')->textInput() ?>
 
+    <?= $form->field($model, 'group_id')->textInput() ?>
+
+    <?= $form->field($model, 'absent')->textInput() ?>
+
+    <?= $form->field($model, 'mark_type')->textInput() ?>
+
+    <?= $form->field($model, 'dislike')->textInput() ?>
+
     <?= $form->field($model, 'comment')->textInput(['maxlength' => true]) ?>
 
     <div class="form-group">

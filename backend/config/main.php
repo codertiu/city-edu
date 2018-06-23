@@ -1,5 +1,6 @@
 <?php
 use kartik\mpdf\Pdf;
+
 $params = array_merge(
     require __DIR__ . '/../../common/config/params.php',
     require __DIR__ . '/../../common/config/params-local.php',
@@ -12,7 +13,7 @@ return [
     'basePath' => dirname(__DIR__),
     'controllerNamespace' => 'backend\controllers',
     'bootstrap' => ['log'],
-    //'language'=>'ru',
+    'language'=>'uz',
     'modules' => [
         'user-management' => [
             'class' => 'webvimark\modules\UserManagement\UserManagementModule',
@@ -33,9 +34,8 @@ return [
 
             // Here you can set your handler to change layout for any controller or action
             // Tip: you can use this event in any module
-            'on beforeAction'=>function(yii\base\ActionEvent $event) {
-                if ( $event->action->uniqueId == 'user-management/auth/login' )
-                {
+            'on beforeAction' => function (yii\base\ActionEvent $event) {
+                if ($event->action->uniqueId == 'user-management/auth/login') {
                     $event->action->controller->layout = 'loginLayout.php';
                 };
             },
@@ -46,12 +46,12 @@ return [
         'rules' => [
             [
                 'allow' => true,
-                'actions' => ['login','signup'],
+                'actions' => ['login', 'signup'],
             ],
             [
                 'allow' => false,
                 'roles' => ['@'],
-                'actions' => ['login','signup'],
+                'actions' => ['login', 'signup'],
             ],
             [
                 'allow' => true,
@@ -66,7 +66,7 @@ return [
         'request' => [
             'csrfParam' => '_csrf-backend',
             'class' => 'common\components\Request',
-            'web'=> '/backend/web',
+            'web' => '/backend/web',
             'adminUrl' => '/admin'
         ],
         'user' => [
@@ -76,7 +76,7 @@ return [
         ],
         'session' => [
             // this is the name of the session cookie used for login on the backend
-            'name' => '_SESSION_ID',
+            'name' => 'advanced-backend',
         ],
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,
@@ -94,7 +94,7 @@ return [
             'class' => 'webvimark\modules\UserManagement\components\UserConfig',
 
             // Comment this if you don't want to record user logins
-            'on afterLogin' => function($event) {
+            'on afterLogin' => function ($event) {
                 \webvimark\modules\UserManagement\models\UserVisitLog::newVisitor($event->identity->id);
             }
         ],

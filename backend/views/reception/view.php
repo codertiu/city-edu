@@ -5,6 +5,7 @@ use yii\widgets\DetailView;
 use yii\helpers\Url;
 use yii\bootstrap\Modal;
 use webvimark\modules\UserManagement\models\User;
+
 /* @var $this yii\web\View */
 /* @var $model backend\models\Reception */
 
@@ -23,10 +24,10 @@ $this->params['breadcrumbs'][] = $this->title;
                             <span class="btn btn-pure btn-icon waves-effect waves-classic" data-toggle="list-editable">
                                 <?= Html::a('<i class="icon md-arrow-left"></i>', ['/reception']) ?>
                             </span>
-                                <span class="btn btn-pure btn-icon waves-effect waves-classic" data-toggle="list-editable">
+                            <span class="btn btn-pure btn-icon waves-effect waves-classic" data-toggle="list-editable">
                                 <?= Html::a('<i class="icon md-edit" aria-hidden="true"></i>', ['update', 'id' => $model->id]) ?>
                             </span>
-                                <span class="btn btn-pure btn-icon waves-effect waves-classic" data-toggle="list-editable">
+                            <span class="btn btn-pure btn-icon waves-effect waves-classic" data-toggle="list-editable">
                                 <?= Html::a('<i class="icon md-delete" aria-hidden="true"></i>', ['delete', 'id' => $model->id], [
                                     'data' => [
                                         'confirm' => Yii::t('main', 'Are you sure you want to delete this item?'),
@@ -42,22 +43,22 @@ $this->params['breadcrumbs'][] = $this->title;
                     <div class="row row-lg">
                         <div class="col-lg-5">
                             <?php
-                                if (User::hasRole('Teacher')) {
-                            ?>
-                            <p>
-                                <? if ($model->instance_id == 1) { ?>
-                                    <?= Html::button(Yii::t('main', 'Come'), ['value' => Url::to(['/reception-tech/create', 'id' => $model->id]), 'class' => 'btn btn-info modalButton']) ?>
-                                    <?= Html::a(Yii::t('main', 'Rad etdi'), ['change', 'changeId' => $model->id, 'position'=>7], ['class' => 'btn btn-danger']) ?>
-                                <? } else if ($model->instance_id == 2) { ?>
-                                    <?= Html::a(Yii::t('main', 'Qatnashib ko\'rdi'), ['change', 'changeId' => $model->id, 'position'=>3], ['class' => 'btn btn-warning']) ?>
-                                <? } else if ($model->instance_id == 3) { ?>
-                                    <?= Html::a(Yii::t('main', 'Ro\'yxatdan o\'tdi'), ['/reception/register', 'id' => $model->id], ['class' => 'btn btn-success']) ?>
-                                    <?= Html::button(Yii::t('main', 'Rad etdi'), ['value' => Url::to(['/reception/comment', 'changeId' => $model->id]), 'class' => 'btn btn-danger modalButton']) ?>
-                                <? } else if ($model->instance_id == 5 || $model->instance_id == 7) {?>
-                                    <?= Html::a(Yii::t('main', 'Qayta urunish'), ['change', 'changeId' => $model->id, 'position'=>1], ['class' => 'btn btn-info']) ?>
-                                <? } ?>
-                            </p>
-                                    <?}?>
+                            if (User::hasRole('Teacher')) {
+                                ?>
+                                <p>
+                                    <? if ($model->instance_id == 1) { ?>
+                                        <?= Html::button(Yii::t('main', 'Come'), ['value' => Url::to(['/reception-tech/create', 'id' => $model->id]), 'class' => 'btn btn-info modalButton']) ?>
+                                        <?= Html::a(Yii::t('main', 'Rad etdi'), ['change', 'changeId' => $model->id, 'position' => 7], ['class' => 'btn btn-danger']) ?>
+                                    <? } else if ($model->instance_id == 2) { ?>
+                                        <?= Html::a(Yii::t('main', 'Qatnashib ko\'rdi'), ['change', 'changeId' => $model->id, 'position' => 3], ['class' => 'btn btn-warning']) ?>
+                                    <? } else if ($model->instance_id == 3) { ?>
+                                        <?= Html::a(Yii::t('main', 'Ro\'yxatdan o\'tdi'), ['/reception/register', 'id' => $model->id], ['class' => 'btn btn-success']) ?>
+                                        <?= Html::button(Yii::t('main', 'Rad etdi'), ['value' => Url::to(['/reception/comment', 'changeId' => $model->id]), 'class' => 'btn btn-danger modalButton']) ?>
+                                    <? } else if ($model->instance_id == 5 || $model->instance_id == 7) { ?>
+                                        <?= Html::a(Yii::t('main', 'Qayta urunish'), ['change', 'changeId' => $model->id, 'position' => 1], ['class' => 'btn btn-info']) ?>
+                                    <? } ?>
+                                </p>
+                            <? } ?>
                             <table class="table table-bordered">
                                 <thead>
                                 <tr>
@@ -124,7 +125,8 @@ $this->params['breadcrumbs'][] = $this->title;
                                 </tr>
                                 <tr>
                                     <td class="text-middle"><?= Yii::t('main', 'Comfortable time') ?></td>
-                                    <td><?= Yii::$app->params['comfortable_time'][$model->comfortable_time] ?> - <?=$model->time?></td>
+                                    <td><?= Yii::$app->params['comfortable_time'][$model->comfortable_time] ?>
+                                        - <?= $model->time ?></td>
                                 </tr>
 
                                 <tr>
@@ -135,44 +137,39 @@ $this->params['breadcrumbs'][] = $this->title;
                                     <td class="text-middle"><?= Yii::t('main', 'Instance') ?></td>
                                     <td><?= Yii::$app->params['instance_id'][$model->instance_id] ?></td>
                                 </tr>
-                                <?php if($model->comment_id!=null){?>
+                                <?php if ($model->comment_id != null) { ?>
                                     <tr>
                                         <td class="text-middle"><?= Yii::t('main', 'Coment Id') ?></td>
-                                        <td><?=$model->commentIDT->name?></td>
+                                        <td><?= $model->commentIDT->name ?></td>
                                     </tr>
-                                <?php }?>
+                                <?php } ?>
                                 </tbody>
                             </table>
                             <?php
                             $teacher = \backend\models\ReceptionTech::find()->where(['reception_id' => $model->id])->orderBy('id')->all();
-                            if($teacher){
-                                if($model->instance_id == 2 ){
+                            if ($teacher) {
                                 ?>
-                                <div class="row">
-                                    <div class="col-md-offset-10 col-md-6">
-                                        <div class="item-actions">
-                                            <span class="btn btn-pure btn-icon waves-effect waves-classic" data-toggle="list-editable">
-                                                <?= Html::button('<i class="icon md-edit" aria-hidden="true"></i>', ['value' => Url::to(['/reception-tech/update', 'id' => $teacher->id]), 'class' => 'btn btn-info', 'id' => 'modalButton']) ?>
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <?}?>
                                 <table class="table table-bordered">
                                     <thead>
-                                    <th><?= Yii::t('main', 'Date Coming') ?></th>
-                                    <th><?= Yii::t('main', 'Teacher') ?></th>
+                                        <th><?= Yii::t('main', 'Date Coming') ?></th>
+                                        <th><?= Yii::t('main', 'Teacher') ?></th>
+                                        <th><?= Yii::t('main', 'Action') ?></th>
                                     </thead>
                                     <tbody>
-                                    <? foreach($teacher as $t) {?>
-                                    <tr>
-                                        <td><?= $t->date ?></td>
-                                        <td><?= $t->member->fio ?></td>
-                                    </tr>
-                                    <?}?>
+                                    <? foreach ($teacher as $t) { ?>
+                                        <tr>
+                                            <td><?= $t->date ?></td>
+                                            <td><?= $t->member->fio ?></td>
+                                            <?php
+                                            if ($model->instance_id == 2) {
+                                                ?>
+                                                <td><?= Html::button('<i class="icon md-edit" aria-hidden="true"></i>', ['value' => Url::to(['/reception-tech/update', 'id' => $t->id]), 'class' => 'btn btn-info', 'class' => 'modalButton']) ?></td>
+                                            <? } ?>
+                                        </tr>
+                                    <? } ?>
                                     </tbody>
                                 </table>
-                            <?}?>
+                            <? } ?>
                         </div>
                         <div class="col-lg-7">
                             <div class="example example-well margin-top-0 padding-30">
@@ -204,21 +201,21 @@ $this->params['breadcrumbs'][] = $this->title;
                                                     <?
                                                 endforeach
                                                 ?>
-                                                <?if($model->comment){?>
-                                                <div class="chat chat-right">
-                                                    <div class="chat-body">
-                                                        <div class="chat-content">
-                                                            <div class="media">
-                                                                <div class="media-body">
-                                                                    <small class="text-muted pull-right"><?= date('d/M/Y H:i', strtotime($model->create_date)) ?></small>
-                                                                    <h4 class="media-heading"><?= $model->user->username ?></h4>
-                                                                    <div> <?= $model->comment ?></div>
+                                                <? if ($model->comment) { ?>
+                                                    <div class="chat chat-right">
+                                                        <div class="chat-body">
+                                                            <div class="chat-content">
+                                                                <div class="media">
+                                                                    <div class="media-body">
+                                                                        <small class="text-muted pull-right"><?= date('d/M/Y H:i', strtotime($model->create_date)) ?></small>
+                                                                        <h4 class="media-heading"><?= $model->user->username ?></h4>
+                                                                        <div> <?= $model->comment ?></div>
+                                                                    </div>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </div>
-                                                <?}?>
+                                                <? } ?>
                                             </div>
                                         </div>
                                     </div>

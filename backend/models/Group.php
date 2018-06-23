@@ -33,8 +33,8 @@ class Group extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['edu_center_id', 'name', 'member_id', 'begin_date', 'end_date', 'group_status_id', 'since_id'], 'required'],
-            [['edu_center_id', 'member_id', 'group_status_id', 'since_id'], 'integer'],
+            [['edu_center_id', 'name', 'member_id', 'begin_date', 'end_date', 'group_status_id', 'since_id','lavel'], 'required'],
+            [['edu_center_id', 'member_id', 'group_status_id', 'since_id','lavel'], 'integer'],
             [['begin_date', 'end_date'], 'safe'],
             [['comment'], 'string'],
             [['name'], 'string', 'max' => 255],
@@ -59,6 +59,7 @@ class Group extends \yii\db\ActiveRecord
             'group_status_id' => Yii::t('main', 'Group Status ID'),
             'comment' => Yii::t('main', 'Comment'),
             'since_id' => Yii::t('main', 'Since ID'),
+            'lavel'=>Yii::t('main','Lavel')
         ];
     }
 

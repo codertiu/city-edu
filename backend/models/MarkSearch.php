@@ -18,7 +18,7 @@ class MarkSearch extends Mark
     public function rules()
     {
         return [
-            [['id', 'mark_status', 'member_id', 'students_id'], 'integer'],
+            [['id', 'mark_status', 'member_id', 'students_id','mark_type','dislike','absent','group_id'], 'integer'],
             [['date', 'comment'], 'safe'],
             [['mark'], 'number'],
         ];
@@ -64,6 +64,10 @@ class MarkSearch extends Mark
             'date' => $this->date,
             'mark_status' => $this->mark_status,
             'mark' => $this->mark,
+            'absent'=>$this->absent,
+            'mark_type'=>$this->mark_type,
+            'dislike'=>$this->dislike,
+            'group_id'=>$this->group_id,
             'member_id' => $this->member_id,
             'students_id' => $this->students_id,
         ]);

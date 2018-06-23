@@ -119,10 +119,19 @@ use yii\helpers\ArrayHelper;
             <div class="col-lg-6 form-horizontal">
                 <div class="form-group form-material">
                     <div class=" col-lg-12 col-sm-9">
+                        <?php $id = \backend\models\Members::find()->all();
+                            $c=0;
+                            foreach($id as $i){
+                                if($i->user_id > 0) {
+                                    $a[$c] = $i->user_id;
+                                    $c++;
+                                }
+                            }
+                        ?>
                         <?= $form->field($model, 'user_id')->widget(Select2::classname(), [
-                            'data' => ArrayHelper::map(\common\models\User::find()->all(), 'id', 'username'),
+                            'data' => ArrayHelper::map(\common\models\User::find()->where(['not in','id',$a])->all(), 'id', 'username'),
                             'language' => 'ru',
-                            'options' => ['placeholder' => 'Выберите Вид ...'],
+                            'options' => ['placeholder' => Yii::t('main','Выберите Вид ...')],
                             'pluginOptions' => [
                                 'allowClear' => true,
                                 'multiple' => false,

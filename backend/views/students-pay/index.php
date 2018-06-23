@@ -42,7 +42,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                                 'value' => 'students.fullName',
                                                 'format' => 'raw',
                                                 'value' => function ($model) {
-                                                    return Html::a($model->students->fullName, ['/students-pay/view', 'id' => $model->id]);
+                                                    return Html::a($model->students->fullName, ['/students/view', 'id' => $model->students->id]);
                                                 },
                                                 'filter' => Select2::widget([
                                                     'model' => $searchModel,

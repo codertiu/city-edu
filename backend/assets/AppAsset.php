@@ -54,7 +54,7 @@ class AppAsset extends AssetBundle
         'vendor/matchheight/jquery.matchHeight-min.js',
         'vendor/peity/jquery.peity.min.js',
         'vendor/formatter-js/jquery.formatter.js',
-
+        'js/jQuery.print.js',
         'js/core.js',
         'js/site.js',
         'js/sections/menu.js',

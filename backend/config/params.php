@@ -102,5 +102,14 @@ return [
     ],
     'settings'=>[
         'title'=>\Yii::t('main','City')
+    ],
+    'mark_type'=>[
+        1=>Yii::t('main','Oddiy dars'),
+        2=>Yii::t('main','Imtihon')
+    ],
+    'absent'=>[
+        1=>Yii::t('main','Bor'),
+        2=>Yii::t('main','Yo\'q')
     ]
+
 ];

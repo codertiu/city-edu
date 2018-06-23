@@ -18,8 +18,8 @@ class MemberSalarySearch extends MemberSalary
     public function rules()
     {
         return [
-            [['id', 'member_id'], 'integer'],
-            [['aum'], 'number'],
+            [['id', 'member_id','currency_id','type_pay'], 'integer'],
+            [['sum'], 'number'],
             [['date', 'comment', 'create_date', 'update_date'], 'safe'],
         ];
     }
@@ -42,7 +42,7 @@ class MemberSalarySearch extends MemberSalary
      */
     public function search($params)
     {
-        $query = MemberSalary::find();
+        $query = MemberSalary::find()->select('member_id')->distinct();
 
         // add conditions that should always apply here
 
@@ -62,7 +62,9 @@ class MemberSalarySearch extends MemberSalary
         $query->andFilterWhere([
             'id' => $this->id,
             'member_id' => $this->member_id,
-            'aum' => $this->aum,
+            'sum' => $this->sum,
+            'currency_id'=>$this->currency_id,
+            'type_pay'=>$this->type_pay,
             'date' => $this->date,
             'create_date' => $this->create_date,
             'update_date' => $this->update_date,

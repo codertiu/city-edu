@@ -18,7 +18,7 @@ class GroupSearch extends Group
     public function rules()
     {
         return [
-            [['id', 'edu_center_id', 'member_id', 'group_status_id', 'since_id'], 'integer'],
+            [['id', 'edu_center_id', 'member_id', 'lavel', 'group_status_id', 'since_id'], 'integer'],
             [['name', 'begin_date', 'end_date', 'comment'], 'safe'],
         ];
     }
@@ -66,6 +66,7 @@ class GroupSearch extends Group
             'end_date' => $this->end_date,
             'group_status_id' => $this->group_status_id,
             'since_id' => $this->since_id,
+            'lavel'=>$this->lavel
         ]);
 
         $query->andFilterWhere(['like', 'name', $this->name])

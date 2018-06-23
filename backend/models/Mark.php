@@ -31,9 +31,9 @@ class Mark extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['date', 'mark_status', 'mark', 'member_id', 'students_id'], 'required'],
+            [['date', 'mark_status', 'mark', 'member_id', 'students_id','mark_type','group_id'], 'required'],
             [['date'], 'safe'],
-            [['mark_status', 'member_id', 'students_id'], 'integer'],
+            [['mark_status', 'member_id', 'students_id','absent','mark_type','dislike'], 'integer'],
             [['mark'], 'number'],
             [['comment'], 'string', 'max' => 150],
         ];
@@ -52,6 +52,10 @@ class Mark extends \yii\db\ActiveRecord
             'member_id' => Yii::t('main', 'Member ID'),
             'students_id' => Yii::t('main', 'Students ID'),
             'comment' => Yii::t('main', 'Comment'),
+            'absent'=>Yii::t('main', 'Absent'),
+            'group_id'=>Yii::t('main','Group ID'),
+            'mark_type'=>Yii::t('main', 'Mark Type'),
+            'dislike'=>Yii::t('main', 'Dislike'),
         ];
     }
 }

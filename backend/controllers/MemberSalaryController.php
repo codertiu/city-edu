@@ -2,9 +2,11 @@
 
 namespace backend\controllers;
 
+use backend\models\Members;
 use Yii;
 use backend\models\MemberSalary;
 use backend\models\MemberSalarySearch;
+use yii\data\Pagination;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -87,10 +89,10 @@ class MemberSalaryController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+            return $this->redirect(Yii::$app->request->referrer);
         }
 
-        return $this->render('update', [
+        return $this->renderAjax('update', [
             'model' => $model,
         ]);
     }
@@ -106,7 +108,7 @@ class MemberSalaryController extends Controller
     {
         $this->findModel($id)->delete();
 
-        return $this->redirect(['index']);
+        return $this->redirect(Yii::$app->request->referrer);
     }
 
     /**
@@ -123,5 +125,34 @@ class MemberSalaryController extends Controller
         }
 
         throw new NotFoundHttpException('The requested page does not exist.');
+    }
+
+    public function actionList($id = null)
+    {
+        $name = Members::findOne($id)->fio;
+        $model = MemberSalary::find()->where(['member_id'=>$id]);
+        $pagination = new Pagination([
+           'defaultPageSize'=>25,
+            'totalCount'=>$model->count()
+        ]);
+        $model = $model->orderBy('date DESC')
+            ->offset($pagination->offset)
+            ->limit($pagination->limit)
+            ->all();
+        return $this->render('list',['model'=>$model,'name'=>$name,'pagination'=>$pagination,'id'=>$id]);
+    }
+    public function actionCreate2($id  = null)
+    {
+        $model = new MemberSalary();
+        //$member_id = MemberSalary::find()->where(['member_id'=>$id])->one();
+        if ($model->load(Yii::$app->request->post())) {
+            $model->member_id = $id;
+            $model->save();
+            return $this->redirect(Yii::$app->request->referrer);
+        }
+
+        return $this->renderAjax('form', [
+            'model' => $model
+        ]);
     }
 }
