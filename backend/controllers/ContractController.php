@@ -127,9 +127,12 @@ class ContractController extends Controller
     }
 
 
-    public function actionReport() {
+    public function actionReport($id) {
         // get your HTML raw content without any layouts or scripts
-        $content = $this->renderPartial('_reportView');
+        $model = Contract::findOne($id);
+        $content = $this->renderPartial('_reportView',[
+            'model'=>$model
+        ]);
 
         // setup kartik\mpdf\Pdf component
         $pdf = new Pdf([

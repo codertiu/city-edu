@@ -1728,7 +1728,7 @@ none;text-autospace:none'><b style='mso-bidi-font-weight:normal'><span
 Arial;color:black;mso-themecolor:text1;letter-spacing:.05pt'>Договор об
 оказание услуг обучения № </span></b><span style='font-size:9.0pt;font-family:
 "Verdana","sans-serif";mso-bidi-font-family:Arial;color:black;mso-themecolor:
-text1;letter-spacing:.05pt'>____ / ____ /____ / ____<b style='mso-bidi-font-weight:
+text1;letter-spacing:.05pt'><?=$model->contract?><b style='mso-bidi-font-weight:
 normal'><o:p></o:p></b></span></p>
 
     <p class=MsoNormal align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
@@ -1744,7 +1744,7 @@ mso-pagination:none;mso-layout-grid-align:none;text-autospace:none'><b
 "Verdana","sans-serif";mso-bidi-font-family:Arial;color:black;mso-themecolor:
 text1;letter-spacing:.05pt'>г. Ташкент<span style='mso-tab-count:5'>                                                          </span><span
                         style='mso-tab-count:1'>            </span><span style='mso-tab-count:1'>            </span><span
-                        style='mso-tab-count:1'>            </span>“____” _______________ 2017 год<o:p></o:p></span></b></p>
+                        style='mso-tab-count:1'>            </span><?=date('d M Y',strtotime($model->date))?> год<o:p></o:p></span></b></p>
 
     <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
 justify;text-indent:1.0cm;line-height:normal;mso-pagination:none;mso-layout-grid-align:
@@ -3382,7 +3382,7 @@ Arial;color:black;mso-themecolor:text1;mso-fareast-language:RU'><o:p></o:p></spa
   font-family:"Verdana","sans-serif";mso-bidi-font-family:Arial;color:black'>Ф.И.О.</span></i></b><i
                             style='mso-bidi-font-style:normal'><span style='font-size:8.0pt;font-family:
   "Verdana","sans-serif";mso-bidi-font-family:Arial;color:black'> <b>плательщика</b>:
-  _____________ _________________________________
+  <?=$model->fio?>
   _________________________________<o:p></o:p></span></i></p>
                 <p class=MsoNormal style='margin-top:0cm;margin-right:-.05pt;margin-bottom:
   0cm;margin-left:0cm;margin-bottom:.0001pt;line-height:normal;tab-stops:14.2pt;
@@ -3393,11 +3393,11 @@ Arial;color:black;mso-themecolor:text1;mso-fareast-language:RU'><o:p></o:p></spa
   font-family:"Verdana","sans-serif";mso-bidi-font-family:Arial;color:black'>Паспорт:
   </span></i></b><i style='mso-bidi-font-style:normal'><span style='font-size:
   8.0pt;font-family:"Verdana","sans-serif";mso-bidi-font-family:Arial;
-  color:black'>серия ____ №</span></i><i style='mso-bidi-font-style:normal'><span
+  color:black'>серия <?=$model->pass_seria?> №</span></i><i style='mso-bidi-font-style:normal'><span
                                 style='font-size:8.0pt;font-family:"Verdana","sans-serif";mso-bidi-font-family:
   Arial;color:black;mso-ansi-language:UZ-CYR'> </span></i><i style='mso-bidi-font-style:
   normal'><span style='font-size:8.0pt;font-family:"Verdana","sans-serif";
-  mso-bidi-font-family:Arial;color:black'>____________<b style='mso-bidi-font-weight:
+  mso-bidi-font-family:Arial;color:black'><?=$model->pass_number?><b style='mso-bidi-font-weight:
   normal'><o:p></o:p></b></span></i></p>
                 <p class=MsoNormal style='margin-top:0cm;margin-right:-.05pt;margin-bottom:
   0cm;margin-left:0cm;margin-bottom:.0001pt;line-height:normal;tab-stops:14.2pt;
@@ -3408,7 +3408,7 @@ Arial;color:black;mso-themecolor:text1;mso-fareast-language:RU'><o:p></o:p></spa
   font-family:"Verdana","sans-serif";mso-bidi-font-family:Arial;color:black'>Кем
   Выдан:</span></i></b><i style='mso-bidi-font-style:normal'><span
                                 style='font-size:8.0pt;font-family:"Verdana","sans-serif";mso-bidi-font-family:
-  Arial;color:black'> ____________________________<o:p></o:p></span></i></p>
+  Arial;color:black'> <?=$model->from?><o:p></o:p></span></i></p>
                 <p class=MsoNormal style='margin-top:0cm;margin-right:-.05pt;margin-bottom:
   0cm;margin-left:0cm;margin-bottom:.0001pt;line-height:normal;tab-stops:14.2pt;
   mso-element:frame;mso-element-frame-hspace:9.0pt;mso-element-wrap:around;
@@ -3444,7 +3444,7 @@ Arial;color:black;mso-themecolor:text1;mso-fareast-language:RU'><o:p></o:p></spa
   normal'><i style='mso-bidi-font-style:normal'><span style='font-size:8.0pt;
   font-family:"Verdana","sans-serif";mso-bidi-font-family:Arial;color:black'>Адрес:</span></i></b><i
                             style='mso-bidi-font-style:normal'><span style='font-size:8.0pt;font-family:
-  "Verdana","sans-serif";mso-bidi-font-family:Arial;color:black'>___________________________
+  "Verdana","sans-serif";mso-bidi-font-family:Arial;color:black'><? if($model->type_contract_id==1) echo $model->address?>
   _________________________________<o:p></o:p></span></i></p>
                 <p class=MsoNormal style='margin-top:0cm;margin-right:-.05pt;margin-bottom:
   0cm;margin-left:0cm;margin-bottom:.0001pt;line-height:normal;tab-stops:14.2pt;
@@ -3455,7 +3455,7 @@ Arial;color:black;mso-themecolor:text1;mso-fareast-language:RU'><o:p></o:p></spa
   mso-bidi-font-family:Arial;color:black'>Место работы и должность: </span></i></b><i
                             style='mso-bidi-font-style:normal'><span style='font-size:8.0pt;font-family:
   "Verdana","sans-serif";mso-bidi-font-family:Arial;color:black;mso-bidi-font-weight:
-  bold'>_________________________________ _________________________________</span></i><i
+  bold'><?=$model->work?> _________________________________</span></i><i
                             style='mso-bidi-font-style:normal'><span style='font-size:8.0pt;font-family:
   "Verdana","sans-serif";mso-bidi-font-family:Arial;color:black'><o:p></o:p></span></i></p>
                 <p class=MsoNormal style='margin-top:0cm;margin-right:-.05pt;margin-bottom:
@@ -3470,7 +3470,7 @@ Arial;color:black;mso-themecolor:text1;mso-fareast-language:RU'><o:p></o:p></spa
                                     style='font-size:8.0pt;font-family:"Verdana","sans-serif";mso-bidi-font-family:
   Arial;color:black'>. Тел.:<span style='mso-spacerun:yes'>  </span></span></i></b><i
                             style='mso-bidi-font-style:normal'><span style='font-size:8.0pt;font-family:
-  "Verdana","sans-serif";mso-bidi-font-family:Arial;color:black'>_______________________<o:p></o:p></span></i></p>
+  "Verdana","sans-serif";mso-bidi-font-family:Arial;color:black'><? if($model->type_contract_id==1) echo $model->phone2?><o:p></o:p></span></i></p>
                 <p class=MsoNormal style='margin-top:0cm;margin-right:-.05pt;margin-bottom:
   0cm;margin-left:0cm;margin-bottom:.0001pt;line-height:normal;tab-stops:14.2pt;
   mso-element:frame;mso-element-frame-hspace:9.0pt;mso-element-wrap:around;
@@ -3481,7 +3481,7 @@ Arial;color:black;mso-themecolor:text1;mso-fareast-language:RU'><o:p></o:p></spa
   Тел.:</span></i></b><i style='mso-bidi-font-style:normal'><span
                                 style='font-size:8.0pt;font-family:"Verdana","sans-serif";mso-bidi-font-family:
   Arial;color:black'><span style='mso-spacerun:yes'>
-  </span>_______________________<o:p></o:p></span></i></p>
+  </span><? if($model->type_contract_id==1) echo $model->phone1?><o:p></o:p></span></i></p>
                 <p class=MsoNormal style='margin-top:0cm;margin-right:-.05pt;margin-bottom:
   0cm;margin-left:0cm;margin-bottom:.0001pt;line-height:normal;tab-stops:14.2pt;
   mso-element:frame;mso-element-frame-hspace:9.0pt;mso-element-wrap:around;
@@ -3492,7 +3492,7 @@ Arial;color:black;mso-themecolor:text1;mso-fareast-language:RU'><o:p></o:p></spa
   Тел.: </span></i></b><i style='mso-bidi-font-style:normal'><span
                                 style='font-size:8.0pt;font-family:"Verdana","sans-serif";mso-bidi-font-family:
   Arial;color:black'><span
-                                    style='mso-spacerun:yes'> </span>_______________________<o:p></o:p></span></i></p>
+                                    style='mso-spacerun:yes'> </span><? if($model->type_contract_id==1) echo $model->phone3?><o:p></o:p></span></i></p>
                 <p class=MsoNormal style='margin-top:0cm;margin-right:-.05pt;margin-bottom:
   0cm;margin-left:0cm;margin-bottom:.0001pt;line-height:normal;tab-stops:14.2pt;
   mso-element:frame;mso-element-frame-hspace:9.0pt;mso-element-wrap:around;
@@ -3508,7 +3508,7 @@ Arial;color:black;mso-themecolor:text1;mso-fareast-language:RU'><o:p></o:p></spa
   normal'><span style='font-size:8.0pt;font-family:"Verdana","sans-serif";
   mso-bidi-font-family:Arial;color:black'>:</span></i></b><i style='mso-bidi-font-style:
   normal'><span style='font-size:8.0pt;font-family:"Verdana","sans-serif";
-  mso-bidi-font-family:Arial;color:black;mso-bidi-font-weight:bold'>___________________________<b><o:p></o:p></b></span></i></p>
+  mso-bidi-font-family:Arial;color:black;mso-bidi-font-weight:bold'><?=$model->email?><b><o:p></o:p></b></span></i></p>
                 <p class=MsoNormal style='margin-top:0cm;margin-right:-.05pt;margin-bottom:
   0cm;margin-left:0cm;margin-bottom:.0001pt;line-height:normal;tab-stops:14.2pt;
   mso-element:frame;mso-element-frame-hspace:9.0pt;mso-element-wrap:around;
@@ -3583,14 +3583,14 @@ Arial;color:black;mso-themecolor:text1;mso-fareast-language:RU'><o:p></o:p></spa
   font-family:"Verdana","sans-serif";mso-bidi-font-family:Arial;color:black'>Название:
   </span></i></b><i style='mso-bidi-font-style:normal'><span style='font-size:
   8.0pt;font-family:"Verdana","sans-serif";mso-bidi-font-family:Arial;
-  color:black'>__________________________<o:p></o:p></span></i></p>
+  color:black'><?=$model->title?><o:p></o:p></span></i></p>
                 <p class=MsoNormal style='margin-top:0cm;margin-right:-14.2pt;margin-bottom:
   0cm;margin-left:0cm;margin-bottom:.0001pt;text-align:justify;line-height:
   normal;tab-stops:14.2pt;mso-element:frame;mso-element-frame-hspace:9.0pt;
   mso-element-wrap:around;mso-element-anchor-vertical:paragraph;mso-element-anchor-horizontal:
   margin;mso-element-top:.65pt;mso-height-rule:exactly'><i style='mso-bidi-font-style:
   normal'><span style='font-size:8.0pt;font-family:"Verdana","sans-serif";
-  mso-bidi-font-family:Arial;color:black'>____________________________________<u><o:p></o:p></u></span></i></p>
+  mso-bidi-font-family:Arial;color:black'><u><o:p></o:p></u></span></i></p>
                 <p class=MsoNormal style='margin-top:0cm;margin-right:-14.2pt;margin-bottom:
   0cm;margin-left:0cm;margin-bottom:.0001pt;text-align:justify;line-height:
   normal;tab-stops:14.2pt;mso-element:frame;mso-element-frame-hspace:9.0pt;
@@ -3602,7 +3602,7 @@ Arial;color:black;mso-themecolor:text1;mso-fareast-language:RU'><o:p></o:p></spa
   8.0pt;font-family:"Verdana","sans-serif";mso-bidi-font-family:Arial;
   color:black'> </span></i><i style='mso-bidi-font-style:normal'><span
                                 style='font-size:8.0pt;font-family:"Verdana","sans-serif";mso-bidi-font-family:
-  Arial;color:black'>_____________________________ <o:p></o:p></span></i></p>
+  Arial;color:black'><?php if($model->type_contract_id==2) echo $model->address ?> ___________________<o:p></o:p></span></i></p>
                 <p class=MsoNormal style='margin-top:0cm;margin-right:-14.2pt;margin-bottom:
   0cm;margin-left:0cm;margin-bottom:.0001pt;text-align:justify;line-height:
   normal;tab-stops:14.2pt;mso-element:frame;mso-element-frame-hspace:9.0pt;
@@ -3610,7 +3610,7 @@ Arial;color:black;mso-themecolor:text1;mso-fareast-language:RU'><o:p></o:p></spa
   margin;mso-element-top:.65pt;mso-height-rule:exactly'><i style='mso-bidi-font-style:
   normal'><span style='font-size:8.0pt;font-family:"Verdana","sans-serif";
   mso-bidi-font-family:Arial;color:black'>____________________________________ <b
-                                    style='mso-bidi-font-weight:normal'>Телефон: </b>___________________________<o:p></o:p></span></i></p>
+                                    style='mso-bidi-font-weight:normal'>Телефон: </b><?php if($model->type_contract_id==2) echo $model->phone1.' '.$model->phone2.' '.$model->phone3?><o:p></o:p></span></i></p>
                 <p class=MsoNormal style='margin-top:0cm;margin-right:-14.2pt;margin-bottom:
   0cm;margin-left:0cm;margin-bottom:.0001pt;text-align:justify;line-height:
   normal;tab-stops:14.2pt;mso-element:frame;mso-element-frame-hspace:9.0pt;
@@ -3630,7 +3630,7 @@ Arial;color:black;mso-themecolor:text1;mso-fareast-language:RU'><o:p></o:p></spa
   8.0pt;font-family:"Verdana","sans-serif";mso-bidi-font-family:Arial;
   color:black'> </span></i></b><i style='mso-bidi-font-style:normal'><span
                                 style='font-size:8.0pt;font-family:"Verdana","sans-serif";mso-bidi-font-family:
-  Arial;color:black'>__________________<o:p></o:p></span></i></p>
+  Arial;color:black'><?=$model->bill?><o:p></o:p></span></i></p>
                 <p class=MsoNormal style='margin-top:0cm;margin-right:-14.2pt;margin-bottom:
   0cm;margin-left:0cm;margin-bottom:.0001pt;text-align:justify;line-height:
   normal;tab-stops:14.2pt;mso-element:frame;mso-element-frame-hspace:9.0pt;
@@ -3649,7 +3649,7 @@ Arial;color:black;mso-themecolor:text1;mso-fareast-language:RU'><o:p></o:p></spa
                                     style='font-size:14.0pt;mso-bidi-font-size:8.0pt;font-family:"Verdana","sans-serif";
   mso-bidi-font-family:Arial;color:black'> </span></i></b><i style='mso-bidi-font-style:
   normal'><span style='font-size:8.0pt;font-family:"Verdana","sans-serif";
-  mso-bidi-font-family:Arial;color:black'>__________________________________<o:p></o:p></span></i></p>
+  mso-bidi-font-family:Arial;color:black'><?=$model->b?><o:p></o:p></span></i></p>
                 <p class=MsoNormal style='margin-top:0cm;margin-right:-14.2pt;margin-bottom:
   0cm;margin-left:0cm;margin-bottom:.0001pt;text-align:justify;line-height:
   normal;tab-stops:14.2pt;mso-element:frame;mso-element-frame-hspace:9.0pt;
@@ -3671,7 +3671,7 @@ Arial;color:black;mso-themecolor:text1;mso-fareast-language:RU'><o:p></o:p></spa
   mso-element-wrap:around;mso-element-anchor-vertical:paragraph;mso-element-anchor-horizontal:
   margin;mso-element-top:.65pt;mso-height-rule:exactly'><i style='mso-bidi-font-style:
   normal'><span style='font-size:8.0pt;font-family:"Verdana","sans-serif";
-  mso-bidi-font-family:Arial;color:black'>____________________________________<o:p></o:p></span></i></p>
+  mso-bidi-font-family:Arial;color:black'><?= $model->inn ?><o:p></o:p></span></i></p>
                 <p class=MsoNormal style='margin-top:0cm;margin-right:-14.2pt;margin-bottom:
   0cm;margin-left:0cm;margin-bottom:.0001pt;text-align:justify;line-height:
   normal;tab-stops:14.2pt;mso-element:frame;mso-element-frame-hspace:9.0pt;
@@ -3681,7 +3681,7 @@ Arial;color:black;mso-themecolor:text1;mso-fareast-language:RU'><o:p></o:p></spa
   font-family:"Verdana","sans-serif";mso-bidi-font-family:Arial;color:black'>Код
   по ОКОНХ: </span></i></b><i style='mso-bidi-font-style:normal'><span
                                 style='font-size:8.0pt;font-family:"Verdana","sans-serif";mso-bidi-font-family:
-  Arial;color:black'>______________________ <o:p></o:p></span></i></p>
+  Arial;color:black'><?=$model->okohx?> <o:p></o:p></span></i></p>
                 <p class=MsoNormal style='margin-top:0cm;margin-right:-14.2pt;margin-bottom:
   0cm;margin-left:0cm;margin-bottom:.0001pt;text-align:justify;line-height:
   normal;tab-stops:14.2pt;mso-element:frame;mso-element-frame-hspace:9.0pt;
@@ -3694,7 +3694,7 @@ Arial;color:black;mso-themecolor:text1;mso-fareast-language:RU'><o:p></o:p></spa
   8.0pt;font-family:"Verdana","sans-serif";mso-bidi-font-family:Arial;
   color:black'> </span></i></b><i style='mso-bidi-font-style:normal'><span
                                 style='font-size:8.0pt;font-family:"Verdana","sans-serif";mso-bidi-font-family:
-  Arial;color:black'>_________________________<o:p></o:p></span></i></p>
+  Arial;color:black'><?=$model->mfo?><o:p></o:p></span></i></p>
                 <p class=MsoNormal style='margin-top:0cm;margin-right:-14.2pt;margin-bottom:
   0cm;margin-left:0cm;margin-bottom:.0001pt;text-align:justify;line-height:
   normal;tab-stops:14.2pt;mso-element:frame;mso-element-frame-hspace:9.0pt;
@@ -3703,7 +3703,7 @@ Arial;color:black;mso-themecolor:text1;mso-fareast-language:RU'><o:p></o:p></spa
   normal'><i style='mso-bidi-font-style:normal'><span style='font-size:8.0pt;
   font-family:"Verdana","sans-serif";mso-bidi-font-family:Arial;color:black'>Лицензия:</span></i></b><i
                             style='mso-bidi-font-style:normal'><span style='font-size:8.0pt;font-family:
-  "Verdana","sans-serif";mso-bidi-font-family:Arial;color:black'>___________________________<b
+  "Verdana","sans-serif";mso-bidi-font-family:Arial;color:black'><?=$model->license?><b
                                     style='mso-bidi-font-weight:normal'><o:p></o:p></b></span></i></p>
                 <p class=MsoListParagraphCxSpFirst style='margin-top:0cm;margin-right:-.05pt;
   margin-bottom:0cm;margin-left:0cm;margin-bottom:.0001pt;mso-add-space:auto;
@@ -3724,7 +3724,7 @@ Arial;color:black;mso-themecolor:text1;mso-fareast-language:RU'><o:p></o:p></spa
   "Verdana","sans-serif";mso-bidi-font-family:Arial;color:black;mso-fareast-language:
   RU'>Директор:</span></i></b><i style='mso-bidi-font-style:normal'><span
                                 style='font-size:8.0pt;font-family:"Verdana","sans-serif";mso-bidi-font-family:
-  Arial;color:black;mso-fareast-language:RU'>___________________________<b
+  Arial;color:black;mso-fareast-language:RU'><?=$model->director?><b
                                     style='mso-bidi-font-weight:normal'><o:p></o:p></b></span></i></p>
                 <p class=MsoListParagraphCxSpLast style='margin-top:0cm;margin-right:-.05pt;
   margin-bottom:0cm;margin-left:0cm;margin-bottom:.0001pt;mso-add-space:auto;

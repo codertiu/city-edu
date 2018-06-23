@@ -12,7 +12,7 @@ return [
     'basePath' => dirname(__DIR__),
     'controllerNamespace' => 'backend\controllers',
     'bootstrap' => ['log'],
-    'language'=>'ru',
+    //'language'=>'ru',
     'modules' => [
         'user-management' => [
             'class' => 'webvimark\modules\UserManagement\UserManagementModule',
@@ -76,7 +76,7 @@ return [
         ],
         'session' => [
             // this is the name of the session cookie used for login on the backend
-            'name' => 'advanced-backend',
+            'name' => '_SESSION_ID',
         ],
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,

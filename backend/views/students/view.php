@@ -74,7 +74,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                                     <td><?= $i ?></td>
                                                     <td><?= $c->contract ?></td>
                                                     <td><?= Html::button(' <i class="icon md-edit"></i>', ['value' => Url::to(['/contract/update', 'id' => $c->id]), 'class' => 'btn-pure waves-effect waves-classic waves-effect waves-classic modalButton']) ?></td>
-                                                    <td><?= Html::a(' <i class="icon md-file"></i>', ['/contract/report'], ['target' => '_blank', 'class' => 'btn-pure  waves-effect waves-classic waves-effect waves-classic']) ?></td>
+                                                    <td><?= Html::a(' <i class="icon md-file"></i>', ['/contract/report','id'=>$c->id], ['target' => '_blank', 'class' => 'btn-pure  waves-effect waves-classic waves-effect waves-classic']) ?></td>
                                                 </tr>
                                                 <? $i++;
                                             } ?>

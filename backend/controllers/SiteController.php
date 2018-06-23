@@ -6,6 +6,7 @@ use yii\web\Controller;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 use common\models\LoginForm;
+use backend\models\Languages;
 
 /**
  * Site controller
@@ -57,7 +58,20 @@ class SiteController extends Controller
             ],
         ];
     }
-
+    public function actionLang($lang) {
+        $query = Languages::find()->where('abb= "'.$lang.'" AND status>-1')->one();
+        if($query || $lang == Yii::$app->params['main_language']) {
+//          $lang_id = $lang == Yii::$app->params['main_language'] ? Yii::$app->params['main_language_id'] : $query->id;
+            $lang_id = $lang == Yii::$app->params['main_language'] ? 3 : $query->id;
+            Yii::$app->language = $lang;
+            Yii::$app->session->set('lang', $lang);
+            Yii::$app->session->set('lang_id', $lang_id);
+            $rescookies = \Yii::$app->response->cookies;
+            $rescookies->add(new \yii\web\Cookie(['name' => '_language', 'value' => $lang, 'expire' => (time() + 3600 * 24 * 365)]));
+            $rescookies->add(new \yii\web\Cookie(['name' => '_lid', 'value' => $lang_id, 'expire' => (time() + 3600 * 24 * 365)]));
+        }
+        return $this->redirect(Yii::$app->request->referrer);
+    }
     /**
      * Displays homepage.
      *
@@ -100,27 +114,5 @@ class SiteController extends Controller
         Yii::$app->user->logout();
 
         return $this->goHome();
-    }
-    public function actionLanguage($ln)
-    {
-        //$language = \app\models\Language::find()->joinWith('languageCode')->where(['language.status'=>'1','country.language_code'=>$ln])->one();
-        $language = $ln;
-        if($language != null){
-            //$lan_code = $language->languageCode->language_code;
-            $lan_code=$language;
-            Yii::$app->language = $lan_code;
-            $cookie = new Yii\web\cookie([
-                'name'=>'language',
-                'value'=>$lan_code
-            ]);
-            Yii::$app->getResponse()->getCookies()->add($cookie);
-
-
-            $session = Yii::$app->session;
-            $session->set('language', $lan_code);
-            return $this->redirect(Yii::$app->request->referrer);
-        }else{
-            return $this->redirect(Yii::$app->request->referrer);
-        }
     }
 }

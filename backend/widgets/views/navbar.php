@@ -270,28 +270,20 @@ use webvimark\modules\UserManagement\UserManagementModule;
                 </li>
                 <li class="dropdown">
 
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="javascript:void(0)"
-                       data-animation="scale-up"
-                       aria-expanded="false" role="button">
-                        <span class="flag-icon flag-icon-ru"></span>
+                    <a class="dropdown-toggle" data-toggle="dropdown">
+                        <span class="flag-icon flag-icon-<?=Yii::$app->language?>"></span>
                     </a>
 
-                    <ul class="dropdown-menu" role="menu">
-
+                    <ul class="dropdown-menu" role="menu" class="ns">
+                        <?php
+                        $langs = \backend\models\Languages::find()->where(['status'=>1])->where(['!=','abb',Yii::$app->language])->all();
+                        foreach($langs as $lang) { ?>
                         <li role="presentation">
-                            <a href="<?=Url::to(['/site/language','ln'=>"ru"])?> role="menuitem">
-                                <span class="flag-icon flag-icon-ru"></span> <?= Yii::t('main','Русский')?></a>
+                            <a href="<?=Url::to(['/site/lang','lang'=>$lang['abb']])?>">
+                                <span class="flag-icon flag-icon-<?=$lang['abb']?>"></span><?=$lang['name']?></a>
                         </li>
-                        <li role="presentation">
-                            <a href="<?=Url::to(['/site/language','ln'=>"uz"])?>" role="menuitem">
-                                <span class="flag-icon flag-icon-uz"></span> <?= Yii::t('main','O\'zbek')?></a>
-                        </li>
-                        <li role="presentation">
-                            <a href="<?=Url::to(['/site/language','ln'=>"en"])?>" role="menuitem">
-                                <span class="flag-icon flag-icon-us"></span> <?= Yii::t('main','Engilish')?></a>
-                        </li>
+                        <?php } ?>
                     </ul>
-
                 </li>
                 <li class="dropdown">
                     <a class="navbar-avatar dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false"
