@@ -11,7 +11,6 @@
     <meta name=Generator content="Microsoft Word 15">
     <meta name=Originator content="Microsoft Word 15">
     <link rel=File-List href="dogovor%20City%20Education.files/filelist.xml">
-    <title>Microsoft Word - Curriculum Vitae New</title>
     <!--[if gte mso 9]><xml>
         <o:DocumentProperties>
             <o:Author>master</o:Author>
@@ -3416,26 +3415,7 @@ Arial;color:black;mso-themecolor:text1;mso-fareast-language:RU'><o:p></o:p></spa
   mso-element-top:.65pt;mso-height-rule:exactly'><b style='mso-bidi-font-weight:
   normal'><i style='mso-bidi-font-style:normal'><span style='font-size:8.0pt;
   font-family:"Verdana","sans-serif";mso-bidi-font-family:Arial;color:black'>Дата
-  выдачи:<span style='mso-bidi-font-weight:bold'> </span></span></i></b><b><i
-                                style='mso-bidi-font-style:normal'><span lang=UZ-CYR style='font-size:8.0pt;
-  font-family:"Verdana","sans-serif";mso-bidi-font-family:Arial;color:black;
-  mso-ansi-language:UZ-CYR'>“</span></i></b><i style='mso-bidi-font-style:normal'><span
-                                style='font-size:8.0pt;font-family:"Verdana","sans-serif";mso-bidi-font-family:
-  Arial;color:black;mso-bidi-font-weight:bold'>___</span></i><b><i
-                                style='mso-bidi-font-style:normal'><span lang=UZ-CYR style='font-size:8.0pt;
-  font-family:"Verdana","sans-serif";mso-bidi-font-family:Arial;color:black;
-  mso-ansi-language:UZ-CYR'>”</span></i></b><b><i style='mso-bidi-font-style:
-  normal'><span lang=UZ-CYR style='font-size:8.0pt;font-family:"Verdana","sans-serif";
-  mso-bidi-font-family:Arial;color:black'> </span></i></b><i style='mso-bidi-font-style:
-  normal'><span style='font-size:8.0pt;font-family:"Verdana","sans-serif";
-  mso-bidi-font-family:Arial;color:black;mso-bidi-font-weight:bold'>________</span></i><b><i
-                                style='mso-bidi-font-style:normal'><span style='font-size:8.0pt;font-family:
-  "Verdana","sans-serif";mso-bidi-font-family:Arial;color:black;mso-ansi-language:
-  UZ-CYR'> </span></i></b><b><i style='mso-bidi-font-style:normal'><span
-                                    style='font-size:8.0pt;font-family:"Verdana","sans-serif";mso-bidi-font-family:
-  Arial;color:black'>20</span></i></b><i style='mso-bidi-font-style:normal'><span
-                                style='font-size:8.0pt;font-family:"Verdana","sans-serif";mso-bidi-font-family:
-  Arial;color:black;mso-bidi-font-weight:bold'>___<b>г.<o:p></o:p></b></span></i></p>
+  выдачи:<span style='mso-bidi-font-weight:bold'> </span></span></i></b><?=$model->bring_date?></p>
                 <p class=MsoNormal style='margin-top:0cm;margin-right:-.05pt;margin-bottom:
   0cm;margin-left:0cm;margin-bottom:.0001pt;line-height:normal;tab-stops:14.2pt;
   mso-element:frame;mso-element-frame-hspace:9.0pt;mso-element-wrap:around;
@@ -3739,7 +3719,7 @@ Arial;color:black;mso-themecolor:text1;mso-fareast-language:RU'><o:p></o:p></spa
   8.0pt;font-family:"Verdana","sans-serif";mso-bidi-font-family:Arial;
   color:black;mso-fareast-language:RU'> </span></i></b><i style='mso-bidi-font-style:
   normal'><span style='font-size:8.0pt;font-family:"Verdana","sans-serif";
-  mso-bidi-font-family:Arial;color:black;mso-fareast-language:RU'>_____________________________<b
+  mso-bidi-font-family:Arial;color:black;mso-fareast-language:RU'><?=$model->bux?> _____________________________<b
                                     style='mso-bidi-font-weight:normal'><o:p></o:p></b></span></i></p>
                 <p class=MsoNormal style='margin-top:0cm;margin-right:-.05pt;margin-bottom:
   0cm;margin-left:0cm;margin-bottom:.0001pt;line-height:normal;tab-stops:14.2pt;

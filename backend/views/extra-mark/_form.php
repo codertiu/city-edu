@@ -66,7 +66,7 @@ use wbraganca\dynamicform\DynamicFormWidget;
     <div class="panel panel-default">
         <div class="panel-heading">
             <h4 class="panel-title">
-                <i class="glyphicon glyphicon-envelope"></i> <?= Yii::t('main','Teacher'); ?>
+                <i class="glyphicon glyphicon-envelope"></i> <?= Yii::t('main','Students'); ?>
                 <button type="button" class="add-item btn btn-success btn-sm pull-right"><i class="glyphicon glyphicon-plus"></i> <?= Yii::t('main','Add') ?></button>
             </h4>
         </div>
@@ -76,7 +76,7 @@ use wbraganca\dynamicform\DynamicFormWidget;
                 <?php foreach ($model as $i => $modelAddress): ?>
                     <div class="item panel panel-default"><!-- widgetItem -->
                         <div class="panel-heading">
-                            <h3 class="panel-title pull-left"><?= Yii::t('main','Teacher')?></h3>
+                            <h3 class="panel-title pull-left"><?= Yii::t('main','Students')?></h3>
                             <div class="pull-right">
                                 <button type="button" class="remove-item btn btn-danger btn-xs"><i class="glyphicon glyphicon-minus"></i></button>
                             </div>
@@ -95,7 +95,7 @@ use wbraganca\dynamicform\DynamicFormWidget;
                                     <?= $form->field($modelAddress, "[{$i}]student_id",[
                                         'template' => '{label} * {input}{error}{hint}'
                                     ])->widget(Select2::classname(), [
-                                        'data' => ArrayHelper::map(\backend\models\Students::find()->where(['active' => 1])->all(), 'id', 'fullName'),
+                                        'data' => ArrayHelper::map(\backend\models\Students::find()->where(['active' => 1])->all(), 'id', 'fullNameId'),
                                         'language' => 'ru',
                                         'options' => ['placeholder' => Yii::t('main','Select')],
                                         'pluginOptions' => [

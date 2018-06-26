@@ -19,7 +19,7 @@ class ContractSearch extends Contract
     {
         return [
             [['id', 'students_id', 'type_edu_id','type_contract_id'], 'integer'],
-            [['contract', 'date','fio','pass_seria','pass_number','from','address','work','phone1','phone2','phone3','email','title','bill','b','inn','okohx','mfo','license','director'], 'safe'],
+            [['contract', 'bring_date','bux','date','fio','pass_seria','pass_number','from','address','work','phone1','phone2','phone3','email','title','bill','b','inn','okohx','mfo','license','director'], 'safe'],
             [['sum'], 'number'],
         ];
     }

@@ -2,22 +2,20 @@
 
 namespace backend\controllers;
 
-use backend\models\GroupTech;
 use Yii;
-use backend\models\Group;
-use backend\models\GroupSearch;
+use backend\models\GroupTech;
+use backend\models\GroupTechSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
-use backend\models\SubStudents;
-use backend\models\Model;
+
 /**
- * GroupController implements the CRUD actions for Group model.
+ * GroupTechController implements the CRUD actions for GroupTech model.
  */
-class GroupController extends Controller
+class GroupTechController extends Controller
 {
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function behaviors()
     {
@@ -26,19 +24,18 @@ class GroupController extends Controller
                 'class' => VerbFilter::className(),
                 'actions' => [
                     'delete' => ['POST'],
-                    'delete-sub'=>['POST']
                 ],
             ],
         ];
     }
 
     /**
-     * Lists all Group models.
+     * Lists all GroupTech models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new GroupSearch();
+        $searchModel = new GroupTechSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -48,7 +45,7 @@ class GroupController extends Controller
     }
 
     /**
-     * Displays a single Group model.
+     * Displays a single GroupTech model.
      * @param integer $id
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
@@ -61,42 +58,25 @@ class GroupController extends Controller
     }
 
     /**
-     * Creates a new Group model.
+     * Creates a new GroupTech model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new Group();
-        $first = new GroupTech();
-        $second = [new GroupTech];
+        $model = new GroupTech();
 
-        if (Yii::$app->request->isAjax && $model->load(Yii::$app->request->post()))
-        {
-            Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
-            return \yii\widgets\ActiveForm::validate($model);
-        }
-        if ($model->load(Yii::$app->request->post()) && $model->save() && $first->load(Yii::$app->request->post())) {
-            $second = Model::createMultiple(GroupTech::classname());
-            Model::loadMultiple($second, Yii::$app->request->post());
-
-            foreach ($second as $s) {
-                $s->group_id = $model->id;
-                $s->status = 1;
-                $s->save();
-            }
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         }
 
-        return $this->render('create', [
+        return $this->renderAjax('create', [
             'model' => $model,
-            'first' => $first,
-            'second' => (empty($second)) ? [new GroupTech] : $second
         ]);
     }
 
     /**
-     * Updates an existing Group model.
+     * Updates an existing GroupTech model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -105,22 +85,18 @@ class GroupController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
-        if (Yii::$app->request->isAjax && $model->load(Yii::$app->request->post()))
-        {
-            Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
-            return \yii\widgets\ActiveForm::validate($model);
-        }
+
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+            return $this->redirect(Yii::$app->request->referrer);
         }
 
-        return $this->render('update', [
+        return $this->renderAjax('update', [
             'model' => $model,
         ]);
     }
 
     /**
-     * Deletes an existing Group model.
+     * Deletes an existing GroupTech model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -134,24 +110,18 @@ class GroupController extends Controller
     }
 
     /**
-     * Finds the Group model based on its primary key value.
+     * Finds the GroupTech model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return Group the loaded model
+     * @return GroupTech the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Group::findOne($id)) !== null) {
+        if (($model = GroupTech::findOne($id)) !== null) {
             return $model;
         }
 
         throw new NotFoundHttpException(Yii::t('main', 'The requested page does not exist.'));
-    }
-    public function actionDeleteSub($id,$group){
-        $model = SubStudents::findOne(['students_id'=>$id, 'group_id'=>$group]);
-        $model->delete();
-        //echo $model;
-        return $this->redirect(Yii::$app->request->referrer);
     }
 }

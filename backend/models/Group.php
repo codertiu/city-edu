@@ -75,4 +75,8 @@ class Group extends \yii\db\ActiveRecord
     public function getGroupStatus(){
         return $this->hasOne(GroupStatus::className(),['id'=>'group_status_id']);
     }
+
+    public function getGroupTech(){
+        return $this->hasOne(Group::className(),['id'=>'group_id']);
+    }
 }

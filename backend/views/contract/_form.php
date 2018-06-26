@@ -160,14 +160,21 @@ $this->registerCss($css);
             </div>
         </div>
         <div class="row row-lg">
-            <div class="col-lg-6 form-horizontal">
+            <div class="col-lg-4 form-horizontal">
                 <div class="form-group">
                     <div class="col-lg-12 col-sm-9">
                         <?= $form->field($model, 'from')->textInput() ?>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-6 form-horizontal">
+            <div class="col-lg-4 form-horizontal">
+                <div class="form-group">
+                    <div class="col-lg-12 col-sm-9">
+                        <?= $form->field($model, 'bring_date')->textInput() ?>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 form-horizontal">
                 <div class="form-group">
                     <div class="col-lg-12 col-sm-9">
                         <?= $form->field($model, 'work')->textInput() ?>
@@ -202,17 +209,25 @@ $this->registerCss($css);
             </div>
         </div>
         <div class="row row-lg">
-            <div class="col-lg-6 form-horizontal">
+            <div class="col-lg-4 form-horizontal">
                 <div class="form-group">
                     <div class="col-lg-12 col-sm-9">
                         <?= $form->field($model, 'bill')->textInput() ?>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-6 form-horizontal">
+            <div class="col-lg-4 form-horizontal">
                 <div class="form-group">
                     <div class="col-lg-12 col-sm-9">
                         <?= $form->field($model, 'b')->textInput() ?>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 form-horizontal">
+                <div class="form-group">
+                    <div class="col-lg-12 col-sm-9">
+                        <?= $form->field($model, 'bux')->textInput() ?>
                     </div>
                 </div>
             </div>

@@ -113,6 +113,10 @@ class Students extends ActiveRecord
     public function getFullName(){
         return $this->surname.' '.$this->name;
     }
+
+    public function getFullNameId(){
+        return $this->surname.' '.$this->name.' '.$this->id;
+    }
     public function getEduCenterID(){
         return $this->hasOne(EduCenter::className(),['id'=>'edu_center_id']);
     }
@@ -122,6 +126,24 @@ class Students extends ActiveRecord
         $date2=date_create(date('Y-m-d', strtotime($this->reg_date)));
         $diff=date_diff($date2,$date1);
         return $diff->format("%R%a days");
+    }
+
+    // Tugilgan kunlar uchun $type today yoki month
+    public function getBirthday($type){
+        $model = self::find();
+        if($type == 'today'){
+            $model->where(['active' => 1])
+                ->where('MONTH('.$this->dob.')= MONTH(now())')
+                ->where('DAY('.$this->dob.')=DAY(NOW())')
+                ->all();
+            return $model;
+        }else if($type == 'month'){
+            $model->where(['active' => 1])
+                ->where('concat( year(now()), mid('.$this->dob.',5,6) ) 
+                                BETWEEN now() AND date_add(now(), interval 7 day)')
+                ->all();
+            return $model;
+        }
     }
     public function beforeDelete()
     {

@@ -37,7 +37,7 @@ class Contract extends \yii\db\ActiveRecord
             [['contract','fio','from','address','work','bill','b','license','director','phone1','phone2','phone2'], 'string', 'max' => 150],
             [['pass_seria'],'string', 'max'=>2],
             [['pass_number'],'string','max'=>10],
-            [['email','title','mfo'],'string', 'max'=>50],
+            [['email','title','mfo','bux','bring_date'],'string', 'max'=>50],
             [['email'],'email'],
             [['inn'],'string','max'=>20],
             [['okohx'],'string','max'=>25],
@@ -84,7 +84,9 @@ class Contract extends \yii\db\ActiveRecord
             'okohx'=>Yii::t('main','okohx'),
             'mfo'=>Yii::t('main','mfo'),
             'license'=>Yii::t('main','license'),
-            'director'=>Yii::t('main','director')
+            'director'=>Yii::t('main','director'),
+            'bring_date'=>Yii::t('main','Bring Date'),
+            'bux'=>Yii::t('main','Bux')
         ];
     }
 }

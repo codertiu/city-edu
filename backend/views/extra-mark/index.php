@@ -32,9 +32,20 @@ $this->params['breadcrumbs'][] = $this->title;
                                 ['class' => 'yii\grid\SerialColumn'],
 
                                 //'id',
-                                'member_id',
-                                'student_id',
-                                'date',
+                                [
+                                    'attribute' => 'member_id',
+                                    'value' => 'member.fio'
+                                ],
+                                [
+                                    'attribute' => 'student_id',
+                                    'value' => 'student.fullNameId',
+                                ],
+                                [
+                                    'attribute' => 'date',
+                                    'value' => function ($model) {
+                                        return date('d/M/Y', strtotime($model->date));
+                                    }
+                                ],
                                 'mark',
 
                                 ['class' => 'yii\grid\ActionColumn'],
