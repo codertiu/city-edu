@@ -124,4 +124,8 @@ class MarkController extends Controller
 
         throw new NotFoundHttpException('The requested page does not exist.');
     }
+
+    public function actionPutMark(){
+        return $this->render('put-mark');
+    }
 }
