@@ -41,16 +41,37 @@ $this->params['breadcrumbs'][] = $this->title;
                                                 return Html::a($model->fio, ['/members/view', 'id' => $model->id]);
                                             },
                                         ],
-                                        'tel',
-                                        'address',
-                                        'about:ntext',
+                                        [
+                                            'attribute' => 'tel',
+                                            'format' => 'raw',
+                                            'value' => function ($model) {
+                                                return Html::a($model->tel, ['/members/view', 'id' => $model->id]);
+                                            },
+                                        ],
+                                        [
+                                            'attribute' => 'address',
+                                            'format' => 'raw',
+                                            'value' => function ($model) {
+                                                return Html::a($model->address, ['/members/view', 'id' => $model->id]);
+                                            },
+                                        ],
+//                                        [
+//                                            'attribute' => 'about:ntext',
+//                                            'format' => 'raw',
+//                                            'value' => function ($model) {
+//                                                return Html::a($model->fio, ['/members/view', 'id' => $model->id]);
+//                                            },
+//                                        ],
                                         //'gendar',
                                         //'edu_center_id',
                                         //'active',
                                         //'img',
                                         //'file',
 
-                                        ['class' => 'yii\grid\ActionColumn'],
+                                        [
+                                            'class' => 'yii\grid\ActionColumn',
+                                            'template' => '{view}{update}'
+                                        ],
                                     ],
                                 ]); ?>
                             </div>

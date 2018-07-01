@@ -44,4 +44,8 @@ class Room extends \yii\db\ActiveRecord
             'room' => Yii::t('main', 'Room'),
         ];
     }
+
+    public function getEduCenter(){
+        return $this->hasOne(EduCenter::className(),['id'=>'edu_center_id']);
+    }
 }

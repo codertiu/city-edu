@@ -60,7 +60,7 @@ class ReceptionController extends Controller
      */
     public function actionIndex()
     {
-        if (User::hasRole('Administration')) {
+        if (User::hasRole('Reception')) {
             $form = new Reception();
             $searchModel = new ReceptionSearch();
             $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
@@ -165,7 +165,7 @@ class ReceptionController extends Controller
      */
     public function actionDelete($id)
     {
-        if (User::hasRole('admin')) {
+        if (User::hasRole('Admin')) {
         $this->findModel($id)->delete();
 
         return $this->redirect(['index']);
@@ -242,7 +242,7 @@ class ReceptionController extends Controller
     // Ro'yxatdan o'tish uchun
     public function actionRegister($id = null)
     {
-        if (User::hasRole('Administration')) {
+        if (User::hasRole('Reception')) {
             $model = new Students();
             $reception = Reception::findOne($id);
             $students_info = new StudentsInfo();

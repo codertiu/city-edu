@@ -33,7 +33,7 @@ class Mark extends \yii\db\ActiveRecord
         return [
             [['date', 'mark_status', 'mark', 'member_id', 'students_id','mark_type','group_id'], 'required'],
             [['date'], 'safe'],
-            [['mark_status', 'member_id', 'students_id','absent','mark_type','dislike'], 'integer'],
+            [['mark_status', 'member_id', 'students_id','absent','mark_type'], 'integer'],
             [['mark'], 'number'],
             [['comment'], 'string', 'max' => 150],
         ];
@@ -55,7 +55,6 @@ class Mark extends \yii\db\ActiveRecord
             'absent'=>Yii::t('main', 'Absent'),
             'group_id'=>Yii::t('main','Group ID'),
             'mark_type'=>Yii::t('main', 'Mark Type'),
-            'dislike'=>Yii::t('main', 'Dislike'),
         ];
     }
 }

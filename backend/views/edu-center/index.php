@@ -31,18 +31,20 @@ $this->params['breadcrumbs'][] = $this->title;
                                     'columns' => [
                                         ['class' => 'yii\grid\SerialColumn'],
 
-                                        'id',
+                                        //'id',
                                         'name',
                                         'address',
                                         'tel',
                                         'director',
                                         'active',
-                                        //'inn',
-                                        //'checking_account',
-                                        //'mfo',
-                                        //'oked',
+                                        'inn',
+                                        'checking_account',
+                                        'mfo',
+                                        'oked',
 
-                                        ['class' => 'yii\grid\ActionColumn'],
+                                        ['class' => 'yii\grid\ActionColumn',
+                                            'template'=>'{update}'
+                                            ],
                                     ],
                                 ]); ?>
                             </div>

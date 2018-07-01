@@ -17,7 +17,7 @@ use webvimark\modules\UserManagement\UserManagementModule;
                 data-toggle="collapse">
             <i class="icon md-more" aria-hidden="true"></i>
         </button>
-        <a class="navbar-brand navbar-brand-center" href="<?= Url::to(['/reception/index']); ?>">
+        <a class="navbar-brand navbar-brand-center" href="<?= Url::to(['/site']); ?>">
             <img class="navbar-brand-logo navbar-brand-logo-normal"
                  src="<?= \yii\helpers\Url::base(); ?>/images/logo.png"
                  title="Material">
@@ -279,7 +279,7 @@ use webvimark\modules\UserManagement\UserManagementModule;
                         $langs = \backend\models\Languages::find()->where(['status'=>1])->where(['!=','abb',Yii::$app->language])->all();
                         foreach($langs as $lang) { ?>
                         <li role="presentation">
-                            <a href="<?=Url::to(['/site/lang','lang'=>$lang['abb']])?>">
+                            <a href="<?=Url::to(['/path-action/lang','lang'=>$lang['abb']])?>">
                                 <span class="flag-icon flag-icon-<?=$lang['abb']?>"></span><?=$lang['name']?></a>
                         </li>
                         <?php } ?>

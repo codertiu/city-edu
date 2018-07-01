@@ -28,8 +28,6 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'mark_type')->textInput() ?>
 
-    <?= $form->field($model, 'dislike')->textInput() ?>
-
     <?= $form->field($model, 'comment')->textInput(['maxlength' => true]) ?>
 
     <div class="form-group">

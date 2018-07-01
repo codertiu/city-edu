@@ -62,6 +62,7 @@ return [
         1=>\Yii::t('main','call-center'),
         2=>\Yii::t('main','reception')
     ],
+    //o'zgartirma o'zgartish havfli
     'mark_status'=>[
         1=>\Yii::t('main','Home work'),
         2=>\Yii::t('main','Discipline'),
@@ -71,7 +72,8 @@ return [
         6=>\Yii::t('main','Speaking'),
         7=>\Yii::t('main','Listening'),
         8=>\Yii::t('main','Reading'),
-        9=>\Yii::t('main','Writing')
+        9=>\Yii::t('main','Writing'),
+        10=>\Yii::t('main','Dislike')
     ],
     'member_status'=>[
         1=>\Yii::t('main','Call - center'),

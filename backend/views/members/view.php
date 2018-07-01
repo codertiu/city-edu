@@ -22,14 +22,14 @@ $this->params['breadcrumbs'][] = $this->title;
                         <span class="btn btn-pure btn-icon waves-effect waves-classic" data-toggle="list-editable">
                                 <?= Html::a('<i class="icon md-edit" aria-hidden="true"></i>', ['update', 'id' => $model->id]) ?>
                             </span>
-                        <span class="btn btn-pure btn-icon waves-effect waves-classic" data-toggle="list-editable">
+                        <!--<span class="btn btn-pure btn-icon waves-effect waves-classic" data-toggle="list-editable">
                                 <?= Html::a('<i class="icon md-delete" aria-hidden="true"></i>', ['delete', 'id' => $model->id], [
                                     'data' => [
                                         'confirm' => Yii::t('main', 'Are you sure you want to delete this item?'),
                                         'method' => 'post',
                                     ],
                                 ]) ?>
-                            </span>
+                            </span>-->
                     </div>
                 </div>
                 <h3 class="panel-title"><?= Html::encode($this->title) ?></h3>

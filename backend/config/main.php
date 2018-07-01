@@ -41,7 +41,7 @@ return [
             },
         ],
     ],
-    'as beforeRequest' => [
+   'as beforeRequest' => [
         'class' => 'yii\filters\AccessControl',
         'rules' => [
             [
@@ -69,11 +69,11 @@ return [
             'web' => '/backend/web',
             'adminUrl' => '/admin'
         ],
-        'user' => [
-            'identityClass' => 'common\models\User',
-            'enableAutoLogin' => true,
-            'identityCookie' => ['name' => '_identity-backend', 'httpOnly' => true],
-        ],
+//        'user' => [
+//            'identityClass' => 'common\models\User',
+//            'enableAutoLogin' => true,
+//            'identityCookie' => ['name' => '_identity-backend', 'httpOnly' => true],
+//        ],
         'session' => [
             // this is the name of the session cookie used for login on the backend
             'name' => 'advanced-backend',

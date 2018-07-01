@@ -37,10 +37,12 @@ class ScheduleController extends Controller
     {
         $searchModel = new ScheduleSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        $schedule = Schedule::find()->orderBy('begin_time', ASC)->andWhere(['active'=>[1]])->all();
 
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
+            'schedule' => $schedule,
         ]);
     }
 
@@ -87,7 +89,7 @@ class ScheduleController extends Controller
 //                );
 //            }
 
-           //  validate all models
+            //  validate all models
             //$valid = $first->validate();
             //$valid = Model::validateMultiple($model) && $valid;
 

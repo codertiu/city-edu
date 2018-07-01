@@ -31,22 +31,22 @@ $this->params['breadcrumbs'][] = $this->title;
                                 <?= GridView::widget([
                                     'dataProvider' => $dataProvider,
                                     'filterModel' => $searchModel,
-                                    'rowOptions'=>function($model){
-                                        switch($model->instance_id){
+                                    'rowOptions' => function ($model) {
+                                        switch ($model->instance_id) {
                                             case 1:
-                                                return ['class'=>'info'];
+                                                return ['class' => 'info'];
                                                 break;
                                             case 2:
-                                                return ['class'=>''];
+                                                return ['class' => ''];
                                                 break;
                                             case 3:
-                                                return ['class'=>'warning'];
+                                                return ['class' => 'warning'];
                                                 break;
                                             case 4:
-                                                return ['class'=>'success'];
+                                                return ['class' => 'success'];
                                                 break;
                                             case 5:
-                                                return ['class'=>'danger'];
+                                                return ['class' => 'danger'];
                                                 break;
                                         }
                                     },
@@ -62,10 +62,17 @@ $this->params['breadcrumbs'][] = $this->title;
                                                 return Html::a($model->name, ['/reception/view', 'id' => $model->id]);
                                             },
                                         ],
-                                        'surname',
-                                        'tel',
-                                        //'coming_id',
+                                        //'surname',
                                         [
+                                            'attribute' => 'tel',
+                                            'format' => 'raw',
+                                            'value' => function ($model) {
+                                                return Html::a($model->tel, ['/reception/view', 'id' => $model->id]);
+                                            },
+                                        ],
+                                        //'call_name'
+                                        //'coming_id',
+                                        /*[
                                             'attribute' => 'create_date',
                                             'value' => 'create_date',
                                             'filter' => kartik\date\DatePicker::widget([
@@ -79,24 +86,30 @@ $this->params['breadcrumbs'][] = $this->title;
                                                     'orientation' => "bottom"
                                                 ],
                                             ]),
-                                        ],
+                                        ],*/
                                         //'type_edu_id',
-                                        //'date_coming',
+                                        [
+                                            'attribute' => 'date_coming',
+                                            'format' => 'raw',
+                                            'value' => function ($model) {
+                                                return Html::a(date('d/M/Y H:i', $model->date_coming), ['/reception/view', 'id' => $model->id]);
+                                            },
+                                        ],
                                         //'creater',
                                         //'create_date',
                                         //'update_date',
                                         [
-                                            'attribute'=>'instance_id',
-                                            'value'=>'instance.name',
+                                            'attribute' => 'instance_id',
+                                            'value' => 'instance.name',
                                             'filter' => kartik\select2\Select2::widget([
                                                 'model' => $searchModel,
                                                 'attribute' => 'instance_id',
                                                 //'data' => yii\helpers\ArrayHelper::map(\backend\models\Instance::find()->all(),'id','name'),
-                                                'data'=>Yii::$app->params['instance_id'],
+                                                'data' => Yii::$app->params['instance_id'],
                                                 'theme' => kartik\select2\Select2::THEME_BOOTSTRAP,
                                                 'hideSearch' => true,
                                                 'options' => [
-                                                    'placeholder' => Yii::t('main','Select'),
+                                                    'placeholder' => Yii::t('main', 'Select'),
                                                 ],
                                                 'pluginOptions' => [
                                                     'allowClear' => true
@@ -107,7 +120,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
                                         [
                                             'class' => 'yii\grid\ActionColumn',
-
+                                            'template' => '{view}{update}'
                                         ],
                                     ],
                                 ]); ?>

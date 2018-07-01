@@ -45,19 +45,6 @@ class ComingController extends Controller
     }
 
     /**
-     * Displays a single Coming model.
-     * @param integer $id
-     * @return mixed
-     * @throws NotFoundHttpException if the model cannot be found
-     */
-    public function actionView($id)
-    {
-        return $this->render('view', [
-            'model' => $this->findModel($id),
-        ]);
-    }
-
-    /**
      * Creates a new Coming model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed

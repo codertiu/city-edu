@@ -43,7 +43,10 @@ $this->params['breadcrumbs'][] = $this->title;
                                 //'create_date',
                                 //'update_date',
 
-                                ['class' => 'yii\grid\ActionColumn'],
+                                [
+                                    'class' => 'yii\grid\ActionColumn',
+                                    'template' => '{update}'
+                                ],
                             ],
                         ]); ?>
                         <?php Pjax::end(); ?>

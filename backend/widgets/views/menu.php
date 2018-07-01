@@ -49,7 +49,7 @@ use webvimark\modules\UserManagement\models\User;
                         </li>
                     <? } ?>
                     <?
-                    if (User::hasRole('Administration')) {
+                    if (User::hasRole('Reception')) {
                         ?>
                         <li class="dropdown site-menu-item has-sub">
                             <a class="dropdown-toggle waves-effect waves-classic" href="javascript:void(0)"
@@ -273,7 +273,7 @@ use webvimark\modules\UserManagement\models\User;
                         </li>
                     <? } ?>
 
-                    <? if (User::hasRole('Administration') || User::hasRole('Teacher')) { ?>
+                    <? if (User::hasRole('Reception') || User::hasRole('Teacher')) { ?>
                         <li class="dropdown site-menu-item has-sub">
                             <a class="dropdown-toggle" href="<?= Url::to(['/mark/index']) ?>"
                                data-dropdown-toggle="false">

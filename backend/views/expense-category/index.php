@@ -33,12 +33,18 @@ $this->params['breadcrumbs'][] = $this->title;
 
                                 //'id',
                                 'title',
-                                'status',
+                                [
+                                    'attribute' => 'status',
+                                    'value' => function ($model) {
+                                        return $model->status == 1 ? 'active' : 'noactive';
+                                    }
+                                ],
                                 //'create_date',
                                 //'update_date',
 
-                                ['class' => 'yii\grid\ActionColumn'],
-                            ],
+                                ['class' => 'yii\grid\ActionColumn',
+                                'template'=>'{update}'],
+                        ],
                         ]); ?>
                         <?php Pjax::end(); ?>
                     </div>

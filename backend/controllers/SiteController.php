@@ -1,4 +1,5 @@
 <?php
+
 namespace backend\controllers;
 
 use Yii;
@@ -6,7 +7,8 @@ use yii\web\Controller;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 use common\models\LoginForm;
-use backend\models\Languages;
+use webvimark\modules\UserManagement\UserManagementModule;
+use webvimark\modules\UserManagement\models\User;
 
 /**
  * Site controller
@@ -41,7 +43,7 @@ class SiteController extends Controller
 //            ],
 //        ];
         return [
-            'ghost-access'=> [
+            'ghost-access' => [
                 'class' => 'webvimark\modules\UserManagement\components\GhostAccessControl',
             ],
         ];
@@ -50,6 +52,7 @@ class SiteController extends Controller
     /**
      * @inheritdoc
      */
+
     public function actions()
     {
         return [
@@ -58,20 +61,9 @@ class SiteController extends Controller
             ],
         ];
     }
-    public function actionLang($lang) {
-        $query = Languages::find()->where('abb= "'.$lang.'" AND status>-1')->one();
-        if($query || $lang == Yii::$app->params['main_language']) {
-//          $lang_id = $lang == Yii::$app->params['main_language'] ? Yii::$app->params['main_language_id'] : $query->id;
-            $lang_id = $lang == Yii::$app->params['main_language'] ? 3 : $query->id;
-            Yii::$app->language = $lang;
-            Yii::$app->session->set('lang', $lang);
-            Yii::$app->session->set('lang_id', $lang_id);
-            $rescookies = \Yii::$app->response->cookies;
-            $rescookies->add(new \yii\web\Cookie(['name' => '_language', 'value' => $lang, 'expire' => (time() + 3600 * 24 * 365)]));
-            $rescookies->add(new \yii\web\Cookie(['name' => '_lid', 'value' => $lang_id, 'expire' => (time() + 3600 * 24 * 365)]));
-        }
-        return $this->redirect(Yii::$app->request->referrer);
-    }
+
+
+    public $freeAccessActions = ['index'];
     /**
      * Displays homepage.
      *
@@ -80,7 +72,18 @@ class SiteController extends Controller
     public function actionIndex()
     {
         //$this->controller->pageTitle=Yii::$app->params['settings']['title'];
-        return $this->render('index');
+        if (Yii::$app->user->identity->superadmin == 1) {
+            return $this->render('index');
+        } else {
+            if (User::hasRole('call-center')) {
+                return $this->render('call-center');
+            } else if (User::hasRole('Reception')) {
+                return $this->render('reception');
+            } else if(User::hasRole('Teacher')){
+                return $this->render('teacher');
+            }
+        }
+        //return $this->render('index');
     }
 
     /**
@@ -91,7 +94,8 @@ class SiteController extends Controller
     public function actionLogin()
     {
         if (!Yii::$app->user->isGuest) {
-            return $this->goHome();
+                //return $this->goHome();
+            return $this->redirect(['index']);
         }
 
         $model = new LoginForm();
@@ -114,5 +118,9 @@ class SiteController extends Controller
         Yii::$app->user->logout();
 
         return $this->goHome();
+    }
+
+    public function actionUmid(){
+        return 1;
     }
 }

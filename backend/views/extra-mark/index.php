@@ -34,21 +34,60 @@ $this->params['breadcrumbs'][] = $this->title;
                                 //'id',
                                 [
                                     'attribute' => 'member_id',
-                                    'value' => 'member.fio'
+                                    'value' => 'member.fio',
+                                    'filter' => kartik\select2\Select2::widget([
+                                        'model' => $searchModel,
+                                        'attribute' => 'member_id',
+                                        'data' => yii\helpers\ArrayHelper::map(\backend\models\Members::find()->all(),'id','fio'),
+                                        'theme' => kartik\select2\Select2::THEME_BOOTSTRAP,
+                                        'hideSearch' => true,
+                                        'options' => [
+                                            'placeholder' => Yii::t('main','Select'),
+                                        ],
+                                        'pluginOptions' => [
+                                            'allowClear' => true
+                                        ],
+                                    ]),
                                 ],
                                 [
                                     'attribute' => 'student_id',
                                     'value' => 'student.fullNameId',
+                                    'filter' => kartik\select2\Select2::widget([
+                                        'model' => $searchModel,
+                                        'attribute' => 'student_id',
+                                        'data' => yii\helpers\ArrayHelper::map(\backend\models\Students::find()->all(),'id','fullName'),
+                                        'theme' => kartik\select2\Select2::THEME_BOOTSTRAP,
+                                        'hideSearch' => true,
+                                        'options' => [
+                                            'placeholder' => Yii::t('main','Select'),
+                                        ],
+                                        'pluginOptions' => [
+                                            'allowClear' => true
+                                        ],
+                                    ]),
                                 ],
                                 [
                                     'attribute' => 'date',
                                     'value' => function ($model) {
                                         return date('d/M/Y', strtotime($model->date));
-                                    }
+                                    },
+                                    'filter' => kartik\date\DatePicker::widget([
+                                        'model' => $searchModel,
+                                        'attribute' => 'date',
+                                        'language' => 'ru',
+                                        'pluginOptions' => [
+                                            'autoclose' => true,
+                                            'format' => 'yyyy-mm-dd',
+                                            'todayHighlight' => true,
+                                            'orientation' => "bottom"
+                                        ],
+                                    ]),
                                 ],
+
                                 'mark',
 
-                                ['class' => 'yii\grid\ActionColumn'],
+                                ['class' => 'yii\grid\ActionColumn',
+                                    'template' => '{update}'],
                             ],
                         ]); ?>
                     </div>

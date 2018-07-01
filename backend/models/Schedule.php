@@ -77,4 +77,20 @@ class Schedule extends ActiveRecord
             'type_of_study' => Yii::t('main', 'Type Of Study'),
         ];
     }
+
+    public function getGroup(){
+        return $this->hasOne(Group::className(),['id'=>'group_id']);
+    }
+
+    public function getRoom(){
+        return $this->hasOne(Room::className(),['id'=>'room_id']);
+    }
+
+    public function getSince(){
+        return $this->hasOne(Since::className(),['id'=>'since_id']);
+    }
+
+    public function getMembers(){
+        return $this->hasOne(Members::className(),['id'=>'teacher_id']);
+    }
 }
