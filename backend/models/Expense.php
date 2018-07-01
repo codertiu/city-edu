@@ -51,10 +51,10 @@ class Expense extends ActiveRecord
     public function rules()
     {
         return [
-            [['speciality', 'sum', 'date', 'currency_id', 'type_pay_id', 'expense_category_id'], 'required'],
+            [['speciality', 'sum', 'date', 'type_pay_id', 'expense_category_id'], 'required'],
             [['sum'], 'number'],
             [['date', 'create_date', 'update_date'], 'safe'],
-            [['currency_id', 'type_pay_id', 'expense_category_id'], 'integer'],
+            [['type_pay_id', 'expense_category_id'], 'integer'],
             [['comment'],'string'],
             [['speciality'], 'string', 'max' => 255],
         ];
@@ -71,7 +71,6 @@ class Expense extends ActiveRecord
             'sum' => Yii::t('main', 'Sum'),
             'date' => Yii::t('main', 'Date'),
             'comment' => Yii::t('main', 'Comment'),
-            'currency_id' => Yii::t('main', 'Currency ID'),
             'type_pay_id' => Yii::t('main', 'Type Pay ID'),
             'expense_category_id' => Yii::t('main', 'Expense Category ID'),
             'create_date' => Yii::t('main', 'Create Date'),

@@ -19,6 +19,25 @@ use yii\helpers\ArrayHelper;
         <div class="col-lg-4 form-horizontal">
             <div class="form-group">
                 <div class=" col-lg-12 col-sm-9">
+                    <?= $form->field($model, 'date', [
+                        'template' => '{label} * {input}{error}{hint}'
+                    ])->widget(DatePicker::classname(), [
+                        'language' => 'ru',
+                        'type' => DatePicker::TYPE_COMPONENT_APPEND,
+                        'options' => ['value' => date("Y-m-d")],
+                        'pluginOptions' => [
+                            'default' => date('Y-m-d'),
+                            'format' => 'yyyy-mm-dd',
+                            'todayHighlight' => true,
+                            'orientation' => "bottom"
+                        ],
+                    ]); ?>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 form-horizontal">
+            <div class="form-group">
+                <div class=" col-lg-12 col-sm-9">
                     <?= $form->field($model, 'speciality', [
                         'template' => '{label} * {input}{error}{hint}'
                     ])->textInput(['maxlength' => true]) ?>
@@ -42,26 +61,10 @@ use yii\helpers\ArrayHelper;
                 </div>
             </div>
         </div>
-        <div class="col-lg-4 form-horizontal">
-            <div class="form-group">
-                <div class=" col-lg-12 col-sm-9">
-                    <?= $form->field($model, 'date', [
-                        'template' => '{label} * {input}{error}{hint}'
-                    ])->widget(DatePicker::classname(), [
-                        'language' => 'ru',
-                        'type' => DatePicker::TYPE_COMPONENT_APPEND,
-                        'pluginOptions' => [
-                            'format' => 'yyyy-mm-dd',
-                            'todayHighlight' => true,
-                            'orientation' => "bottom"
-                        ],
-                    ]); ?>
-                </div>
-            </div>
-        </div>
+
     </div>
     <div class="row row-lg">
-        <div class="col-lg-4 form-horizontal">
+        <div class="col-lg-6 form-horizontal">
             <div class="form-group">
                 <div class=" col-lg-12 col-sm-9">
                     <?= $form->field($model, 'sum', [
@@ -70,24 +73,7 @@ use yii\helpers\ArrayHelper;
                 </div>
             </div>
         </div>
-        <div class="col-lg-4 form-horizontal">
-            <div class="form-group">
-                <div class=" col-lg-12 col-sm-9">
-                    <?= $form->field($model, 'currency_id', [
-                        'template' => '{label} * {input}{error}{hint}'
-                    ])->widget(Select2::classname(), [
-                        'data' => Yii::$app->params['currency'],
-                        'language' => 'ru',
-                        'options' => ['placeholder' => Yii::t('main', 'Выберите Вид ...')],
-                        'pluginOptions' => [
-                            'allowClear' => true,
-                            'multiple' => false,
-                        ],
-                    ]); ?>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-4 form-horizontal">
+        <div class="col-lg-6 form-horizontal">
             <div class="form-group">
                 <div class=" col-lg-12 col-sm-9">
                     <?= $form->field($model, 'type_pay_id', [

@@ -5,12 +5,12 @@ namespace backend\models;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use backend\models\Expense;
+use backend\models\ProfitCategory;
 
 /**
- * ExpenseSearch represents the model behind the search form of `backend\models\Expense`.
+ * ProfitCategorySearch represents the model behind the search form of `backend\models\ProfitCategory`.
  */
-class ExpenseSearch extends Expense
+class ProfitCategorySearch extends ProfitCategory
 {
     /**
      * {@inheritdoc}
@@ -18,9 +18,8 @@ class ExpenseSearch extends Expense
     public function rules()
     {
         return [
-            [['id', 'type_pay_id', 'expense_category_id'], 'integer'],
-            [['speciality', 'date', 'comment', 'create_date', 'update_date'], 'safe'],
-            [['sum'], 'number'],
+            [['id', 'status'], 'integer'],
+            [['name'], 'safe'],
         ];
     }
 
@@ -42,7 +41,7 @@ class ExpenseSearch extends Expense
      */
     public function search($params)
     {
-        $query = Expense::find();
+        $query = ProfitCategory::find();
 
         // add conditions that should always apply here
 
@@ -61,16 +60,10 @@ class ExpenseSearch extends Expense
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
-            'sum' => $this->sum,
-            'date' => $this->date,
-            'type_pay_id' => $this->type_pay_id,
-            'expense_category_id' => $this->expense_category_id,
-            'create_date' => $this->create_date,
-            'update_date' => $this->update_date,
+            'status' => $this->status,
         ]);
 
-        $query->andFilterWhere(['like', 'speciality', $this->speciality])
-            ->andFilterWhere(['like', 'comment', $this->comment]);
+        $query->andFilterWhere(['like', 'name', $this->name]);
 
         return $dataProvider;
     }

@@ -18,7 +18,6 @@ class m180623_054051_create_expense_table extends Migration
             'sum'=>$this->decimal(10,2)->notNull(),
             'date'=>$this->date()->notNull(),
             'comment'=>$this->string()->null(),
-            'currency_id'=>$this->integer(1)->notNull(),
             'type_pay_id'=>$this->integer(1)->notNull(),
             'expense_category_id'=>$this->integer()->notNull(),
             'create_date'=>$this->dateTime(),

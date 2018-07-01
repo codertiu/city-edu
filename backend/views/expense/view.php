@@ -49,7 +49,6 @@ $this->params['breadcrumbs'][] = $this->title;
                                         'date',
                                         'sum',
                                         'type_pay_id',
-
                                         'comment',
                                         //'create_date',
                                         //'update_date',

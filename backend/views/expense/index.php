@@ -37,7 +37,6 @@ $this->params['breadcrumbs'][] = $this->title;
                                 'sum',
                                 'date',
                                 'comment',
-                                //'currency_id',
                                 //'type_pay_id',
                                 //'expense_category_id',
                                 //'create_date',
