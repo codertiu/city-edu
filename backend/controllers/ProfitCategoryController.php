@@ -35,26 +35,16 @@ class ProfitCategoryController extends Controller
      */
     public function actionIndex()
     {
-        $searchModel = new ProfitCategorySearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        if (User::hasRole('Admin')) {
+            $searchModel = new ProfitCategorySearch();
+            $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
-        return $this->render('index', [
-            'searchModel' => $searchModel,
-            'dataProvider' => $dataProvider,
-        ]);
-    }
-
-    /**
-     * Displays a single ProfitCategory model.
-     * @param integer $id
-     * @return mixed
-     * @throws NotFoundHttpException if the model cannot be found
-     */
-    public function actionView($id)
-    {
-        return $this->render('view', [
-            'model' => $this->findModel($id),
-        ]);
+            return $this->render('index', [
+                'searchModel' => $searchModel,
+                'dataProvider' => $dataProvider,
+            ]);
+        }
+        throw new NotFoundHttpException(Yii::t('main', 'The requested page does not exist.'));
     }
 
     /**
@@ -64,15 +54,18 @@ class ProfitCategoryController extends Controller
      */
     public function actionCreate()
     {
-        $model = new ProfitCategory();
+        if (User::hasRole('Admin')) {
+            $model = new ProfitCategory();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+            if ($model->load(Yii::$app->request->post()) && $model->save()) {
+                return $this->redirect(['view', 'id' => $model->id]);
+            }
+
+            return $this->render('create', [
+                'model' => $model,
+            ]);
         }
-
-        return $this->render('create', [
-            'model' => $model,
-        ]);
+        throw new NotFoundHttpException(Yii::t('main', 'The requested page does not exist.'));
     }
 
     /**
@@ -84,15 +77,18 @@ class ProfitCategoryController extends Controller
      */
     public function actionUpdate($id)
     {
-        $model = $this->findModel($id);
+        if (User::hasRole('Admin')) {
+            $model = $this->findModel($id);
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+            if ($model->load(Yii::$app->request->post()) && $model->save()) {
+                return $this->redirect(['view', 'id' => $model->id]);
+            }
+
+            return $this->render('update', [
+                'model' => $model,
+            ]);
         }
-
-        return $this->render('update', [
-            'model' => $model,
-        ]);
+        throw new NotFoundHttpException(Yii::t('main', 'The requested page does not exist.'));
     }
 
     /**

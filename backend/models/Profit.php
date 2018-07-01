@@ -75,4 +75,12 @@ class Profit extends \yii\db\ActiveRecord
             'update_date' => Yii::t('main', 'Update Date'),
         ];
     }
+
+    public function getStudents(){
+        return $this->hasOne(Students::className(),['id'=>'students_id']);
+    }
+
+    public function getPrCategory(){
+        return $this->hasOne(ProfitCategory::className(),['id'=>'profit_category_id']);
+    }
 }

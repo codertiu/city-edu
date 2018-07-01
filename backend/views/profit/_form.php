@@ -8,9 +8,12 @@ use yii\widgets\ActiveForm;
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
-<div class="profit-form">
+<div class="panel-body">
 
-    <?php $form = ActiveForm::begin(); ?>
+    <?php $form = ActiveForm::begin([
+        'enableAjaxValidation' => false,
+        'enableClientValidation' => true,
+    ]); ?>
 
     <?= $form->field($model, 'date')->textInput() ?>
 
@@ -24,12 +27,8 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'comment')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'create_date')->textInput() ?>
-
-    <?= $form->field($model, 'update_date')->textInput() ?>
-
     <div class="form-group">
-        <?= Html::submitButton(Yii::t('main', 'Save'), ['class' => 'btn btn-success']) ?>
+        <?= Html::submitButton($model->isNewRecord ? Yii::t('main', 'Create') : Yii::t('main', 'Update'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>
