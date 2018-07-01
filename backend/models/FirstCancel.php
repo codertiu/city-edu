@@ -3,6 +3,9 @@
 namespace backend\models;
 
 use Yii;
+use yii\db\Expression;
+use yii\db\ActiveRecord;
+use yii\behaviors\TimestampBehavior;
 
 /**
  * This is the model class for table "first_cancel".
@@ -23,6 +26,20 @@ class FirstCancel extends \yii\db\ActiveRecord
     public static function tableName()
     {
         return 'first_cancel';
+    }
+
+    public function behaviors()
+    {
+        return [
+            'timestamp' => [
+                'class' => TimestampBehavior::className(),
+                'attributes' => [
+                    ActiveRecord::EVENT_BEFORE_INSERT => ['create_date', 'update_date'],
+                    ActiveRecord::EVENT_BEFORE_UPDATE => ['update_date'],
+                ],
+                'value' => date('Y-m-d H:i:s'),
+            ],
+        ];
     }
 
     /**

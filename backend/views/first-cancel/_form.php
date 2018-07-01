@@ -18,11 +18,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'instance_id')->textInput() ?>
 
-    <?= $form->field($model, 'creator_id')->textInput() ?>
-
-    <?= $form->field($model, 'create_date')->textInput() ?>
-
-    <?= $form->field($model, 'update_date')->textInput() ?>
+    <?= $form->field($model, 'creator_id')->hiddenInput(['value'=>Yii::$app->user->identity->id]) ?>
 
     <div class="form-group">
         <?= Html::submitButton(Yii::t('main', 'Save'), ['class' => 'btn btn-success']) ?>
