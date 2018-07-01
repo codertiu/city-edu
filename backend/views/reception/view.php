@@ -27,14 +27,14 @@ $this->params['breadcrumbs'][] = $this->title;
                             <span class="btn btn-pure btn-icon waves-effect waves-classic" data-toggle="list-editable">
                                 <?= Html::a('<i class="icon md-edit" aria-hidden="true"></i>', ['update', 'id' => $model->id]) ?>
                             </span>
-                            <span class="btn btn-pure btn-icon waves-effect waves-classic" data-toggle="list-editable">
+                            <!--<span class="btn btn-pure btn-icon waves-effect waves-classic" data-toggle="list-editable">
                                 <?= Html::a('<i class="icon md-delete" aria-hidden="true"></i>', ['delete', 'id' => $model->id], [
-                                    'data' => [
-                                        'confirm' => Yii::t('main', 'Are you sure you want to delete this item?'),
-                                        'method' => 'post',
-                                    ],
-                                ]) ?>
-                            </span>
+                                'data' => [
+                                    'confirm' => Yii::t('main', 'Are you sure you want to delete this item?'),
+                                    'method' => 'post',
+                                ],
+                            ]) ?>
+                            </span>-->
                         </div>
                     </div>
                     <h3 class="panel-title"><?= $model->name . " " . $model->surname ?></h3>
@@ -42,23 +42,27 @@ $this->params['breadcrumbs'][] = $this->title;
                 <div class="panel-body">
                     <div class="row row-lg">
                         <div class="col-lg-5">
-                            <?php
-                            if (User::hasRole('Teacher')) {
-                                ?>
-                                <p>
+                            <p>
+                                <?php
+                                if (User::hasRole('Reception')) {
+                                    ?>
                                     <? if ($model->instance_id == 1) { ?>
                                         <?= Html::button(Yii::t('main', 'Come'), ['value' => Url::to(['/reception-tech/create', 'id' => $model->id]), 'class' => 'btn btn-info modalButton']) ?>
-                                        <?= Html::a(Yii::t('main', 'Rad etdi'), ['change', 'changeId' => $model->id, 'position' => 7], ['class' => 'btn btn-danger']) ?>
+                                        <?= Html::a(Yii::t('main', 'Kelmasdan rad etdi'), ['change', 'changeId' => $model->id, 'position' => 7], ['class' => 'btn btn-danger']) ?>
                                     <? } else if ($model->instance_id == 2) { ?>
                                         <?= Html::a(Yii::t('main', 'Qatnashib ko\'rdi'), ['change', 'changeId' => $model->id, 'position' => 3], ['class' => 'btn btn-warning']) ?>
                                     <? } else if ($model->instance_id == 3) { ?>
                                         <?= Html::a(Yii::t('main', 'Ro\'yxatdan o\'tdi'), ['/reception/register', 'id' => $model->id], ['class' => 'btn btn-success']) ?>
                                         <?= Html::button(Yii::t('main', 'Rad etdi'), ['value' => Url::to(['/reception/comment', 'changeId' => $model->id]), 'class' => 'btn btn-danger modalButton']) ?>
-                                    <? } else if ($model->instance_id == 5 || $model->instance_id == 7) { ?>
+                                    <? } ?>
+                                <? } ?>
+                                <? if (User::hasRole('Reception') || User::hasRole('call-center')) { ?>
+                                    <? if ($model->instance_id == 5 || $model->instance_id == 7) { ?>
                                         <?= Html::a(Yii::t('main', 'Qayta urunish'), ['change', 'changeId' => $model->id, 'position' => 1], ['class' => 'btn btn-info']) ?>
                                     <? } ?>
-                                </p>
-                            <? } ?>
+                                <? } ?>
+                            </p>
+
                             <table class="table table-bordered">
                                 <thead>
                                 <tr>
@@ -151,9 +155,9 @@ $this->params['breadcrumbs'][] = $this->title;
                                 ?>
                                 <table class="table table-bordered">
                                     <thead>
-                                        <th><?= Yii::t('main', 'Date Coming') ?></th>
-                                        <th><?= Yii::t('main', 'Teacher') ?></th>
-                                        <th><?= Yii::t('main', 'Action') ?></th>
+                                    <th><?= Yii::t('main', 'Date Coming') ?></th>
+                                    <th><?= Yii::t('main', 'Teacher') ?></th>
+                                    <th><?= Yii::t('main', 'Action') ?></th>
                                     </thead>
                                     <tbody>
                                     <? foreach ($teacher as $t) { ?>

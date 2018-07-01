@@ -48,11 +48,11 @@ class FirstCancel extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['name', 'phone', 'instance_id', 'creator_id'], 'required'],
-            [['instance_id', 'creator_id'], 'integer'],
+            [['name', 'phone', 'coming_id', 'creator_id'], 'required'],
+            [['coming_id', 'creator_id'], 'integer'],
             [['create_date', 'update_date'], 'safe'],
-            [['name'], 'string', 'max' => 255],
-            [['phone'], 'string', 'max' => 15],
+            [['name','comment'], 'string', 'max' => 255],
+            [['phone'], 'string', 'max' => 100],
         ];
     }
 
@@ -65,10 +65,15 @@ class FirstCancel extends \yii\db\ActiveRecord
             'id' => Yii::t('main', 'ID'),
             'name' => Yii::t('main', 'Name'),
             'phone' => Yii::t('main', 'Phone'),
-            'instance_id' => Yii::t('main', 'Instance ID'),
+            'coming_id' => Yii::t('main', 'Coming ID'),
             'creator_id' => Yii::t('main', 'Creator ID'),
+            'comment'=>Yii::t('main','Comment'),
             'create_date' => Yii::t('main', 'Create Date'),
             'update_date' => Yii::t('main', 'Update Date'),
         ];
+    }
+
+    public function getComing(){
+        return $this->hasOne(Coming::className(),['id'=>'coming_id']);
     }
 }

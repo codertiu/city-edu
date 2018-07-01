@@ -22,13 +22,19 @@ use webvimark\modules\UserManagement\models\User;
                             <div class="dropdown-menu">
                                 <div class="site-menu-scroll-wrap is-list scrollable scrollable-inverse is-enabled scrollable-vertical"
                                      style="position: relative;">
-                                    <div class="scrollable-container" style="height: 80px; width: 100px;">
+                                    <div class="scrollable-container" style="height: 120px; width: 100px;">
                                         <div class="scrollable-content" style="width: 100px;">
                                             <ul class="site-menu-sub site-menu-normal-list">
                                                 <li class="site-menu-item">
                                                     <a class="animsition-link waves-effect waves-classic"
                                                        href="<?= Url::to(['/reception/call-center']) ?>">
                                                         <span class="site-menu-title"><?= Yii::t('main', 'Call Center') ?></span>
+                                                    </a>
+                                                </li>
+                                                <li class="site-menu-item">
+                                                    <a class="animsition-link waves-effect waves-classic"
+                                                       href="<?= Url::to(['/first-cancel/index']) ?>">
+                                                        <span class="site-menu-title"><?= Yii::t('main', 'First Cancel') ?></span>
                                                     </a>
                                                 </li>
                                                 <li class="site-menu-item">
@@ -105,12 +111,14 @@ use webvimark\modules\UserManagement\models\User;
                                                         <span class="site-menu-title"><?= Yii::t('main', 'Members') ?></span>
                                                     </a>
                                                 </li>
+                                                <? if(User::hasRole('Admin')){?>
                                                 <li class="site-menu-item">
                                                     <a class="animsition-link waves-effect waves-classic"
                                                        href="<?= Url::to(['/member-salary/index']) ?>">
                                                         <span class="site-menu-title"><?= Yii::t('main', 'Members Salary') ?></span>
                                                     </a>
                                                 </li>
+                                                <?}?>
                                             </ul>
                                         </div>
                                     </div>
@@ -235,8 +243,8 @@ use webvimark\modules\UserManagement\models\User;
                                 </div>
                             </div>
                         </li>
-
-                        <li class="dropdown site-menu-item has-sub">
+                        <? if(User::hasRole('Admin')){?>
+                            <li class="dropdown site-menu-item has-sub">
                             <a class="dropdown-toggle waves-effect waves-classic" href="javascript:void(0)"
                                data-dropdown-toggle="false">
                                 <i class="site-menu-icon md-apps" aria-hidden="true"></i>
@@ -271,6 +279,8 @@ use webvimark\modules\UserManagement\models\User;
                                 </div>
                             </div>
                         </li>
+                        <? }?>
+
                     <? } ?>
 
                     <? if (User::hasRole('Reception') || User::hasRole('Teacher')) { ?>
@@ -281,6 +291,8 @@ use webvimark\modules\UserManagement\models\User;
                                 <span class="site-menu-title"><?= Yii::t('main', 'Mark') ?></span>
                             </a>
                         </li>
+                    <? } ?>
+                    <? if (User::hasRole('Reception')) { ?>
                         <li class="dropdown site-menu-item has-sub">
                             <a class="dropdown-toggle" href="<?= Url::to(['/extra-mark/index']) ?>"
                                data-dropdown-toggle="false">

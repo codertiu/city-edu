@@ -74,7 +74,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                                     <td><?= $i ?></td>
                                                     <td><?= $c->contract ?></td>
                                                     <td><?= Html::button(' <i class="icon md-edit"></i>', ['value' => Url::to(['/contract/update', 'id' => $c->id]), 'class' => 'btn-pure waves-effect waves-classic waves-effect waves-classic modalButton']) ?></td>
-                                                    <td><?= Html::a(' <i class="icon md-file"></i>', ['/contract/report','id'=>$c->id], ['target' => '_blank', 'class' => 'btn-pure  waves-effect waves-classic waves-effect waves-classic']) ?></td>
+                                                    <td><?= Html::a(' <i class="icon md-file"></i>', ['/contract/report', 'id' => $c->id], ['target' => '_blank', 'class' => 'btn-pure  waves-effect waves-classic waves-effect waves-classic']) ?></td>
                                                 </tr>
                                                 <? $i++;
                                             } ?>
@@ -285,13 +285,14 @@ $this->params['breadcrumbs'][] = $this->title;
                                                 <tr>
                                                     <td><?= $i ?></td>
                                                     <td>
-                                                        <a href="<?= Url::to(['/group/view', 'id' => $one->group->id]) ?>" target="_blank"><?= $one->group->name ?></a>
+                                                        <a href="<?= Url::to(['/group/view', 'id' => $one->group->id]) ?>"
+                                                           target="_blank"><?= $one->group->name ?></a>
                                                     </td>
                                                     <td>
-                                                        <?=$one->begin_date?>
+                                                        <?= $one->begin_date ?>
                                                     </td>
                                                     <td>
-                                                        <?=$one->end_date?>
+                                                        <?= $one->end_date ?>
                                                     </td>
                                                     <td>
                                                         <?= Html::button(' <i class="icon md-edit"></i>', ['value' => Url::to(['/sub-students/update', 'id' => $one->id]), 'class' => 'btn-pure waves-effect waves-classic waves-effect waves-classic modalButton waves-effect waves-classic']) ?>
@@ -321,7 +322,7 @@ $this->params['breadcrumbs'][] = $this->title;
             </div>
         </div>
     </div>
-    </div>
+
 <?php
 Modal::begin([
     'options' => [

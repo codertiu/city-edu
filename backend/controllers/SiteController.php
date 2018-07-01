@@ -71,7 +71,6 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        //$this->controller->pageTitle=Yii::$app->params['settings']['title'];
         if (Yii::$app->user->identity->superadmin == 1) {
             return $this->render('index');
         } else {
@@ -83,7 +82,6 @@ class SiteController extends Controller
                 return $this->render('teacher');
             }
         }
-        //return $this->render('index');
     }
 
     /**

@@ -8,6 +8,7 @@ use backend\models\ProfitSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use webvimark\modules\UserManagement\models\User;
 
 /**
  * ProfitController implements the CRUD actions for Profit model.
@@ -35,13 +36,17 @@ class ProfitController extends Controller
      */
     public function actionIndex()
     {
-        $searchModel = new ProfitSearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
-        return $this->render('index', [
-            'searchModel' => $searchModel,
-            'dataProvider' => $dataProvider,
-        ]);
+        if (User::hasRole('Admin')) {
+            $searchModel = new ProfitSearch();
+            $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+
+            return $this->render('index', [
+                'searchModel' => $searchModel,
+                'dataProvider' => $dataProvider,
+            ]);
+        }
+        throw new NotFoundHttpException(Yii::t('main', 'The requested page does not exist.'));
     }
 
     /**
@@ -52,9 +57,14 @@ class ProfitController extends Controller
      */
     public function actionView($id)
     {
-        return $this->render('view', [
-            'model' => $this->findModel($id),
-        ]);
+
+        if (User::hasRole('Admin')) {
+            return $this->render('view', [
+                'model' => $this->findModel($id),
+            ]);
+        }
+
+        throw new NotFoundHttpException(Yii::t('main', 'The requested page does not exist.'));
     }
 
     /**
@@ -64,15 +74,19 @@ class ProfitController extends Controller
      */
     public function actionCreate()
     {
-        $model = new Profit();
+        if (User::hasRole('Admin')) {
+            $model = new Profit();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+            if ($model->load(Yii::$app->request->post()) && $model->save()) {
+                return $this->redirect(['view', 'id' => $model->id]);
+            }
+
+            return $this->render('create', [
+                'model' => $model,
+            ]);
+        } else {
+            throw new NotFoundHttpException(Yii::t('main', 'The requested page does not exist.'));
         }
-
-        return $this->render('create', [
-            'model' => $model,
-        ]);
     }
 
     /**
@@ -84,15 +98,18 @@ class ProfitController extends Controller
      */
     public function actionUpdate($id)
     {
-        $model = $this->findModel($id);
+        if (User::hasRole('Admin')) {
+            $model = $this->findModel($id);
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+            if ($model->load(Yii::$app->request->post()) && $model->save()) {
+                return $this->redirect(['view', 'id' => $model->id]);
+            }
+
+            return $this->render('update', [
+                'model' => $model,
+            ]);
         }
-
-        return $this->render('update', [
-            'model' => $model,
-        ]);
+        throw new NotFoundHttpException(Yii::t('main', 'The requested page does not exist.'));
     }
 
     /**

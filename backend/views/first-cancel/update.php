@@ -12,9 +12,12 @@ $this->params['breadcrumbs'][] = ['label' => Yii::t('main', 'First Cancels'), 'u
 $this->params['breadcrumbs'][] = ['label' => $model->name, 'url' => ['view', 'id' => $model->id]];
 $this->params['breadcrumbs'][] = Yii::t('main', 'Update');
 ?>
-<div class="first-cancel-update">
-
-    <h1><?= Html::encode($this->title) ?></h1>
+<div class="panel">
+    <div class="panel-heading">
+        <h3 class="panel-title"><?= Html::encode($this->title) ?>
+            <span class="panel-desc"> </span>
+        </h3>
+    </div>
 
     <?= $this->render('_form', [
         'model' => $model,

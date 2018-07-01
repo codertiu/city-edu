@@ -18,8 +18,8 @@ class FirstCancelSearch extends FirstCancel
     public function rules()
     {
         return [
-            [['id', 'instance_id', 'creator_id'], 'integer'],
-            [['name', 'phone', 'create_date', 'update_date'], 'safe'],
+            [['id', 'coming_id', 'creator_id'], 'integer'],
+            [['name', 'phone', 'create_date', 'update_date','comment'], 'safe'],
         ];
     }
 
@@ -60,14 +60,15 @@ class FirstCancelSearch extends FirstCancel
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
-            'instance_id' => $this->instance_id,
+            'coming_id' => $this->coming_id,
             'creator_id' => $this->creator_id,
             'create_date' => $this->create_date,
             'update_date' => $this->update_date,
         ]);
 
         $query->andFilterWhere(['like', 'name', $this->name])
-            ->andFilterWhere(['like', 'phone', $this->phone]);
+            ->andFilterWhere(['like', 'phone', $this->phone])
+            ->andFilterWhere(['like', 'comment', $this->phone]);
 
         return $dataProvider;
     }
