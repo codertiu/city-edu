@@ -13,7 +13,7 @@ class m180511_154936_add_member_user_id_member_status_table extends Migration
     public function safeUp()
     {
         $this->addColumn('members', 'user_id', $this->integer()->null());
-        $this->addColumn('members', 'members_status', $this->integer()->notNull());
+        $this->addColumn('members', 'members_status', $this->integer()->null());
     }
 
     /**

@@ -129,7 +129,7 @@ use yii\helpers\ArrayHelper;
                             }
                         ?>
                         <?= $form->field($model, 'user_id')->widget(Select2::classname(), [
-                            'data' => ArrayHelper::map(\common\models\User::find()->where(['not in','id',$a])->all(), 'id', 'username'),
+                            'data' => ArrayHelper::map(\common\models\User::find()->where(['not in','id',$a])->andWhere(['!=','superadmin',1])->all(), 'id', 'username'),
                             'language' => 'ru',
                             'options' => ['placeholder' => Yii::t('main','Выберите Вид ...')],
                             'pluginOptions' => [
@@ -140,13 +140,13 @@ use yii\helpers\ArrayHelper;
                     </div>
                 </div>
             </div>
-            <div class="col-lg-6 form-horizontal">
+            <1--<div class="col-lg-6 form-horizontal">
                 <div class="form-group form-material">
                     <div class=" col-lg-12 col-sm-9">
                         <?= $form->field($model, 'members_status')->radioList(Yii::$app->params['member_status']); ?>
                     </div>
                 </div>
-            </div>
+            </div>-->
         </div>
 
         <div class="form-group">

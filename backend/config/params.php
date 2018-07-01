@@ -77,7 +77,7 @@ return [
     ],
     'member_status'=>[
         1=>\Yii::t('main','Call - center'),
-        2=>\Yii::t('main','Administration'),
+        2=>\Yii::t('main','Reception'),
         3=>\Yii::t('main','Students'),
         4=>\Yii::t('main','Teacher'),
         5=>\Yii::t('main','Admin')
