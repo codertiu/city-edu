@@ -10,9 +10,12 @@ $this->title = Yii::t('main', 'Create Profit');
 $this->params['breadcrumbs'][] = ['label' => Yii::t('main', 'Profits'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="profit-create">
-
-    <h1><?= Html::encode($this->title) ?></h1>
+<div class="panel">
+    <div class="panel-heading">
+        <h3 class="panel-title"><?= Html::encode($this->title) ?>
+            <span class="panel-desc"> </span>
+        </h3>
+    </div>
 
     <?= $this->render('_form', [
         'model' => $model,

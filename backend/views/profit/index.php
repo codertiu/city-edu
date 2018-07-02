@@ -35,12 +35,15 @@ $this->params['breadcrumbs'][] = $this->title;
                                 'students_id',
                                 'profit_category_id',
                                 'sum',
-                                //'type_pay_id',
-                                //'comment',
+                                'type_pay_id',
+                                'comment',
                                 //'create_date',
                                 //'update_date',
 
-                                ['class' => 'yii\grid\ActionColumn'],
+                                [
+                                    'class' => 'yii\grid\ActionColumn',
+                                    'template' => '{update}'
+                                ],
                             ],
                         ]); ?>
                         <?php Pjax::end(); ?>

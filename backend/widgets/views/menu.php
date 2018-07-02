@@ -248,7 +248,7 @@ use webvimark\modules\UserManagement\models\User;
                             <a class="dropdown-toggle waves-effect waves-classic" href="javascript:void(0)"
                                data-dropdown-toggle="false">
                                 <i class="site-menu-icon md-apps" aria-hidden="true"></i>
-                                <span class="site-menu-title"><?= Yii::t('main', 'Economy') ?></span>
+                                <span class="site-menu-title"><?= Yii::t('main', 'Accounding') ?></span>
                                 <span class="site-menu-arrow"></span>
                             </a>
                             <div class="dropdown-menu">
@@ -267,6 +267,18 @@ use webvimark\modules\UserManagement\models\User;
                                                     <a class="animsition-link waves-effect waves-classic"
                                                        href="<?= Url::to(['/expense/index']) ?>">
                                                         <span class="site-menu-title"><?= Yii::t('main', 'Expense') ?></span>
+                                                    </a>
+                                                </li>
+                                                <li class="site-menu-item">
+                                                    <a class="animsition-link waves-effect waves-classic"
+                                                       href="<?= Url::to(['/profit-category/index']) ?>">
+                                                        <span class="site-menu-title"><?= Yii::t('main', 'Profit Category') ?></span>
+                                                    </a>
+                                                </li>
+                                                <li class="site-menu-item">
+                                                    <a class="animsition-link waves-effect waves-classic"
+                                                       href="<?= Url::to(['/profit']) ?>">
+                                                        <span class="site-menu-title"><?= Yii::t('main', 'Profit') ?></span>
                                                     </a>
                                                 </li>
                                             </ul>
