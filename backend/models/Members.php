@@ -3,7 +3,7 @@
 namespace backend\models;
 
 use Yii;
-use yii\web\User;
+use common\models\User;
 
 /**
  * This is the model class for table "members".
@@ -38,7 +38,7 @@ class Members extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['fio', 'tel', 'address', 'gendar', 'edu_center_id', 'img', 'file'], 'required'],
+            [['fio', 'tel', 'address', 'gendar', 'edu_center_id', 'img', 'file','members_status'], 'required'],
             [['about'], 'string'],
             [['gendar', 'edu_center_id', 'active','user_id','members_status'], 'integer'],
             [['fio', 'address', 'img', 'file'], 'string', 'max' => 255],

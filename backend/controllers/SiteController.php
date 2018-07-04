@@ -80,6 +80,11 @@ class SiteController extends Controller
                 return $this->render('reception');
             } else if(User::hasRole('Teacher')){
                 return $this->render('teacher');
+            } else if(User::hasRole('Student')){
+                return $this->render('student');
+            } else {
+                Yii::$app->user->logout();
+                return $this->goHome();
             }
         }
     }
@@ -118,7 +123,4 @@ class SiteController extends Controller
         return $this->goHome();
     }
 
-    public function actionUmid(){
-        return 1;
-    }
 }

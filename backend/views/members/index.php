@@ -55,6 +55,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                                 return Html::a($model->address, ['/members/view', 'id' => $model->id]);
                                             },
                                         ],
+                                        'user.username',
 //                                        [
 //                                            'attribute' => 'about:ntext',
 //                                            'format' => 'raw',

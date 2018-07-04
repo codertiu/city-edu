@@ -13,9 +13,8 @@ use yii\db\Exception;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
-use yii\web\User;
 use backend\models\Model;
-
+use webvimark\modules\UserManagement\models\User;
 /**
  * MarkController implements the CRUD actions for Mark model.
  */
@@ -141,17 +140,21 @@ class MarkController extends Controller
 
     public function actionPutMark($group_id, $teacher_id)
     {
-        $groupTech = GroupTech::find()->where(['status' => 1, 'teacher_id' => $teacher_id, 'group_id' => $group_id]);
-        if ($groupTech->exists()) {
-            $group = Group::find()->where(['id' => $groupTech->one()->id, 'group_status_id' => 1])->one();
-            $students = SubStudents::find()->where(['group_id' => $group->id])->andWhere(['is', 'end_date', null])->all();
-            return $this->render('put-mark', [
-                'groupTech' => $groupTech,
-                'group' => $group,
-                'students' => $students
-            ]);
+        if(User::hasRole('Teacher')) {
+            $groupTech = GroupTech::find()->where(['status' => 1, 'teacher_id' => $teacher_id, 'group_id' => $group_id]);
+            if ($groupTech->exists()) {
+                $group = Group::find()->where(['id' => $groupTech->one()->id, 'group_status_id' => 1])->one();
+                $students = SubStudents::find()->where(['group_id' => $group->id])->andWhere(['is', 'end_date', null])->all();
+                return $this->render('put-mark', [
+                    'groupTech' => $groupTech,
+                    'group' => $group,
+                    'students' => $students
+                ]);
+            }else{
+                throw new NotFoundHttpException(Yii::t('main','Bunday Guruh yo\'q'));
+            }
         }
-        throw new NotFoundHttpException('Kirish huquqi sizda yo\'q');
+        throw new NotFoundHttpException(Yii::t('main','Kirish huquqi sizda yo\'q'));
     }
 
     //mark ka quyidagilarni saqlydi
@@ -411,6 +414,6 @@ class MarkController extends Controller
             }
             \Yii::$app->session->setFlash('success', 'Success');
         }
-        //return $this->redirect(['index']);
+        return $this->redirect(['/site/index']);
     }
 }

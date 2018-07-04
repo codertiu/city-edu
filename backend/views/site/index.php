@@ -16,15 +16,13 @@ $this->title = Yii::t('main', 'City Edu');
                 <div class="row">
                     <div class="col-md-12 text-center">
                         <table class="table table-hover">
-                            <thead>
-                                <tr>
-                                    <th></th>
-                                </tr>
-                            </thead>
                             <tbody>
                                 <tr>
-                                    <td></td>
-                                    <td></td>
+                                    <td><a href="<?=Url::to(['/birthday/students'])?>" class="btn btn-success"><?=Yii::t('main','Birthday Students')?> </a></td>
+                                    <td><a href="<?=Url::to(['/student-message'])?>" class="btn btn-success"><?=Yii::t('main','Student Message')?> </a></td>
+                                    <td><a href="<?=Url::to(['/members'])?>" class="btn btn-success"><?=Yii::t('main','Members')?> </a></td>
+                                    <td><a href="<?=Url::to(['/students'])?>" class="btn btn-success"><?=Yii::t('main','Students')?> </a></td>
+                                    <td><a href="<?=Url::to(['/group'])?>" class="btn btn-success"><?=Yii::t('main','Groups')?> </a></td>
                                 </tr>
                             </tbody>
 

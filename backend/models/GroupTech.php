@@ -71,4 +71,7 @@ class GroupTech extends ActiveRecord
     public function getMembers(){
         return $this->hasOne(Members::className(),['id'=>'teacher_id']);
     }
+    public function getGroup(){
+        return $this->hasOne(Group::className(),['id'=>'group_id']);
+    }
 }

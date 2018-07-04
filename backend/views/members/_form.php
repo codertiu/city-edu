@@ -120,6 +120,7 @@ use yii\helpers\ArrayHelper;
                 <div class="form-group form-material">
                     <div class=" col-lg-12 col-sm-9">
                         <?php $id = \backend\models\Members::find()->all();
+                        $st = \backend\models\Students::find()->all();
                             $c=0;
                             foreach($id as $i){
                                 if($i->user_id > 0) {
@@ -127,9 +128,14 @@ use yii\helpers\ArrayHelper;
                                     $c++;
                                 }
                             }
+                            foreach ($st as $i) {
+                                $a[$c] = $i->user_id;
+                                $c++;
+                            }
+                            $data = ArrayHelper::map(\common\models\User::find()->where(['not in','id',$a])->andWhere(['!=','superadmin',1])->all(), 'id', 'username');
                         ?>
                         <?= $form->field($model, 'user_id')->widget(Select2::classname(), [
-                            'data' => ArrayHelper::map(\common\models\User::find()->where(['not in','id',$a])->andWhere(['!=','superadmin',1])->all(), 'id', 'username'),
+                            'data' =>$data,
                             'language' => 'ru',
                             'options' => ['placeholder' => Yii::t('main','Выберите Вид ...')],
                             'pluginOptions' => [
@@ -140,13 +146,13 @@ use yii\helpers\ArrayHelper;
                     </div>
                 </div>
             </div>
-            <1--<div class="col-lg-6 form-horizontal">
+            <div class="col-lg-6 form-horizontal">
                 <div class="form-group form-material">
                     <div class=" col-lg-12 col-sm-9">
                         <?= $form->field($model, 'members_status')->radioList(Yii::$app->params['member_status']); ?>
                     </div>
                 </div>
-            </div>-->
+            </div>
         </div>
 
         <div class="form-group">

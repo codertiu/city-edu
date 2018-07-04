@@ -6,6 +6,7 @@ use Yii;
 use yii\behaviors\TimestampBehavior;
 use yii\db\Expression;
 use yii\db\ActiveRecord;
+use common\models\User;
 /**
  * This is the model class for table "students".
  *
@@ -62,7 +63,7 @@ class Students extends ActiveRecord
     {
         return [
             [['name', 'surname', 'tel', 'gendar', 'address', 'edu_center_id',  'dob', 'active','reception_id','pass_file','image'], 'required'],
-            [['gendar', 'member_id', 'edu_center_id', 'active','reception_id'], 'integer'],
+            [['gendar', 'user_id','member_id', 'edu_center_id', 'active','reception_id'], 'integer'],
             [['dob'], 'safe'],
             [['name', 'surname', 'address', 'reg_date','image', 'file', 'pass_file', 'email'], 'string', 'max' => 255],
             [['tel'], 'string', 'max' => 35],
@@ -103,7 +104,8 @@ class Students extends ActiveRecord
             'email' => Yii::t('main', 'Email'),
             'dob' => Yii::t('main', 'Dob'),
             'active' => Yii::t('main', 'Active'),
-            'reception_id' =>Yii::t('main','Reception Id')
+            'reception_id' =>Yii::t('main','Reception Id'),
+            'user_id'=>Yii::t('main','User ID')
         ];
     }
 
@@ -144,6 +146,10 @@ class Students extends ActiveRecord
                 ->all();
             return $model;
         }
+    }
+
+    public function getUser(){
+        return $this->hasOne(User::classname(),['id'=>'user_id']);
     }
     public function beforeDelete()
     {

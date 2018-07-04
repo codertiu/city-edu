@@ -50,7 +50,7 @@ use backend\models\EduCenter;
                     'type' => DatePicker::TYPE_COMPONENT_APPEND,
                     //'value'=>'2018-04-12',
                     'pluginOptions' => [
-                        'autoclose'=>true,
+                        'autoclose' => true,
                         'format' => 'yyyy-mm-dd',
                         'todayHighlight' => true,
                         'orientation' => "bottom"
@@ -176,11 +176,42 @@ use backend\models\EduCenter;
     </div>
 </div>
 <div class="row row-lg">
-    <div class="col-lg-12  form-horizontal">
+    <div class="col-lg-6  form-horizontal">
         <div class="form-group form-material">
             <div class=" col-lg-12 col-sm-9">
                 <?= $form->field($model, 'edu_center_id')->widget(Select2::classname(), [
                     'data' => ArrayHelper::map(EduCenter::find()->all(), 'id', 'name'),
+                    'language' => 'ru',
+                    'options' => ['placeholder' => Yii::t('main', 'Выберите Вид ...'), 'orientation' => 'bottom'],
+                    'pluginOptions' => [
+                        'allowClear' => true,
+                        'multiple' => false,
+                    ],
+                ]); ?>
+            </div>
+        </div>
+    </div>
+    <?php
+    $id = \backend\models\Members::find()->all();
+    $st = \backend\models\Students::find()->all();
+    $c = 0;
+    foreach ($id as $i) {
+        if ($i->user_id > 0) {
+            $a[$c] = $i->user_id;
+            $c++;
+        }
+    }
+    foreach ($st as $i) {
+        $a[$c] = $i->user_id;
+        $c++;
+    }
+    $data = ArrayHelper::map(\common\models\User::find()->where(['not in', 'id', $a])->andWhere(['!=', 'superadmin', 1])->all(), 'id', 'username');
+    ?>
+    <div class="col-lg-6  form-horizontal">
+        <div class="form-group form-material">
+            <div class=" col-lg-12 col-sm-9">
+                <?= $form->field($model, 'user_id')->widget(Select2::classname(), [
+                    'data' => $data,
                     'language' => 'ru',
                     'options' => ['placeholder' => Yii::t('main', 'Выберите Вид ...'), 'orientation' => 'bottom'],
                     'pluginOptions' => [
