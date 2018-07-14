@@ -9,7 +9,7 @@ use webvimark\modules\UserManagement\models\User;
                 <ul class="site-menu">
                     <li class="site-menu-category"><?= Yii::t('main', 'Основное') ?></li>
                     <?
-                    if (User::hasRole('call-center')) {
+                    if (User::hasRole('call-center') || User::hasRole('Admin')) {
                         ?>
                         <li class="dropdown site-menu-item has-sub">
                             <a class="dropdown-toggle waves-effect waves-classic" href="javascript:void(0)"
@@ -54,7 +54,7 @@ use webvimark\modules\UserManagement\models\User;
                         </li>
                     <? } ?>
                     <?
-                    if (User::hasRole('Reception')) {
+                    if (User::hasRole('Reception') || User::hasRole('Admin')) {
                         ?>
                         <li class="dropdown site-menu-item has-sub">
                             <a class="dropdown-toggle waves-effect waves-classic" href="javascript:void(0)"
@@ -294,7 +294,7 @@ use webvimark\modules\UserManagement\models\User;
 
                     <? } ?>
 
-                    <? if (User::hasRole('Reception')) { ?>
+                    <? if (User::hasRole('Reception') || User::hasRole('Admin')) { ?>
                         <li class="dropdown site-menu-item has-sub">
                             <a class="dropdown-toggle waves-effect waves-classic" href="javascript:void(0)"
                                data-dropdown-toggle="false">

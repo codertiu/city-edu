@@ -82,7 +82,9 @@ class SiteController extends Controller
                 return $this->render('teacher');
             } else if(User::hasRole('Student')){
                 return $this->render('student');
-            } else {
+            } else if(User::hasRole('Admin')){
+                return $this->render('index');
+			}else {
                 Yii::$app->user->logout();
                 return $this->goHome();
             }

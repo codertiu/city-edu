@@ -119,20 +119,10 @@ use yii\helpers\ArrayHelper;
             <div class="col-lg-6 form-horizontal">
                 <div class="form-group form-material">
                     <div class=" col-lg-12 col-sm-9">
-                        <?php $id = \backend\models\Members::find()->all();
-                        $st = \backend\models\Students::find()->all();
-                            $c=0;
-                            foreach($id as $i){
-                                if($i->user_id > 0) {
-                                    $a[$c] = $i->user_id;
-                                    $c++;
-                                }
-                            }
-                            foreach ($st as $i) {
-                                $a[$c] = $i->user_id;
-                                $c++;
-                            }
-                            $data = ArrayHelper::map(\common\models\User::find()->where(['not in','id',$a])->andWhere(['!=','superadmin',1])->all(), 'id', 'username');
+                        <?php
+                        $id = \backend\models\Members::find()->select('user_id')->where(['is not','user_id',null]);
+                        $st = \backend\models\Students::find()->select('user_id')->where(['is not','user_id',null]);
+                        $data = ArrayHelper::map(\common\models\User::find()->where(['not in', 'id', $st])->andWhere(['not in', 'id', $id])->andWhere(['!=', 'superadmin', 1])->all(), 'id', 'username');
                         ?>
                         <?= $form->field($model, 'user_id')->widget(Select2::classname(), [
                             'data' =>$data,
