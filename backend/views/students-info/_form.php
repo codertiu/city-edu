@@ -26,7 +26,7 @@ $this->registerCss($css);
 \kartik\select2\Select2Asset::register($this);
 ?>
 
-<div class="students-info-form">
+<div class="panel-body">
 
     <?php $form = ActiveForm::begin([
         'enableAjaxValidation' => false,
@@ -37,55 +37,121 @@ $this->registerCss($css);
     <?php } else { ?>
         <?= $form->field($model, 'students_id')->hiddenInput()->label(false) ?>
     <?php } ?>
-    <?= $form->field($model, 'language', [
-        'template' => '{label} * {input}{error}{hint}'
-    ])->radioList(
-        Yii::$app->params['language']
-    ) ?>
-    <?= $form->field($model, 'type_edu_id', [
-        'template' => '{label} * {input}{error}{hint}'
-    ])->widget(Select2::classname(), [
-        'data' => ArrayHelper::map(TypeEdu::find()->all(), 'id', 'name'),
-        'language' => 'ru',
-        'options' => ['placeholder' => Yii::t('main', 'Выберите Вид ...')],
-        'pluginOptions' => [
-            'allowClear' => true,
-            'multiple' => false,
-        ],
-    ]); ?>
-    <?= $form->field($model, 'lavel', [
-        'template' => '{label} * {input}{error}{hint}'
-    ])->widget(Select2::classname(), [
-        'data' => Yii::$app->params['lavel'],
-        'language' => 'ru',
-        'options' => ['placeholder' => Yii::t('main', 'Выберите Вид ...')],
-        'pluginOptions' => [
-            'allowClear' => true,
-            'multiple' => false,
-        ],
-    ]); ?>
+    <div class="row row-lg">
+        <div class="col-lg-6 form-horizontal">
+            <div class="form-group form-material">
+                <div class=" col-lg-12 col-sm-9">
+                    <?= $form->field($model, 'language', [
+                        'template' => '{label} * {input}{error}{hint}'
+                    ])->radioList(
+                        Yii::$app->params['language'], [
+                            'item' => function ($index, $label, $name, $checked, $value) {
+                                $check = ($value==$checked)?'checked':'';
+                                $return = '<div class="radio-custom radio-primary radio-inline">';
+                                $return .= '<input type="radio" name="' . $name . '" value="' . $value . '" id="' . $label . '" '.$check.'>';
+                                $return .= '<label for="' . $label . '">' . ucwords($label) . '</label>';
+                                $return .= "</div>";
 
-    <?= $form->field($model, 'comfortable_time', [
-        'template' => '{label} * {input}{error}{hint}'
-    ])->radioList(Yii::$app->params['comfortable_time']) ?>
+                                return $return;
+                            }
+                        ]
+                    ) ?>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 form-horizontal">
+            <div class="form-group form-material">
+                <div class=" col-lg-12 col-sm-9">
+                    <?= $form->field($model, 'study_type', [
+                        'template' => '{label} * {input}{error}{hint}'
+                    ])->radioList(
+                        \Yii::$app->params['study_type'], [
+                            'item' => function ($index, $label, $name, $checked, $value) {
+                                $check = ($value==$checked)?'checked':'';
+                                $return = '<div class="radio-custom radio-primary radio-inline">';
+                                $return .= '<input type="radio" name="' . $name . '" value="' . $value . '" id="' . $label . '" '.$check.'>';
+                                $return .= '<label for="' . $label . '">' . ucwords($label) . '</label>';
+                                $return .= "</div>";
 
-    <?= $form->field($model, 'time', [
-        'template' => '{label} * {input}{error}{hint}'
-    ])->widget(\yii\widgets\MaskedInput::className(), [
-        'mask' => '99:99 from 99:99 to',
-    ])
-    ?>
+                                return $return;
+                            }
+                        ]
+                    ) ?>
+                </div>
+            </div>
+        </div>
+    </div>
 
-    <?= $form->field($model, 'study_type', [
-        'template' => '{label} * {input}{error}{hint}'
-    ])->radioList(
-        \Yii::$app->params['study_type']
-    ) ?>
+    <div class="row row-lg">
+        <div class="col-lg-6 form-horizontal">
+            <div class="form-group form-material">
+                <div class=" col-lg-12 col-sm-9">
+                    <?= $form->field($model, 'type_edu_id', [
+                        'template' => '{label} * {input}{error}{hint}'
+                    ])->widget(Select2::classname(), [
+                        'data' => ArrayHelper::map(TypeEdu::find()->all(), 'id', 'name'),
+                        'language' => 'ru',
+                        'options' => ['placeholder' => Yii::t('main', 'Выберите Вид ...')],
+                        'pluginOptions' => [
+                            'allowClear' => true,
+                            'multiple' => false,
+                        ],
+                    ]); ?>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 form-horizontal">
+            <div class="form-group form-material">
+                <div class=" col-lg-12 col-sm-9">
+                    <?= $form->field($model, 'lavel', [
+                        'template' => '{label} * {input}{error}{hint}'
+                    ])->widget(Select2::classname(), [
+                        'data' => Yii::$app->params['lavel'],
+                        'language' => 'ru',
+                        'options' => ['placeholder' => Yii::t('main', 'Выберите Вид ...')],
+                        'pluginOptions' => [
+                            'allowClear' => true,
+                            'multiple' => false,
+                        ],
+                    ]); ?>
+                </div>
+            </div>
+        </div>
+    </div>
 
+    <div class="row row-lg">
+        <div class="col-lg-6 form-horizontal">
+            <div class="form-group form-material">
+                <div class=" col-lg-12 col-sm-9">
+                    <?= $form->field($model, 'comfortable_time', [
+                        'template' => '{label} * {input}{error}{hint}'
+                    ])->radioList(Yii::$app->params['comfortable_time'], [
+                        'item' => function ($index, $label, $name, $checked, $value) {
+                            $check = ($value==$checked)?'checked':'';
+                            $return = '<div class="radio-custom radio-primary">';
+                            $return .= '<input type="radio" name="' . $name . '" value="' . $value . '" id="' . $label . '" '.$check.'>';
+                            $return .= '<label for="' . $label . '">' . ucwords($label) . '</label>';
+                            $return .= "</div>";
 
-
-
-
+                            return $return;
+                        }
+                    ]) ?>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 form-horizontal">
+            <div class="form-group form-material">
+                <div class=" col-lg-12 col-sm-9">
+                    <?= $form->field($model, 'time', [
+                        'template' => '{label} * {input}{error}{hint}'
+                    ])->widget(\yii\widgets\MaskedInput::className(), [
+                        'mask' => '99:99 from 99:99 to',
+                    ])
+                    ?>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? Yii::t('main', 'Create') : Yii::t('main', 'Update'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
     </div>

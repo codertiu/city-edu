@@ -11,6 +11,7 @@ use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use backend\models\SubStudents;
 use backend\models\Model;
+
 /**
  * GroupController implements the CRUD actions for Group model.
  */
@@ -26,7 +27,7 @@ class GroupController extends Controller
                 'class' => VerbFilter::className(),
                 'actions' => [
                     'delete' => ['POST'],
-                    'delete-sub'=>['POST']
+                    'delete-sub' => ['POST']
                 ],
             ],
         ];
@@ -71,8 +72,7 @@ class GroupController extends Controller
         $first = new GroupTech();
         $second = [new GroupTech];
 
-        if (Yii::$app->request->isAjax && $model->load(Yii::$app->request->post()))
-        {
+        if (Yii::$app->request->isAjax && $model->load(Yii::$app->request->post())) {
             Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
             return \yii\widgets\ActiveForm::validate($model);
         }
@@ -105,8 +105,7 @@ class GroupController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
-        if (Yii::$app->request->isAjax && $model->load(Yii::$app->request->post()))
-        {
+        if (Yii::$app->request->isAjax && $model->load(Yii::$app->request->post())) {
             Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
             return \yii\widgets\ActiveForm::validate($model);
         }
@@ -148,8 +147,10 @@ class GroupController extends Controller
 
         throw new NotFoundHttpException(Yii::t('main', 'The requested page does not exist.'));
     }
-    public function actionDeleteSub($id,$group){
-        $model = SubStudents::findOne(['students_id'=>$id, 'group_id'=>$group]);
+
+    public function actionDeleteSub($id, $group)
+    {
+        $model = SubStudents::findOne(['students_id' => $id, 'group_id' => $group]);
         $model->delete();
         //echo $model;
         return $this->redirect(Yii::$app->request->referrer);

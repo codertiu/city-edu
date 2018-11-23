@@ -75,7 +75,7 @@ class SiteController extends Controller
             return $this->render('index');
         } else {
             if (User::hasRole('call-center')) {
-                return $this->render('call-center');
+                return $this->redirect('/admin/reception/call-center');
             } else if (User::hasRole('Reception')) {
                 return $this->render('reception');
             } else if(User::hasRole('Teacher')){

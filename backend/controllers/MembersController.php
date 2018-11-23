@@ -87,7 +87,7 @@ class MembersController extends Controller
                 $model->img = $imageName.'.'.$model->fileimg->extension;
             }
 
-            $model->save();
+            $model->save(false);
             return $this->redirect(['view', 'id' => $model->id]);
         }
 

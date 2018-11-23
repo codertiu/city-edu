@@ -1,4 +1,3 @@
-
 <html xmlns:v="urn:schemas-microsoft-com:vml"
       xmlns:o="urn:schemas-microsoft-com:office:office"
       xmlns:w="urn:schemas-microsoft-com:office:word"
@@ -11,7 +10,8 @@
     <meta name=Generator content="Microsoft Word 15">
     <meta name=Originator content="Microsoft Word 15">
     <link rel=File-List href="dogovor%20City%20Education.files/filelist.xml">
-    <!--[if gte mso 9]><xml>
+    <!--[if gte mso 9]>
+    <xml>
         <o:DocumentProperties>
             <o:Author>master</o:Author>
             <o:Template>Normal</o:Template>
@@ -38,7 +38,8 @@
     <link rel=themeData href="dogovor%20City%20Education.files/themedata.thmx">
     <link rel=colorSchemeMapping
           href="dogovor%20City%20Education.files/colorschememapping.xml">
-    <!--[if gte mso 9]><xml>
+    <!--[if gte mso 9]>
+    <xml>
         <w:WordDocument>
             <w:TrackMoves>false</w:TrackMoves>
             <w:TrackFormatting/>
@@ -99,8 +100,10 @@
                 <m:wrapIndent m:val="1440"/>
                 <m:intLim m:val="subSup"/>
                 <m:naryLim m:val="undOvr"/>
-            </m:mathPr></w:WordDocument>
-    </xml><![endif]--><!--[if gte mso 9]><xml>
+            </m:mathPr>
+        </w:WordDocument>
+    </xml><![endif]--><!--[if gte mso 9]>
+    <xml>
         <w:LatentStyles DefLockedState="false" DefUnhideWhenUsed="false"
                         DefSemiHidden="false" DefQFormat="false" DefPriority="99"
                         LatentStyleCount="371">
@@ -425,1289 +428,1487 @@
     <style>
         <!--
         /* Font Definitions */
-        @font-face
-        {font-family:Wingdings;
-            panose-1:5 0 0 0 0 0 0 0 0 0;
-            mso-font-charset:2;
-            mso-generic-font-family:auto;
-            mso-font-pitch:variable;
-            mso-font-signature:0 268435456 0 0 -2147483648 0;}
-        @font-face
-        {font-family:"Cambria Math";
-            panose-1:2 4 5 3 5 4 6 3 2 4;
-            mso-font-charset:204;
-            mso-generic-font-family:roman;
-            mso-font-pitch:variable;
-            mso-font-signature:-536870145 1107305727 0 0 415 0;}
-        @font-face
-        {font-family:Calibri;
-            panose-1:2 15 5 2 2 2 4 3 2 4;
-            mso-font-charset:204;
-            mso-generic-font-family:swiss;
-            mso-font-pitch:variable;
-            mso-font-signature:-520092929 1073786111 9 0 415 0;}
-        @font-face
-        {font-family:"Segoe UI";
-            panose-1:2 11 5 2 4 2 4 2 2 3;
-            mso-font-charset:204;
-            mso-generic-font-family:swiss;
-            mso-font-pitch:variable;
-            mso-font-signature:-520084737 -1073683329 41 0 479 0;}
-        @font-face
-        {font-family:Verdana;
-            panose-1:2 11 6 4 3 5 4 4 2 4;
-            mso-font-charset:204;
-            mso-generic-font-family:swiss;
-            mso-font-pitch:variable;
-            mso-font-signature:-1593833729 1073750107 16 0 415 0;}
+        @font-face {
+            font-family: Wingdings;
+            panose-1: 5 0 0 0 0 0 0 0 0 0;
+            mso-font-charset: 2;
+            mso-generic-font-family: auto;
+            mso-font-pitch: variable;
+            mso-font-signature: 0 268435456 0 0 -2147483648 0;
+        }
+
+        @font-face {
+            font-family: "Cambria Math";
+            panose-1: 2 4 5 3 5 4 6 3 2 4;
+            mso-font-charset: 204;
+            mso-generic-font-family: roman;
+            mso-font-pitch: variable;
+            mso-font-signature: -536870145 1107305727 0 0 415 0;
+        }
+
+        @font-face {
+            font-family: Calibri;
+            panose-1: 2 15 5 2 2 2 4 3 2 4;
+            mso-font-charset: 204;
+            mso-generic-font-family: swiss;
+            mso-font-pitch: variable;
+            mso-font-signature: -520092929 1073786111 9 0 415 0;
+        }
+
+        @font-face {
+            font-family: "Segoe UI";
+            panose-1: 2 11 5 2 4 2 4 2 2 3;
+            mso-font-charset: 204;
+            mso-generic-font-family: swiss;
+            mso-font-pitch: variable;
+            mso-font-signature: -520084737 -1073683329 41 0 479 0;
+        }
+
+        @font-face {
+            font-family: Verdana;
+            panose-1: 2 11 6 4 3 5 4 4 2 4;
+            mso-font-charset: 204;
+            mso-generic-font-family: swiss;
+            mso-font-pitch: variable;
+            mso-font-signature: -1593833729 1073750107 16 0 415 0;
+        }
+
         /* Style Definitions */
-        p.MsoNormal, li.MsoNormal, div.MsoNormal
-        {mso-style-unhide:no;
-            mso-style-qformat:yes;
-            mso-style-parent:"";
-            margin-top:0cm;
-            margin-right:0cm;
-            margin-bottom:10.0pt;
-            margin-left:0cm;
-            line-height:115%;
-            mso-pagination:widow-orphan;
-            font-size:11.0pt;
-            font-family:"Calibri","sans-serif";
-            mso-fareast-font-family:"Times New Roman";
-            mso-bidi-font-family:"Times New Roman";}
-        p.MsoHeader, li.MsoHeader, div.MsoHeader
-        {mso-style-priority:99;
-            mso-style-link:"Верхний колонтитул Знак";
-            margin-top:0cm;
-            margin-right:0cm;
-            margin-bottom:10.0pt;
-            margin-left:0cm;
-            line-height:115%;
-            mso-pagination:widow-orphan;
-            tab-stops:center 233.85pt right 467.75pt;
-            font-size:11.0pt;
-            font-family:"Calibri","sans-serif";
-            mso-fareast-font-family:"Times New Roman";
-            mso-bidi-font-family:"Times New Roman";}
-        p.MsoFooter, li.MsoFooter, div.MsoFooter
-        {mso-style-priority:99;
-            mso-style-link:"Нижний колонтитул Знак";
-            margin-top:0cm;
-            margin-right:0cm;
-            margin-bottom:10.0pt;
-            margin-left:0cm;
-            line-height:115%;
-            mso-pagination:widow-orphan;
-            tab-stops:center 233.85pt right 467.75pt;
-            font-size:11.0pt;
-            font-family:"Calibri","sans-serif";
-            mso-fareast-font-family:"Times New Roman";
-            mso-bidi-font-family:"Times New Roman";}
-        p.MsoList2, li.MsoList2, div.MsoList2
-        {mso-style-priority:99;
-            margin-top:0cm;
-            margin-right:0cm;
-            margin-bottom:8.0pt;
-            margin-left:28.3pt;
-            mso-add-space:auto;
-            text-indent:-14.15pt;
-            line-height:107%;
-            mso-pagination:widow-orphan;
-            font-size:11.0pt;
-            font-family:"Calibri","sans-serif";
-            mso-fareast-font-family:"Times New Roman";
-            mso-bidi-font-family:"Times New Roman";
-            mso-fareast-language:EN-US;}
-        p.MsoList2CxSpFirst, li.MsoList2CxSpFirst, div.MsoList2CxSpFirst
-        {mso-style-priority:99;
-            mso-style-type:export-only;
-            margin-top:0cm;
-            margin-right:0cm;
-            margin-bottom:0cm;
-            margin-left:28.3pt;
-            margin-bottom:.0001pt;
-            mso-add-space:auto;
-            text-indent:-14.15pt;
-            line-height:107%;
-            mso-pagination:widow-orphan;
-            font-size:11.0pt;
-            font-family:"Calibri","sans-serif";
-            mso-fareast-font-family:"Times New Roman";
-            mso-bidi-font-family:"Times New Roman";
-            mso-fareast-language:EN-US;}
-        p.MsoList2CxSpMiddle, li.MsoList2CxSpMiddle, div.MsoList2CxSpMiddle
-        {mso-style-priority:99;
-            mso-style-type:export-only;
-            margin-top:0cm;
-            margin-right:0cm;
-            margin-bottom:0cm;
-            margin-left:28.3pt;
-            margin-bottom:.0001pt;
-            mso-add-space:auto;
-            text-indent:-14.15pt;
-            line-height:107%;
-            mso-pagination:widow-orphan;
-            font-size:11.0pt;
-            font-family:"Calibri","sans-serif";
-            mso-fareast-font-family:"Times New Roman";
-            mso-bidi-font-family:"Times New Roman";
-            mso-fareast-language:EN-US;}
-        p.MsoList2CxSpLast, li.MsoList2CxSpLast, div.MsoList2CxSpLast
-        {mso-style-priority:99;
-            mso-style-type:export-only;
-            margin-top:0cm;
-            margin-right:0cm;
-            margin-bottom:8.0pt;
-            margin-left:28.3pt;
-            mso-add-space:auto;
-            text-indent:-14.15pt;
-            line-height:107%;
-            mso-pagination:widow-orphan;
-            font-size:11.0pt;
-            font-family:"Calibri","sans-serif";
-            mso-fareast-font-family:"Times New Roman";
-            mso-bidi-font-family:"Times New Roman";
-            mso-fareast-language:EN-US;}
-        p.MsoBodyText, li.MsoBodyText, div.MsoBodyText
-        {mso-style-priority:99;
-            mso-style-link:"Основной текст Знак";
-            mso-margin-top-alt:auto;
-            margin-right:0cm;
-            mso-margin-bottom-alt:auto;
-            margin-left:0cm;
-            mso-pagination:widow-orphan;
-            font-size:12.0pt;
-            font-family:"Times New Roman","serif";
-            mso-fareast-font-family:"Times New Roman";}
-        a:link, span.MsoHyperlink
-        {mso-style-priority:99;
-            font-family:"Times New Roman","serif";
-            mso-bidi-font-family:"Times New Roman";
-            color:#0563C1;
-            mso-style-textfill-fill-color:#0563C1;
-            mso-style-textfill-fill-alpha:100.0%;
-            text-decoration:underline;
-            text-underline:single;}
-        a:visited, span.MsoHyperlinkFollowed
-        {mso-style-priority:99;
-            mso-style-unhide:no;
-            color:purple;
-            mso-themecolor:followedhyperlink;
-            text-decoration:underline;
-            text-underline:single;}
-        p
-        {mso-style-priority:99;
-            mso-margin-top-alt:auto;
-            margin-right:0cm;
-            mso-margin-bottom-alt:auto;
-            margin-left:0cm;
-            mso-pagination:widow-orphan;
-            font-size:12.0pt;
-            font-family:"Times New Roman","serif";
-            mso-fareast-font-family:"Times New Roman";}
-        p.MsoAcetate, li.MsoAcetate, div.MsoAcetate
-        {mso-style-priority:99;
-            mso-style-unhide:no;
-            mso-style-link:"Текст выноски Знак";
-            margin:0cm;
-            margin-bottom:.0001pt;
-            mso-pagination:widow-orphan;
-            font-size:9.0pt;
-            font-family:"Segoe UI","sans-serif";
-            mso-fareast-font-family:"Times New Roman";}
-        p.MsoListParagraph, li.MsoListParagraph, div.MsoListParagraph
-        {mso-style-priority:34;
-            mso-style-unhide:no;
-            mso-style-qformat:yes;
-            margin-top:0cm;
-            margin-right:0cm;
-            margin-bottom:8.0pt;
-            margin-left:36.0pt;
-            mso-add-space:auto;
-            line-height:107%;
-            mso-pagination:widow-orphan;
-            font-size:11.0pt;
-            font-family:"Calibri","sans-serif";
-            mso-fareast-font-family:"Times New Roman";
-            mso-bidi-font-family:"Times New Roman";
-            mso-fareast-language:EN-US;}
-        p.MsoListParagraphCxSpFirst, li.MsoListParagraphCxSpFirst, div.MsoListParagraphCxSpFirst
-        {mso-style-priority:34;
-            mso-style-unhide:no;
-            mso-style-qformat:yes;
-            mso-style-type:export-only;
-            margin-top:0cm;
-            margin-right:0cm;
-            margin-bottom:0cm;
-            margin-left:36.0pt;
-            margin-bottom:.0001pt;
-            mso-add-space:auto;
-            line-height:107%;
-            mso-pagination:widow-orphan;
-            font-size:11.0pt;
-            font-family:"Calibri","sans-serif";
-            mso-fareast-font-family:"Times New Roman";
-            mso-bidi-font-family:"Times New Roman";
-            mso-fareast-language:EN-US;}
-        p.MsoListParagraphCxSpMiddle, li.MsoListParagraphCxSpMiddle, div.MsoListParagraphCxSpMiddle
-        {mso-style-priority:34;
-            mso-style-unhide:no;
-            mso-style-qformat:yes;
-            mso-style-type:export-only;
-            margin-top:0cm;
-            margin-right:0cm;
-            margin-bottom:0cm;
-            margin-left:36.0pt;
-            margin-bottom:.0001pt;
-            mso-add-space:auto;
-            line-height:107%;
-            mso-pagination:widow-orphan;
-            font-size:11.0pt;
-            font-family:"Calibri","sans-serif";
-            mso-fareast-font-family:"Times New Roman";
-            mso-bidi-font-family:"Times New Roman";
-            mso-fareast-language:EN-US;}
-        p.MsoListParagraphCxSpLast, li.MsoListParagraphCxSpLast, div.MsoListParagraphCxSpLast
-        {mso-style-priority:34;
-            mso-style-unhide:no;
-            mso-style-qformat:yes;
-            mso-style-type:export-only;
-            margin-top:0cm;
-            margin-right:0cm;
-            margin-bottom:8.0pt;
-            margin-left:36.0pt;
-            mso-add-space:auto;
-            line-height:107%;
-            mso-pagination:widow-orphan;
-            font-size:11.0pt;
-            font-family:"Calibri","sans-serif";
-            mso-fareast-font-family:"Times New Roman";
-            mso-bidi-font-family:"Times New Roman";
-            mso-fareast-language:EN-US;}
-        span.a
-        {mso-style-name:"Верхний колонтитул Знак";
-            mso-style-priority:99;
-            mso-style-unhide:no;
-            mso-style-locked:yes;
-            mso-style-link:"Верхний колонтитул";
-            font-family:"Times New Roman","serif";
-            mso-bidi-font-family:"Times New Roman";}
-        span.a0
-        {mso-style-name:"Нижний колонтитул Знак";
-            mso-style-priority:99;
-            mso-style-unhide:no;
-            mso-style-locked:yes;
-            mso-style-link:"Нижний колонтитул";
-            font-family:"Times New Roman","serif";
-            mso-bidi-font-family:"Times New Roman";}
-        span.apple-converted-space
-        {mso-style-name:apple-converted-space;
-            mso-style-unhide:no;
-            mso-style-parent:"";}
-        p.Default, li.Default, div.Default
-        {mso-style-name:Default;
-            mso-style-unhide:no;
-            mso-style-parent:"";
-            margin:0cm;
-            margin-bottom:.0001pt;
-            mso-pagination:widow-orphan;
-            mso-layout-grid-align:none;
-            text-autospace:none;
-            font-size:12.0pt;
-            font-family:"Times New Roman","serif";
-            mso-fareast-font-family:"Times New Roman";
-            color:black;}
-        span.FontStyle50
-        {mso-style-name:"Font Style50";
-            mso-style-priority:99;
-            mso-style-unhide:no;
-            mso-style-parent:"";
-            mso-ansi-font-size:11.0pt;
-            font-family:"Times New Roman","serif";
-            mso-ascii-font-family:"Times New Roman";
-            mso-hansi-font-family:"Times New Roman";}
-        span.a1
-        {mso-style-name:"Основной текст Знак";
-            mso-style-priority:99;
-            mso-style-unhide:no;
-            mso-style-locked:yes;
-            mso-style-link:"Основной текст";
-            mso-ansi-font-size:12.0pt;
-            font-family:"Times New Roman","serif";
-            mso-ascii-font-family:"Times New Roman";
-            mso-hansi-font-family:"Times New Roman";
-            mso-bidi-font-family:"Times New Roman";}
-        p.ConsNormal, li.ConsNormal, div.ConsNormal
-        {mso-style-name:ConsNormal;
-            mso-style-unhide:no;
-            mso-style-parent:"";
-            margin:0cm;
-            margin-bottom:.0001pt;
-            text-indent:36.0pt;
-            mso-pagination:none;
-            layout-grid-mode:char;
-            font-size:10.0pt;
-            font-family:"Arial","sans-serif";
-            mso-fareast-font-family:"Times New Roman";
-            mso-bidi-font-family:"Times New Roman";}
-        span.a2
-        {mso-style-name:"Текст выноски Знак";
-            mso-style-priority:99;
-            mso-style-unhide:no;
-            mso-style-locked:yes;
-            mso-style-link:"Текст выноски";
-            mso-ansi-font-size:9.0pt;
-            mso-bidi-font-size:9.0pt;
-            font-family:"Segoe UI","sans-serif";
-            mso-ascii-font-family:"Segoe UI";
-            mso-hansi-font-family:"Segoe UI";
-            mso-bidi-font-family:"Segoe UI";}
-        .MsoChpDefault
-        {mso-style-type:export-only;
-            mso-default-props:yes;
-            font-family:"Calibri","sans-serif";
-            mso-ascii-font-family:Calibri;
-            mso-hansi-font-family:Calibri;
-            mso-bidi-font-family:Calibri;}
-        .MsoPapDefault
-        {mso-style-type:export-only;}
+        p.MsoNormal, li.MsoNormal, div.MsoNormal {
+            mso-style-unhide: no;
+            mso-style-qformat: yes;
+            mso-style-parent: "";
+            margin-top: 0cm;
+            margin-right: 0cm;
+            margin-bottom: 10.0pt;
+            margin-left: 0cm;
+            line-height: 115%;
+            mso-pagination: widow-orphan;
+            font-size: 11.0pt;
+            font-family: "Calibri", "sans-serif";
+            mso-fareast-font-family: "Times New Roman";
+            mso-bidi-font-family: "Times New Roman";
+        }
+
+        p.MsoHeader, li.MsoHeader, div.MsoHeader {
+            mso-style-priority: 99;
+            mso-style-link: "Верхний колонтитул Знак";
+            margin-top: 0cm;
+            margin-right: 0cm;
+            margin-bottom: 10.0pt;
+            margin-left: 0cm;
+            line-height: 115%;
+            mso-pagination: widow-orphan;
+            tab-stops: center 233.85pt right 467.75pt;
+            font-size: 11.0pt;
+            font-family: "Calibri", "sans-serif";
+            mso-fareast-font-family: "Times New Roman";
+            mso-bidi-font-family: "Times New Roman";
+        }
+
+        p.MsoFooter, li.MsoFooter, div.MsoFooter {
+            mso-style-priority: 99;
+            mso-style-link: "Нижний колонтитул Знак";
+            margin-top: 0cm;
+            margin-right: 0cm;
+            margin-bottom: 10.0pt;
+            margin-left: 0cm;
+            line-height: 115%;
+            mso-pagination: widow-orphan;
+            tab-stops: center 233.85pt right 467.75pt;
+            font-size: 11.0pt;
+            font-family: "Calibri", "sans-serif";
+            mso-fareast-font-family: "Times New Roman";
+            mso-bidi-font-family: "Times New Roman";
+        }
+
+        p.MsoList2, li.MsoList2, div.MsoList2 {
+            mso-style-priority: 99;
+            margin-top: 0cm;
+            margin-right: 0cm;
+            margin-bottom: 8.0pt;
+            margin-left: 28.3pt;
+            mso-add-space: auto;
+            text-indent: -14.15pt;
+            line-height: 107%;
+            mso-pagination: widow-orphan;
+            font-size: 11.0pt;
+            font-family: "Calibri", "sans-serif";
+            mso-fareast-font-family: "Times New Roman";
+            mso-bidi-font-family: "Times New Roman";
+            mso-fareast-language: EN-US;
+        }
+
+        p.MsoList2CxSpFirst, li.MsoList2CxSpFirst, div.MsoList2CxSpFirst {
+            mso-style-priority: 99;
+            mso-style-type: export-only;
+            margin-top: 0cm;
+            margin-right: 0cm;
+            margin-bottom: 0cm;
+            margin-left: 28.3pt;
+            margin-bottom: .0001pt;
+            mso-add-space: auto;
+            text-indent: -14.15pt;
+            line-height: 107%;
+            mso-pagination: widow-orphan;
+            font-size: 11.0pt;
+            font-family: "Calibri", "sans-serif";
+            mso-fareast-font-family: "Times New Roman";
+            mso-bidi-font-family: "Times New Roman";
+            mso-fareast-language: EN-US;
+        }
+
+        p.MsoList2CxSpMiddle, li.MsoList2CxSpMiddle, div.MsoList2CxSpMiddle {
+            mso-style-priority: 99;
+            mso-style-type: export-only;
+            margin-top: 0cm;
+            margin-right: 0cm;
+            margin-bottom: 0cm;
+            margin-left: 28.3pt;
+            margin-bottom: .0001pt;
+            mso-add-space: auto;
+            text-indent: -14.15pt;
+            line-height: 107%;
+            mso-pagination: widow-orphan;
+            font-size: 11.0pt;
+            font-family: "Calibri", "sans-serif";
+            mso-fareast-font-family: "Times New Roman";
+            mso-bidi-font-family: "Times New Roman";
+            mso-fareast-language: EN-US;
+        }
+
+        p.MsoList2CxSpLast, li.MsoList2CxSpLast, div.MsoList2CxSpLast {
+            mso-style-priority: 99;
+            mso-style-type: export-only;
+            margin-top: 0cm;
+            margin-right: 0cm;
+            margin-bottom: 8.0pt;
+            margin-left: 28.3pt;
+            mso-add-space: auto;
+            text-indent: -14.15pt;
+            line-height: 107%;
+            mso-pagination: widow-orphan;
+            font-size: 11.0pt;
+            font-family: "Calibri", "sans-serif";
+            mso-fareast-font-family: "Times New Roman";
+            mso-bidi-font-family: "Times New Roman";
+            mso-fareast-language: EN-US;
+        }
+
+        p.MsoBodyText, li.MsoBodyText, div.MsoBodyText {
+            mso-style-priority: 99;
+            mso-style-link: "Основной текст Знак";
+            mso-margin-top-alt: auto;
+            margin-right: 0cm;
+            mso-margin-bottom-alt: auto;
+            margin-left: 0cm;
+            mso-pagination: widow-orphan;
+            font-size: 12.0pt;
+            font-family: "Times New Roman", "serif";
+            mso-fareast-font-family: "Times New Roman";
+        }
+
+        a:link, span.MsoHyperlink {
+            mso-style-priority: 99;
+            font-family: "Times New Roman", "serif";
+            mso-bidi-font-family: "Times New Roman";
+            color: #0563C1;
+            mso-style-textfill-fill-color: #0563C1;
+            mso-style-textfill-fill-alpha: 100.0%;
+            text-decoration: underline;
+            text-underline: single;
+        }
+
+        a:visited, span.MsoHyperlinkFollowed {
+            mso-style-priority: 99;
+            mso-style-unhide: no;
+            color: purple;
+            mso-themecolor: followedhyperlink;
+            text-decoration: underline;
+            text-underline: single;
+        }
+
+        p {
+            mso-style-priority: 99;
+            mso-margin-top-alt: auto;
+            margin-right: 0cm;
+            mso-margin-bottom-alt: auto;
+            margin-left: 0cm;
+            mso-pagination: widow-orphan;
+            font-size: 12.0pt;
+            font-family: "Times New Roman", "serif";
+            mso-fareast-font-family: "Times New Roman";
+        }
+
+        p.MsoAcetate, li.MsoAcetate, div.MsoAcetate {
+            mso-style-priority: 99;
+            mso-style-unhide: no;
+            mso-style-link: "Текст выноски Знак";
+            margin: 0cm;
+            margin-bottom: .0001pt;
+            mso-pagination: widow-orphan;
+            font-size: 9.0pt;
+            font-family: "Segoe UI", "sans-serif";
+            mso-fareast-font-family: "Times New Roman";
+        }
+
+        p.MsoListParagraph, li.MsoListParagraph, div.MsoListParagraph {
+            mso-style-priority: 34;
+            mso-style-unhide: no;
+            mso-style-qformat: yes;
+            margin-top: 0cm;
+            margin-right: 0cm;
+            margin-bottom: 8.0pt;
+            margin-left: 36.0pt;
+            mso-add-space: auto;
+            line-height: 107%;
+            mso-pagination: widow-orphan;
+            font-size: 11.0pt;
+            font-family: "Calibri", "sans-serif";
+            mso-fareast-font-family: "Times New Roman";
+            mso-bidi-font-family: "Times New Roman";
+            mso-fareast-language: EN-US;
+        }
+
+        p.MsoListParagraphCxSpFirst, li.MsoListParagraphCxSpFirst, div.MsoListParagraphCxSpFirst {
+            mso-style-priority: 34;
+            mso-style-unhide: no;
+            mso-style-qformat: yes;
+            mso-style-type: export-only;
+            margin-top: 0cm;
+            margin-right: 0cm;
+            margin-bottom: 0cm;
+            margin-left: 36.0pt;
+            margin-bottom: .0001pt;
+            mso-add-space: auto;
+            line-height: 107%;
+            mso-pagination: widow-orphan;
+            font-size: 11.0pt;
+            font-family: "Calibri", "sans-serif";
+            mso-fareast-font-family: "Times New Roman";
+            mso-bidi-font-family: "Times New Roman";
+            mso-fareast-language: EN-US;
+        }
+
+        p.MsoListParagraphCxSpMiddle, li.MsoListParagraphCxSpMiddle, div.MsoListParagraphCxSpMiddle {
+            mso-style-priority: 34;
+            mso-style-unhide: no;
+            mso-style-qformat: yes;
+            mso-style-type: export-only;
+            margin-top: 0cm;
+            margin-right: 0cm;
+            margin-bottom: 0cm;
+            margin-left: 36.0pt;
+            margin-bottom: .0001pt;
+            mso-add-space: auto;
+            line-height: 107%;
+            mso-pagination: widow-orphan;
+            font-size: 11.0pt;
+            font-family: "Calibri", "sans-serif";
+            mso-fareast-font-family: "Times New Roman";
+            mso-bidi-font-family: "Times New Roman";
+            mso-fareast-language: EN-US;
+        }
+
+        p.MsoListParagraphCxSpLast, li.MsoListParagraphCxSpLast, div.MsoListParagraphCxSpLast {
+            mso-style-priority: 34;
+            mso-style-unhide: no;
+            mso-style-qformat: yes;
+            mso-style-type: export-only;
+            margin-top: 0cm;
+            margin-right: 0cm;
+            margin-bottom: 8.0pt;
+            margin-left: 36.0pt;
+            mso-add-space: auto;
+            line-height: 107%;
+            mso-pagination: widow-orphan;
+            font-size: 11.0pt;
+            font-family: "Calibri", "sans-serif";
+            mso-fareast-font-family: "Times New Roman";
+            mso-bidi-font-family: "Times New Roman";
+            mso-fareast-language: EN-US;
+        }
+
+        span.a {
+            mso-style-name: "Верхний колонтитул Знак";
+            mso-style-priority: 99;
+            mso-style-unhide: no;
+            mso-style-locked: yes;
+            mso-style-link: "Верхний колонтитул";
+            font-family: "Times New Roman", "serif";
+            mso-bidi-font-family: "Times New Roman";
+        }
+
+        span.a0 {
+            mso-style-name: "Нижний колонтитул Знак";
+            mso-style-priority: 99;
+            mso-style-unhide: no;
+            mso-style-locked: yes;
+            mso-style-link: "Нижний колонтитул";
+            font-family: "Times New Roman", "serif";
+            mso-bidi-font-family: "Times New Roman";
+        }
+
+        span.apple-converted-space {
+            mso-style-name: apple-converted-space;
+            mso-style-unhide: no;
+            mso-style-parent: "";
+        }
+
+        p.Default, li.Default, div.Default {
+            mso-style-name: Default;
+            mso-style-unhide: no;
+            mso-style-parent: "";
+            margin: 0cm;
+            margin-bottom: .0001pt;
+            mso-pagination: widow-orphan;
+            mso-layout-grid-align: none;
+            text-autospace: none;
+            font-size: 12.0pt;
+            font-family: "Times New Roman", "serif";
+            mso-fareast-font-family: "Times New Roman";
+            color: black;
+        }
+
+        span.FontStyle50 {
+            mso-style-name: "Font Style50";
+            mso-style-priority: 99;
+            mso-style-unhide: no;
+            mso-style-parent: "";
+            mso-ansi-font-size: 11.0pt;
+            font-family: "Times New Roman", "serif";
+            mso-ascii-font-family: "Times New Roman";
+            mso-hansi-font-family: "Times New Roman";
+        }
+
+        span.a1 {
+            mso-style-name: "Основной текст Знак";
+            mso-style-priority: 99;
+            mso-style-unhide: no;
+            mso-style-locked: yes;
+            mso-style-link: "Основной текст";
+            mso-ansi-font-size: 12.0pt;
+            font-family: "Times New Roman", "serif";
+            mso-ascii-font-family: "Times New Roman";
+            mso-hansi-font-family: "Times New Roman";
+            mso-bidi-font-family: "Times New Roman";
+        }
+
+        p.ConsNormal, li.ConsNormal, div.ConsNormal {
+            mso-style-name: ConsNormal;
+            mso-style-unhide: no;
+            mso-style-parent: "";
+            margin: 0cm;
+            margin-bottom: .0001pt;
+            text-indent: 36.0pt;
+            mso-pagination: none;
+            layout-grid-mode: char;
+            font-size: 10.0pt;
+            font-family: "Arial", "sans-serif";
+            mso-fareast-font-family: "Times New Roman";
+            mso-bidi-font-family: "Times New Roman";
+        }
+
+        span.a2 {
+            mso-style-name: "Текст выноски Знак";
+            mso-style-priority: 99;
+            mso-style-unhide: no;
+            mso-style-locked: yes;
+            mso-style-link: "Текст выноски";
+            mso-ansi-font-size: 9.0pt;
+            mso-bidi-font-size: 9.0pt;
+            font-family: "Segoe UI", "sans-serif";
+            mso-ascii-font-family: "Segoe UI";
+            mso-hansi-font-family: "Segoe UI";
+            mso-bidi-font-family: "Segoe UI";
+        }
+
+        .MsoChpDefault {
+            mso-style-type: export-only;
+            mso-default-props: yes;
+            font-family: "Calibri", "sans-serif";
+            mso-ascii-font-family: Calibri;
+            mso-hansi-font-family: Calibri;
+            mso-bidi-font-family: Calibri;
+        }
+
+        .MsoPapDefault {
+            mso-style-type: export-only;
+        }
+
         /* Page Definitions */
-        @page
-        {mso-page-border-surround-header:no;
-            mso-page-border-surround-footer:no;
-            mso-footnote-separator:url("dogovor%20City%20Education.files/header.htm") fs;
-            mso-footnote-continuation-separator:url("dogovor%20City%20Education.files/header.htm") fcs;
-            mso-endnote-separator:url("dogovor%20City%20Education.files/header.htm") es;
-            mso-endnote-continuation-separator:url("dogovor%20City%20Education.files/header.htm") ecs;}
-        @page WordSection1
-        {size:595.0pt 842.0pt;
-            margin:-8.8pt 14.2pt 11.35pt 22.7pt;
-            mso-header-margin:0cm;
-            mso-footer-margin:0cm;
-            mso-page-numbers:1;
-            mso-header:url("dogovor%20City%20Education.files/header.htm") h1;
-            mso-paper-source:0;}
-        div.WordSection1
-        {page:WordSection1;}
+        @page {
+            mso-page-border-surround-header: no;
+            mso-page-border-surround-footer: no;
+            mso-footnote-separator: url("dogovor%20City%20Education.files/header.htm") fs;
+            mso-footnote-continuation-separator: url("dogovor%20City%20Education.files/header.htm") fcs;
+            mso-endnote-separator: url("dogovor%20City%20Education.files/header.htm") es;
+            mso-endnote-continuation-separator: url("dogovor%20City%20Education.files/header.htm") ecs;
+        }
+
+        @page WordSection1 {
+            size: 595.0pt 842.0pt;
+            margin: -8.8pt 14.2pt 11.35pt 22.7pt;
+            mso-header-margin: 0cm;
+            mso-footer-margin: 0cm;
+            mso-page-numbers: 1;
+            mso-header: url("dogovor%20City%20Education.files/header.htm") h1;
+            mso-paper-source: 0;
+        }
+
+        div.WordSection1 {
+            page: WordSection1;
+        }
+
         /* List Definitions */
-        @list l0
-        {mso-list-id:809591851;
-            mso-list-type:hybrid;
-            mso-list-template-ids:56233588 68747279 68747289 68747291 68747279 68747289 68747291 68747279 68747289 68747291;}
-        @list l0:level1
-        {mso-level-tab-stop:none;
-            mso-level-number-position:left;
-            text-indent:-18.0pt;
-            mso-bidi-font-family:"Times New Roman";}
-        @list l0:level2
-        {mso-level-number-format:alpha-lower;
-            mso-level-tab-stop:none;
-            mso-level-number-position:left;
-            text-indent:-18.0pt;
-            mso-bidi-font-family:"Times New Roman";}
-        @list l0:level3
-        {mso-level-number-format:roman-lower;
-            mso-level-tab-stop:none;
-            mso-level-number-position:right;
-            text-indent:-9.0pt;
-            mso-bidi-font-family:"Times New Roman";}
-        @list l0:level4
-        {mso-level-tab-stop:none;
-            mso-level-number-position:left;
-            text-indent:-18.0pt;
-            mso-bidi-font-family:"Times New Roman";}
-        @list l0:level5
-        {mso-level-number-format:alpha-lower;
-            mso-level-tab-stop:none;
-            mso-level-number-position:left;
-            text-indent:-18.0pt;
-            mso-bidi-font-family:"Times New Roman";}
-        @list l0:level6
-        {mso-level-number-format:roman-lower;
-            mso-level-tab-stop:none;
-            mso-level-number-position:right;
-            text-indent:-9.0pt;
-            mso-bidi-font-family:"Times New Roman";}
-        @list l0:level7
-        {mso-level-tab-stop:none;
-            mso-level-number-position:left;
-            text-indent:-18.0pt;
-            mso-bidi-font-family:"Times New Roman";}
-        @list l0:level8
-        {mso-level-number-format:alpha-lower;
-            mso-level-tab-stop:none;
-            mso-level-number-position:left;
-            text-indent:-18.0pt;
-            mso-bidi-font-family:"Times New Roman";}
-        @list l0:level9
-        {mso-level-number-format:roman-lower;
-            mso-level-tab-stop:none;
-            mso-level-number-position:right;
-            text-indent:-9.0pt;
-            mso-bidi-font-family:"Times New Roman";}
-        @list l1
-        {mso-list-id:828862072;
-            mso-list-type:hybrid;
-            mso-list-template-ids:1653497594 -972502398 68747267 68747269 68747265 68747267 68747269 68747265 68747267 68747269;}
-        @list l1:level1
-        {mso-level-number-format:bullet;
-            mso-level-text:\25AA;
-            mso-level-tab-stop:none;
-            mso-level-number-position:left;
-            margin-left:39.0pt;
-            text-indent:-18.0pt;
-            font-family:"Verdana","sans-serif";}
-        @list l1:level2
-        {mso-level-number-format:bullet;
-            mso-level-text:o;
-            mso-level-tab-stop:none;
-            mso-level-number-position:left;
-            margin-left:75.0pt;
-            text-indent:-18.0pt;
-            font-family:"Courier New";
-            mso-bidi-font-family:"Times New Roman";}
-        @list l1:level3
-        {mso-level-number-format:bullet;
-            mso-level-text:\F0A7;
-            mso-level-tab-stop:none;
-            mso-level-number-position:left;
-            margin-left:111.0pt;
-            text-indent:-18.0pt;
-            font-family:Wingdings;}
-        @list l1:level4
-        {mso-level-number-format:bullet;
-            mso-level-text:\F0B7;
-            mso-level-tab-stop:none;
-            mso-level-number-position:left;
-            margin-left:147.0pt;
-            text-indent:-18.0pt;
-            font-family:Symbol;}
-        @list l1:level5
-        {mso-level-number-format:bullet;
-            mso-level-text:o;
-            mso-level-tab-stop:none;
-            mso-level-number-position:left;
-            margin-left:183.0pt;
-            text-indent:-18.0pt;
-            font-family:"Courier New";
-            mso-bidi-font-family:"Times New Roman";}
-        @list l1:level6
-        {mso-level-number-format:bullet;
-            mso-level-text:\F0A7;
-            mso-level-tab-stop:none;
-            mso-level-number-position:left;
-            margin-left:219.0pt;
-            text-indent:-18.0pt;
-            font-family:Wingdings;}
-        @list l1:level7
-        {mso-level-number-format:bullet;
-            mso-level-text:\F0B7;
-            mso-level-tab-stop:none;
-            mso-level-number-position:left;
-            margin-left:255.0pt;
-            text-indent:-18.0pt;
-            font-family:Symbol;}
-        @list l1:level8
-        {mso-level-number-format:bullet;
-            mso-level-text:o;
-            mso-level-tab-stop:none;
-            mso-level-number-position:left;
-            margin-left:291.0pt;
-            text-indent:-18.0pt;
-            font-family:"Courier New";
-            mso-bidi-font-family:"Times New Roman";}
-        @list l1:level9
-        {mso-level-number-format:bullet;
-            mso-level-text:\F0A7;
-            mso-level-tab-stop:none;
-            mso-level-number-position:left;
-            margin-left:327.0pt;
-            text-indent:-18.0pt;
-            font-family:Wingdings;}
-        @list l2
-        {mso-list-id:850948606;
-            mso-list-type:hybrid;
-            mso-list-template-ids:-611948936 -972502398 68747267 68747269 68747265 68747267 68747269 68747265 68747267 68747269;}
-        @list l2:level1
-        {mso-level-number-format:bullet;
-            mso-level-text:\25AA;
-            mso-level-tab-stop:none;
-            mso-level-number-position:left;
-            text-indent:-18.0pt;
-            font-family:"Verdana","sans-serif";}
-        @list l2:level2
-        {mso-level-number-format:bullet;
-            mso-level-text:o;
-            mso-level-tab-stop:none;
-            mso-level-number-position:left;
-            text-indent:-18.0pt;
-            font-family:"Courier New";
-            mso-bidi-font-family:"Times New Roman";}
-        @list l2:level3
-        {mso-level-number-format:bullet;
-            mso-level-text:\F0A7;
-            mso-level-tab-stop:none;
-            mso-level-number-position:left;
-            text-indent:-18.0pt;
-            font-family:Wingdings;}
-        @list l2:level4
-        {mso-level-number-format:bullet;
-            mso-level-text:\F0B7;
-            mso-level-tab-stop:none;
-            mso-level-number-position:left;
-            text-indent:-18.0pt;
-            font-family:Symbol;}
-        @list l2:level5
-        {mso-level-number-format:bullet;
-            mso-level-text:o;
-            mso-level-tab-stop:none;
-            mso-level-number-position:left;
-            text-indent:-18.0pt;
-            font-family:"Courier New";
-            mso-bidi-font-family:"Times New Roman";}
-        @list l2:level6
-        {mso-level-number-format:bullet;
-            mso-level-text:\F0A7;
-            mso-level-tab-stop:none;
-            mso-level-number-position:left;
-            text-indent:-18.0pt;
-            font-family:Wingdings;}
-        @list l2:level7
-        {mso-level-number-format:bullet;
-            mso-level-text:\F0B7;
-            mso-level-tab-stop:none;
-            mso-level-number-position:left;
-            text-indent:-18.0pt;
-            font-family:Symbol;}
-        @list l2:level8
-        {mso-level-number-format:bullet;
-            mso-level-text:o;
-            mso-level-tab-stop:none;
-            mso-level-number-position:left;
-            text-indent:-18.0pt;
-            font-family:"Courier New";
-            mso-bidi-font-family:"Times New Roman";}
-        @list l2:level9
-        {mso-level-number-format:bullet;
-            mso-level-text:\F0A7;
-            mso-level-tab-stop:none;
-            mso-level-number-position:left;
-            text-indent:-18.0pt;
-            font-family:Wingdings;}
-        @list l3
-        {mso-list-id:867524211;
-            mso-list-template-ids:165836494;}
-        @list l3:level1
-        {mso-level-tab-stop:none;
-            mso-level-number-position:left;
-            margin-left:145.6pt;
-            text-indent:-18.0pt;
-            mso-bidi-font-family:"Times New Roman";}
-        @list l3:level2
-        {mso-level-legal-format:yes;
-            mso-level-text:"%1\.%2\.";
-            mso-level-tab-stop:none;
-            mso-level-number-position:left;
-            margin-left:51.75pt;
-            text-indent:-24.75pt;
-            mso-bidi-font-family:"Times New Roman";
-            mso-ansi-font-weight:bold;}
-        @list l3:level3
-        {mso-level-legal-format:yes;
-            mso-level-text:"%1\.%2\.%3\.";
-            mso-level-tab-stop:none;
-            mso-level-number-position:left;
-            margin-left:64.4pt;
-            text-indent:-36.0pt;
-            mso-bidi-font-family:"Times New Roman";
-            mso-ansi-font-weight:bold;}
-        @list l3:level4
-        {mso-level-legal-format:yes;
-            mso-level-text:"%1\.%2\.%3\.%4\.";
-            mso-level-tab-stop:none;
-            mso-level-number-position:left;
-            margin-left:81.0pt;
-            text-indent:-36.0pt;
-            mso-bidi-font-family:"Times New Roman";}
-        @list l3:level5
-        {mso-level-legal-format:yes;
-            mso-level-text:"%1\.%2\.%3\.%4\.%5\.";
-            mso-level-tab-stop:none;
-            mso-level-number-position:left;
-            margin-left:108.0pt;
-            text-indent:-54.0pt;
-            mso-bidi-font-family:"Times New Roman";}
-        @list l3:level6
-        {mso-level-legal-format:yes;
-            mso-level-text:"%1\.%2\.%3\.%4\.%5\.%6\.";
-            mso-level-tab-stop:none;
-            mso-level-number-position:left;
-            margin-left:117.0pt;
-            text-indent:-54.0pt;
-            mso-bidi-font-family:"Times New Roman";}
-        @list l3:level7
-        {mso-level-legal-format:yes;
-            mso-level-text:"%1\.%2\.%3\.%4\.%5\.%6\.%7\.";
-            mso-level-tab-stop:none;
-            mso-level-number-position:left;
-            margin-left:144.0pt;
-            text-indent:-72.0pt;
-            mso-bidi-font-family:"Times New Roman";}
-        @list l3:level8
-        {mso-level-legal-format:yes;
-            mso-level-text:"%1\.%2\.%3\.%4\.%5\.%6\.%7\.%8\.";
-            mso-level-tab-stop:none;
-            mso-level-number-position:left;
-            margin-left:153.0pt;
-            text-indent:-72.0pt;
-            mso-bidi-font-family:"Times New Roman";}
-        @list l3:level9
-        {mso-level-legal-format:yes;
-            mso-level-text:"%1\.%2\.%3\.%4\.%5\.%6\.%7\.%8\.%9\.";
-            mso-level-tab-stop:none;
-            mso-level-number-position:left;
-            margin-left:180.0pt;
-            text-indent:-90.0pt;
-            mso-bidi-font-family:"Times New Roman";}
-        @list l4
-        {mso-list-id:1146781650;
-            mso-list-type:hybrid;
-            mso-list-template-ids:292729706 -972502398 68747267 68747269 68747265 68747267 68747269 68747265 68747267 68747269;}
-        @list l4:level1
-        {mso-level-number-format:bullet;
-            mso-level-text:\25AA;
-            mso-level-tab-stop:none;
-            mso-level-number-position:left;
-            text-indent:-18.0pt;
-            font-family:"Verdana","sans-serif";}
-        @list l4:level2
-        {mso-level-number-format:bullet;
-            mso-level-text:o;
-            mso-level-tab-stop:none;
-            mso-level-number-position:left;
-            text-indent:-18.0pt;
-            font-family:"Courier New";
-            mso-bidi-font-family:"Times New Roman";}
-        @list l4:level3
-        {mso-level-number-format:bullet;
-            mso-level-text:\F0A7;
-            mso-level-tab-stop:none;
-            mso-level-number-position:left;
-            text-indent:-18.0pt;
-            font-family:Wingdings;}
-        @list l4:level4
-        {mso-level-number-format:bullet;
-            mso-level-text:\F0B7;
-            mso-level-tab-stop:none;
-            mso-level-number-position:left;
-            text-indent:-18.0pt;
-            font-family:Symbol;}
-        @list l4:level5
-        {mso-level-number-format:bullet;
-            mso-level-text:o;
-            mso-level-tab-stop:none;
-            mso-level-number-position:left;
-            text-indent:-18.0pt;
-            font-family:"Courier New";
-            mso-bidi-font-family:"Times New Roman";}
-        @list l4:level6
-        {mso-level-number-format:bullet;
-            mso-level-text:\F0A7;
-            mso-level-tab-stop:none;
-            mso-level-number-position:left;
-            text-indent:-18.0pt;
-            font-family:Wingdings;}
-        @list l4:level7
-        {mso-level-number-format:bullet;
-            mso-level-text:\F0B7;
-            mso-level-tab-stop:none;
-            mso-level-number-position:left;
-            text-indent:-18.0pt;
-            font-family:Symbol;}
-        @list l4:level8
-        {mso-level-number-format:bullet;
-            mso-level-text:o;
-            mso-level-tab-stop:none;
-            mso-level-number-position:left;
-            text-indent:-18.0pt;
-            font-family:"Courier New";
-            mso-bidi-font-family:"Times New Roman";}
-        @list l4:level9
-        {mso-level-number-format:bullet;
-            mso-level-text:\F0A7;
-            mso-level-tab-stop:none;
-            mso-level-number-position:left;
-            text-indent:-18.0pt;
-            font-family:Wingdings;}
-        @list l5
-        {mso-list-id:1429890469;
-            mso-list-template-ids:1325804424;}
-        @list l5:level1
-        {mso-level-number-format:bullet;
-            mso-level-text:\F0B7;
-            mso-level-tab-stop:36.0pt;
-            mso-level-number-position:left;
-            text-indent:-18.0pt;
-            mso-ansi-font-size:10.0pt;
-            font-family:Symbol;}
-        @list l5:level2
-        {mso-level-number-format:bullet;
-            mso-level-text:o;
-            mso-level-tab-stop:72.0pt;
-            mso-level-number-position:left;
-            text-indent:-18.0pt;
-            mso-ansi-font-size:10.0pt;
-            font-family:"Courier New";
-            mso-bidi-font-family:"Times New Roman";}
-        @list l5:level3
-        {mso-level-number-format:bullet;
-            mso-level-text:\F0A7;
-            mso-level-tab-stop:108.0pt;
-            mso-level-number-position:left;
-            text-indent:-18.0pt;
-            mso-ansi-font-size:10.0pt;
-            font-family:Wingdings;}
-        @list l5:level4
-        {mso-level-number-format:bullet;
-            mso-level-text:\F0A7;
-            mso-level-tab-stop:144.0pt;
-            mso-level-number-position:left;
-            text-indent:-18.0pt;
-            mso-ansi-font-size:10.0pt;
-            font-family:Wingdings;}
-        @list l5:level5
-        {mso-level-number-format:bullet;
-            mso-level-text:\F0A7;
-            mso-level-tab-stop:180.0pt;
-            mso-level-number-position:left;
-            text-indent:-18.0pt;
-            mso-ansi-font-size:10.0pt;
-            font-family:Wingdings;}
-        @list l5:level6
-        {mso-level-number-format:bullet;
-            mso-level-text:\F0A7;
-            mso-level-tab-stop:216.0pt;
-            mso-level-number-position:left;
-            text-indent:-18.0pt;
-            mso-ansi-font-size:10.0pt;
-            font-family:Wingdings;}
-        @list l5:level7
-        {mso-level-number-format:bullet;
-            mso-level-text:\F0A7;
-            mso-level-tab-stop:252.0pt;
-            mso-level-number-position:left;
-            text-indent:-18.0pt;
-            mso-ansi-font-size:10.0pt;
-            font-family:Wingdings;}
-        @list l5:level8
-        {mso-level-number-format:bullet;
-            mso-level-text:\F0A7;
-            mso-level-tab-stop:288.0pt;
-            mso-level-number-position:left;
-            text-indent:-18.0pt;
-            mso-ansi-font-size:10.0pt;
-            font-family:Wingdings;}
-        @list l5:level9
-        {mso-level-number-format:bullet;
-            mso-level-text:\F0A7;
-            mso-level-tab-stop:324.0pt;
-            mso-level-number-position:left;
-            text-indent:-18.0pt;
-            mso-ansi-font-size:10.0pt;
-            font-family:Wingdings;}
-        @list l6
-        {mso-list-id:1487866216;
-            mso-list-type:hybrid;
-            mso-list-template-ids:150508118 -972502398 68747267 68747269 68747265 68747267 68747269 68747265 68747267 68747269;}
-        @list l6:level1
-        {mso-level-number-format:bullet;
-            mso-level-text:\25AA;
-            mso-level-tab-stop:none;
-            mso-level-number-position:left;
-            text-indent:-18.0pt;
-            font-family:"Verdana","sans-serif";}
-        @list l6:level2
-        {mso-level-number-format:bullet;
-            mso-level-text:o;
-            mso-level-tab-stop:none;
-            mso-level-number-position:left;
-            text-indent:-18.0pt;
-            font-family:"Courier New";
-            mso-bidi-font-family:"Times New Roman";}
-        @list l6:level3
-        {mso-level-number-format:bullet;
-            mso-level-text:\F0A7;
-            mso-level-tab-stop:none;
-            mso-level-number-position:left;
-            text-indent:-18.0pt;
-            font-family:Wingdings;}
-        @list l6:level4
-        {mso-level-number-format:bullet;
-            mso-level-text:\F0B7;
-            mso-level-tab-stop:none;
-            mso-level-number-position:left;
-            text-indent:-18.0pt;
-            font-family:Symbol;}
-        @list l6:level5
-        {mso-level-number-format:bullet;
-            mso-level-text:o;
-            mso-level-tab-stop:none;
-            mso-level-number-position:left;
-            text-indent:-18.0pt;
-            font-family:"Courier New";
-            mso-bidi-font-family:"Times New Roman";}
-        @list l6:level6
-        {mso-level-number-format:bullet;
-            mso-level-text:\F0A7;
-            mso-level-tab-stop:none;
-            mso-level-number-position:left;
-            text-indent:-18.0pt;
-            font-family:Wingdings;}
-        @list l6:level7
-        {mso-level-number-format:bullet;
-            mso-level-text:\F0B7;
-            mso-level-tab-stop:none;
-            mso-level-number-position:left;
-            text-indent:-18.0pt;
-            font-family:Symbol;}
-        @list l6:level8
-        {mso-level-number-format:bullet;
-            mso-level-text:o;
-            mso-level-tab-stop:none;
-            mso-level-number-position:left;
-            text-indent:-18.0pt;
-            font-family:"Courier New";
-            mso-bidi-font-family:"Times New Roman";}
-        @list l6:level9
-        {mso-level-number-format:bullet;
-            mso-level-text:\F0A7;
-            mso-level-tab-stop:none;
-            mso-level-number-position:left;
-            text-indent:-18.0pt;
-            font-family:Wingdings;}
-        @list l7
-        {mso-list-id:1641032401;
-            mso-list-template-ids:-1845611308;}
-        @list l7:level1
-        {mso-level-number-format:bullet;
-            mso-level-text:\F0B7;
-            mso-level-tab-stop:36.0pt;
-            mso-level-number-position:left;
-            text-indent:-18.0pt;
-            mso-ansi-font-size:10.0pt;
-            font-family:Symbol;}
-        @list l7:level2
-        {mso-level-number-format:bullet;
-            mso-level-text:o;
-            mso-level-tab-stop:72.0pt;
-            mso-level-number-position:left;
-            text-indent:-18.0pt;
-            mso-ansi-font-size:10.0pt;
-            font-family:"Courier New";
-            mso-bidi-font-family:"Times New Roman";}
-        @list l7:level3
-        {mso-level-number-format:bullet;
-            mso-level-text:\F0A7;
-            mso-level-tab-stop:108.0pt;
-            mso-level-number-position:left;
-            text-indent:-18.0pt;
-            mso-ansi-font-size:10.0pt;
-            font-family:Wingdings;}
-        @list l7:level4
-        {mso-level-number-format:bullet;
-            mso-level-text:\F0A7;
-            mso-level-tab-stop:144.0pt;
-            mso-level-number-position:left;
-            text-indent:-18.0pt;
-            mso-ansi-font-size:10.0pt;
-            font-family:Wingdings;}
-        @list l7:level5
-        {mso-level-number-format:bullet;
-            mso-level-text:\F0A7;
-            mso-level-tab-stop:180.0pt;
-            mso-level-number-position:left;
-            text-indent:-18.0pt;
-            mso-ansi-font-size:10.0pt;
-            font-family:Wingdings;}
-        @list l7:level6
-        {mso-level-number-format:bullet;
-            mso-level-text:\F0A7;
-            mso-level-tab-stop:216.0pt;
-            mso-level-number-position:left;
-            text-indent:-18.0pt;
-            mso-ansi-font-size:10.0pt;
-            font-family:Wingdings;}
-        @list l7:level7
-        {mso-level-number-format:bullet;
-            mso-level-text:\F0A7;
-            mso-level-tab-stop:252.0pt;
-            mso-level-number-position:left;
-            text-indent:-18.0pt;
-            mso-ansi-font-size:10.0pt;
-            font-family:Wingdings;}
-        @list l7:level8
-        {mso-level-number-format:bullet;
-            mso-level-text:\F0A7;
-            mso-level-tab-stop:288.0pt;
-            mso-level-number-position:left;
-            text-indent:-18.0pt;
-            mso-ansi-font-size:10.0pt;
-            font-family:Wingdings;}
-        @list l7:level9
-        {mso-level-number-format:bullet;
-            mso-level-text:\F0A7;
-            mso-level-tab-stop:324.0pt;
-            mso-level-number-position:left;
-            text-indent:-18.0pt;
-            mso-ansi-font-size:10.0pt;
-            font-family:Wingdings;}
-        @list l8
-        {mso-list-id:1784574783;
-            mso-list-template-ids:-148576952;}
-        @list l8:level1
-        {mso-level-number-format:bullet;
-            mso-level-text:\F0B7;
-            mso-level-tab-stop:36.0pt;
-            mso-level-number-position:left;
-            text-indent:-18.0pt;
-            mso-ansi-font-size:10.0pt;
-            font-family:Symbol;}
-        @list l8:level2
-        {mso-level-number-format:bullet;
-            mso-level-text:\F0B7;
-            mso-level-tab-stop:72.0pt;
-            mso-level-number-position:left;
-            text-indent:-18.0pt;
-            mso-ansi-font-size:10.0pt;
-            font-family:Symbol;}
-        @list l8:level3
-        {mso-level-number-format:bullet;
-            mso-level-text:\F0B7;
-            mso-level-tab-stop:108.0pt;
-            mso-level-number-position:left;
-            text-indent:-18.0pt;
-            mso-ansi-font-size:10.0pt;
-            font-family:Symbol;}
-        @list l8:level4
-        {mso-level-number-format:bullet;
-            mso-level-text:\F0B7;
-            mso-level-tab-stop:144.0pt;
-            mso-level-number-position:left;
-            text-indent:-18.0pt;
-            mso-ansi-font-size:10.0pt;
-            font-family:Symbol;}
-        @list l8:level5
-        {mso-level-number-format:bullet;
-            mso-level-text:\F0B7;
-            mso-level-tab-stop:180.0pt;
-            mso-level-number-position:left;
-            text-indent:-18.0pt;
-            mso-ansi-font-size:10.0pt;
-            font-family:Symbol;}
-        @list l8:level6
-        {mso-level-number-format:bullet;
-            mso-level-text:\F0B7;
-            mso-level-tab-stop:216.0pt;
-            mso-level-number-position:left;
-            text-indent:-18.0pt;
-            mso-ansi-font-size:10.0pt;
-            font-family:Symbol;}
-        @list l8:level7
-        {mso-level-number-format:bullet;
-            mso-level-text:\F0B7;
-            mso-level-tab-stop:252.0pt;
-            mso-level-number-position:left;
-            text-indent:-18.0pt;
-            mso-ansi-font-size:10.0pt;
-            font-family:Symbol;}
-        @list l8:level8
-        {mso-level-number-format:bullet;
-            mso-level-text:\F0B7;
-            mso-level-tab-stop:288.0pt;
-            mso-level-number-position:left;
-            text-indent:-18.0pt;
-            mso-ansi-font-size:10.0pt;
-            font-family:Symbol;}
-        @list l8:level9
-        {mso-level-number-format:bullet;
-            mso-level-text:\F0B7;
-            mso-level-tab-stop:324.0pt;
-            mso-level-number-position:left;
-            text-indent:-18.0pt;
-            mso-ansi-font-size:10.0pt;
-            font-family:Symbol;}
-        @list l9
-        {mso-list-id:1869221719;
-            mso-list-type:hybrid;
-            mso-list-template-ids:1549427734 -1914381696 68747267 68747269 68747265 68747267 68747269 68747265 68747267 68747269;}
-        @list l9:level1
-        {mso-level-number-format:bullet;
-            mso-level-text:\25AA;
-            mso-level-tab-stop:none;
-            mso-level-number-position:left;
-            text-indent:-18.0pt;
-            font-family:"Verdana","sans-serif";}
-        @list l9:level2
-        {mso-level-number-format:bullet;
-            mso-level-text:o;
-            mso-level-tab-stop:none;
-            mso-level-number-position:left;
-            text-indent:-18.0pt;
-            font-family:"Courier New";
-            mso-bidi-font-family:"Times New Roman";}
-        @list l9:level3
-        {mso-level-number-format:bullet;
-            mso-level-text:\F0A7;
-            mso-level-tab-stop:none;
-            mso-level-number-position:left;
-            text-indent:-18.0pt;
-            font-family:Wingdings;}
-        @list l9:level4
-        {mso-level-number-format:bullet;
-            mso-level-text:\F0B7;
-            mso-level-tab-stop:none;
-            mso-level-number-position:left;
-            text-indent:-18.0pt;
-            font-family:Symbol;}
-        @list l9:level5
-        {mso-level-number-format:bullet;
-            mso-level-text:o;
-            mso-level-tab-stop:none;
-            mso-level-number-position:left;
-            text-indent:-18.0pt;
-            font-family:"Courier New";
-            mso-bidi-font-family:"Times New Roman";}
-        @list l9:level6
-        {mso-level-number-format:bullet;
-            mso-level-text:\F0A7;
-            mso-level-tab-stop:none;
-            mso-level-number-position:left;
-            text-indent:-18.0pt;
-            font-family:Wingdings;}
-        @list l9:level7
-        {mso-level-number-format:bullet;
-            mso-level-text:\F0B7;
-            mso-level-tab-stop:none;
-            mso-level-number-position:left;
-            text-indent:-18.0pt;
-            font-family:Symbol;}
-        @list l9:level8
-        {mso-level-number-format:bullet;
-            mso-level-text:o;
-            mso-level-tab-stop:none;
-            mso-level-number-position:left;
-            text-indent:-18.0pt;
-            font-family:"Courier New";
-            mso-bidi-font-family:"Times New Roman";}
-        @list l9:level9
-        {mso-level-number-format:bullet;
-            mso-level-text:\F0A7;
-            mso-level-tab-stop:none;
-            mso-level-number-position:left;
-            text-indent:-18.0pt;
-            font-family:Wingdings;}
-        @list l10
-        {mso-list-id:1942295886;
-            mso-list-type:hybrid;
-            mso-list-template-ids:827095626 -972502398 68747267 68747269 68747265 68747267 68747269 68747265 68747267 68747269;}
-        @list l10:level1
-        {mso-level-number-format:bullet;
-            mso-level-text:\25AA;
-            mso-level-tab-stop:none;
-            mso-level-number-position:left;
-            margin-left:29.5pt;
-            text-indent:-18.0pt;
-            font-family:"Verdana","sans-serif";}
-        @list l10:level2
-        {mso-level-number-format:bullet;
-            mso-level-text:o;
-            mso-level-tab-stop:none;
-            mso-level-number-position:left;
-            margin-left:65.5pt;
-            text-indent:-18.0pt;
-            font-family:"Courier New";
-            mso-bidi-font-family:"Times New Roman";}
-        @list l10:level3
-        {mso-level-number-format:bullet;
-            mso-level-text:\F0A7;
-            mso-level-tab-stop:none;
-            mso-level-number-position:left;
-            margin-left:101.5pt;
-            text-indent:-18.0pt;
-            font-family:Wingdings;}
-        @list l10:level4
-        {mso-level-number-format:bullet;
-            mso-level-text:\F0B7;
-            mso-level-tab-stop:none;
-            mso-level-number-position:left;
-            margin-left:137.5pt;
-            text-indent:-18.0pt;
-            font-family:Symbol;}
-        @list l10:level5
-        {mso-level-number-format:bullet;
-            mso-level-text:o;
-            mso-level-tab-stop:none;
-            mso-level-number-position:left;
-            margin-left:173.5pt;
-            text-indent:-18.0pt;
-            font-family:"Courier New";
-            mso-bidi-font-family:"Times New Roman";}
-        @list l10:level6
-        {mso-level-number-format:bullet;
-            mso-level-text:\F0A7;
-            mso-level-tab-stop:none;
-            mso-level-number-position:left;
-            margin-left:209.5pt;
-            text-indent:-18.0pt;
-            font-family:Wingdings;}
-        @list l10:level7
-        {mso-level-number-format:bullet;
-            mso-level-text:\F0B7;
-            mso-level-tab-stop:none;
-            mso-level-number-position:left;
-            margin-left:245.5pt;
-            text-indent:-18.0pt;
-            font-family:Symbol;}
-        @list l10:level8
-        {mso-level-number-format:bullet;
-            mso-level-text:o;
-            mso-level-tab-stop:none;
-            mso-level-number-position:left;
-            margin-left:281.5pt;
-            text-indent:-18.0pt;
-            font-family:"Courier New";
-            mso-bidi-font-family:"Times New Roman";}
-        @list l10:level9
-        {mso-level-number-format:bullet;
-            mso-level-text:\F0A7;
-            mso-level-tab-stop:none;
-            mso-level-number-position:left;
-            margin-left:317.5pt;
-            text-indent:-18.0pt;
-            font-family:Wingdings;}
-        @list l11
-        {mso-list-id:1954167328;
-            mso-list-template-ids:356793436;}
-        @list l11:level1
-        {mso-level-start-at:9;
-            mso-level-tab-stop:none;
-            mso-level-number-position:left;
-            margin-left:18.0pt;
-            text-indent:-18.0pt;
-            mso-bidi-font-family:"Times New Roman";
-            color:black;}
-        @list l11:level2
-        {mso-level-start-at:3;
-            mso-level-text:"%1\.%2\.";
-            mso-level-tab-stop:none;
-            mso-level-number-position:left;
-            margin-left:32.2pt;
-            text-indent:-18.0pt;
-            mso-bidi-font-family:"Times New Roman";
-            color:black;
-            mso-ansi-font-weight:bold;}
-        @list l11:level3
-        {mso-level-text:"%1\.%2\.%3\.";
-            mso-level-tab-stop:none;
-            mso-level-number-position:left;
-            margin-left:64.4pt;
-            text-indent:-36.0pt;
-            mso-bidi-font-family:"Times New Roman";
-            color:black;}
-        @list l11:level4
-        {mso-level-text:"%1\.%2\.%3\.%4\.";
-            mso-level-tab-stop:none;
-            mso-level-number-position:left;
-            margin-left:78.6pt;
-            text-indent:-36.0pt;
-            mso-bidi-font-family:"Times New Roman";
-            color:black;}
-        @list l11:level5
-        {mso-level-text:"%1\.%2\.%3\.%4\.%5\.";
-            mso-level-tab-stop:none;
-            mso-level-number-position:left;
-            margin-left:110.8pt;
-            text-indent:-54.0pt;
-            mso-bidi-font-family:"Times New Roman";
-            color:black;}
-        @list l11:level6
-        {mso-level-text:"%1\.%2\.%3\.%4\.%5\.%6\.";
-            mso-level-tab-stop:none;
-            mso-level-number-position:left;
-            margin-left:125.0pt;
-            text-indent:-54.0pt;
-            mso-bidi-font-family:"Times New Roman";
-            color:black;}
-        @list l11:level7
-        {mso-level-text:"%1\.%2\.%3\.%4\.%5\.%6\.%7\.";
-            mso-level-tab-stop:none;
-            mso-level-number-position:left;
-            margin-left:139.2pt;
-            text-indent:-54.0pt;
-            mso-bidi-font-family:"Times New Roman";
-            color:black;}
-        @list l11:level8
-        {mso-level-text:"%1\.%2\.%3\.%4\.%5\.%6\.%7\.%8\.";
-            mso-level-tab-stop:none;
-            mso-level-number-position:left;
-            margin-left:171.4pt;
-            text-indent:-72.0pt;
-            mso-bidi-font-family:"Times New Roman";
-            color:black;}
-        @list l11:level9
-        {mso-level-text:"%1\.%2\.%3\.%4\.%5\.%6\.%7\.%8\.%9\.";
-            mso-level-tab-stop:none;
-            mso-level-number-position:left;
-            margin-left:185.6pt;
-            text-indent:-72.0pt;
-            mso-bidi-font-family:"Times New Roman";
-            color:black;}
-        ol
-        {margin-bottom:0cm;}
-        ul
-        {margin-bottom:0cm;}
+        @list l0 {
+            mso-list-id: 809591851;
+            mso-list-type: hybrid;
+            mso-list-template-ids: 56233588 68747279 68747289 68747291 68747279 68747289 68747291 68747279 68747289 68747291;
+        }
+        @list l0:level1 {
+            mso-level-tab-stop: none;
+            mso-level-number-position: left;
+            text-indent: -18.0pt;
+            mso-bidi-font-family: "Times New Roman";
+        }
+        @list l0:level2 {
+            mso-level-number-format: alpha-lower;
+            mso-level-tab-stop: none;
+            mso-level-number-position: left;
+            text-indent: -18.0pt;
+            mso-bidi-font-family: "Times New Roman";
+        }
+        @list l0:level3 {
+            mso-level-number-format: roman-lower;
+            mso-level-tab-stop: none;
+            mso-level-number-position: right;
+            text-indent: -9.0pt;
+            mso-bidi-font-family: "Times New Roman";
+        }
+        @list l0:level4 {
+            mso-level-tab-stop: none;
+            mso-level-number-position: left;
+            text-indent: -18.0pt;
+            mso-bidi-font-family: "Times New Roman";
+        }
+        @list l0:level5 {
+            mso-level-number-format: alpha-lower;
+            mso-level-tab-stop: none;
+            mso-level-number-position: left;
+            text-indent: -18.0pt;
+            mso-bidi-font-family: "Times New Roman";
+        }
+        @list l0:level6 {
+            mso-level-number-format: roman-lower;
+            mso-level-tab-stop: none;
+            mso-level-number-position: right;
+            text-indent: -9.0pt;
+            mso-bidi-font-family: "Times New Roman";
+        }
+        @list l0:level7 {
+            mso-level-tab-stop: none;
+            mso-level-number-position: left;
+            text-indent: -18.0pt;
+            mso-bidi-font-family: "Times New Roman";
+        }
+        @list l0:level8 {
+            mso-level-number-format: alpha-lower;
+            mso-level-tab-stop: none;
+            mso-level-number-position: left;
+            text-indent: -18.0pt;
+            mso-bidi-font-family: "Times New Roman";
+        }
+        @list l0:level9 {
+            mso-level-number-format: roman-lower;
+            mso-level-tab-stop: none;
+            mso-level-number-position: right;
+            text-indent: -9.0pt;
+            mso-bidi-font-family: "Times New Roman";
+        }
+        @list l1 {
+            mso-list-id: 828862072;
+            mso-list-type: hybrid;
+            mso-list-template-ids: 1653497594 -972502398 68747267 68747269 68747265 68747267 68747269 68747265 68747267 68747269;
+        }
+        @list l1:level1 {
+            mso-level-number-format: bullet;
+            mso-level-text: \25AA;
+            mso-level-tab-stop: none;
+            mso-level-number-position: left;
+            margin-left: 39.0pt;
+            text-indent: -18.0pt;
+            font-family: "Verdana", "sans-serif";
+        }
+        @list l1:level2 {
+            mso-level-number-format: bullet;
+            mso-level-text: o;
+            mso-level-tab-stop: none;
+            mso-level-number-position: left;
+            margin-left: 75.0pt;
+            text-indent: -18.0pt;
+            font-family: "Courier New";
+            mso-bidi-font-family: "Times New Roman";
+        }
+        @list l1:level3 {
+            mso-level-number-format: bullet;
+            mso-level-text: \F0A7;
+            mso-level-tab-stop: none;
+            mso-level-number-position: left;
+            margin-left: 111.0pt;
+            text-indent: -18.0pt;
+            font-family: Wingdings;
+        }
+        @list l1:level4 {
+            mso-level-number-format: bullet;
+            mso-level-text: \F0B7;
+            mso-level-tab-stop: none;
+            mso-level-number-position: left;
+            margin-left: 147.0pt;
+            text-indent: -18.0pt;
+            font-family: Symbol;
+        }
+        @list l1:level5 {
+            mso-level-number-format: bullet;
+            mso-level-text: o;
+            mso-level-tab-stop: none;
+            mso-level-number-position: left;
+            margin-left: 183.0pt;
+            text-indent: -18.0pt;
+            font-family: "Courier New";
+            mso-bidi-font-family: "Times New Roman";
+        }
+        @list l1:level6 {
+            mso-level-number-format: bullet;
+            mso-level-text: \F0A7;
+            mso-level-tab-stop: none;
+            mso-level-number-position: left;
+            margin-left: 219.0pt;
+            text-indent: -18.0pt;
+            font-family: Wingdings;
+        }
+        @list l1:level7 {
+            mso-level-number-format: bullet;
+            mso-level-text: \F0B7;
+            mso-level-tab-stop: none;
+            mso-level-number-position: left;
+            margin-left: 255.0pt;
+            text-indent: -18.0pt;
+            font-family: Symbol;
+        }
+        @list l1:level8 {
+            mso-level-number-format: bullet;
+            mso-level-text: o;
+            mso-level-tab-stop: none;
+            mso-level-number-position: left;
+            margin-left: 291.0pt;
+            text-indent: -18.0pt;
+            font-family: "Courier New";
+            mso-bidi-font-family: "Times New Roman";
+        }
+        @list l1:level9 {
+            mso-level-number-format: bullet;
+            mso-level-text: \F0A7;
+            mso-level-tab-stop: none;
+            mso-level-number-position: left;
+            margin-left: 327.0pt;
+            text-indent: -18.0pt;
+            font-family: Wingdings;
+        }
+        @list l2 {
+            mso-list-id: 850948606;
+            mso-list-type: hybrid;
+            mso-list-template-ids: -611948936 -972502398 68747267 68747269 68747265 68747267 68747269 68747265 68747267 68747269;
+        }
+        @list l2:level1 {
+            mso-level-number-format: bullet;
+            mso-level-text: \25AA;
+            mso-level-tab-stop: none;
+            mso-level-number-position: left;
+            text-indent: -18.0pt;
+            font-family: "Verdana", "sans-serif";
+        }
+        @list l2:level2 {
+            mso-level-number-format: bullet;
+            mso-level-text: o;
+            mso-level-tab-stop: none;
+            mso-level-number-position: left;
+            text-indent: -18.0pt;
+            font-family: "Courier New";
+            mso-bidi-font-family: "Times New Roman";
+        }
+        @list l2:level3 {
+            mso-level-number-format: bullet;
+            mso-level-text: \F0A7;
+            mso-level-tab-stop: none;
+            mso-level-number-position: left;
+            text-indent: -18.0pt;
+            font-family: Wingdings;
+        }
+        @list l2:level4 {
+            mso-level-number-format: bullet;
+            mso-level-text: \F0B7;
+            mso-level-tab-stop: none;
+            mso-level-number-position: left;
+            text-indent: -18.0pt;
+            font-family: Symbol;
+        }
+        @list l2:level5 {
+            mso-level-number-format: bullet;
+            mso-level-text: o;
+            mso-level-tab-stop: none;
+            mso-level-number-position: left;
+            text-indent: -18.0pt;
+            font-family: "Courier New";
+            mso-bidi-font-family: "Times New Roman";
+        }
+        @list l2:level6 {
+            mso-level-number-format: bullet;
+            mso-level-text: \F0A7;
+            mso-level-tab-stop: none;
+            mso-level-number-position: left;
+            text-indent: -18.0pt;
+            font-family: Wingdings;
+        }
+        @list l2:level7 {
+            mso-level-number-format: bullet;
+            mso-level-text: \F0B7;
+            mso-level-tab-stop: none;
+            mso-level-number-position: left;
+            text-indent: -18.0pt;
+            font-family: Symbol;
+        }
+        @list l2:level8 {
+            mso-level-number-format: bullet;
+            mso-level-text: o;
+            mso-level-tab-stop: none;
+            mso-level-number-position: left;
+            text-indent: -18.0pt;
+            font-family: "Courier New";
+            mso-bidi-font-family: "Times New Roman";
+        }
+        @list l2:level9 {
+            mso-level-number-format: bullet;
+            mso-level-text: \F0A7;
+            mso-level-tab-stop: none;
+            mso-level-number-position: left;
+            text-indent: -18.0pt;
+            font-family: Wingdings;
+        }
+        @list l3 {
+            mso-list-id: 867524211;
+            mso-list-template-ids: 165836494;
+        }
+        @list l3:level1 {
+            mso-level-tab-stop: none;
+            mso-level-number-position: left;
+            margin-left: 145.6pt;
+            text-indent: -18.0pt;
+            mso-bidi-font-family: "Times New Roman";
+        }
+        @list l3:level2 {
+            mso-level-legal-format: yes;
+            mso-level-text: "%1\.%2\.";
+            mso-level-tab-stop: none;
+            mso-level-number-position: left;
+            margin-left: 51.75pt;
+            text-indent: -24.75pt;
+            mso-bidi-font-family: "Times New Roman";
+            mso-ansi-font-weight: bold;
+        }
+        @list l3:level3 {
+            mso-level-legal-format: yes;
+            mso-level-text: "%1\.%2\.%3\.";
+            mso-level-tab-stop: none;
+            mso-level-number-position: left;
+            margin-left: 64.4pt;
+            text-indent: -36.0pt;
+            mso-bidi-font-family: "Times New Roman";
+            mso-ansi-font-weight: bold;
+        }
+        @list l3:level4 {
+            mso-level-legal-format: yes;
+            mso-level-text: "%1\.%2\.%3\.%4\.";
+            mso-level-tab-stop: none;
+            mso-level-number-position: left;
+            margin-left: 81.0pt;
+            text-indent: -36.0pt;
+            mso-bidi-font-family: "Times New Roman";
+        }
+        @list l3:level5 {
+            mso-level-legal-format: yes;
+            mso-level-text: "%1\.%2\.%3\.%4\.%5\.";
+            mso-level-tab-stop: none;
+            mso-level-number-position: left;
+            margin-left: 108.0pt;
+            text-indent: -54.0pt;
+            mso-bidi-font-family: "Times New Roman";
+        }
+        @list l3:level6 {
+            mso-level-legal-format: yes;
+            mso-level-text: "%1\.%2\.%3\.%4\.%5\.%6\.";
+            mso-level-tab-stop: none;
+            mso-level-number-position: left;
+            margin-left: 117.0pt;
+            text-indent: -54.0pt;
+            mso-bidi-font-family: "Times New Roman";
+        }
+        @list l3:level7 {
+            mso-level-legal-format: yes;
+            mso-level-text: "%1\.%2\.%3\.%4\.%5\.%6\.%7\.";
+            mso-level-tab-stop: none;
+            mso-level-number-position: left;
+            margin-left: 144.0pt;
+            text-indent: -72.0pt;
+            mso-bidi-font-family: "Times New Roman";
+        }
+        @list l3:level8 {
+            mso-level-legal-format: yes;
+            mso-level-text: "%1\.%2\.%3\.%4\.%5\.%6\.%7\.%8\.";
+            mso-level-tab-stop: none;
+            mso-level-number-position: left;
+            margin-left: 153.0pt;
+            text-indent: -72.0pt;
+            mso-bidi-font-family: "Times New Roman";
+        }
+        @list l3:level9 {
+            mso-level-legal-format: yes;
+            mso-level-text: "%1\.%2\.%3\.%4\.%5\.%6\.%7\.%8\.%9\.";
+            mso-level-tab-stop: none;
+            mso-level-number-position: left;
+            margin-left: 180.0pt;
+            text-indent: -90.0pt;
+            mso-bidi-font-family: "Times New Roman";
+        }
+        @list l4 {
+            mso-list-id: 1146781650;
+            mso-list-type: hybrid;
+            mso-list-template-ids: 292729706 -972502398 68747267 68747269 68747265 68747267 68747269 68747265 68747267 68747269;
+        }
+        @list l4:level1 {
+            mso-level-number-format: bullet;
+            mso-level-text: \25AA;
+            mso-level-tab-stop: none;
+            mso-level-number-position: left;
+            text-indent: -18.0pt;
+            font-family: "Verdana", "sans-serif";
+        }
+        @list l4:level2 {
+            mso-level-number-format: bullet;
+            mso-level-text: o;
+            mso-level-tab-stop: none;
+            mso-level-number-position: left;
+            text-indent: -18.0pt;
+            font-family: "Courier New";
+            mso-bidi-font-family: "Times New Roman";
+        }
+        @list l4:level3 {
+            mso-level-number-format: bullet;
+            mso-level-text: \F0A7;
+            mso-level-tab-stop: none;
+            mso-level-number-position: left;
+            text-indent: -18.0pt;
+            font-family: Wingdings;
+        }
+        @list l4:level4 {
+            mso-level-number-format: bullet;
+            mso-level-text: \F0B7;
+            mso-level-tab-stop: none;
+            mso-level-number-position: left;
+            text-indent: -18.0pt;
+            font-family: Symbol;
+        }
+        @list l4:level5 {
+            mso-level-number-format: bullet;
+            mso-level-text: o;
+            mso-level-tab-stop: none;
+            mso-level-number-position: left;
+            text-indent: -18.0pt;
+            font-family: "Courier New";
+            mso-bidi-font-family: "Times New Roman";
+        }
+        @list l4:level6 {
+            mso-level-number-format: bullet;
+            mso-level-text: \F0A7;
+            mso-level-tab-stop: none;
+            mso-level-number-position: left;
+            text-indent: -18.0pt;
+            font-family: Wingdings;
+        }
+        @list l4:level7 {
+            mso-level-number-format: bullet;
+            mso-level-text: \F0B7;
+            mso-level-tab-stop: none;
+            mso-level-number-position: left;
+            text-indent: -18.0pt;
+            font-family: Symbol;
+        }
+        @list l4:level8 {
+            mso-level-number-format: bullet;
+            mso-level-text: o;
+            mso-level-tab-stop: none;
+            mso-level-number-position: left;
+            text-indent: -18.0pt;
+            font-family: "Courier New";
+            mso-bidi-font-family: "Times New Roman";
+        }
+        @list l4:level9 {
+            mso-level-number-format: bullet;
+            mso-level-text: \F0A7;
+            mso-level-tab-stop: none;
+            mso-level-number-position: left;
+            text-indent: -18.0pt;
+            font-family: Wingdings;
+        }
+        @list l5 {
+            mso-list-id: 1429890469;
+            mso-list-template-ids: 1325804424;
+        }
+        @list l5:level1 {
+            mso-level-number-format: bullet;
+            mso-level-text: \F0B7;
+            mso-level-tab-stop: 36.0pt;
+            mso-level-number-position: left;
+            text-indent: -18.0pt;
+            mso-ansi-font-size: 10.0pt;
+            font-family: Symbol;
+        }
+        @list l5:level2 {
+            mso-level-number-format: bullet;
+            mso-level-text: o;
+            mso-level-tab-stop: 72.0pt;
+            mso-level-number-position: left;
+            text-indent: -18.0pt;
+            mso-ansi-font-size: 10.0pt;
+            font-family: "Courier New";
+            mso-bidi-font-family: "Times New Roman";
+        }
+        @list l5:level3 {
+            mso-level-number-format: bullet;
+            mso-level-text: \F0A7;
+            mso-level-tab-stop: 108.0pt;
+            mso-level-number-position: left;
+            text-indent: -18.0pt;
+            mso-ansi-font-size: 10.0pt;
+            font-family: Wingdings;
+        }
+        @list l5:level4 {
+            mso-level-number-format: bullet;
+            mso-level-text: \F0A7;
+            mso-level-tab-stop: 144.0pt;
+            mso-level-number-position: left;
+            text-indent: -18.0pt;
+            mso-ansi-font-size: 10.0pt;
+            font-family: Wingdings;
+        }
+        @list l5:level5 {
+            mso-level-number-format: bullet;
+            mso-level-text: \F0A7;
+            mso-level-tab-stop: 180.0pt;
+            mso-level-number-position: left;
+            text-indent: -18.0pt;
+            mso-ansi-font-size: 10.0pt;
+            font-family: Wingdings;
+        }
+        @list l5:level6 {
+            mso-level-number-format: bullet;
+            mso-level-text: \F0A7;
+            mso-level-tab-stop: 216.0pt;
+            mso-level-number-position: left;
+            text-indent: -18.0pt;
+            mso-ansi-font-size: 10.0pt;
+            font-family: Wingdings;
+        }
+        @list l5:level7 {
+            mso-level-number-format: bullet;
+            mso-level-text: \F0A7;
+            mso-level-tab-stop: 252.0pt;
+            mso-level-number-position: left;
+            text-indent: -18.0pt;
+            mso-ansi-font-size: 10.0pt;
+            font-family: Wingdings;
+        }
+        @list l5:level8 {
+            mso-level-number-format: bullet;
+            mso-level-text: \F0A7;
+            mso-level-tab-stop: 288.0pt;
+            mso-level-number-position: left;
+            text-indent: -18.0pt;
+            mso-ansi-font-size: 10.0pt;
+            font-family: Wingdings;
+        }
+        @list l5:level9 {
+            mso-level-number-format: bullet;
+            mso-level-text: \F0A7;
+            mso-level-tab-stop: 324.0pt;
+            mso-level-number-position: left;
+            text-indent: -18.0pt;
+            mso-ansi-font-size: 10.0pt;
+            font-family: Wingdings;
+        }
+        @list l6 {
+            mso-list-id: 1487866216;
+            mso-list-type: hybrid;
+            mso-list-template-ids: 150508118 -972502398 68747267 68747269 68747265 68747267 68747269 68747265 68747267 68747269;
+        }
+        @list l6:level1 {
+            mso-level-number-format: bullet;
+            mso-level-text: \25AA;
+            mso-level-tab-stop: none;
+            mso-level-number-position: left;
+            text-indent: -18.0pt;
+            font-family: "Verdana", "sans-serif";
+        }
+        @list l6:level2 {
+            mso-level-number-format: bullet;
+            mso-level-text: o;
+            mso-level-tab-stop: none;
+            mso-level-number-position: left;
+            text-indent: -18.0pt;
+            font-family: "Courier New";
+            mso-bidi-font-family: "Times New Roman";
+        }
+        @list l6:level3 {
+            mso-level-number-format: bullet;
+            mso-level-text: \F0A7;
+            mso-level-tab-stop: none;
+            mso-level-number-position: left;
+            text-indent: -18.0pt;
+            font-family: Wingdings;
+        }
+        @list l6:level4 {
+            mso-level-number-format: bullet;
+            mso-level-text: \F0B7;
+            mso-level-tab-stop: none;
+            mso-level-number-position: left;
+            text-indent: -18.0pt;
+            font-family: Symbol;
+        }
+        @list l6:level5 {
+            mso-level-number-format: bullet;
+            mso-level-text: o;
+            mso-level-tab-stop: none;
+            mso-level-number-position: left;
+            text-indent: -18.0pt;
+            font-family: "Courier New";
+            mso-bidi-font-family: "Times New Roman";
+        }
+        @list l6:level6 {
+            mso-level-number-format: bullet;
+            mso-level-text: \F0A7;
+            mso-level-tab-stop: none;
+            mso-level-number-position: left;
+            text-indent: -18.0pt;
+            font-family: Wingdings;
+        }
+        @list l6:level7 {
+            mso-level-number-format: bullet;
+            mso-level-text: \F0B7;
+            mso-level-tab-stop: none;
+            mso-level-number-position: left;
+            text-indent: -18.0pt;
+            font-family: Symbol;
+        }
+        @list l6:level8 {
+            mso-level-number-format: bullet;
+            mso-level-text: o;
+            mso-level-tab-stop: none;
+            mso-level-number-position: left;
+            text-indent: -18.0pt;
+            font-family: "Courier New";
+            mso-bidi-font-family: "Times New Roman";
+        }
+        @list l6:level9 {
+            mso-level-number-format: bullet;
+            mso-level-text: \F0A7;
+            mso-level-tab-stop: none;
+            mso-level-number-position: left;
+            text-indent: -18.0pt;
+            font-family: Wingdings;
+        }
+        @list l7 {
+            mso-list-id: 1641032401;
+            mso-list-template-ids: -1845611308;
+        }
+        @list l7:level1 {
+            mso-level-number-format: bullet;
+            mso-level-text: \F0B7;
+            mso-level-tab-stop: 36.0pt;
+            mso-level-number-position: left;
+            text-indent: -18.0pt;
+            mso-ansi-font-size: 10.0pt;
+            font-family: Symbol;
+        }
+        @list l7:level2 {
+            mso-level-number-format: bullet;
+            mso-level-text: o;
+            mso-level-tab-stop: 72.0pt;
+            mso-level-number-position: left;
+            text-indent: -18.0pt;
+            mso-ansi-font-size: 10.0pt;
+            font-family: "Courier New";
+            mso-bidi-font-family: "Times New Roman";
+        }
+        @list l7:level3 {
+            mso-level-number-format: bullet;
+            mso-level-text: \F0A7;
+            mso-level-tab-stop: 108.0pt;
+            mso-level-number-position: left;
+            text-indent: -18.0pt;
+            mso-ansi-font-size: 10.0pt;
+            font-family: Wingdings;
+        }
+        @list l7:level4 {
+            mso-level-number-format: bullet;
+            mso-level-text: \F0A7;
+            mso-level-tab-stop: 144.0pt;
+            mso-level-number-position: left;
+            text-indent: -18.0pt;
+            mso-ansi-font-size: 10.0pt;
+            font-family: Wingdings;
+        }
+        @list l7:level5 {
+            mso-level-number-format: bullet;
+            mso-level-text: \F0A7;
+            mso-level-tab-stop: 180.0pt;
+            mso-level-number-position: left;
+            text-indent: -18.0pt;
+            mso-ansi-font-size: 10.0pt;
+            font-family: Wingdings;
+        }
+        @list l7:level6 {
+            mso-level-number-format: bullet;
+            mso-level-text: \F0A7;
+            mso-level-tab-stop: 216.0pt;
+            mso-level-number-position: left;
+            text-indent: -18.0pt;
+            mso-ansi-font-size: 10.0pt;
+            font-family: Wingdings;
+        }
+        @list l7:level7 {
+            mso-level-number-format: bullet;
+            mso-level-text: \F0A7;
+            mso-level-tab-stop: 252.0pt;
+            mso-level-number-position: left;
+            text-indent: -18.0pt;
+            mso-ansi-font-size: 10.0pt;
+            font-family: Wingdings;
+        }
+        @list l7:level8 {
+            mso-level-number-format: bullet;
+            mso-level-text: \F0A7;
+            mso-level-tab-stop: 288.0pt;
+            mso-level-number-position: left;
+            text-indent: -18.0pt;
+            mso-ansi-font-size: 10.0pt;
+            font-family: Wingdings;
+        }
+        @list l7:level9 {
+            mso-level-number-format: bullet;
+            mso-level-text: \F0A7;
+            mso-level-tab-stop: 324.0pt;
+            mso-level-number-position: left;
+            text-indent: -18.0pt;
+            mso-ansi-font-size: 10.0pt;
+            font-family: Wingdings;
+        }
+        @list l8 {
+            mso-list-id: 1784574783;
+            mso-list-template-ids: -148576952;
+        }
+        @list l8:level1 {
+            mso-level-number-format: bullet;
+            mso-level-text: \F0B7;
+            mso-level-tab-stop: 36.0pt;
+            mso-level-number-position: left;
+            text-indent: -18.0pt;
+            mso-ansi-font-size: 10.0pt;
+            font-family: Symbol;
+        }
+        @list l8:level2 {
+            mso-level-number-format: bullet;
+            mso-level-text: \F0B7;
+            mso-level-tab-stop: 72.0pt;
+            mso-level-number-position: left;
+            text-indent: -18.0pt;
+            mso-ansi-font-size: 10.0pt;
+            font-family: Symbol;
+        }
+        @list l8:level3 {
+            mso-level-number-format: bullet;
+            mso-level-text: \F0B7;
+            mso-level-tab-stop: 108.0pt;
+            mso-level-number-position: left;
+            text-indent: -18.0pt;
+            mso-ansi-font-size: 10.0pt;
+            font-family: Symbol;
+        }
+        @list l8:level4 {
+            mso-level-number-format: bullet;
+            mso-level-text: \F0B7;
+            mso-level-tab-stop: 144.0pt;
+            mso-level-number-position: left;
+            text-indent: -18.0pt;
+            mso-ansi-font-size: 10.0pt;
+            font-family: Symbol;
+        }
+        @list l8:level5 {
+            mso-level-number-format: bullet;
+            mso-level-text: \F0B7;
+            mso-level-tab-stop: 180.0pt;
+            mso-level-number-position: left;
+            text-indent: -18.0pt;
+            mso-ansi-font-size: 10.0pt;
+            font-family: Symbol;
+        }
+        @list l8:level6 {
+            mso-level-number-format: bullet;
+            mso-level-text: \F0B7;
+            mso-level-tab-stop: 216.0pt;
+            mso-level-number-position: left;
+            text-indent: -18.0pt;
+            mso-ansi-font-size: 10.0pt;
+            font-family: Symbol;
+        }
+        @list l8:level7 {
+            mso-level-number-format: bullet;
+            mso-level-text: \F0B7;
+            mso-level-tab-stop: 252.0pt;
+            mso-level-number-position: left;
+            text-indent: -18.0pt;
+            mso-ansi-font-size: 10.0pt;
+            font-family: Symbol;
+        }
+        @list l8:level8 {
+            mso-level-number-format: bullet;
+            mso-level-text: \F0B7;
+            mso-level-tab-stop: 288.0pt;
+            mso-level-number-position: left;
+            text-indent: -18.0pt;
+            mso-ansi-font-size: 10.0pt;
+            font-family: Symbol;
+        }
+        @list l8:level9 {
+            mso-level-number-format: bullet;
+            mso-level-text: \F0B7;
+            mso-level-tab-stop: 324.0pt;
+            mso-level-number-position: left;
+            text-indent: -18.0pt;
+            mso-ansi-font-size: 10.0pt;
+            font-family: Symbol;
+        }
+        @list l9 {
+            mso-list-id: 1869221719;
+            mso-list-type: hybrid;
+            mso-list-template-ids: 1549427734 -1914381696 68747267 68747269 68747265 68747267 68747269 68747265 68747267 68747269;
+        }
+        @list l9:level1 {
+            mso-level-number-format: bullet;
+            mso-level-text: \25AA;
+            mso-level-tab-stop: none;
+            mso-level-number-position: left;
+            text-indent: -18.0pt;
+            font-family: "Verdana", "sans-serif";
+        }
+        @list l9:level2 {
+            mso-level-number-format: bullet;
+            mso-level-text: o;
+            mso-level-tab-stop: none;
+            mso-level-number-position: left;
+            text-indent: -18.0pt;
+            font-family: "Courier New";
+            mso-bidi-font-family: "Times New Roman";
+        }
+        @list l9:level3 {
+            mso-level-number-format: bullet;
+            mso-level-text: \F0A7;
+            mso-level-tab-stop: none;
+            mso-level-number-position: left;
+            text-indent: -18.0pt;
+            font-family: Wingdings;
+        }
+        @list l9:level4 {
+            mso-level-number-format: bullet;
+            mso-level-text: \F0B7;
+            mso-level-tab-stop: none;
+            mso-level-number-position: left;
+            text-indent: -18.0pt;
+            font-family: Symbol;
+        }
+        @list l9:level5 {
+            mso-level-number-format: bullet;
+            mso-level-text: o;
+            mso-level-tab-stop: none;
+            mso-level-number-position: left;
+            text-indent: -18.0pt;
+            font-family: "Courier New";
+            mso-bidi-font-family: "Times New Roman";
+        }
+        @list l9:level6 {
+            mso-level-number-format: bullet;
+            mso-level-text: \F0A7;
+            mso-level-tab-stop: none;
+            mso-level-number-position: left;
+            text-indent: -18.0pt;
+            font-family: Wingdings;
+        }
+        @list l9:level7 {
+            mso-level-number-format: bullet;
+            mso-level-text: \F0B7;
+            mso-level-tab-stop: none;
+            mso-level-number-position: left;
+            text-indent: -18.0pt;
+            font-family: Symbol;
+        }
+        @list l9:level8 {
+            mso-level-number-format: bullet;
+            mso-level-text: o;
+            mso-level-tab-stop: none;
+            mso-level-number-position: left;
+            text-indent: -18.0pt;
+            font-family: "Courier New";
+            mso-bidi-font-family: "Times New Roman";
+        }
+        @list l9:level9 {
+            mso-level-number-format: bullet;
+            mso-level-text: \F0A7;
+            mso-level-tab-stop: none;
+            mso-level-number-position: left;
+            text-indent: -18.0pt;
+            font-family: Wingdings;
+        }
+        @list l10 {
+            mso-list-id: 1942295886;
+            mso-list-type: hybrid;
+            mso-list-template-ids: 827095626 -972502398 68747267 68747269 68747265 68747267 68747269 68747265 68747267 68747269;
+        }
+        @list l10:level1 {
+            mso-level-number-format: bullet;
+            mso-level-text: \25AA;
+            mso-level-tab-stop: none;
+            mso-level-number-position: left;
+            margin-left: 29.5pt;
+            text-indent: -18.0pt;
+            font-family: "Verdana", "sans-serif";
+        }
+        @list l10:level2 {
+            mso-level-number-format: bullet;
+            mso-level-text: o;
+            mso-level-tab-stop: none;
+            mso-level-number-position: left;
+            margin-left: 65.5pt;
+            text-indent: -18.0pt;
+            font-family: "Courier New";
+            mso-bidi-font-family: "Times New Roman";
+        }
+        @list l10:level3 {
+            mso-level-number-format: bullet;
+            mso-level-text: \F0A7;
+            mso-level-tab-stop: none;
+            mso-level-number-position: left;
+            margin-left: 101.5pt;
+            text-indent: -18.0pt;
+            font-family: Wingdings;
+        }
+        @list l10:level4 {
+            mso-level-number-format: bullet;
+            mso-level-text: \F0B7;
+            mso-level-tab-stop: none;
+            mso-level-number-position: left;
+            margin-left: 137.5pt;
+            text-indent: -18.0pt;
+            font-family: Symbol;
+        }
+        @list l10:level5 {
+            mso-level-number-format: bullet;
+            mso-level-text: o;
+            mso-level-tab-stop: none;
+            mso-level-number-position: left;
+            margin-left: 173.5pt;
+            text-indent: -18.0pt;
+            font-family: "Courier New";
+            mso-bidi-font-family: "Times New Roman";
+        }
+        @list l10:level6 {
+            mso-level-number-format: bullet;
+            mso-level-text: \F0A7;
+            mso-level-tab-stop: none;
+            mso-level-number-position: left;
+            margin-left: 209.5pt;
+            text-indent: -18.0pt;
+            font-family: Wingdings;
+        }
+        @list l10:level7 {
+            mso-level-number-format: bullet;
+            mso-level-text: \F0B7;
+            mso-level-tab-stop: none;
+            mso-level-number-position: left;
+            margin-left: 245.5pt;
+            text-indent: -18.0pt;
+            font-family: Symbol;
+        }
+        @list l10:level8 {
+            mso-level-number-format: bullet;
+            mso-level-text: o;
+            mso-level-tab-stop: none;
+            mso-level-number-position: left;
+            margin-left: 281.5pt;
+            text-indent: -18.0pt;
+            font-family: "Courier New";
+            mso-bidi-font-family: "Times New Roman";
+        }
+        @list l10:level9 {
+            mso-level-number-format: bullet;
+            mso-level-text: \F0A7;
+            mso-level-tab-stop: none;
+            mso-level-number-position: left;
+            margin-left: 317.5pt;
+            text-indent: -18.0pt;
+            font-family: Wingdings;
+        }
+        @list l11 {
+            mso-list-id: 1954167328;
+            mso-list-template-ids: 356793436;
+        }
+        @list l11:level1 {
+            mso-level-start-at: 9;
+            mso-level-tab-stop: none;
+            mso-level-number-position: left;
+            margin-left: 18.0pt;
+            text-indent: -18.0pt;
+            mso-bidi-font-family: "Times New Roman";
+            color: black;
+        }
+        @list l11:level2 {
+            mso-level-start-at: 3;
+            mso-level-text: "%1\.%2\.";
+            mso-level-tab-stop: none;
+            mso-level-number-position: left;
+            margin-left: 32.2pt;
+            text-indent: -18.0pt;
+            mso-bidi-font-family: "Times New Roman";
+            color: black;
+            mso-ansi-font-weight: bold;
+        }
+        @list l11:level3 {
+            mso-level-text: "%1\.%2\.%3\.";
+            mso-level-tab-stop: none;
+            mso-level-number-position: left;
+            margin-left: 64.4pt;
+            text-indent: -36.0pt;
+            mso-bidi-font-family: "Times New Roman";
+            color: black;
+        }
+        @list l11:level4 {
+            mso-level-text: "%1\.%2\.%3\.%4\.";
+            mso-level-tab-stop: none;
+            mso-level-number-position: left;
+            margin-left: 78.6pt;
+            text-indent: -36.0pt;
+            mso-bidi-font-family: "Times New Roman";
+            color: black;
+        }
+        @list l11:level5 {
+            mso-level-text: "%1\.%2\.%3\.%4\.%5\.";
+            mso-level-tab-stop: none;
+            mso-level-number-position: left;
+            margin-left: 110.8pt;
+            text-indent: -54.0pt;
+            mso-bidi-font-family: "Times New Roman";
+            color: black;
+        }
+        @list l11:level6 {
+            mso-level-text: "%1\.%2\.%3\.%4\.%5\.%6\.";
+            mso-level-tab-stop: none;
+            mso-level-number-position: left;
+            margin-left: 125.0pt;
+            text-indent: -54.0pt;
+            mso-bidi-font-family: "Times New Roman";
+            color: black;
+        }
+        @list l11:level7 {
+            mso-level-text: "%1\.%2\.%3\.%4\.%5\.%6\.%7\.";
+            mso-level-tab-stop: none;
+            mso-level-number-position: left;
+            margin-left: 139.2pt;
+            text-indent: -54.0pt;
+            mso-bidi-font-family: "Times New Roman";
+            color: black;
+        }
+        @list l11:level8 {
+            mso-level-text: "%1\.%2\.%3\.%4\.%5\.%6\.%7\.%8\.";
+            mso-level-tab-stop: none;
+            mso-level-number-position: left;
+            margin-left: 171.4pt;
+            text-indent: -72.0pt;
+            mso-bidi-font-family: "Times New Roman";
+            color: black;
+        }
+        @list l11:level9 {
+            mso-level-text: "%1\.%2\.%3\.%4\.%5\.%6\.%7\.%8\.%9\.";
+            mso-level-tab-stop: none;
+            mso-level-number-position: left;
+            margin-left: 185.6pt;
+            text-indent: -72.0pt;
+            mso-bidi-font-family: "Times New Roman";
+            color: black;
+        }
+        ol {
+            margin-bottom: 0cm;
+        }
+
+        ul {
+            margin-bottom: 0cm;
+        }
+
         -->
     </style>
     <!--[if gte mso 10]>
     <style>
         /* Style Definitions */
-        table.MsoNormalTable
-        {mso-style-name:"Обычная таблица";
-            mso-tstyle-rowband-size:0;
-            mso-tstyle-colband-size:0;
-            mso-style-noshow:yes;
-            mso-style-priority:99;
-            mso-style-parent:"";
-            mso-padding-alt:0cm 5.4pt 0cm 5.4pt;
-            mso-para-margin:0cm;
-            mso-para-margin-bottom:.0001pt;
-            mso-pagination:widow-orphan;
-            font-size:10.0pt;
-            font-family:"Calibri","sans-serif";}
-        table.MsoTableGrid
-        {mso-style-name:"Сетка таблицы";
-            mso-tstyle-rowband-size:0;
-            mso-tstyle-colband-size:0;
-            mso-style-priority:59;
-            mso-style-unhide:no;
-            border:solid windowtext 1.0pt;
-            mso-border-alt:solid windowtext .5pt;
-            mso-padding-alt:0cm 5.4pt 0cm 5.4pt;
-            mso-border-insideh:.5pt solid windowtext;
-            mso-border-insidev:.5pt solid windowtext;
-            mso-para-margin:0cm;
-            mso-para-margin-bottom:.0001pt;
-            mso-pagination:widow-orphan;
-            font-size:10.0pt;
-            font-family:"Calibri","sans-serif";
-            mso-bidi-font-family:"Times New Roman";}
+        table.MsoNormalTable {
+            mso-style-name: "Обычная таблица";
+            mso-tstyle-rowband-size: 0;
+            mso-tstyle-colband-size: 0;
+            mso-style-noshow: yes;
+            mso-style-priority: 99;
+            mso-style-parent: "";
+            mso-padding-alt: 0cm 5.4pt 0cm 5.4pt;
+            mso-para-margin: 0cm;
+            mso-para-margin-bottom: .0001pt;
+            mso-pagination: widow-orphan;
+            font-size: 10.0pt;
+            font-family: "Calibri", "sans-serif";
+        }
+
+        table.MsoTableGrid {
+            mso-style-name: "Сетка таблицы";
+            mso-tstyle-rowband-size: 0;
+            mso-tstyle-colband-size: 0;
+            mso-style-priority: 59;
+            mso-style-unhide: no;
+            border: solid windowtext 1.0pt;
+            mso-border-alt: solid windowtext .5pt;
+            mso-padding-alt: 0cm 5.4pt 0cm 5.4pt;
+            mso-border-insideh: .5pt solid windowtext;
+            mso-border-insidev: .5pt solid windowtext;
+            mso-para-margin: 0cm;
+            mso-para-margin-bottom: .0001pt;
+            mso-pagination: widow-orphan;
+            font-size: 10.0pt;
+            font-family: "Calibri", "sans-serif";
+            mso-bidi-font-family: "Times New Roman";
+        }
     </style>
-    <![endif]--><!--[if gte mso 9]><xml>
+    <![endif]--><!--[if gte mso 9]>
+    <xml>
         <o:shapedefaults v:ext="edit" spidmax="1026"/>
-    </xml><![endif]--><!--[if gte mso 9]><xml>
+    </xml><![endif]--><!--[if gte mso 9]>
+    <xml>
         <o:shapelayout v:ext="edit">
             <o:idmap v:ext="edit" data="1"/>
-        </o:shapelayout></xml><![endif]-->
+        </o:shapelayout>
+    </xml><![endif]-->
 </head>
 
 <body lang=RU link="#0563C1" vlink=purple style='tab-interval:36.0pt'>
@@ -1727,7 +1928,7 @@ none;text-autospace:none'><b style='mso-bidi-font-weight:normal'><span
 Arial;color:black;mso-themecolor:text1;letter-spacing:.05pt'>Договор об
 оказание услуг обучения № </span></b><span style='font-size:9.0pt;font-family:
 "Verdana","sans-serif";mso-bidi-font-family:Arial;color:black;mso-themecolor:
-text1;letter-spacing:.05pt'><?=$model->contract?><b style='mso-bidi-font-weight:
+text1;letter-spacing:.05pt'><?= $model->contract ?><b style='mso-bidi-font-weight:
 normal'><o:p></o:p></b></span></p>
 
     <p class=MsoNormal align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
@@ -1741,9 +1942,15 @@ margin-left:1.0cm;margin-bottom:.0001pt;text-align:justify;line-height:normal;
 mso-pagination:none;mso-layout-grid-align:none;text-autospace:none'><b
                 style='mso-bidi-font-weight:normal'><span style='font-size:8.0pt;font-family:
 "Verdana","sans-serif";mso-bidi-font-family:Arial;color:black;mso-themecolor:
-text1;letter-spacing:.05pt'>г. Ташкент<span style='mso-tab-count:5'>                                                          </span><span
-                        style='mso-tab-count:1'>            </span><span style='mso-tab-count:1'>            </span><span
-                        style='mso-tab-count:1'>            </span><?=date('d M Y',strtotime($model->date))?> год<o:p></o:p></span></b></p>
+text1;letter-spacing:.05pt'>г. Ташкент<span
+                        style='mso-tab-count:5'>                                                          </span><span
+                        style='mso-tab-count:1'>            </span><span
+                        style='mso-tab-count:1'>            </span><span
+                        style='mso-tab-count:1'>            </span><?php $m = date('n', strtotime($model->date));
+                $_mD = date('M', strtotime($model->date));
+                $currentDate = date('d M Y', strtotime($model->date));
+                $currentDate = str_replace($_mD, " " . \Yii::$app->params['month'][$m] . " ", $currentDate); ?><?= $currentDate ?>
+                год<o:p></o:p></span></b></p>
 
     <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
 justify;text-indent:1.0cm;line-height:normal;mso-pagination:none;mso-layout-grid-align:
@@ -1785,14 +1992,15 @@ mso-bidi-font-family:Arial;color:black;mso-themecolor:text1'>Насриддин�
 justify;line-height:normal;mso-pagination:none;mso-layout-grid-align:none;
 text-autospace:none'><i style='mso-bidi-font-style:normal'><span
                     style='font-size:8.0pt;font-family:"Verdana","sans-serif";mso-bidi-font-family:
-Arial;color:black;mso-themecolor:text1'>______________________________ </span></i><i
+Arial;color:black;mso-themecolor:text1'><?= $model->type_contract_id == 1 ? $model->fio : "______________________________" ?></span></i><i
                 style='mso-bidi-font-style:normal'><span lang=UZ-CYR style='font-size:8.0pt;
 font-family:"Verdana","sans-serif";mso-bidi-font-family:Arial;color:black;
 mso-themecolor:text1;mso-ansi-language:UZ-CYR'>/ </span></i><i
                 style='mso-bidi-font-style:normal'><span style='font-size:8.0pt;font-family:
 "Verdana","sans-serif";mso-bidi-font-family:Arial;color:black;mso-themecolor:
-text1'>__________________________________ в лице директора
-___________________________,</span></i><i style='mso-bidi-font-style:normal'><span
+text1'><?= $model->type_contract_id == 2 ? $model->title : "______________________________" ?>в лице директора
+                <?= $model->type_contract_id == 2 ? $model->director : "______________________________" ?>,</span></i><i
+                style='mso-bidi-font-style:normal'><span
                     lang=UZ-CYR style='font-size:8.0pt;font-family:"Verdana","sans-serif";
 mso-bidi-font-family:Arial;color:black;mso-themecolor:text1;mso-ansi-language:
 UZ-CYR'><o:p></o:p></span></i></p>
@@ -1805,7 +2013,8 @@ mso-bidi-font-size:8.0pt;font-family:"Verdana","sans-serif";mso-bidi-font-family
 Arial;color:black;mso-themecolor:text1'>(Ф.И.О лица, зачисляемого на обучение) <span
                         style='mso-tab-count:1'> </span><span style='mso-spacerun:yes'> </span><span
                         style='mso-spacerun:yes'>      </span>(если юридического лицо: наименование
-организации)<span style='mso-tab-count:4'>                                                          </span>(Ф.И.О)<o:p></o:p></span></i></p>
+организации)<span style='mso-tab-count:4'>                                                          </span>(Ф.И.О)<o:p></o:p></span></i>
+    </p>
 
     <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
 justify;line-height:normal;mso-pagination:none;mso-layout-grid-align:none;
@@ -1897,7 +2106,8 @@ tab-stops:1.0cm 42.55pt'><![if !supportLists]><b style='mso-bidi-font-weight:
 normal'><i style='mso-bidi-font-style:normal'><span style='font-size:8.0pt;
 font-family:"Verdana","sans-serif";mso-fareast-font-family:Verdana;mso-bidi-font-family:
 Verdana;color:black;mso-themecolor:text1;mso-fareast-language:RU'><span
-                            style='mso-list:Ignore'>2.1.1.<span style='font:7.0pt "Times New Roman"'> </span></span></span></i></b><![endif]><i
+                            style='mso-list:Ignore'>2.1.1.<span
+                                style='font:7.0pt "Times New Roman"'> </span></span></span></i></b><![endif]><i
                 style='mso-bidi-font-style:normal'><span style='font-size:8.0pt;font-family:
 "Verdana","sans-serif";mso-bidi-font-family:Arial;color:black;mso-themecolor:
 text1;mso-fareast-language:RU'>Своевременно производить оплату за обучение и
@@ -1910,7 +2120,8 @@ tab-stops:1.0cm 42.55pt'><![if !supportLists]><b style='mso-bidi-font-weight:
 normal'><i style='mso-bidi-font-style:normal'><span style='font-size:8.0pt;
 font-family:"Verdana","sans-serif";mso-fareast-font-family:Verdana;mso-bidi-font-family:
 Verdana;color:black;mso-themecolor:text1;mso-fareast-language:RU'><span
-                            style='mso-list:Ignore'>2.1.2.<span style='font:7.0pt "Times New Roman"'> </span></span></span></i></b><![endif]><i
+                            style='mso-list:Ignore'>2.1.2.<span
+                                style='font:7.0pt "Times New Roman"'> </span></span></span></i></b><![endif]><i
                 style='mso-bidi-font-style:normal'><span style='font-size:8.0pt;font-family:
 "Verdana","sans-serif";mso-bidi-font-family:Arial;color:black;mso-themecolor:
 text1;mso-fareast-language:RU'>Своевременно сообщить в Учебный центр об
@@ -1923,7 +2134,8 @@ tab-stops:1.0cm 42.55pt'><![if !supportLists]><b style='mso-bidi-font-weight:
 normal'><i style='mso-bidi-font-style:normal'><span style='font-size:8.0pt;
 font-family:"Verdana","sans-serif";mso-fareast-font-family:Verdana;mso-bidi-font-family:
 Verdana;color:black;mso-themecolor:text1;mso-fareast-language:RU'><span
-                            style='mso-list:Ignore'>2.1.3.<span style='font:7.0pt "Times New Roman"'> </span></span></span></i></b><![endif]><i
+                            style='mso-list:Ignore'>2.1.3.<span
+                                style='font:7.0pt "Times New Roman"'> </span></span></span></i></b><![endif]><i
                 style='mso-bidi-font-style:normal'><span style='font-size:8.0pt;font-family:
 "Verdana","sans-serif";mso-bidi-font-family:Arial;color:black;mso-themecolor:
 text1;mso-fareast-language:RU'>Приходить для беседы, при наличии претензий у
@@ -1937,7 +2149,8 @@ tab-stops:1.0cm 42.55pt'><![if !supportLists]><b style='mso-bidi-font-weight:
 normal'><i style='mso-bidi-font-style:normal'><span style='font-size:8.0pt;
 font-family:"Verdana","sans-serif";mso-fareast-font-family:Verdana;mso-bidi-font-family:
 Verdana;color:black;mso-themecolor:text1;mso-fareast-language:RU'><span
-                            style='mso-list:Ignore'>2.1.4.<span style='font:7.0pt "Times New Roman"'> </span></span></span></i></b><![endif]><i
+                            style='mso-list:Ignore'>2.1.4.<span
+                                style='font:7.0pt "Times New Roman"'> </span></span></span></i></b><![endif]><i
                 style='mso-bidi-font-style:normal'><span style='font-size:8.0pt;font-family:
 "Verdana","sans-serif";mso-bidi-font-family:Arial;color:black;mso-themecolor:
 text1;mso-fareast-language:RU'>Возмещать ущерб, причиненный имуществу Учебного
@@ -1956,7 +2169,8 @@ tab-stops:1.0cm 42.55pt'><![if !supportLists]><b style='mso-bidi-font-weight:
 normal'><i style='mso-bidi-font-style:normal'><span style='font-size:8.0pt;
 font-family:"Verdana","sans-serif";mso-fareast-font-family:Verdana;mso-bidi-font-family:
 Verdana;color:black;mso-themecolor:text1;mso-fareast-language:RU'><span
-                            style='mso-list:Ignore'>2.1.5.<span style='font:7.0pt "Times New Roman"'> </span></span></span></i></b><![endif]><i
+                            style='mso-list:Ignore'>2.1.5.<span
+                                style='font:7.0pt "Times New Roman"'> </span></span></span></i></b><![endif]><i
                 style='mso-bidi-font-style:normal'><span style='font-size:8.0pt;font-family:
 "Verdana","sans-serif";mso-bidi-font-family:Arial;color:black;mso-themecolor:
 text1;mso-fareast-language:RU'>Внимательно ознакомиться и строго соблюдать установленные
@@ -1969,7 +2183,8 @@ tab-stops:1.0cm 42.55pt'><![if !supportLists]><b style='mso-bidi-font-weight:
 normal'><i style='mso-bidi-font-style:normal'><span style='font-size:8.0pt;
 font-family:"Verdana","sans-serif";mso-fareast-font-family:Verdana;mso-bidi-font-family:
 Verdana;color:black;mso-themecolor:text1;mso-fareast-language:RU'><span
-                            style='mso-list:Ignore'>2.1.6.<span style='font:7.0pt "Times New Roman"'> </span></span></span></i></b><![endif]><i
+                            style='mso-list:Ignore'>2.1.6.<span
+                                style='font:7.0pt "Times New Roman"'> </span></span></span></i></b><![endif]><i
                 style='mso-bidi-font-style:normal'><span style='font-size:8.0pt;font-family:
 "Verdana","sans-serif";mso-bidi-font-family:Arial;color:black;mso-fareast-language:
 RU'>Все претензии к Учебному Центру должны предъявляться в письменной форме.
@@ -1985,7 +2200,8 @@ tab-stops:1.0cm 36.0pt 42.55pt'><![if !supportLists]><b style='mso-bidi-font-wei
 normal'><i style='mso-bidi-font-style:normal'><span style='font-size:8.0pt;
 font-family:"Verdana","sans-serif";mso-fareast-font-family:Verdana;mso-bidi-font-family:
 Verdana;color:black;mso-themecolor:text1;mso-fareast-language:RU'><span
-                            style='mso-list:Ignore'>2.1.7.<span style='font:7.0pt "Times New Roman"'> </span></span></span></i></b><![endif]><i
+                            style='mso-list:Ignore'>2.1.7.<span
+                                style='font:7.0pt "Times New Roman"'> </span></span></span></i></b><![endif]><i
                 style='mso-bidi-font-style:normal'><span style='font-size:8.0pt;font-family:
 "Verdana","sans-serif";mso-bidi-font-family:Arial;color:black;mso-themecolor:
 text1;mso-fareast-language:RU'>При отсутствии возможности продолжать обучение,
@@ -2014,7 +2230,8 @@ tab-stops:1.0cm 42.55pt'><![if !supportLists]><b style='mso-bidi-font-weight:
 normal'><i style='mso-bidi-font-style:normal'><span style='font-size:8.0pt;
 font-family:"Verdana","sans-serif";mso-fareast-font-family:Verdana;mso-bidi-font-family:
 Verdana;color:black;mso-themecolor:text1;mso-fareast-language:RU'><span
-                            style='mso-list:Ignore'>2.2.1.<span style='font:7.0pt "Times New Roman"'> </span></span></span></i></b><![endif]><i
+                            style='mso-list:Ignore'>2.2.1.<span
+                                style='font:7.0pt "Times New Roman"'> </span></span></span></i></b><![endif]><i
                 style='mso-bidi-font-style:normal'><span style='font-size:8.0pt;font-family:
 "Verdana","sans-serif";mso-bidi-font-family:Arial;color:black;mso-themecolor:
 text1;mso-fareast-language:RU'>Принимать заявление</span></i><i
@@ -2059,7 +2276,8 @@ tab-stops:1.0cm 35.45pt 42.55pt'><![if !supportLists]><b style='mso-bidi-font-we
 normal'><i style='mso-bidi-font-style:normal'><span style='font-size:8.0pt;
 font-family:"Verdana","sans-serif";mso-fareast-font-family:Verdana;mso-bidi-font-family:
 Verdana;color:black;mso-themecolor:text1;mso-fareast-language:RU'><span
-                            style='mso-list:Ignore'>2.2.2.<span style='font:7.0pt "Times New Roman"'> </span></span></span></i></b><![endif]><i
+                            style='mso-list:Ignore'>2.2.2.<span
+                                style='font:7.0pt "Times New Roman"'> </span></span></span></i></b><![endif]><i
                 style='mso-bidi-font-style:normal'><span style='font-size:8.0pt;font-family:
 "Verdana","sans-serif";mso-bidi-font-family:Arial;color:black;mso-themecolor:
 text1;mso-fareast-language:RU'>Качественно и своевременно оказывать услуги по
@@ -2072,7 +2290,8 @@ tab-stops:1.0cm 35.45pt 42.55pt'><![if !supportLists]><b style='mso-bidi-font-we
 normal'><i style='mso-bidi-font-style:normal'><span style='font-size:8.0pt;
 font-family:"Verdana","sans-serif";mso-fareast-font-family:Verdana;mso-bidi-font-family:
 Verdana;color:black;mso-themecolor:text1;mso-fareast-language:RU'><span
-                            style='mso-list:Ignore'>2.2.3.<span style='font:7.0pt "Times New Roman"'> </span></span></span></i></b><![endif]><i
+                            style='mso-list:Ignore'>2.2.3.<span
+                                style='font:7.0pt "Times New Roman"'> </span></span></span></i></b><![endif]><i
                 style='mso-bidi-font-style:normal'><span style='font-size:8.0pt;font-family:
 "Verdana","sans-serif";mso-bidi-font-family:Arial;color:black;mso-themecolor:
 text1;mso-fareast-language:RU'>Предоставлять заказчику ежемесячный отчет по
@@ -2085,7 +2304,8 @@ tab-stops:1.0cm 35.45pt 42.55pt'><![if !supportLists]><b style='mso-bidi-font-we
 normal'><i style='mso-bidi-font-style:normal'><span style='font-size:8.0pt;
 font-family:"Verdana","sans-serif";mso-fareast-font-family:Verdana;mso-bidi-font-family:
 Verdana;color:black;mso-themecolor:text1;mso-fareast-language:RU'><span
-                            style='mso-list:Ignore'>2.2.4.<span style='font:7.0pt "Times New Roman"'> </span></span></span></i></b><![endif]><i
+                            style='mso-list:Ignore'>2.2.4.<span
+                                style='font:7.0pt "Times New Roman"'> </span></span></span></i></b><![endif]><i
                 style='mso-bidi-font-style:normal'><span style='font-size:8.0pt;font-family:
 "Verdana","sans-serif";mso-bidi-font-family:Arial;color:black;mso-themecolor:
 text1;mso-fareast-language:RU'>Создать самые необходимые условия в учебных
@@ -2156,7 +2376,8 @@ tab-stops:1.0cm 35.45pt 42.55pt'><![if !supportLists]><b style='mso-bidi-font-we
 normal'><i style='mso-bidi-font-style:normal'><span style='font-size:8.0pt;
 font-family:"Verdana","sans-serif";mso-fareast-font-family:Verdana;mso-bidi-font-family:
 Verdana;color:black;mso-themecolor:text1;mso-fareast-language:RU'><span
-                            style='mso-list:Ignore'>2.3.1.<span style='font:7.0pt "Times New Roman"'> </span></span></span></i></b><![endif]><i
+                            style='mso-list:Ignore'>2.3.1.<span
+                                style='font:7.0pt "Times New Roman"'> </span></span></span></i></b><![endif]><i
                 style='mso-bidi-font-style:normal'><span style='font-size:8.0pt;font-family:
 "Verdana","sans-serif";mso-bidi-font-family:Arial;color:black;mso-themecolor:
 text1;mso-fareast-language:RU'>Получать информацию по вопросам, связанным с
@@ -2232,7 +2453,8 @@ tab-stops:1.0cm 35.45pt 42.55pt'><![if !supportLists]><b style='mso-bidi-font-we
 normal'><i style='mso-bidi-font-style:normal'><span style='font-size:8.0pt;
 font-family:"Verdana","sans-serif";mso-fareast-font-family:Verdana;mso-bidi-font-family:
 Verdana;color:black;mso-themecolor:text1;mso-fareast-language:RU'><span
-                            style='mso-list:Ignore'>2.3.5.<span style='font:7.0pt "Times New Roman"'> </span></span></span></i></b><![endif]><i
+                            style='mso-list:Ignore'>2.3.5.<span
+                                style='font:7.0pt "Times New Roman"'> </span></span></span></i></b><![endif]><i
                 style='mso-bidi-font-style:normal'><span style='font-size:8.0pt;font-family:
 "Verdana","sans-serif";mso-bidi-font-family:Arial;color:black;mso-themecolor:
 text1;mso-fareast-language:RU'>Если Заказчик будет оплачивать более длительный
@@ -2295,7 +2517,8 @@ tab-stops:1.0cm 36.0pt 42.55pt'><![if !supportLists]><b style='mso-bidi-font-wei
 normal'><i style='mso-bidi-font-style:normal'><span style='font-size:8.0pt;
 font-family:"Verdana","sans-serif";mso-fareast-font-family:Verdana;mso-bidi-font-family:
 Verdana;color:black;mso-themecolor:text1;mso-fareast-language:RU'><span
-                            style='mso-list:Ignore'>2.4.1.<span style='font:7.0pt "Times New Roman"'> </span></span></span></i></b><![endif]><i
+                            style='mso-list:Ignore'>2.4.1.<span
+                                style='font:7.0pt "Times New Roman"'> </span></span></span></i></b><![endif]><i
                 style='mso-bidi-font-style:normal'><span style='font-size:8.0pt;font-family:
 "Verdana","sans-serif";mso-bidi-font-family:Arial;color:black;mso-themecolor:
 text1;mso-fareast-language:RU'>Не допускать учащегося к процессу обучения в
@@ -2309,7 +2532,8 @@ tab-stops:1.0cm 36.0pt 42.55pt'><![if !supportLists]><b style='mso-bidi-font-wei
 normal'><i style='mso-bidi-font-style:normal'><span style='font-size:8.0pt;
 font-family:"Verdana","sans-serif";mso-fareast-font-family:Verdana;mso-bidi-font-family:
 Verdana;color:black;mso-themecolor:text1;mso-fareast-language:RU'><span
-                            style='mso-list:Ignore'>2.4.2.<span style='font:7.0pt "Times New Roman"'> </span></span></span></i></b><![endif]><i
+                            style='mso-list:Ignore'>2.4.2.<span
+                                style='font:7.0pt "Times New Roman"'> </span></span></span></i></b><![endif]><i
                 style='mso-bidi-font-style:normal'><span style='font-size:8.0pt;font-family:
 "Verdana","sans-serif";mso-bidi-font-family:Arial;color:black;mso-themecolor:
 text1;mso-fareast-language:RU'>Отчислять учащегося (в бесспорном порядке),
@@ -2323,7 +2547,8 @@ tab-stops:1.0cm 36.0pt 42.55pt'><![if !supportLists]><b style='mso-bidi-font-wei
 normal'><i style='mso-bidi-font-style:normal'><span style='font-size:8.0pt;
 font-family:"Verdana","sans-serif";mso-fareast-font-family:Verdana;mso-bidi-font-family:
 Verdana;color:black;mso-themecolor:text1;mso-fareast-language:RU'><span
-                            style='mso-list:Ignore'>2.4.3.<span style='font:7.0pt "Times New Roman"'> </span></span></span></i></b><![endif]><i
+                            style='mso-list:Ignore'>2.4.3.<span
+                                style='font:7.0pt "Times New Roman"'> </span></span></span></i></b><![endif]><i
                 style='mso-bidi-font-style:normal'><span style='font-size:8.0pt;font-family:
 "Verdana","sans-serif";mso-bidi-font-family:Arial;color:black;mso-themecolor:
 text1;mso-fareast-language:RU'>Отказаться от исполнения договора и не допускать
@@ -2337,7 +2562,8 @@ tab-stops:1.0cm 36.0pt 42.55pt'><![if !supportLists]><b style='mso-bidi-font-wei
 normal'><i style='mso-bidi-font-style:normal'><span style='font-size:8.0pt;
 font-family:"Verdana","sans-serif";mso-fareast-font-family:Verdana;mso-bidi-font-family:
 Verdana;color:black;mso-themecolor:text1;mso-fareast-language:RU'><span
-                            style='mso-list:Ignore'>2.4.4.<span style='font:7.0pt "Times New Roman"'> </span></span></span></i></b><![endif]><i
+                            style='mso-list:Ignore'>2.4.4.<span
+                                style='font:7.0pt "Times New Roman"'> </span></span></span></i></b><![endif]><i
                 style='mso-bidi-font-style:normal'><span style='font-size:8.0pt;font-family:
 "Verdana","sans-serif";mso-bidi-font-family:Arial;color:black;mso-themecolor:
 text1;mso-fareast-language:RU'>Объединять группы в равные по уровню
@@ -2352,7 +2578,8 @@ tab-stops:1.0cm 36.0pt 42.55pt'><![if !supportLists]><b style='mso-bidi-font-wei
 normal'><i style='mso-bidi-font-style:normal'><span style='font-size:8.0pt;
 font-family:"Verdana","sans-serif";mso-fareast-font-family:Verdana;mso-bidi-font-family:
 Verdana;color:black;mso-themecolor:text1;mso-fareast-language:RU'><span
-                            style='mso-list:Ignore'>2.4.5.<span style='font:7.0pt "Times New Roman"'> </span></span></span></i></b><![endif]><i
+                            style='mso-list:Ignore'>2.4.5.<span
+                                style='font:7.0pt "Times New Roman"'> </span></span></span></i></b><![endif]><i
                 style='mso-bidi-font-style:normal'><span style='font-size:8.0pt;font-family:
 "Verdana","sans-serif";mso-bidi-font-family:Arial;color:black;mso-themecolor:
 text1;mso-fareast-language:RU'>Переносить занятия на другой день или заменить
@@ -2367,7 +2594,8 @@ tab-stops:1.0cm 36.0pt 42.55pt'><![if !supportLists]><b style='mso-bidi-font-wei
 normal'><i style='mso-bidi-font-style:normal'><span style='font-size:8.0pt;
 font-family:"Verdana","sans-serif";mso-fareast-font-family:Verdana;mso-bidi-font-family:
 Verdana;color:black;mso-themecolor:text1;mso-fareast-language:RU'><span
-                            style='mso-list:Ignore'>2.4.6.<span style='font:7.0pt "Times New Roman"'> </span></span></span></i></b><![endif]><i
+                            style='mso-list:Ignore'>2.4.6.<span
+                                style='font:7.0pt "Times New Roman"'> </span></span></span></i></b><![endif]><i
                 style='mso-bidi-font-style:normal'><span style='font-size:8.0pt;font-family:
 "Verdana","sans-serif";mso-bidi-font-family:Arial;color:black;mso-themecolor:
 text1;mso-fareast-language:RU'>Не возвращать плату за обучение при: отсутствии
@@ -3381,8 +3609,8 @@ Arial;color:black;mso-themecolor:text1;mso-fareast-language:RU'><o:p></o:p></spa
   font-family:"Verdana","sans-serif";mso-bidi-font-family:Arial;color:black'>Ф.И.О.</span></i></b><i
                             style='mso-bidi-font-style:normal'><span style='font-size:8.0pt;font-family:
   "Verdana","sans-serif";mso-bidi-font-family:Arial;color:black'> <b>плательщика</b>:
-  <?=$model->fio?>
-  _________________________________<o:p></o:p></span></i></p>
+                            <?= $model->fio ?>
+                            _________________________________<o:p></o:p></span></i></p>
                 <p class=MsoNormal style='margin-top:0cm;margin-right:-.05pt;margin-bottom:
   0cm;margin-left:0cm;margin-bottom:.0001pt;line-height:normal;tab-stops:14.2pt;
   mso-element:frame;mso-element-frame-hspace:9.0pt;mso-element-wrap:around;
@@ -3392,11 +3620,11 @@ Arial;color:black;mso-themecolor:text1;mso-fareast-language:RU'><o:p></o:p></spa
   font-family:"Verdana","sans-serif";mso-bidi-font-family:Arial;color:black'>Паспорт:
   </span></i></b><i style='mso-bidi-font-style:normal'><span style='font-size:
   8.0pt;font-family:"Verdana","sans-serif";mso-bidi-font-family:Arial;
-  color:black'>серия <?=$model->pass_seria?> №</span></i><i style='mso-bidi-font-style:normal'><span
+  color:black'>серия <?= $model->pass_seria ?> №</span></i><i style='mso-bidi-font-style:normal'><span
                                 style='font-size:8.0pt;font-family:"Verdana","sans-serif";mso-bidi-font-family:
   Arial;color:black;mso-ansi-language:UZ-CYR'> </span></i><i style='mso-bidi-font-style:
   normal'><span style='font-size:8.0pt;font-family:"Verdana","sans-serif";
-  mso-bidi-font-family:Arial;color:black'><?=$model->pass_number?><b style='mso-bidi-font-weight:
+  mso-bidi-font-family:Arial;color:black'><?= $model->pass_number ?><b style='mso-bidi-font-weight:
   normal'><o:p></o:p></b></span></i></p>
                 <p class=MsoNormal style='margin-top:0cm;margin-right:-.05pt;margin-bottom:
   0cm;margin-left:0cm;margin-bottom:.0001pt;line-height:normal;tab-stops:14.2pt;
@@ -3407,7 +3635,8 @@ Arial;color:black;mso-themecolor:text1;mso-fareast-language:RU'><o:p></o:p></spa
   font-family:"Verdana","sans-serif";mso-bidi-font-family:Arial;color:black'>Кем
   Выдан:</span></i></b><i style='mso-bidi-font-style:normal'><span
                                 style='font-size:8.0pt;font-family:"Verdana","sans-serif";mso-bidi-font-family:
-  Arial;color:black'> <?=$model->from?><o:p></o:p></span></i></p>
+  Arial;color:black'> <?= $model->from ?>
+                            <o:p></o:p></span></i></p>
                 <p class=MsoNormal style='margin-top:0cm;margin-right:-.05pt;margin-bottom:
   0cm;margin-left:0cm;margin-bottom:.0001pt;line-height:normal;tab-stops:14.2pt;
   mso-element:frame;mso-element-frame-hspace:9.0pt;mso-element-wrap:around;
@@ -3415,7 +3644,9 @@ Arial;color:black;mso-themecolor:text1;mso-fareast-language:RU'><o:p></o:p></spa
   mso-element-top:.65pt;mso-height-rule:exactly'><b style='mso-bidi-font-weight:
   normal'><i style='mso-bidi-font-style:normal'><span style='font-size:8.0pt;
   font-family:"Verdana","sans-serif";mso-bidi-font-family:Arial;color:black'>Дата
-  выдачи:<span style='mso-bidi-font-weight:bold'> </span></span></i></b><?=$model->bring_date?></p>
+  выдачи:<span style='mso-bidi-font-weight:bold'> </span></span></i></b><i style='mso-bidi-font-style:normal'><span
+                                style='font-size:8.0pt;font-family:"Verdana","sans-serif";mso-bidi-font-family:
+  Arial;color:black'> <? if ($model->type_contract_id == 1) echo $model->bring_date ?></span></i></p>
                 <p class=MsoNormal style='margin-top:0cm;margin-right:-.05pt;margin-bottom:
   0cm;margin-left:0cm;margin-bottom:.0001pt;line-height:normal;tab-stops:14.2pt;
   mso-element:frame;mso-element-frame-hspace:9.0pt;mso-element-wrap:around;
@@ -3424,8 +3655,8 @@ Arial;color:black;mso-themecolor:text1;mso-fareast-language:RU'><o:p></o:p></spa
   normal'><i style='mso-bidi-font-style:normal'><span style='font-size:8.0pt;
   font-family:"Verdana","sans-serif";mso-bidi-font-family:Arial;color:black'>Адрес:</span></i></b><i
                             style='mso-bidi-font-style:normal'><span style='font-size:8.0pt;font-family:
-  "Verdana","sans-serif";mso-bidi-font-family:Arial;color:black'><? if($model->type_contract_id==1) echo $model->address?>
-  _________________________________<o:p></o:p></span></i></p>
+  "Verdana","sans-serif";mso-bidi-font-family:Arial;color:black'><? if ($model->type_contract_id == 1) echo $model->address ?>
+                            _________________________________<o:p></o:p></span></i></p>
                 <p class=MsoNormal style='margin-top:0cm;margin-right:-.05pt;margin-bottom:
   0cm;margin-left:0cm;margin-bottom:.0001pt;line-height:normal;tab-stops:14.2pt;
   mso-element:frame;mso-element-frame-hspace:9.0pt;mso-element-wrap:around;
@@ -3435,7 +3666,7 @@ Arial;color:black;mso-themecolor:text1;mso-fareast-language:RU'><o:p></o:p></spa
   mso-bidi-font-family:Arial;color:black'>Место работы и должность: </span></i></b><i
                             style='mso-bidi-font-style:normal'><span style='font-size:8.0pt;font-family:
   "Verdana","sans-serif";mso-bidi-font-family:Arial;color:black;mso-bidi-font-weight:
-  bold'><?=$model->work?> _________________________________</span></i><i
+  bold'><?= $model->work ?> _________________________________</span></i><i
                             style='mso-bidi-font-style:normal'><span style='font-size:8.0pt;font-family:
   "Verdana","sans-serif";mso-bidi-font-family:Arial;color:black'><o:p></o:p></span></i></p>
                 <p class=MsoNormal style='margin-top:0cm;margin-right:-.05pt;margin-bottom:
@@ -3450,7 +3681,8 @@ Arial;color:black;mso-themecolor:text1;mso-fareast-language:RU'><o:p></o:p></spa
                                     style='font-size:8.0pt;font-family:"Verdana","sans-serif";mso-bidi-font-family:
   Arial;color:black'>. Тел.:<span style='mso-spacerun:yes'>  </span></span></i></b><i
                             style='mso-bidi-font-style:normal'><span style='font-size:8.0pt;font-family:
-  "Verdana","sans-serif";mso-bidi-font-family:Arial;color:black'><? if($model->type_contract_id==1) echo $model->phone2?><o:p></o:p></span></i></p>
+  "Verdana","sans-serif";mso-bidi-font-family:Arial;color:black'><? if ($model->type_contract_id == 1) echo $model->phone2 ?>
+                            <o:p></o:p></span></i></p>
                 <p class=MsoNormal style='margin-top:0cm;margin-right:-.05pt;margin-bottom:
   0cm;margin-left:0cm;margin-bottom:.0001pt;line-height:normal;tab-stops:14.2pt;
   mso-element:frame;mso-element-frame-hspace:9.0pt;mso-element-wrap:around;
@@ -3461,7 +3693,8 @@ Arial;color:black;mso-themecolor:text1;mso-fareast-language:RU'><o:p></o:p></spa
   Тел.:</span></i></b><i style='mso-bidi-font-style:normal'><span
                                 style='font-size:8.0pt;font-family:"Verdana","sans-serif";mso-bidi-font-family:
   Arial;color:black'><span style='mso-spacerun:yes'>
-  </span><? if($model->type_contract_id==1) echo $model->phone1?><o:p></o:p></span></i></p>
+  </span><? if ($model->type_contract_id == 1) echo $model->phone1 ?>
+                            <o:p></o:p></span></i></p>
                 <p class=MsoNormal style='margin-top:0cm;margin-right:-.05pt;margin-bottom:
   0cm;margin-left:0cm;margin-bottom:.0001pt;line-height:normal;tab-stops:14.2pt;
   mso-element:frame;mso-element-frame-hspace:9.0pt;mso-element-wrap:around;
@@ -3472,7 +3705,8 @@ Arial;color:black;mso-themecolor:text1;mso-fareast-language:RU'><o:p></o:p></spa
   Тел.: </span></i></b><i style='mso-bidi-font-style:normal'><span
                                 style='font-size:8.0pt;font-family:"Verdana","sans-serif";mso-bidi-font-family:
   Arial;color:black'><span
-                                    style='mso-spacerun:yes'> </span><? if($model->type_contract_id==1) echo $model->phone3?><o:p></o:p></span></i></p>
+                                    style='mso-spacerun:yes'> </span><? if ($model->type_contract_id == 1) echo $model->phone3 ?>
+                            <o:p></o:p></span></i></p>
                 <p class=MsoNormal style='margin-top:0cm;margin-right:-.05pt;margin-bottom:
   0cm;margin-left:0cm;margin-bottom:.0001pt;line-height:normal;tab-stops:14.2pt;
   mso-element:frame;mso-element-frame-hspace:9.0pt;mso-element-wrap:around;
@@ -3488,7 +3722,8 @@ Arial;color:black;mso-themecolor:text1;mso-fareast-language:RU'><o:p></o:p></spa
   normal'><span style='font-size:8.0pt;font-family:"Verdana","sans-serif";
   mso-bidi-font-family:Arial;color:black'>:</span></i></b><i style='mso-bidi-font-style:
   normal'><span style='font-size:8.0pt;font-family:"Verdana","sans-serif";
-  mso-bidi-font-family:Arial;color:black;mso-bidi-font-weight:bold'><?=$model->email?><b><o:p></o:p></b></span></i></p>
+  mso-bidi-font-family:Arial;color:black;mso-bidi-font-weight:bold'><?= $model->email ?><b><o:p></o:p></b></span></i>
+                </p>
                 <p class=MsoNormal style='margin-top:0cm;margin-right:-.05pt;margin-bottom:
   0cm;margin-left:0cm;margin-bottom:.0001pt;line-height:normal;tab-stops:14.2pt;
   mso-element:frame;mso-element-frame-hspace:9.0pt;mso-element-wrap:around;
@@ -3563,7 +3798,8 @@ Arial;color:black;mso-themecolor:text1;mso-fareast-language:RU'><o:p></o:p></spa
   font-family:"Verdana","sans-serif";mso-bidi-font-family:Arial;color:black'>Название:
   </span></i></b><i style='mso-bidi-font-style:normal'><span style='font-size:
   8.0pt;font-family:"Verdana","sans-serif";mso-bidi-font-family:Arial;
-  color:black'><?=$model->title?><o:p></o:p></span></i></p>
+  color:black'><?= $model->title ?>
+                            <o:p></o:p></span></i></p>
                 <p class=MsoNormal style='margin-top:0cm;margin-right:-14.2pt;margin-bottom:
   0cm;margin-left:0cm;margin-bottom:.0001pt;text-align:justify;line-height:
   normal;tab-stops:14.2pt;mso-element:frame;mso-element-frame-hspace:9.0pt;
@@ -3582,7 +3818,8 @@ Arial;color:black;mso-themecolor:text1;mso-fareast-language:RU'><o:p></o:p></spa
   8.0pt;font-family:"Verdana","sans-serif";mso-bidi-font-family:Arial;
   color:black'> </span></i><i style='mso-bidi-font-style:normal'><span
                                 style='font-size:8.0pt;font-family:"Verdana","sans-serif";mso-bidi-font-family:
-  Arial;color:black'><?php if($model->type_contract_id==2) echo $model->address ?> ___________________<o:p></o:p></span></i></p>
+  Arial;color:black'><?php if ($model->type_contract_id == 2) echo $model->address ?> ___________________<o:p></o:p></span></i>
+                </p>
                 <p class=MsoNormal style='margin-top:0cm;margin-right:-14.2pt;margin-bottom:
   0cm;margin-left:0cm;margin-bottom:.0001pt;text-align:justify;line-height:
   normal;tab-stops:14.2pt;mso-element:frame;mso-element-frame-hspace:9.0pt;
@@ -3590,7 +3827,8 @@ Arial;color:black;mso-themecolor:text1;mso-fareast-language:RU'><o:p></o:p></spa
   margin;mso-element-top:.65pt;mso-height-rule:exactly'><i style='mso-bidi-font-style:
   normal'><span style='font-size:8.0pt;font-family:"Verdana","sans-serif";
   mso-bidi-font-family:Arial;color:black'>____________________________________ <b
-                                    style='mso-bidi-font-weight:normal'>Телефон: </b><?php if($model->type_contract_id==2) echo $model->phone1.' '.$model->phone2.' '.$model->phone3?><o:p></o:p></span></i></p>
+                                    style='mso-bidi-font-weight:normal'>Телефон: </b><?php if ($model->type_contract_id == 2) echo $model->phone1 . ' ' . $model->phone2 . ' ' . $model->phone3 ?>
+                            <o:p></o:p></span></i></p>
                 <p class=MsoNormal style='margin-top:0cm;margin-right:-14.2pt;margin-bottom:
   0cm;margin-left:0cm;margin-bottom:.0001pt;text-align:justify;line-height:
   normal;tab-stops:14.2pt;mso-element:frame;mso-element-frame-hspace:9.0pt;
@@ -3610,7 +3848,8 @@ Arial;color:black;mso-themecolor:text1;mso-fareast-language:RU'><o:p></o:p></spa
   8.0pt;font-family:"Verdana","sans-serif";mso-bidi-font-family:Arial;
   color:black'> </span></i></b><i style='mso-bidi-font-style:normal'><span
                                 style='font-size:8.0pt;font-family:"Verdana","sans-serif";mso-bidi-font-family:
-  Arial;color:black'><?=$model->bill?><o:p></o:p></span></i></p>
+  Arial;color:black'><?= $model->bill ?>
+                            <o:p></o:p></span></i></p>
                 <p class=MsoNormal style='margin-top:0cm;margin-right:-14.2pt;margin-bottom:
   0cm;margin-left:0cm;margin-bottom:.0001pt;text-align:justify;line-height:
   normal;tab-stops:14.2pt;mso-element:frame;mso-element-frame-hspace:9.0pt;
@@ -3629,7 +3868,8 @@ Arial;color:black;mso-themecolor:text1;mso-fareast-language:RU'><o:p></o:p></spa
                                     style='font-size:14.0pt;mso-bidi-font-size:8.0pt;font-family:"Verdana","sans-serif";
   mso-bidi-font-family:Arial;color:black'> </span></i></b><i style='mso-bidi-font-style:
   normal'><span style='font-size:8.0pt;font-family:"Verdana","sans-serif";
-  mso-bidi-font-family:Arial;color:black'><?=$model->b?><o:p></o:p></span></i></p>
+  mso-bidi-font-family:Arial;color:black'><?= $model->b ?>
+                            <o:p></o:p></span></i></p>
                 <p class=MsoNormal style='margin-top:0cm;margin-right:-14.2pt;margin-bottom:
   0cm;margin-left:0cm;margin-bottom:.0001pt;text-align:justify;line-height:
   normal;tab-stops:14.2pt;mso-element:frame;mso-element-frame-hspace:9.0pt;
@@ -3651,7 +3891,8 @@ Arial;color:black;mso-themecolor:text1;mso-fareast-language:RU'><o:p></o:p></spa
   mso-element-wrap:around;mso-element-anchor-vertical:paragraph;mso-element-anchor-horizontal:
   margin;mso-element-top:.65pt;mso-height-rule:exactly'><i style='mso-bidi-font-style:
   normal'><span style='font-size:8.0pt;font-family:"Verdana","sans-serif";
-  mso-bidi-font-family:Arial;color:black'><?= $model->inn ?><o:p></o:p></span></i></p>
+  mso-bidi-font-family:Arial;color:black'><?= $model->inn ?>
+                            <o:p></o:p></span></i></p>
                 <p class=MsoNormal style='margin-top:0cm;margin-right:-14.2pt;margin-bottom:
   0cm;margin-left:0cm;margin-bottom:.0001pt;text-align:justify;line-height:
   normal;tab-stops:14.2pt;mso-element:frame;mso-element-frame-hspace:9.0pt;
@@ -3661,7 +3902,8 @@ Arial;color:black;mso-themecolor:text1;mso-fareast-language:RU'><o:p></o:p></spa
   font-family:"Verdana","sans-serif";mso-bidi-font-family:Arial;color:black'>Код
   по ОКОНХ: </span></i></b><i style='mso-bidi-font-style:normal'><span
                                 style='font-size:8.0pt;font-family:"Verdana","sans-serif";mso-bidi-font-family:
-  Arial;color:black'><?=$model->okohx?> <o:p></o:p></span></i></p>
+  Arial;color:black'><?= $model->okohx ?>
+                            <o:p></o:p></span></i></p>
                 <p class=MsoNormal style='margin-top:0cm;margin-right:-14.2pt;margin-bottom:
   0cm;margin-left:0cm;margin-bottom:.0001pt;text-align:justify;line-height:
   normal;tab-stops:14.2pt;mso-element:frame;mso-element-frame-hspace:9.0pt;
@@ -3674,7 +3916,8 @@ Arial;color:black;mso-themecolor:text1;mso-fareast-language:RU'><o:p></o:p></spa
   8.0pt;font-family:"Verdana","sans-serif";mso-bidi-font-family:Arial;
   color:black'> </span></i></b><i style='mso-bidi-font-style:normal'><span
                                 style='font-size:8.0pt;font-family:"Verdana","sans-serif";mso-bidi-font-family:
-  Arial;color:black'><?=$model->mfo?><o:p></o:p></span></i></p>
+  Arial;color:black'><?= $model->mfo ?>
+                            <o:p></o:p></span></i></p>
                 <p class=MsoNormal style='margin-top:0cm;margin-right:-14.2pt;margin-bottom:
   0cm;margin-left:0cm;margin-bottom:.0001pt;text-align:justify;line-height:
   normal;tab-stops:14.2pt;mso-element:frame;mso-element-frame-hspace:9.0pt;
@@ -3683,7 +3926,7 @@ Arial;color:black;mso-themecolor:text1;mso-fareast-language:RU'><o:p></o:p></spa
   normal'><i style='mso-bidi-font-style:normal'><span style='font-size:8.0pt;
   font-family:"Verdana","sans-serif";mso-bidi-font-family:Arial;color:black'>Лицензия:</span></i></b><i
                             style='mso-bidi-font-style:normal'><span style='font-size:8.0pt;font-family:
-  "Verdana","sans-serif";mso-bidi-font-family:Arial;color:black'><?=$model->license?><b
+  "Verdana","sans-serif";mso-bidi-font-family:Arial;color:black'><?= $model->license ?><b
                                     style='mso-bidi-font-weight:normal'><o:p></o:p></b></span></i></p>
                 <p class=MsoListParagraphCxSpFirst style='margin-top:0cm;margin-right:-.05pt;
   margin-bottom:0cm;margin-left:0cm;margin-bottom:.0001pt;mso-add-space:auto;
@@ -3704,7 +3947,7 @@ Arial;color:black;mso-themecolor:text1;mso-fareast-language:RU'><o:p></o:p></spa
   "Verdana","sans-serif";mso-bidi-font-family:Arial;color:black;mso-fareast-language:
   RU'>Директор:</span></i></b><i style='mso-bidi-font-style:normal'><span
                                 style='font-size:8.0pt;font-family:"Verdana","sans-serif";mso-bidi-font-family:
-  Arial;color:black;mso-fareast-language:RU'><?=$model->director?><b
+  Arial;color:black;mso-fareast-language:RU'><?= $model->director ?><b
                                     style='mso-bidi-font-weight:normal'><o:p></o:p></b></span></i></p>
                 <p class=MsoListParagraphCxSpLast style='margin-top:0cm;margin-right:-.05pt;
   margin-bottom:0cm;margin-left:0cm;margin-bottom:.0001pt;mso-add-space:auto;
@@ -3719,7 +3962,7 @@ Arial;color:black;mso-themecolor:text1;mso-fareast-language:RU'><o:p></o:p></spa
   8.0pt;font-family:"Verdana","sans-serif";mso-bidi-font-family:Arial;
   color:black;mso-fareast-language:RU'> </span></i></b><i style='mso-bidi-font-style:
   normal'><span style='font-size:8.0pt;font-family:"Verdana","sans-serif";
-  mso-bidi-font-family:Arial;color:black;mso-fareast-language:RU'><?=$model->bux?> _____________________________<b
+  mso-bidi-font-family:Arial;color:black;mso-fareast-language:RU'><?= $model->bux ?> _____________________________<b
                                     style='mso-bidi-font-weight:normal'><o:p></o:p></b></span></i></p>
                 <p class=MsoNormal style='margin-top:0cm;margin-right:-.05pt;margin-bottom:
   0cm;margin-left:0cm;margin-bottom:.0001pt;line-height:normal;tab-stops:14.2pt;

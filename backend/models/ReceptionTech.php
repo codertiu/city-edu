@@ -3,7 +3,9 @@
 namespace backend\models;
 
 use Yii;
-
+use yii\behaviors\TimestampBehavior;
+use yii\db\Expression;
+use yii\db\ActiveRecord;
 /**
  * This is the model class for table "reception_tech".
  *
@@ -12,8 +14,23 @@ use Yii;
  * @property string $date
  * @property int $member_id
  */
-class ReceptionTech extends \yii\db\ActiveRecord
+class ReceptionTech extends ActiveRecord
 {
+    public $member_sc;
+    public $member_th;
+
+    public function behaviors()
+    {
+        return [
+            [
+                'class' => TimestampBehavior::className(),
+                'attributes' => [
+                    ActiveRecord::EVENT_BEFORE_INSERT => ['date'],
+                ],
+                'value' => date('Y-m-d H:i:s'),
+            ],
+        ];
+    }
     /**
      * @inheritdoc
      */
@@ -28,8 +45,8 @@ class ReceptionTech extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['reception_id', 'date', 'member_id','ban'], 'required'],
-            [['reception_id', 'member_id','ban'], 'integer'],
+            [['reception_id', 'member_id'], 'required'],
+            [['reception_id', 'member_id','member_sc','member_th'], 'integer'],
             [['date'], 'safe'],
         ];
     }
@@ -44,7 +61,8 @@ class ReceptionTech extends \yii\db\ActiveRecord
             'reception_id' => Yii::t('main', 'Reception ID'),
             'date' => Yii::t('main', 'Date'),
             'member_id' => Yii::t('main', 'Member ID'),
-            'ban'=>Yii::t('main','Ban')
+            'member_sc' => Yii::t('main', 'Member ID'),
+            'member_th' => Yii::t('main', 'Member ID'),
         ];
     }
     public function getMember(){

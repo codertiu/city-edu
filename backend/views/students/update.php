@@ -12,18 +12,22 @@ $this->params['breadcrumbs'][] = ['label' => Yii::t('main', 'Students'), 'url' =
 $this->params['breadcrumbs'][] = ['label' => $model->name, 'url' => ['view', 'id' => $model->id]];
 $this->params['breadcrumbs'][] = Yii::t('main', 'Update');
 ?>
-<div class="panel">
-    <div class="panel-heading">
-        <h3 class="panel-title"><?= Yii::t('main', 'Students') ?>
-            <span class="panel-desc"><?= Yii::t('main', 'Created') ?></span>
-        </h3>
-    </div>
-    <div class="panel-body">
+<div class="page">
+    <div class="page-content">
+        <div class="panel">
+            <div class="panel-heading">
+                <h3 class="panel-title"><?= Yii::t('main', 'Students') ?>
+                    <span class="panel-desc"><?= Yii::t('main', 'Created') ?></span>
+                </h3>
+            </div>
+            <div class="panel-body">
 
-        <?= $this->render('_update', [
-            'model' => $model,
-        ]) ?>
+                <?= $this->render('_update', [
+                    'model' => $model,
+                ]) ?>
 
+            </div>
+        </div>
     </div>
 </div>
 

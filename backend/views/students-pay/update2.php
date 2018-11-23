@@ -12,12 +12,22 @@ $this->params['breadcrumbs'][] = ['label' => Yii::t('main', 'Students Pays'), 'u
 $this->params['breadcrumbs'][] = ['label' => $model->id, 'url' => ['view', 'id' => $model->id]];
 $this->params['breadcrumbs'][] = Yii::t('main', 'Update');
 ?>
-<div class="students-pay-update">
+<div class="page">
+    <div class="page-content">
+        <div class="panel">
+            <div class="panel-heading">
+                <h3 class="panel-title"><?= Yii::t('main', 'Student') ?>
+                    <span class="panel-desc"><?= Yii::t('main', 'Pay') ?></span>
+                </h3>
+            </div>
+            <div class="panel-body">
 
-    <h1><?= Html::encode($this->title) ?></h1>
+                <?= $this->render('pay-all', [
+                    'model' => $model,
+                ]) ?>
 
-    <?= $this->render('pay-all', [
-        'model' => $model,
-    ]) ?>
-
+            </div>
+        </div>
+    </div>
 </div>
+

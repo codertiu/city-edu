@@ -39,11 +39,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                                 return Html::a($model->name, ['/students/view', 'id' => $model->id]);
                                             },
                                         ],
-                                        'surname',
                                         'tel',
-                                        //'phone2',
-                                        //'phone3',
-                                        //'phone4',
                                         [
                                                 'attribute'=>'gendar',
                                                 'value'=>Yii::$app->params['gender']['gendar'],

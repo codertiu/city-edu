@@ -30,12 +30,13 @@ class Reception extends ActiveRecord
      * @inheritdoc
      */
     public $commentId;
+    public $s_name;
+    public $s_tel;
 
     public static function tableName()
     {
         return 'reception';
     }
-
 
 
     public function behaviors()
@@ -58,15 +59,12 @@ class Reception extends ActiveRecord
     public function rules()
     {
         return [
-            [['edu_center_id', 'name', 'tel', 'coming_id', 'type_edu_id', 'date_coming', 'creater','type_of_reg','call_name'], 'required'],
-            [['edu_center_id', 'coming_id', 'type_edu_id', 'creater',  'type_of_reg','instance_id', 'comment_id','language','study_type'], 'integer'],
-            [['date_coming','dob','create_date', 'update_date'], 'safe'],
-            [['name','surname','lavel','time','comfortable_time','comment','commentId'], 'string', 'max' => 255],
-            [['tel','phone2','phone3','phone4','call_name'], 'string', 'max' => 35],
-            [['comment_id', 'commentId'], 'my_required','skipOnEmpty' => false],
-            [['tel'], 'unique','targetClass' => '\backend\models\Reception', 'message'=>Yii::t('main','Mobile No Already Exist'),'when' => function ($model, $attribute) {
-                return $model->{$attribute} !== $model->getOldAttribute($attribute);
-            },],
+            [['name', 'tel', 'coming_id', 'type_edu_id', 'call_side', 'creator', 'type_of_reg', 'call_name'], 'required'],
+            [['edu_center_id', 'call_side', 'coming_id', 'type_edu_id', 'creator', 'type_of_reg', 'instance_id', 'comment_id', 'language', 'study_type', 'cancel', 'call_name'], 'integer'],
+            [['date_coming', 'create_date', 'update_date'], 'safe'],
+            [['name', 'time', 'comfortable_time', 'comment', 'commentId', 's_name'], 'string', 'max' => 255],
+            [['tel', 's_tel'], 'string', 'max' => 35],
+            [['comment_id', 'commentId'], 'my_required', 'skipOnEmpty' => false]
 
         ];
     }
@@ -80,29 +78,27 @@ class Reception extends ActiveRecord
             'id' => Yii::t('main', 'ID'),
             'edu_center_id' => Yii::t('main', 'Edu Center ID'),
             'name' => Yii::t('main', 'Name'),
-            'surname'=>Yii::t('main', 'Surname'),
-            'tel' => Yii::t('main', 'Tel'),
+            'tel' => Yii::t('main', 'Phone'),
+            's_name' => Yii::t('main', 'Name'),
+            's_tel' => Yii::t('main', 'Phone'),
             'coming_id' => Yii::t('main', 'Coming ID'),
             'type_edu_id' => Yii::t('main', 'Type Edu ID'),
             'date_coming' => Yii::t('main', 'Date Coming'),
-            'creater' => Yii::t('main', 'Creater'),
+            'creator' => Yii::t('main', 'Creator'),
             'create_date' => Yii::t('main', 'Create Date'),
             'update_date' => Yii::t('main', 'Update Date'),
             'instance_id' => Yii::t('main', 'Instance ID'),
             'comment_id' => Yii::t('main', 'Comment ID'),
-            'phone2'=>Yii::t('main','Phone2'),
-            'phone3'=>Yii::t('main','Phone3'),
-            'phone4'=>Yii::t('main','Phone4'),
-            'dob'=>Yii::t('main','DOB'),
-            'lavel'=>Yii::t('main','Lavel'),
-            'comfortable_time'=>Yii::t('main','Comfortable time'),
-            'comment'=>Yii::t('main','Comment'),
-            'language'=>Yii::t('main','Language'),
-            'time'=>Yii::t('main','Time'),
-            'study_type'=>Yii::t('main','Study Type'),
-            'commentId'=>Yii::t('main','commentId'),
-            'type_of_reg'=>Yii::t('main','Type Of Reg'),
-            'call_name'=>Yii::t('main','Call Name')
+            'cancel' => Yii::t('main', 'Cancel'),
+            'comfortable_time' => Yii::t('main', 'Comfortable time'),
+            'comment' => Yii::t('main', 'Comment'),
+            'language' => Yii::t('main', 'Language'),
+            'time' => Yii::t('main', 'Time'),
+            'study_type' => Yii::t('main', 'Study Type'),
+            'commentId' => Yii::t('main', 'commentId'),
+            'type_of_reg' => Yii::t('main', 'Type Of Reg'),
+            'call_name' => Yii::t('main', 'Call Name'),
+            'call_side' => Yii::t('main', 'Call Side')
         ];
     }
 
@@ -110,8 +106,7 @@ class Reception extends ActiveRecord
 
     public function my_required($attribute_name)
     {
-        if (empty($this->commentId)&& empty($this->comment_id)
-        ) {
+        if (empty($this->commentId) && empty($this->comment_id)) {
             $this->addError($attribute_name, Yii::t('main', 'At least 1 of the field must be filled up properly'));
             return false;
         }
@@ -119,29 +114,39 @@ class Reception extends ActiveRecord
         return true;
     }
 
-    public function getCreateDate(){
+    public function getCreateDate()
+    {
         return date("d/M/Y H:i:s", $this->create_date);
     }
 
-    public function getInstance(){
-        return $this->hasOne(Instance::className(),['id'=>'instance_id']);
+    public function getInstance()
+    {
+        return $this->hasOne(Instance::className(), ['id' => 'instance_id']);
     }
 
-    public function getComing(){
-        return $this->hasOne(Coming::className(),['id'=>'coming_id']);
+    public function getComing()
+    {
+        return $this->hasOne(Coming::className(), ['id' => 'coming_id']);
     }
 
-    public function getTypeEdu(){
-        return $this->hasOne(TypeEdu::className(),['id'=>'type_edu_id']);
+    public function getTypeEdu()
+    {
+        return $this->hasOne(TypeEdu::className(), ['id' => 'type_edu_id']);
     }
-    public function getUser(){
-        return $this->hasOne(User::className(),['id'=>'creater']);
+
+    public function getUser()
+    {
+        return $this->hasOne(User::className(), ['id' => 'creator']);
     }
-    public function getEduCenter(){
-        return $this->hasOne(EduCenter::className(),['id'=>'edu_center_id']);
+
+    public function getEduCenter()
+    {
+        return $this->hasOne(EduCenter::className(), ['id' => 'edu_center_id']);
     }
-    public function getCommentIDT(){
-        return $this->hasOne(Comment::className(),['id'=>'comment_id']);
+
+    public function getCommentIDT()
+    {
+        return $this->hasOne(Comment::className(), ['id' => 'comment_id']);
     }
 }
 

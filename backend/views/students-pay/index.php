@@ -47,7 +47,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                                 'filter' => Select2::widget([
                                                     'model' => $searchModel,
                                                     'attribute' => 'students_id',
-                                                    'data' => \yii\helpers\ArrayHelper::map(\backend\models\Students::find()->all(), 'id', 'fullName'),
+                                                    'data' => \yii\helpers\ArrayHelper::map(\backend\models\Students::find()->where('id in(select students_id from Contract)')->all(), 'id', 'fullName'),
                                                     'options' => [
                                                         'placeholder' => Yii::t('main', 'Select'),
                                                     ],
@@ -57,6 +57,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                                         'multiple' => false,
                                                     ],
                                                 ]),
+                                                'contentOptions' => ['style' => 'width: 30%;'],
                                             ],
                                             [
                                                 'attribute' => 'contract_id',
@@ -76,33 +77,37 @@ $this->params['breadcrumbs'][] = $this->title;
                                                 ]),
                                             ],
                                             [
-                                                'attribute' => 'pay_date',
+                                                'attribute' => 'create_date',
                                                 'value' => function ($model) {
-                                                    return date('d/M/Y', strtotime($model->pay_date));
+                                                    return date('d/M/Y', strtotime($model->create_date));
                                                 },
                                                 'filter' => \kartik\date\DatePicker::widget([
                                                     'model' => $searchModel,
-                                                    'attribute' => 'pay_date',
+                                                    'attribute' => 'create_date',
                                                     'type' => \kartik\date\DatePicker::TYPE_COMPONENT_PREPEND,
                                                     'pluginOptions' => [
                                                         'autoclose' => true,
                                                         'orientation' => "bottom",
                                                         'format' => 'yyyy-mm-dd'
                                                     ]
-                                                ])
+                                                ]),
+                                                'contentOptions' => ['style' => 'width: 20%;'],
                                             ],
                                             /*[
                                                 'attribute'=>'user_id',
                                                 'value'=>'user.username'
                                             ],*/
-                                            'sum',
                                             [
-                                                'attribute' => 'currency_id',
-                                                'value' => function ($model) {
-                                                    return \Yii::$app->params['currency'][$model->currency_id];
-                                                }
+                                                'attribute' => 'sum',
+                                                'contentOptions' => ['style' => 'width: 10%;'],
                                             ],
-                                            //'for_month',
+                                            [
+                                                'attribute' => 'for_month',
+                                                'value'=>function($model){
+                                                    return \Yii::$app->params['month'][$model->for_month];
+                                                },
+                                                'contentOptions' => ['style' => 'width: 10%;'],
+                                            ],
 
                                             [
                                                 'class' => 'yii\grid\ActionColumn',

@@ -10,7 +10,7 @@ use webvimark\modules\UserManagement\UserManagementModule;
     <div class="navbar-header">
         <button type="button" class="navbar-toggle hamburger hamburger-close navbar-toggle-left hided"
                 data-toggle="menubar">
-            <span class="sr-only">Переключить Навигацию</span>
+            <span class="sr-only"><?=Yii::t('main','Переключить Навигацию')?></span>
             <span class="hamburger-bar"></span>
         </button>
         <button type="button" class="navbar-toggle collapsed" data-target="#site-navbar-collapse"
@@ -24,7 +24,7 @@ use webvimark\modules\UserManagement\UserManagementModule;
             <img class="navbar-brand-logo navbar-brand-logo-special"
                  src="<?= \yii\helpers\Url::base(); ?>/images/logo-blue.png"
                  title="Material">
-            <span class="navbar-brand-text hidden-xs"> City-Edu</span>
+            <span class="navbar-brand-text hidden-xs"><?=Yii::t('main','City-Edu')?> </span>
         </a>
         <button type="button" class="navbar-toggle collapsed" data-target="#site-navbar-search"
                 data-toggle="collapse">
@@ -269,11 +269,9 @@ use webvimark\modules\UserManagement\UserManagementModule;
                     </ul>
                 </li>
                 <li class="dropdown">
-
                     <a class="dropdown-toggle" data-toggle="dropdown">
                         <span class="flag-icon flag-icon-<?=Yii::$app->language?>"></span>
                     </a>
-
                     <ul class="dropdown-menu" role="menu" class="ns">
                         <?php
                         $langs = \backend\models\Languages::find()->where(['status'=>1])->where(['!=','abb',Yii::$app->language])->all();

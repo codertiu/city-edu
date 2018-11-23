@@ -31,6 +31,7 @@ $this->params['breadcrumbs'][] = $this->title;
                         -->
                         <div class="example-wrap">
                             <div class="example table-responsive">
+                                <?php //echo $this->render('_search', ['model' => $searchModel]); ?>
                                 <?php Pjax::begin() ?>
                                 <?= GridView::widget([
                                     'dataProvider' => $dataProvider,
@@ -59,6 +60,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
                                         //'id',
                                         //'edu_center_id',
+                                        //'comment',
                                         [
                                             'attribute' => 'name',
                                             'format' => 'raw',
@@ -66,10 +68,17 @@ $this->params['breadcrumbs'][] = $this->title;
                                                 return Html::a($model->name, ['/reception/view', 'id' => $model->id]);
                                             },
                                         ],
-                                        //'surname',
                                         [
                                             'attribute' => 'tel',
                                             'format' => 'raw',
+                                            'filter'=> \yii\widgets\MaskedInput::widget([
+                                                'model' => $searchModel,
+                                                'attribute' => 's_tel',
+                                                'name'=>'tel',
+                                                'clientOptions' => [
+                                                    'alias' => '+\9\9899-999-99-99',
+                                                ],
+                                            ]),
                                             'value' => function ($model) {
                                                 return Html::a($model->tel, ['/reception/view', 'id' => $model->id]);
                                             },
@@ -95,8 +104,19 @@ $this->params['breadcrumbs'][] = $this->title;
                                         [
                                             'attribute' => 'date_coming',
                                             'format' => 'raw',
+                                            'filter' => kartik\date\DatePicker::widget([
+                                                'model' => $searchModel,
+                                                'attribute' => 'create_date',
+                                                'language' => 'ru',
+                                                'pluginOptions' => [
+                                                    'autoclose' => true,
+                                                    'format' => 'yyyy-mm-dd',
+                                                    'todayHighlight' => true,
+                                                    'orientation' => "bottom"
+                                                ],
+                                            ]),
                                             'value' => function ($model) {
-                                                return Html::a(date('d/M/Y H:i', $model->date_coming), ['/reception/view', 'id' => $model->id]);
+                                                return Html::a(date('d/M/Y H:i', strtotime($model->date_coming)), ['/reception/view', 'id' => $model->id]);
                                             },
                                         ],
                                         //'creater',

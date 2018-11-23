@@ -10,12 +10,15 @@ $this->title = Yii::t('main', 'Create Members');
 $this->params['breadcrumbs'][] = ['label' => Yii::t('main', 'Members'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="members-create">
-
-<!--    <h1>--><?//= Html::encode($this->title) ?><!--</h1>-->
-
-    <?= $this->render('_form', [
-        'model' => $model,
-    ]) ?>
-
+<div class="page">
+    <div class="page-content">
+        <div class="panel">
+            <div class="panel-heading">
+                <h3 class="panel-title"><?= Html::encode($this->title) ?></h3>
+            </div>
+            <?= $this->render('_form', [
+                'model' => $model,
+            ]) ?>
+        </div>
+    </div>
 </div>

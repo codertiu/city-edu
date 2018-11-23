@@ -38,14 +38,14 @@ $this->registerCss($css);
                         <span class="btn btn-pure btn-icon waves-effect waves-classic" data-toggle="list-editable">
                             <?= Html::button('<i class="icon md-edit"></i>', ['value' => Url::to(['/students-pay/update2', 'id' => $model->id]), 'class' => 'modalButton']) ?>
                         </span>
-                        <span class="btn btn-pure btn-icon waves-effect waves-classic" data-toggle="list-editable">
+                        <!--<span class="btn btn-pure btn-icon waves-effect waves-classic" data-toggle="list-editable">
                                 <?= Html::a('<i class="icon md-delete" aria-hidden="true"></i>', ['delete', 'id' => $model->id], [
                                     'data' => [
                                         'confirm' => Yii::t('main', 'Are you sure you want to delete this item?'),
                                         'method' => 'post',
                                     ],
                                 ]) ?>
-                            </span>
+                            </span>-->
                     </div>
                 </div>
                 <h3 class="panel-title"><?= $model->students->fullName ?></h3>
@@ -56,15 +56,8 @@ $this->registerCss($css);
                     'attributes' => [
                         //'id',
                         'contract.contract',
-                        'pay_date',
                         //'students_id',
                         'sum',
-                        [
-                            'attribute' => 'currency_id',
-                            'value' => function ($model) {
-                                return Yii::$app->params['currency'][$model->currency_id];
-                            }
-                        ],
                         [
                             'attribute' => 'type_pay_id',
                             'value' => function ($model) {

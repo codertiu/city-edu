@@ -39,8 +39,12 @@ return [
                     $event->action->controller->layout = 'loginLayout.php';
                 };
             },
+
         ],
     ],
+    'on beforeRequest' => function ($event) {
+        Yii::$app->language = Yii::$app->session->get('language', 'uz');
+    },
    'as beforeRequest' => [
         'class' => 'yii\filters\AccessControl',
         'rules' => [
@@ -114,6 +118,7 @@ return [
                 ],
             ],
         ],
+
         'pdf' => [
             'class' => Pdf::classname(),
             'format' => Pdf::FORMAT_A4,

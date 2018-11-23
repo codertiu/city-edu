@@ -76,7 +76,7 @@ class ReceptionController extends Controller
                 'dataProvider' => $dataProvider,
             ]);
         } else {
-            throw new NotFoundHttpException(Yii::t('main','Murojaat huquqi mavjud emas'));
+            throw new NotFoundHttpException(Yii::t('main', 'Murojaat huquqi mavjud emas'));
         }
     }
 
@@ -111,6 +111,11 @@ class ReceptionController extends Controller
         }
         if ($model->load(Yii::$app->request->post())) {
             $model->instance_id = 1;
+            $model->creator = Yii::$app->user->identity > id;
+            if (empty($model->date_coming)) {
+                $model->cancel = 1;
+                $model->instance_id = 0;
+            }
             if ($model->save(false)) {
                 if (Yii::$app->session->get('type_of_reg') == 1) {
                     Yii::$app->session->remove('type_of_reg');
@@ -147,7 +152,7 @@ class ReceptionController extends Controller
             return \yii\widgets\ActiveForm::validate($model);
         }
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        if ($model->load(Yii::$app->request->post()) && $model->save(false)) {
             return $this->redirect(['view', 'id' => $model->id]);
         }
 
@@ -166,11 +171,11 @@ class ReceptionController extends Controller
     public function actionDelete($id)
     {
         if (User::hasRole('Admin')) {
-        $this->findModel($id)->delete();
+            $this->findModel($id)->delete();
 
-        return $this->redirect(['index']);
-        }else {
-            throw new NotFoundHttpException(Yii::t('main','Murojaat huquqi mavjud emas'));
+            return $this->redirect(['index']);
+        } else {
+            throw new NotFoundHttpException(Yii::t('main', 'Murojaat huquqi mavjud emas'));
         }
     }
 
@@ -277,11 +282,11 @@ class ReceptionController extends Controller
                 }
 
                 $model->active = 1;
-                if ($model->save()) {
+                if ($model->save(false)) {
                     $reception->instance_id = 4;
                     $reception->save(false);
                     $students_info->students_id = $model->id;
-                    $students_info->save();
+                    $students_info->save(false);
                     \Yii::$app->session->setFlash('success', Yii::t('main', 'Student Reg'));
                     return $this->redirect(['index']);
                 }
@@ -293,7 +298,7 @@ class ReceptionController extends Controller
                 'students_info' => $students_info,
             ]);
         } else {
-            throw new NotFoundHttpException(Yii::t('main','Murojaat huquqi mavjud emas'));
+            throw new NotFoundHttpException(Yii::t('main', 'Murojaat huquqi mavjud emas'));
         }
     }
 
@@ -322,19 +327,66 @@ class ReceptionController extends Controller
 
     // Cancel list
 
-    public function actionCancel(){
-        $model = Reception::find()->where(['in','instance_id',[5,6,7]]);
+    public function actionCancel()
+    {
+        $model = Reception::find()->where(['in', 'instance_id', [0,5, 6, 7]]);
         $pagination = new Pagination([
-           'defaultPageSize'=>20,
-            'totalCount'=>$model->count()
+            'defaultPageSize' => 20,
+            'totalCount' => $model->count()
         ]);
-        $model = $model->orderBy(['update_date'=>SORT_DESC])
-                        ->offset($pagination->offset)
-                        ->limit($pagination->limit)
-                        ->all();
-        return $this->render('cancel',[
-            'model'=>$model,
-            'pagination'=>$pagination
+        $model = $model->orderBy(['update_date' => SORT_DESC])
+            ->offset($pagination->offset)
+            ->limit($pagination->limit)
+            ->all();
+        return $this->render('cancel', [
+            'model' => $model,
+            'pagination' => $pagination
+        ]);
+    }
+
+    // Telefon raqam orqali topadi
+    public function actionNumber()
+    {
+        if (Yii::$app->request->isAjax) {
+            $data = Yii::$app->request->post();
+            $model = Reception::find()->where('tel like \'%' . $data['data'] . '%\'')->all();
+            $text = "<div class=\"list-group bg-grey-300 bg-inherit\">";
+            foreach ($model as $one) {
+                switch ($one->instance_id){
+                    case 0: $col = 'grey-600'; break;
+                    case 1: $col = 'blue-600'; break;
+                    case 2: $col = 'lime-600'; break;
+                    case 3: $col = 'orange-600'; break;
+                    case 4: $col = 'green-600'; break;
+                    case 5: $col = 'red-600'; break;
+                    case 6: $col = 'pink-600'; break;
+                    case 7: $col = 'rose-600'; break;
+                    default: $col='black-600';
+                }
+                $text .= "<a class=\"list-group-item ".$col." waves-effect waves-block waves-classic\" href=\"view?id=" . $one->id . "\">
+                            <i class=\"icon md-phone\" aria-hidden=\"true\"></i>" . $one->tel .
+                    " |  <i class=\"icon md-account\" aria-hidden=\"true\"></i>" . $one->name .
+                    " | <i class=\"icon md-time\" aria-hidden=\"true\"></i>" . date('d/M/Y H:i', strtotime($one->create_date)) .
+                    " | <i class=\"icon md-label\" aria-hidden=\"true\"></i>" . Yii::$app->params['instance_id'][$one->instance_id] .
+                    "</a>";
+            }
+            $text .= "</div>";
+            return $text;
+        }
+    }
+
+    // 2 yoki 3 marta tel qilayotgan yoki kelgan odamni qayta ro'yxatdan o'tkazish
+    public function actionChangeInstance($id = null)
+    {
+        $model = Reception::findOne($id);
+        if ($model->load(Yii::$app->request->post())) {
+            $model->instance_id = 1;
+            if ($model->save(false)) {
+                return $this->redirect(Yii::$app->request->referrer);
+            }
+        }
+        return $this->renderAjax('change', [
+            'model' => $model
         ]);
     }
 }

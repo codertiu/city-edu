@@ -10,13 +10,22 @@ $this->title = Yii::t('main', 'Create Students Pay');
 $this->params['breadcrumbs'][] = ['label' => Yii::t('main', 'Students Pays'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="students-pay-create">
+<div class="page">
+    <div class="page-content">
+        <div class="panel">
+            <div class="panel-heading">
+                <h3 class="panel-title"><?= Yii::t('main', 'Student') ?>
+                    <span class="panel-desc"><?= Yii::t('main', 'Pay') ?></span>
+                </h3>
+            </div>
+            <div class="panel-body">
 
-    <h1><?= Html::encode($this->title) ?></h1>
+                <?= $this->render('_form', [
+                    'model' => $model,
+                    'id' => $id
+                ]) ?>
 
-    <?= $this->render('_form', [
-        'model' => $model,
-        'id'=>$id
-    ]) ?>
-
+            </div>
+        </div>
+    </div>
 </div>

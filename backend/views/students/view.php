@@ -159,25 +159,14 @@ $this->params['breadcrumbs'][] = $this->title;
                                                                     <td><?= $model->address ?></td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <td><?= Yii::t('main', 'Email') ?></td>
+                                                                    <td><?= Yii::t('main', 'Telegram') ?></td>
                                                                     <td>
                                                                         <a href="mailto:<?= $model->email ?>"><?= $model->email ?></a>
                                                                     </td>
                                                                 </tr>
                                                                 <tr>
                                                                     <td><?= Yii::t('main', 'Phone Number') ?></td>
-                                                                    <td><?= $model->tel ?>
-                                                                        <? if ($model->phone2) { ?>
-                                                                            <br><br> <?= $model->phone2 ?>
-                                                                        <? } ?>
-                                                                        <? if ($model->phone3) { ?>
-                                                                            <br><br> <?= $model->phone3 ?>
-                                                                        <? } ?>
-                                                                        <? if ($model->phone4) { ?>
-                                                                            <br><br> <?= $model->phone4 ?>
-                                                                        <? } ?>
-                                                                    </td>
-
+                                                                    <td><?= $model->tel ?></td>
                                                                 </tr>
                                                                 <tr>
                                                                     <td><?= Yii::t('main', 'reg date') ?></td>
@@ -290,7 +279,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                                     </tr>
                                                     </thead>
                                                     <?
-                                                    $students_pay = \backend\models\StudentsPay::find()->where(['students_id' => $model->id])->orderBy(['pay_date' => SORT_DESC])->all();
+                                                    $students_pay = \backend\models\StudentsPay::find()->where(['students_id' => $model->id])->orderBy(['create_date' => SORT_DESC])->all();
                                                     ?>
                                                     <tbody>
                                                     <? $i = 1;
@@ -299,7 +288,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                                         <tr>
                                                             <td><?= $i ?></td>
                                                             <td><?= $one->contract->contract ?></td>
-                                                            <td><?= date('d/M/Y', strtotime($one->pay_date)) ?></td>
+                                                            <td><?= date('d/M/Y', strtotime($one->create_date)) ?></td>
                                                             <td><?= $one->sum ?></td>
                                                             <td><?= Yii::$app->params['month'][$one->for_month] ?></td>
                                                             <td><?= Html::button('<i class="icon md-edit"></i>', ['value' => Url::to(['/students-pay/update', 'id' => $one->id, 'st' => $model->id]), 'class' => 'btn-pure waves-effect waves-classic waves-effect waves-classic modalButton waves-effect waves-classic']) ?></td>

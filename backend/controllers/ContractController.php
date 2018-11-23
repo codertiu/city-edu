@@ -9,6 +9,7 @@ use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use kartik\mpdf\Pdf;
+
 /**
  * ContractController implements the CRUD actions for Contract model.
  */
@@ -66,13 +67,33 @@ class ContractController extends Controller
     {
         $model = new Contract();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(Yii::$app->request->referrer);
+        if ($model->load(Yii::$app->request->post())) {
+
+            $st = \backend\models\Students::findOne($id)->edu_center_id;
+
+            $st = str_pad($st, 2, '0', STR_PAD_LEFT);
+
+            $search = $st . '/' . substr(date('Y'), 2, 2) . '/' . date('m') . '/';
+
+            $contract = Contract::find()->where('contract like \'' . $search . '%\'')->orderBy('date desc')->one();
+
+            $c = substr($contract->contract, 9, strlen($contract->contract));
+
+            $c = ($c) ? str_pad(++$c, 4, '0', STR_PAD_LEFT) : '0001';
+
+            $model->contract = $st . '/' . substr(date('Y'), 2, 2) . '/' . date('m') . '/' . $c;
+
+            if ($model->save()) {
+                return $this->redirect(Yii::$app->request->referrer);
+            } else {
+                return print_r($model->errors);
+            }
+
         }
 
         return $this->renderAjax('create', [
             'model' => $model,
-            'id'=>$id
+            'id' => $id
         ]);
     }
 
@@ -86,7 +107,7 @@ class ContractController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
-        //$model = Contract::find()->where(['contract'=>$id])->one();
+//$model = Contract::find()->where(['contract'=>$id])->one();
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(Yii::$app->request->referrer);
         }
@@ -126,12 +147,12 @@ class ContractController extends Controller
         throw new NotFoundHttpException(Yii::t('main', 'The requested page does not exist.'));
     }
 
-
-    public function actionReport($id) {
+    public function actionReport($id)
+    {
         // get your HTML raw content without any layouts or scripts
         $model = Contract::findOne($id);
-        $content = $this->renderPartial('_reportView',[
-            'model'=>$model
+        $content = $this->renderPartial('_reportView', [
+            'model' => $model
         ]);
 
         // setup kartik\mpdf\Pdf component
@@ -156,11 +177,11 @@ class ContractController extends Controller
             // call mPDF methods on the fly
             'methods' => [
                 //'SetHeader'=>[''],
-                'SetFooter'=>['{PAGENO}'],
+                'SetFooter' => ['{PAGENO}'],
             ]
         ]);
 
-        // return the pdf output as per the destination setting
+// return the pdf output as per the destination setting
         return $pdf->render();
     }
 }

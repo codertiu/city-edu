@@ -10,6 +10,7 @@ use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\helpers\Json;
+
 /**
  * StudentsPayController implements the CRUD actions for StudentsPay model.
  */
@@ -73,13 +74,16 @@ class StudentsPayController extends Controller
         }
         if ($model->load(Yii::$app->request->post())) {
             $model->user_id = Yii::$app->user->identity->id;
-            $model->save();
-            return $this->redirect(Yii::$app->request->referrer);
+            if ($model->save()) {
+                return $this->redirect(Yii::$app->request->referrer);
+            } else {
+                return print_r($model->errors);
+            }
         }
 
         return $this->renderAjax('create', [
             'model' => $model,
-            'id'=>$id
+            'id' => $id
         ]);
     }
 
@@ -90,7 +94,7 @@ class StudentsPayController extends Controller
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
-    public function actionUpdate($id,$st)
+    public function actionUpdate($id, $st)
     {
         $model = $this->findModel($id);
 
@@ -104,7 +108,7 @@ class StudentsPayController extends Controller
 
         return $this->renderAjax('update', [
             'model' => $model,
-            'id'=>$st
+            'id' => $st
         ]);
     }
 
@@ -138,28 +142,67 @@ class StudentsPayController extends Controller
         throw new NotFoundHttpException(Yii::t('main', 'The requested page does not exist.'));
     }
 
-    public function actionPayAll(){
+    public function actionPayAll()
+    {
         $model = new StudentsPay();
 
         if (Yii::$app->request->isAjax && $model->load(Yii::$app->request->post())) {
             Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
             return \yii\widgets\ActiveForm::validate($model);
         }
-        if($model->load(Yii::$app->request->post()) && $model->validate()){
-            $model->user_id = Yii::$app->user->identity->id;
-            $model->save();
+        if ($model->load(Yii::$app->request->post())) {
+            $sum = $model->sum / count($model->month);
+            foreach ($model->month as $i => $month) {
+                $save = new StudentsPay();
+                //echo $i.' '.Yii::$app->params['month'][$month].' '.$month."<br/>";
+                $save->contract_id = $model->contract_id;
+                $save->students_id = $model->students_id;
+                $save->type_pay_id = $model->type_pay_id;
+                $save->sum = $sum;
+                $save->for_month = $month;
+                $save->save();
+            }
             return $this->redirect(Yii::$app->request->referrer);
         }
-        return $this->renderAjax('create2',['model'=>$model]);
+        return $this->renderAjax('create2', ['model' => $model]);
     }
 
-    public function actionSubcat(){
+
+    public function actionPayAll2()
+    {
+        $model = new StudentsPay();
+
+        if (Yii::$app->request->isAjax && $model->load(Yii::$app->request->post())) {
+            Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+            return \yii\widgets\ActiveForm::validate($model);
+        }
+        if ($model->load(Yii::$app->request->post())) {
+            $sum = $model->sum / count($model->month);
+            foreach ($model->month as $i => $month) {
+                $save = new StudentsPay();
+                echo $i.' '.Yii::$app->params['month'][$month].' '.$month."<br/>";
+//                $save->contract_id = $model->contract_id;
+//                $save->students_id = $model->students_id;
+//                $save->type_pay_id = $model->type_pay_id;
+//                $save->sum = $sum;
+//                $save->for_month = $month;
+//                $save->save();
+            }
+            //echo "<pre>".print_r($model,true)."</pre>";
+            //            $model->save();
+            return $this->redirect(Yii::$app->request->referrer);
+        }
+        return $this->render('create2', ['model' => $model]);
+    }
+
+    public function actionSubcat()
+    {
         \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
         $out = [];
         if (isset($_POST['depdrop_parents'])) {
             $id = end($_POST['depdrop_parents']);
-            $list = Contract::find()->where(['students_id'=>$id])->asArray()->all();
-            $selected  = null;
+            $list = Contract::find()->where(['students_id' => $id])->asArray()->all();
+            $selected = null;
             if ($id != null && count($list) > 0) {
                 $selected = '';
                 foreach ($list as $i => $account) {
@@ -170,13 +213,14 @@ class StudentsPayController extends Controller
                 }
                 // Shows how you can preselect a value
                 //echo Json::encode(['output' => $out, 'selected'=>$selected]);
-                return ['output' => $out, 'selected'=>$selected];
+                return ['output' => $out, 'selected' => $selected];
             }
         }
-        return ['output' => '', 'selected'=>''];
+        return ['output' => '', 'selected' => ''];
     }
 
-    public function actionUpdate2($id){
+    public function actionUpdate2($id)
+    {
         $model = $this->findModel($id);
 
         if (Yii::$app->request->isAjax && $model->load(Yii::$app->request->post())) {

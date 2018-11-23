@@ -18,8 +18,8 @@ class StudentsPaySearch extends StudentsPay
     public function rules()
     {
         return [
-            [['id', 'contract_id', 'students_id', 'for_month','user_id','type_pay_id','currency_id'], 'integer'],
-            [['pay_date','create_date','update_date'], 'safe'],
+            [['id', 'contract_id', 'students_id', 'for_month','user_id','type_pay_id'], 'integer'],
+            [['create_date','update_date'], 'safe'],
             [['sum'], 'number'],
         ];
     }
@@ -61,14 +61,12 @@ class StudentsPaySearch extends StudentsPay
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
-            'pay_date' => $this->pay_date,
             'contract_id' => $this->contract_id,
             'students_id' => $this->students_id,
             'sum' => $this->sum,
             'for_month' => $this->for_month,
             'user_id'=>$this->user_id,
             'type_pay_id'=>$this->type_pay_id,
-            'currency_id'=>$this->currency_id
         ]);
 
         return $dataProvider;

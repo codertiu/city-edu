@@ -1,12 +1,13 @@
 <?php
 return [
+    'timeZone' => 'UTC',
     'aliases' => [
         '@bower' => '@vendor/bower-asset',
         '@npm'   => '@vendor/npm-asset',
     ],
     'vendorPath' => dirname(dirname(__DIR__)) . '/vendor',
-    'language' => 'uz-UZ',
-    'sourceLanguage' => 'uz-UZ',
+    //'language' => 'uz-UZ',
+    //'sourceLanguage' => 'uz-UZ',
     'components' => [
         'cache' => [
             'class' => 'yii\caching\FileCache',
@@ -30,6 +31,12 @@ return [
                     'on missingTranslation' => ['common\components\TranslationEventHandler', 'handleMissingTranslation']// обработчик не найденных переводов
                 ],
             ],
+        ],
+        'formatter' => [
+            'dateFormat' => 'php:m-d-Y',
+            'datetimeFormat' => 'php:m-d-Y H:i',
+            'timeZone' => '	Asia/Tashkent',
+            'defaultTimeZone' => 'UTC',
         ],
     ],
 

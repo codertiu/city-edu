@@ -37,29 +37,6 @@ $this->registerCss($css);
                 ],
             ]) ?>
         </div>
-        <div class="col-md-12">
-            <?= $form->field($model, 'member_sc')->widget(Select2::classname(), [
-                'data' => ArrayHelper::map(Members::find()->where(['members_status'=>4,'active'=>1])->all(), 'id', 'fio'),
-                'language' => 'ru',
-                'options' => ['placeholder' => Yii::t('main', 'Выберите Вид ...'), 'orientation' => 'bottom'],
-                'pluginOptions' => [
-                    'allowClear' => true,
-                    'multiple' => false,
-                ],
-            ]) ?>
-        </div>
-
-        <div class="col-md-12">
-            <?= $form->field($model, 'member_th')->widget(Select2::classname(), [
-                'data' => ArrayHelper::map(Members::find()->where(['members_status'=>4,'active'=>1])->all(), 'id', 'fio'),
-                'language' => 'ru',
-                'options' => ['placeholder' => Yii::t('main', 'Выберите Вид ...'), 'orientation' => 'bottom'],
-                'pluginOptions' => [
-                    'allowClear' => true,
-                    'multiple' => false,
-                ],
-            ]) ?>
-        </div>
 
         <br>
         <hr/>

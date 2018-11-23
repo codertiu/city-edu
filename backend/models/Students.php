@@ -62,16 +62,12 @@ class Students extends ActiveRecord
     public function rules()
     {
         return [
-            [['name', 'surname', 'tel', 'gendar', 'address', 'edu_center_id',  'dob', 'active','reception_id','pass_file','image'], 'required'],
+            [['name', 'tel', 'gendar', 'address', 'edu_center_id',  'dob', 'active','reception_id','reg_date'], 'required'],
             [['gendar', 'user_id','member_id', 'edu_center_id', 'active','reception_id'], 'integer'],
             [['dob'], 'safe'],
-            [['name', 'surname', 'address', 'reg_date','image', 'file', 'pass_file', 'email'], 'string', 'max' => 255],
+            [['name', 'address', 'reg_date','image', 'file', 'pass_file', 'email'], 'string', 'max' => 255],
             [['tel'], 'string', 'max' => 35],
-            [['phone2', 'phone3', 'phone4'], 'string', 'max' => 25],
-            [['tel'], 'unique','targetClass' => '\backend\models\Reception', 'message'=>Yii::t('main','Mobile No Already Exist'),'when' => function ($model, $attribute) {
-                return $model->{$attribute} !== $model->getOldAttribute($attribute);
-            },],
-            [['email'],'email'],
+            //[['email'],'email'],
             [['file','pass_file','image'],'file'],
             [['file2','pass_file2','image2'],'file']
         ];
@@ -85,11 +81,7 @@ class Students extends ActiveRecord
         return [
             'id' => Yii::t('main', 'ID'),
             'name' => Yii::t('main', 'Name'),
-            'surname' => Yii::t('main', 'Surname'),
             'tel' => Yii::t('main', 'Tel'),
-            'phone2' => Yii::t('main', 'Phone2'),
-            'phone3' => Yii::t('main', 'Phone3'),
-            'phone4' => Yii::t('main', 'Phone4'),
             'gendar' => Yii::t('main', 'Gendar'),
             'address' => Yii::t('main', 'Address'),
             'member_id' => Yii::t('main', 'Member ID'),
@@ -101,7 +93,7 @@ class Students extends ActiveRecord
             'image2' => Yii::t('main', 'Image2'),
             'file2' => Yii::t('main', 'File2'),
             'pass_file2' => Yii::t('main', 'Pass File2'),
-            'email' => Yii::t('main', 'Email'),
+            'email' => Yii::t('main', 'Telegram'),
             'dob' => Yii::t('main', 'Dob'),
             'active' => Yii::t('main', 'Active'),
             'reception_id' =>Yii::t('main','Reception Id'),
@@ -113,11 +105,11 @@ class Students extends ActiveRecord
         return date("Y-m-d H:i:s", strtotime($this->reg_date));
     }
     public function getFullName(){
-        return $this->surname.' '.$this->name;
+        return $this->name;
     }
 
     public function getFullNameId(){
-        return $this->surname.' '.$this->name.' '.$this->id;
+        return $this->name.' '.$this->id;
     }
     public function getEduCenterID(){
         return $this->hasOne(EduCenter::className(),['id'=>'edu_center_id']);

@@ -15,19 +15,20 @@ $this->title = Yii::t('main', 'Cancel List')
                             <thead>
                             <tr>
                                 <th><?= Yii::t('main', 'Name') ?></th>
-                                <th><?= Yii::t('main', 'Surame') ?></th>
                                 <th><?= Yii::t('main', 'Phone') ?></th>
+                                <th><?= Yii::t('main', 'Instance') ?></th>
                                 <th class="text-nowrap"><?= Yii::t('main', 'Action') ?></th>
                             </tr>
                             </thead>
                             <tbody>
                             <?php foreach ($model as $one) { ?>
                                 <tr>
-                                    <td><?= $one->name ?></td>
+                                    <td><a href="<?= Url::to(['/reception/view', 'id' => $one->id]) ?>"><?= $one->name ?></a></td>
 
-                                    <td><?= $one->surname ?></td>
+                                    <td><a href="<?= Url::to(['/reception/view', 'id' => $one->id]) ?>"><?= $one->tel ?></a></td>
 
-                                    <td><?= $one->tel ?></td>
+                                    <td><a href="<?= Url::to(['/reception/view', 'id' => $one->id]) ?>"><?= Yii::$app->params['instance_id'][$one->instance_id] ?></a></td>
+
                                     <td class="text-nowrap">
                                         <button type="button" class="btn btn-sm btn-icon btn-flat btn-default"
                                                 data-toggle="tooltip" data-original-title="Edit"
