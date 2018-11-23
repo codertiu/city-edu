@@ -41,8 +41,10 @@ $this->params['breadcrumbs'][] = $this->title;
                                         ],
                                         'tel',
                                         [
-                                                'attribute'=>'gendar',
-                                                'value'=>Yii::$app->params['gender']['gendar'],
+                                            'attribute' => 'gendar',
+                                            'value' => function ($model) {
+                                                return Yii::$app->params['gender'][$model->gendar];
+                                            },
                                         ],
                                         //'address',
                                         //'member_id',
