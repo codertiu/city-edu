@@ -28,9 +28,9 @@ use backend\models\Members;
         'template' => '{label} * {input}{error}{hint}'
     ])->dropDownList(Yii::$app->params['type_of_study'],['prompt'=>Yii::t('main','Select')]); ?>
 
-    <?= $form->field($model, 'status')->radioList([0=>'No active',1=>'Active']) ?>
+    <!--<?= $form->field($model, 'status')->radioList([0=>'No active',1=>'Active']) ?>-->
 
-    <div class="form-group">
+    <div class="form-group text-right">
         <?= Html::submitButton(Yii::t('main', 'Save'), ['class' => 'btn btn-success']) ?>
     </div>
 

@@ -2,6 +2,7 @@
 
 namespace backend\controllers;
 
+use backend\models\HGroupTech;
 use Yii;
 use backend\models\GroupTech;
 use backend\models\GroupTechSearch;
@@ -123,5 +124,49 @@ class GroupTechController extends Controller
         }
 
         throw new NotFoundHttpException(Yii::t('main', 'The requested page does not exist.'));
+    }
+
+    public function actionInsert()
+    {
+        $group = Yii::$app->request->post('GroupTech')['group_id'];
+        $teacher = Yii::$app->request->post('GroupTech')['teacher_id'];
+        $type_of_study = Yii::$app->request->post('GroupTech')['type_of_studay'];
+
+        $model = new GroupTech();
+        $model->group_id = $group;
+        $model->teacher_id = $teacher;
+        $model->type_of_studay = $type_of_study;
+        $model->status = 1;
+        if ($model->save()) {
+            return $this->redirect(Yii::$app->request->referrer);
+        } else {
+            return print_r($model->errors);
+        }
+
+    }
+
+    public function actionDeleteSub($teach, $group)
+    {
+        $model = GroupTech::findOne(['teacher_id' => $teach, 'group_id' => $group]);
+        if ($model) {
+            $history = new HGroupTech();
+            $history->group_id = $model->group_id;
+            $history->teacher_id = $model->teacher_id;
+            $history->type_of_study = $model->type_of_studay;
+            $history->begin_date = $model->create_date;
+            $history->end_date = date('Y-m-d H:i:s');
+            $history->comment = 'delete';
+            if ($history->save()) {
+                if ($model->delete()) {
+                    return $this->redirect(Yii::$app->request->referrer);
+                } else {
+                    return print_r($model->errors);
+                }
+            } else {
+                return print_r($history->errors);
+            }
+        } else {
+            return print_r($model->errors);
+        }
     }
 }

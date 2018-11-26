@@ -2,6 +2,10 @@
 
 namespace backend\controllers;
 
+use backend\models\Contract;
+use backend\models\Group;
+use backend\models\Students;
+use yii\helpers\ArrayHelper;
 use Yii;
 use backend\models\SubStudents;
 use backend\models\SubStudentsSearch;
@@ -9,6 +13,7 @@ use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use backend\models\Model;
+
 /**
  * SubStudentsController implements the CRUD actions for SubStudents model.
  */
@@ -66,8 +71,7 @@ class SubStudentsController extends Controller
     public function actionCreate($id)
     {
         $model = new SubStudents();
-        if (Yii::$app->request->isAjax && $model->load(Yii::$app->request->post()))
-        {
+        if (Yii::$app->request->isAjax && $model->load(Yii::$app->request->post())) {
             Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
             return \yii\widgets\ActiveForm::validate($model);
         }
@@ -77,7 +81,7 @@ class SubStudentsController extends Controller
 
         return $this->renderAjax('create', [
             'model' => $model,
-            'id'=>$id
+            'id' => $id
         ]);
     }
 
@@ -92,8 +96,7 @@ class SubStudentsController extends Controller
     {
 
         $model = $this->findModel($id);
-        if (Yii::$app->request->isAjax && $model->load(Yii::$app->request->post()))
-        {
+        if (Yii::$app->request->isAjax && $model->load(Yii::$app->request->post())) {
             Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
             return \yii\widgets\ActiveForm::validate($model);
         }
@@ -137,27 +140,85 @@ class SubStudentsController extends Controller
     }
 
     // massivni  student qo'shish
-    public function actionAddStudents($group){
-        $first = new SubStudents();
-        $model = [new SubStudents];
-        if ($first->load(Yii::$app->request->post())) {
-            $model = Model::createMultiple(SubStudents::classname());
-            Model::loadMultiple($model, Yii::$app->request->post());
-            foreach ($model as $t) {
-                $t->begin_date = $first->begin_date;
-                $t->group_id = $first->group_id;
-                $t->save();
+//    public function actionAddStudents($group){
+//        $first = new SubStudents();
+//        $model = [new SubStudents];
+//        if ($first->load(Yii::$app->request->post())) {
+//            $model = Model::createMultiple(SubStudents::classname());
+//            Model::loadMultiple($model, Yii::$app->request->post());
+//            foreach ($model as $t) {
+//                $t->begin_date = $first->begin_date;
+//                $t->group_id = $first->group_id;
+//                $t->save();
+//            }
+//            return $this->redirect(['/group/view','id'=>$first->group_id]);
+//
+//        }
+//        return $this->render('add-students',
+//            [
+//                'group'=>$group,
+//                'first' => $first,
+//                'model' => (empty($model)) ? [new SubStudents] : $model,
+//            ]);
+//
+//    }
+
+
+    public function actionAdd($group)
+    {
+        $id = Group::find()->where(['id' => $group]);
+        if ($id->exists()) {
+            $model = new SubStudents();
+            $array = Students::find()->where('id not in (select students_id from sub_students) and (select id from contract where contract.students_id=students.id) and active=1')->all();
+            $students = ArrayHelper::map($array, 'id', function ($model) {
+                return $model->contract->contract . ' | Name:' . $model->name . ' | ID:' . $model->id;
+            });
+
+            if (Yii::$app->request->isAjax && $model->load(Yii::$app->request->post())) {
+                Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+                return \yii\widgets\ActiveForm::validate($model);
             }
-            return $this->redirect(['/group/view','id'=>$first->group_id]);
 
+            if ($model->load(Yii::$app->request->post())) {
+                foreach ($model->students_id as $i => $sub) {
+                    //echo $i . ' '.$sub."<br/>";
+                    $save = new SubStudents();
+                    $save->students_id = $sub;
+                    $save->begin_date = date('Y-m-d');
+                    $save->group_id = $group;
+                    $save->save();
+                }
+                return $this->redirect(['/group/view', 'id' => $group]);
+            }
+            return $this->render('add',
+                [
+                    'group' => $group,
+                    'model' => $model,
+                    'students' => $students
+                ]);
+        } else {
+            throw new NotFoundHttpException(Yii::t('main', 'The requested page does not exist.'));
         }
-        return $this->render('add-students',
-            [
-                'group'=>$group,
-                'first' => $first,
-                'model' => (empty($model)) ? [new SubStudents] : $model,
-            ]);
-
     }
-
+    // TODO gruop view da hal qilish kerak hali
+    public function actionInsert()
+    {
+        $contract = $_POST['Contract']['contract'];
+        $group = $_POST['Contract']['fio'];
+        $con = Contract::findOne(['id'=>$contract]);
+        if ($con) {
+            $student = $con->students_id;
+            $save = new SubStudents();
+            $save->students_id = $student;
+            $save->begin_date = date('Y-m-d');
+            $save->group_id = $group;
+            if($save->save()){
+                return $this->redirect(Yii::$app->request->referrer);
+            }else{
+                return print_r($save->errors);
+            }
+        } else {
+            throw new yii\base\Exception (Yii::t('main', 'Doesn\'t save'));
+        }
+    }
 }

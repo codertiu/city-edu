@@ -17,10 +17,12 @@ $this->params['breadcrumbs'][] = $this->title;
             <span class="panel-desc"> </span>
         </h3>
     </div>
-    <?= $this->render('_form', [
+    <?= $this->render('_form_', [
         'model' => $model,
-        'first' => $first,
-        'second'=>$second
+        'students' => $students,
+        'sub_student' => $sub_student
+//        'first' => $first,
+//        'second'=>$second
     ]) ?>
 
 </div>

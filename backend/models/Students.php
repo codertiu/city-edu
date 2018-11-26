@@ -143,6 +143,10 @@ class Students extends ActiveRecord
     public function getUser(){
         return $this->hasOne(User::classname(),['id'=>'user_id']);
     }
+
+    public function getContract(){
+        return $this->hasOne(Contract::className(),['students_id'=>'id']);
+    }
     public function beforeDelete()
     {
         $model = Students::find()->where(['students_id'=>$this->id])->all();
