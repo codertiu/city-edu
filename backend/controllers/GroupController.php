@@ -2,6 +2,7 @@
 
 namespace backend\controllers;
 
+use backend\models\Contract;
 use backend\models\GroupTech;
 use backend\models\HSubStudent;
 use backend\models\Members;
@@ -103,9 +104,9 @@ class GroupController extends Controller
     public function actionCreate()
     {
         $model = new Group();
-        $array = Students::find()->where('id not in (select students_id from sub_students) and (select id from contract where contract.students_id=students.id) and active=1')->all();
+        $array = Contract::find()->where('id not in (select students_id from sub_students) and students_id in (select id from students where active=1)')->all();
         $students = ArrayHelper::map($array, 'id', function ($model) {
-            return $model->contract->contract . ' | Name:' . $model->name . ' | ID:' . $model->id;
+            return $model->contract . ' | Name:' . $model->student->name . ' | ID:' . $model->student->id;
         });
         $sub_student = new SubStudents();
         if (Yii::$app->request->isAjax && $model->load(Yii::$app->request->post())) {

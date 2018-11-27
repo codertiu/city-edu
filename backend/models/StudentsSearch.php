@@ -41,7 +41,7 @@ class StudentsSearch extends Students
      */
     public function search($params)
     {
-        $query = Students::find();
+        $query = Students::find()->orderBy(['reg_date'=>SORT_DESC]);
 
         // add conditions that should always apply here
 

@@ -14,6 +14,8 @@ use Yii;
  * @property int $group_id
  * @property int $sub_std_status_id
  */
+
+//student_id contract dagi id ga o'zgartiridim
 class SubStudents extends \yii\db\ActiveRecord
 {
     /**
@@ -49,8 +51,11 @@ class SubStudents extends \yii\db\ActiveRecord
             'group_id' => Yii::t('main', 'Group ID'),
         ];
     }
-    public function getStudents(){
-        return $this->hasOne(Students::className(),['id'=>'students_id']);
+    // student_id contract id ga o'zgartiridim
+    // shunda bitta contract orqali boshqarish imkonini beradi
+    // student istalganicha guruhga kira oladi
+    public function getContract(){
+        return $this->hasOne(Contract::className(),['id'=>'students_id']);
 
     }
     public function getGroup(){

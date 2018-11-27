@@ -40,10 +40,14 @@ class ProfitCategoryController extends Controller
         if (User::hasRole('Admin')) {
             $searchModel = new ProfitCategorySearch();
             $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
-
+            $model = new ProfitCategory();
+            if($model->load(Yii::$app->request->post()) && $model->save()){
+                return $this->redirect(Yii::$app->request->referrer);
+            }
             return $this->render('index', [
                 'searchModel' => $searchModel,
                 'dataProvider' => $dataProvider,
+                'model'=>$model
             ]);
         }
         throw new NotFoundHttpException(Yii::t('main', 'The requested page does not exist.'));
@@ -83,10 +87,10 @@ class ProfitCategoryController extends Controller
             $model = $this->findModel($id);
 
             if ($model->load(Yii::$app->request->post()) && $model->save()) {
-                return $this->redirect(['view', 'id' => $model->id]);
+                return $this->redirect(Yii::$app->request->referrer);
             }
 
-            return $this->render('update', [
+            return $this->renderAjax('update', [
                 'model' => $model,
             ]);
         }

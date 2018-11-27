@@ -78,8 +78,9 @@ class HSubStudent extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getStudent()
+    // student_id Contract_id ga o'zgartirdim
+    public function getContract()
     {
-        return $this->hasOne(Students::className(), ['id' => 'student_id']);
+        return $this->hasOne(Contract::className(), ['id' => 'student_id']);
     }
 }

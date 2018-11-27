@@ -103,6 +103,19 @@ $this->params['breadcrumbs'][] = $this->title;
                                             ],
                                             [
                                                 'attribute' => 'for_month',
+                                                'filter' => Select2::widget([
+                                                    'model' => $searchModel,
+                                                    'attribute' => 'for_month',
+                                                    'data' => Yii::$app->params['month'],
+                                                    'options' => [
+                                                        'placeholder' => Yii::t('main', 'Select'),
+                                                    ],
+                                                    'language' => 'ru',
+                                                    'pluginOptions' => [
+                                                        'allowClear' => true,
+                                                        'multiple' => false,
+                                                    ],
+                                                ]),
                                                 'value'=>function($model){
                                                     return \Yii::$app->params['month'][$model->for_month];
                                                 },
@@ -124,6 +137,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                                 ],
                                             ],
                                         ],
+                                        'tableOptions' => ['class' => 'table table-hover'],
                                     ]); ?>
                                 </div>
                             </div>

@@ -28,11 +28,11 @@ $this->params['breadcrumbs'][] = $this->title;
                             </span>
                             <!--<span class="btn btn-pure btn-icon waves-effect waves-classic" data-toggle="list-editable">
                                 <?= Html::a('<i class="icon md-delete" aria-hidden="true"></i>', ['delete', 'id' => $model->id], [
-                                    'data' => [
-                                        'confirm' => Yii::t('main', 'Are you sure you want to delete this item?'),
-                                        'method' => 'post',
-                                    ],
-                                ]) ?>
+                                'data' => [
+                                    'confirm' => Yii::t('main', 'Are you sure you want to delete this item?'),
+                                    'method' => 'post',
+                                ],
+                            ]) ?>
                             </span>-->
                         </div>
                     </div>
@@ -109,30 +109,29 @@ $this->params['breadcrumbs'][] = $this->title;
                                                 <h4 class="example-title"><?= Yii::t('main', 'Students') ?></h4>
                                                 <div class="row">
                                                     <div class="col-md-6">
-                                                        <!--<? $contract = new \backend\models\Contract(); ?>
+                                                        <? $contract = new \backend\models\Contract(); ?>
                                                         <div class="row">
                                                             <? $form = \yii\widgets\ActiveForm::begin([
-                                                            'action' => ['sub-students/insert'],
-                                                            'method' => 'post']) ?>
+                                                                'action' => ['sub-students/insert'],
+                                                                'method' => 'post']) ?>
                                                             <?= $form->field($contract, 'fio')->hiddenInput(['value' => $model->id])->label(false) ?>
 
                                                             <div class="col-md-6">
-                                                                <? // TODO select boshidan yozish kerak sub_students table da bor student chiqmasligi kerak ?>
                                                                 <?= $form->field($contract, 'contract')->widget(Select2::classname(), [
-                                                            'data' => ArrayHelper::map(Contract::find()->where('students_id in (select id from students where active=1) and students_id not in (select students_id from sub_students where group_id=' . $model->id . ')')->all(), 'id', 'contract'),
-                                                            'language' => 'ru',
-                                                            'options' => ['placeholder' => Yii::t('main', 'Выберите Вид ...')],
-                                                            'pluginOptions' => [
-                                                                'allowClear' => true,
-                                                                'multiple' => false,
-                                                            ],
-                                                        ])->label(false); ?>
+                                                                    'data' => ArrayHelper::map(Contract::find()->where('id not in (select students_id from sub_students) and students_id in (select id from students where active=1) and students_id not in (select students_id from sub_students where group_id=' . $model->id . ')')->all(), 'id', 'contract'),
+                                                                    'language' => 'ru',
+                                                                    'options' => ['placeholder' => Yii::t('main', 'Выберите Вид ...')],
+                                                                    'pluginOptions' => [
+                                                                        'allowClear' => true,
+                                                                        'multiple' => false,
+                                                                    ],
+                                                                ])->label(false); ?>
                                                             </div>
                                                             <div class="col-md-6">
                                                                 <?= Html::submitButton(Yii::t('main', 'save'), ['class' => 'btn btn-success']) ?>
                                                             </div>
                                                             <? $form->end() ?>
-                                                        </div>-->
+                                                        </div>
                                                     </div>
                                                     <div class="col-md-6 text-right">
                                                         <p>
@@ -159,20 +158,21 @@ $this->params['breadcrumbs'][] = $this->title;
                                                         <tr class="active">
                                                             <td><?= $i ?></td>
                                                             <td>
-                                                                <a href="<?= \yii\helpers\Url::to(['/students/view', 'id' => $one->students->id]) ?>"
-                                                                   target="_blank"><?= $one->students->contract->contract ?></a>
+                                                                <a href="<?= \yii\helpers\Url::to(['/students/view', 'id' => $one->contract->student->id]) ?>"
+                                                                   target="_blank"><?= $one->contract->contract ?></a>
                                                             </td>
                                                             <td>
-                                                                <a href="<?= \yii\helpers\Url::to(['/students/view', 'id' => $one->students->id]) ?>"
-                                                                   target="_blank"><?= $one->students->fullName ?></a>
+                                                                <a href="<?= \yii\helpers\Url::to(['/students/view', 'id' => $one->contract->student->id]) ?>"
+                                                                   target="_blank"><?= $one->contract->student->fullName ?></a>
                                                             </td>
                                                             <td>
-                                                                <a href="<?= \yii\helpers\Url::to(['/students/view', 'id' => $one->students->id]) ?>"
+                                                                <a href="<?= \yii\helpers\Url::to(['/students/view', 'id' => $one->contract->student->id]) ?>"
                                                                    target="_blank"><?= $one->begin_date ?></a>
                                                             </td>
                                                             <td>
-                                                                <?= Html::button(' <i class="icon md-share"></i>', ['value' => yii\helpers\Url::to(['/group/change', 'id' => $one->students_id, 'group' => $model->id]), 'class' => 'btn-pure waves-effect waves-classic waves-effect waves-classic modalButton waves-effect waves-classic']) ?>
-
+                                                                <? if ($one->contract->student->active == 1) { ?>
+                                                                    <?= Html::button(' <i class="icon md-share"></i>', ['value' => yii\helpers\Url::to(['/group/change', 'id' => $one->students_id, 'group' => $model->id]), 'class' => 'btn-pure waves-effect waves-classic waves-effect waves-classic modalButton waves-effect waves-classic']) ?>
+                                                                <? } ?>
                                                                 <?= Html::a('<i class="icon md-delete" aria-hidden="true"></i>', ['delete-sub', 'id' => $one->students_id, 'group' => $model->id], [
                                                                     'data' => [
                                                                         'confirm' => Yii::t('main', 'Are you sure you want to delete this item?'),
@@ -206,30 +206,30 @@ $this->params['breadcrumbs'][] = $this->title;
                                                     $students = \backend\models\HSubStudent::find()->where(['group_id' => $model->id])->all();
                                                     foreach ($students as $one) {
                                                         ?>
-                                                        <tr class="danger">
+                                                        <tr class="<?=$one->to_group_id!=0?'warning':'danger' ?>">
                                                             <td><?= $i ?></td>
                                                             <td>
-                                                                <a href="<?= \yii\helpers\Url::to(['/students/view', 'id' => $one->student->id]) ?>"
-                                                                   target="_blank"><?= $one->student->contract->contract ?></a>
+                                                                <a href="<?= \yii\helpers\Url::to(['/students/view', 'id' => $one->contract->student->id]) ?>"
+                                                                   target="_blank"><?= $one->contract->contract ?></a>
                                                             </td>
                                                             <td>
-                                                                <a href="<?= \yii\helpers\Url::to(['/students/view', 'id' => $one->student->id]) ?>"
-                                                                   target="_blank"><?= $one->student->fullName ?></a>
+                                                                <a href="<?= \yii\helpers\Url::to(['/students/view', 'id' => $one->contract->student->id]) ?>"
+                                                                   target="_blank"><?= $one->contract->student->fullName ?></a>
                                                             </td>
                                                             <td>
-                                                                <a href="<?= \yii\helpers\Url::to(['/students/view', 'id' => $one->student->id]) ?>"
+                                                                <a href="<?= \yii\helpers\Url::to(['/students/view', 'id' => $one->contract->student->id]) ?>"
                                                                    target="_blank"><?= $one->begin_date ?></a>
                                                             </td>
                                                             <td>
-                                                                <a href="<?= \yii\helpers\Url::to(['/students/view', 'id' => $one->student->id]) ?>"
+                                                                <a href="<?= \yii\helpers\Url::to(['/students/view', 'id' => $one->contract->student->id]) ?>"
                                                                    target="_blank"><?= $one->date ?></a>
                                                             </td>
                                                             <td>
-                                                                <a href="<?= \yii\helpers\Url::to(['/students/view', 'id' => $one->student->id]) ?>"
+                                                                <a href="<?= \yii\helpers\Url::to(['/students/view', 'id' => $one->contract->student->id]) ?>"
                                                                    target="_blank"><?= $one->to_group_id == 0 ? Yii::t('main', 'Delete') : $one->to_group_id ?></a>
                                                             </td>
                                                             <td>
-                                                                <a href="<?= \yii\helpers\Url::to(['/students/view', 'id' => $one->student->id]) ?>"
+                                                                <a href="<?= \yii\helpers\Url::to(['/students/view', 'id' => $one->contract->student->id]) ?>"
                                                                    target="_blank"><?= $one->comment ?></a>
                                                             </td>
                                                         </tr>

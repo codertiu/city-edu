@@ -4,8 +4,9 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use yii\helpers\ArrayHelper;
 use kartik\select2\Select2;
-use kartik\date\DatePicker;
 use backend\models\Group;
+use backend\models\Contract;
+
 /* @var $this yii\web\View */
 /* @var $model backend\models\SubStudents */
 /* @var $form yii\widgets\ActiveForm */
@@ -22,71 +23,49 @@ $this->registerCss($css);
 \kartik\select2\Select2Asset::register($this);
 ?>
 
-<div class="panel">
-    <div class="panel-heading">
-        <h3 class="panel-title"><?=Yii::t('main','Sub Students')?>
-            <span class="panel-desc"><?=Yii::t('main','Created')?> </span>
-        </h3>
-    </div>
-    <div class="panel-body">
+<div class="panel-heading">
+    <h3 class="panel-title"><?= Yii::t('main', 'Sub Students') ?>
+        <span class="panel-desc"><?= Yii::t('main', 'Created') ?> </span>
+    </h3>
+</div>
+<div class="panel-body">
     <?php $form = ActiveForm::begin([
         'enableAjaxValidation' => false,
         'enableClientValidation' => true,
     ]); ?>
-
-    <? if($model->isNewRecord) {?>
-        <?= $form->field($model, 'students_id')->hiddenInput(['value'=>$id])->label(false) ?>
-    <?}?>
-        <div class="row">
-            <div class="col-md-6">
-                <?= $form->field($model, 'begin_date',[
+    <div class="row">
+        <div class="col-md-6">
+            <?= $form->field($model, 'students_id', [
                 'template' => '{label} * {input}{error}{hint}'
-                ])->widget(DatePicker::classname(), [
-                    'language' => 'ru',
-                    'type' => DatePicker::TYPE_COMPONENT_APPEND,
-                    //'value'=>'2018-04-12',
-                    'pluginOptions' => [
-                        'autoclose'=>true,
-                        'format' => 'yyyy-mm-dd',
-                        'todayHighlight' => true,
-                        'orientation' => "bottom"
-                    ],
-                ]); ?>
-            </div>
-            <div class="col-md-6">
-                <?= $form->field($model, 'end_date')->widget(DatePicker::classname(), [
-                    'language' => 'ru',
-                    'type' => DatePicker::TYPE_COMPONENT_APPEND,
-                    //'value'=>'2018-04-12',
-                    'pluginOptions' => [
-                        'autoclose'=>true,
-                        'format' => 'yyyy-mm-dd',
-                        'todayHighlight' => true,
-                        'orientation' => "bottom"
-                    ],
-                ]); ?>
-            </div>
+            ])->widget(Select2::classname(), [
+                'data' => ArrayHelper::map(Contract::find()->where('id not in (select students_id from sub_students) and students_id in (select id from students where active=1) and students_id=' . $id . '')->all(), 'id', 'contract'),
+                'language' => 'ru',
+                'options' => ['placeholder' => Yii::t('main', 'Выберите Вид ...'), 'orientation' => 'bottom'],
+                'pluginOptions' => [
+                    'allowClear' => true,
+                    'multiple' => false,
+                ],
+            ]); ?>
         </div>
+        <div class="col-md-6">
+            <?= $form->field($model, 'group_id', [
+                'template' => '{label} * {input}{error}{hint}'
+            ])->widget(Select2::classname(), [
+                'data' => ArrayHelper::map(Group::find()->where(['group_status_id' => 1])->all(), 'id', 'name'),
+                'language' => 'ru',
+                'options' => ['placeholder' => Yii::t('main', 'Выберите Вид ...'), 'orientation' => 'bottom'],
+                'pluginOptions' => [
+                    'allowClear' => true,
+                    'multiple' => false,
+                ],
+            ]); ?>
 
-    <?= $form->field($model, 'group_id',[
-        'template' => '{label} * {input}{error}{hint}'
-    ])->widget(Select2::classname(), [
-        'data' => ArrayHelper::map(Group::find()->all(), 'id', 'name'),
-        'language' => 'ru',
-        'options' => ['placeholder' => Yii::t('main', 'Выберите Вид ...'), 'orientation' => 'bottom'],
-        'pluginOptions' => [
-            'allowClear' => true,
-            'multiple' => false,
-        ],
-    ]); ?>
-
-
-    <div class="form-group">
+        </div>
+    </div>
+    <div class="form-group text-right">
         <?= Html::submitButton($model->isNewRecord ? Yii::t('main', 'Create') : Yii::t('main', 'Update'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
     </div>
-
     <?php ActiveForm::end(); ?>
 
-    </div>
 </div>
 

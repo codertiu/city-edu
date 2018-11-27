@@ -30,6 +30,16 @@ $this->params['breadcrumbs'][] = $this->title;
                                 <?= GridView::widget([
                                     'dataProvider' => $dataProvider,
                                     'filterModel' => $searchModel,
+                                    'rowOptions' => function ($model) {
+                                        switch ($model->active) {
+                                            case 1:
+                                                return ['class' => 'active'];
+                                                break;
+                                            case 0:
+                                                return ['class' => 'danger'];
+                                                break;
+                                        }
+                                    },
                                     'columns' => [
                                         ['class' => 'yii\grid\SerialColumn'],
 
@@ -44,6 +54,14 @@ $this->params['breadcrumbs'][] = $this->title;
                                         [
                                             'attribute' => 'tel',
                                             'format' => 'raw',
+                                            'filter' => \yii\widgets\MaskedInput::widget([
+                                                'model' => $searchModel,
+                                                'attribute' => 'tel',
+                                                'name' => 'tel',
+                                                'clientOptions' => [
+                                                    'alias' => '+\9\9899-999-99-99',
+                                                ],
+                                            ]),
                                             'value' => function ($model) {
                                                 return Html::a($model->tel, ['/members/view', 'id' => $model->id]);
                                             },
@@ -74,6 +92,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                             'template' => '{view}{update}'
                                         ],
                                     ],
+                                    'tableOptions' => ['class' => 'table table-hover'],
                                 ]); ?>
                             </div>
                         </div>

@@ -109,4 +109,8 @@ class Contract extends ActiveRecord
             'bux' => Yii::t('main', 'Bux')
         ];
     }
+
+    public function getStudent(){
+        return $this->hasOne(Students::className(),['id'=>'students_id']);
+    }
 }

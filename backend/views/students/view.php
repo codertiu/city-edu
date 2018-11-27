@@ -84,7 +84,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
                                         <div class="panel-body">
 
-                                            <div class="panel panel-primary">
+                                            <div class="panel panel-<?= $model->active == 1 ? 'primary' : 'danger' ?>">
                                                 <div class="panel-heading">
                                                     <h3 class="panel-title"><?= $model->fullName ?></h3>
                                                 </div>
@@ -96,13 +96,16 @@ $this->params['breadcrumbs'][] = $this->title;
                                                                      width="150" height="150"
                                                                      class="img-circle img-bordered img-bordered-orange">
                                                             <? } else { ?>
-                                                                <img src="/admin/images/1.jpg" alt="..." width="150"
+                                                                <? $img = $model->gendar==1?'/admin/images/2.jpg':'/admin/images/1.jpg'?>
+                                                                <img src="<?=$img?>" alt="..." width="150"
                                                                      height="150"
                                                                      class="img-circle img-bordered img-bordered-orange">
                                                             <? } ?>
                                                             <br/>
                                                             <br/>
-                                                            <?= Html::button(Yii::t('main', 'Create Contract'), ['value' => Url::to(['/contract/create', 'id' => $model->id]), 'class' => 'btn btn-primary modalButton']) ?>
+                                                            <? if ($model->active == 1) { ?>
+                                                                <?= Html::button(Yii::t('main', 'Create Contract'), ['value' => Url::to(['/contract/create', 'id' => $model->id]), 'class' => 'btn btn-primary modalButton']) ?>
+                                                            <? } ?>
                                                             <br/>
                                                             <br/>
                                                             <?
@@ -264,9 +267,9 @@ $this->params['breadcrumbs'][] = $this->title;
                                             $contract = \backend\models\Contract::find()->where(['students_id' => $model->id]);
                                             if ($contract->exists()) {
                                                 ?>
-
-                                                <?= Html::button(Yii::t('main', 'Pay for contract'), ['value' => Url::to(['/students-pay/create', 'id' => $model->id]), 'class' => 'btn btn-primary modalButton']) ?>
-
+                                                <? if ($model->active == 1) { ?>
+                                                    <?= Html::button(Yii::t('main', 'Pay for contract'), ['value' => Url::to(['/students-pay/create', 'id' => $model->id]), 'class' => 'btn btn-primary modalButton']) ?>
+                                                <? } ?>
                                                 <table class="table table-hover">
                                                     <thead>
                                                     <tr>
@@ -310,11 +313,11 @@ $this->params['breadcrumbs'][] = $this->title;
                                 </div>
                                 <div class="tab-pane" id="exampleTabsLineFour" role="tabpanel">
                                     <div class="row">
-                                        <div class="col-md-12">
-                                            <?= Html::button(Yii::t('main', 'Add Group'), ['value' => Url::to(['/sub-students/create', 'id' => $model->id]), 'class' => 'btn btn-primary modalButton']) ?>
+                                        <div class="col-md-12 text-right">
+                                            <?= Html::button(Yii::t('main', 'Add Group'), ['value' => Url::to(['/sub-students/create', 'id' => $model->id]), 'class' => 'btn btn-success modalButton']) ?>
                                         </div>
                                         <?
-                                        $group = \backend\models\SubStudents::find()->where(['students_id' => $model->id]);
+                                        $group = \backend\models\SubStudents::find()->where('students_id=any(select id from contract where students_id=' . $model->id . ')');
                                         ?>
                                         <div class="col-md-12 col-lg-12">
                                             <? if ($group->exists()) { ?>
@@ -327,9 +330,10 @@ $this->params['breadcrumbs'][] = $this->title;
                                                             <thead>
                                                             <tr>
                                                                 <td>#</td>
+                                                                <td><?= Yii::t('main', 'Contract') ?></td>
                                                                 <td><?= Yii::t('main', 'Group') ?></td>
                                                                 <td><?= Yii::t('main', 'Begin Date') ?></td>
-                                                                <td><?= Yii::t('main', 'End Date') ?></td>
+
                                                                 <td><?= Yii::t('main', 'Action') ?></td>
                                                             </tr>
 
@@ -337,8 +341,12 @@ $this->params['breadcrumbs'][] = $this->title;
                                                             <tbody>
                                                             <? $i = 1;
                                                             foreach ($group->all() as $one) { ?>
-                                                                <tr>
+                                                                <tr class="active">
                                                                     <td><?= $i ?></td>
+                                                                    <td>
+                                                                        <a href="<?= Url::to(['/group/view', 'id' => $one->group->id]) ?>"
+                                                                           target="_blank"><?= $one->contract->contract ?></a>
+                                                                    </td>
                                                                     <td>
                                                                         <a href="<?= Url::to(['/group/view', 'id' => $one->group->id]) ?>"
                                                                            target="_blank"><?= $one->group->name ?></a>
@@ -347,10 +355,71 @@ $this->params['breadcrumbs'][] = $this->title;
                                                                         <?= $one->begin_date ?>
                                                                     </td>
                                                                     <td>
-                                                                        <?= $one->end_date ?>
+                                                                        <? if ($model->active == 1) { ?>
+                                                                            <?= Html::button(' <i class="icon md-share"></i>', ['value' => yii\helpers\Url::to(['/group/change', 'id' => $one->contract->id, 'group' => $one->group_id]), 'class' => 'btn-pure waves-effect waves-classic waves-effect waves-classic modalButton waves-effect waves-classic']) ?>
+                                                                        <? } ?>
+                                                                        <?= Html::a('<i class="icon md-delete" aria-hidden="true"></i>', ['/group/delete-sub', 'id' => $one->contract->id, 'group' => $one->group_id], [
+                                                                            'data' => [
+                                                                                'confirm' => Yii::t('main', 'Are you sure you want to delete this item?'),
+                                                                                'method' => 'post',
+                                                                            ],
+                                                                        ]) ?>
+                                                                    </td>
+                                                                </tr>
+                                                                <? $i++;
+                                                            } ?>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            <? } ?>
+                                        </div>
+                                        <? $h_group = \backend\models\HSubStudent::find()->where('student_id=any(select id from contract where students_id=' . $model->id . ')') ?>
+                                        <div class="col-md-12">
+                                            <? if ($h_group->exists()) { ?>
+                                                <div class="panel">
+                                                    <div class="panel-heading">
+                                                        <h4 class="panel-title"><?= Yii::t('main', 'Group history') ?></h4>
+                                                    </div>
+                                                    <div class="panel-body">
+                                                        <table class="table table-hover">
+                                                            <thead>
+                                                            <tr>
+                                                                <td>#</td>
+                                                                <td><?= Yii::t('main', 'Contract') ?></td>
+                                                                <td><?= Yii::t('main', 'Group') ?></td>
+                                                                <td><?= Yii::t('main', 'Begin Date') ?></td>
+                                                                <td><?= Yii::t('main', 'End Date') ?></td>
+                                                                <td><?= Yii::t('main', 'To Group Id') ?></td>
+                                                                <td><?= Yii::t('main', 'Comment') ?></td>
+                                                            </tr>
+
+                                                            </thead>
+                                                            <tbody>
+                                                            <? $i = 1;
+                                                            foreach ($h_group->all() as $one) { ?>
+                                                                <tr class="<?=$one->to_group_id!=0?'warning':'danger' ?>">
+                                                                    <td><?= $i ?></td>
+                                                                    <td>
+                                                                        <a href="<?= Url::to(['/group/view', 'id' => $one->group->id]) ?>"
+                                                                           target="_blank"><?= $one->contract->contract ?></a>
                                                                     </td>
                                                                     <td>
-                                                                        <?= Html::button(' <i class="icon md-edit"></i>', ['value' => Url::to(['/sub-students/update', 'id' => $one->id]), 'class' => 'btn-pure waves-effect waves-classic waves-effect waves-classic modalButton waves-effect waves-classic']) ?>
+                                                                        <a href="<?= Url::to(['/group/view', 'id' => $one->group->id]) ?>"
+                                                                           target="_blank"><?= $one->group->name ?></a>
+                                                                    </td>
+                                                                    <td>
+                                                                        <?= $one->begin_date ?>
+                                                                    </td>
+                                                                    <td>
+                                                                        <?= $one->date ?>
+                                                                    </td>
+                                                                    <td>
+                                                                        <a href="<?= \yii\helpers\Url::to(['/students/view', 'id' => $one->contract->student->id]) ?>"
+                                                                           target="_blank"><?= $one->to_group_id == 0 ? Yii::t('main', 'Delete') : $one->to_group_id ?></a>
+                                                                    </td>
+                                                                    <td>
+                                                                        <?= $one->comment ?>
                                                                     </td>
                                                                 </tr>
                                                                 <? $i++;

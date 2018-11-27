@@ -37,10 +37,14 @@ class ExpenseCategoryController extends Controller
     {
         $searchModel = new ExpenseCategorySearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
-
+        $model = new ExpenseCategory();
+        if($model->load(Yii::$app->request->post()) && $model->save()){
+            return $this->redirect(Yii::$app->request->referrer);
+        }
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
+            'model' => $model
         ]);
     }
 
@@ -87,10 +91,10 @@ class ExpenseCategoryController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+            return $this->redirect(Yii::$app->request->referrer);
         }
 
-        return $this->render('update', [
+        return $this->renderAjax('update', [
             'model' => $model,
         ]);
     }

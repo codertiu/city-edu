@@ -62,6 +62,24 @@ $this->params['breadcrumbs'][] = $this->title;
                                         //'edu_center_id',
                                         //'comment',
                                         [
+                                            'attribute' => 'edu_center_id',
+                                            'value' => 'eduCenter.name',
+                                            'format' => 'raw',
+                                            'filter' => kartik\select2\Select2::widget([
+                                                'model' => $searchModel,
+                                                'attribute' => 'edu_center_id',
+                                                'data' => yii\helpers\ArrayHelper::map(\backend\models\EduCenter::find()->all(), 'id', 'name'),
+                                                'theme' => kartik\select2\Select2::THEME_BOOTSTRAP,
+                                                'hideSearch' => true,
+                                                'options' => [
+                                                    'placeholder' => Yii::t('main', 'Select'),
+                                                ],
+                                                'pluginOptions' => [
+                                                    'allowClear' => true
+                                                ],
+                                            ]),
+                                        ],
+                                        [
                                             'attribute' => 'name',
                                             'format' => 'raw',
                                             'value' => function ($model) {
@@ -71,10 +89,10 @@ $this->params['breadcrumbs'][] = $this->title;
                                         [
                                             'attribute' => 'tel',
                                             'format' => 'raw',
-                                            'filter'=> \yii\widgets\MaskedInput::widget([
+                                            'filter' => \yii\widgets\MaskedInput::widget([
                                                 'model' => $searchModel,
                                                 'attribute' => 's_tel',
-                                                'name'=>'tel',
+                                                'name' => 'tel',
                                                 'clientOptions' => [
                                                     'alias' => '+\9\9899-999-99-99',
                                                 ],
@@ -147,6 +165,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                             'template' => '{view}{update}'
                                         ],
                                     ],
+                                    'tableOptions' => ['class' => 'table table-hover'],
                                 ]); ?>
                                 <?php Pjax::end() ?>
                             </div>

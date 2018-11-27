@@ -75,8 +75,13 @@ class SubStudentsController extends Controller
             Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
             return \yii\widgets\ActiveForm::validate($model);
         }
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(Yii::$app->request->referrer);
+        if ($model->load(Yii::$app->request->post())) {
+            $model->begin_date = date('Y-m-d');
+            if ($model->save()) {
+                return $this->redirect(Yii::$app->request->referrer);
+            } else {
+                return print_r($model->errors);
+            }
         }
 
         return $this->renderAjax('create', [
@@ -169,9 +174,9 @@ class SubStudentsController extends Controller
         $id = Group::find()->where(['id' => $group]);
         if ($id->exists()) {
             $model = new SubStudents();
-            $array = Students::find()->where('id not in (select students_id from sub_students) and (select id from contract where contract.students_id=students.id) and active=1')->all();
+            $array = Contract::find()->where('id not in (select students_id from sub_students) and students_id in (select id from students where active=1)')->all();
             $students = ArrayHelper::map($array, 'id', function ($model) {
-                return $model->contract->contract . ' | Name:' . $model->name . ' | ID:' . $model->id;
+                return $model->contract . ' | Name:' . $model->student->name . ' | ID:' . $model->student->id;
             });
 
             if (Yii::$app->request->isAjax && $model->load(Yii::$app->request->post())) {
@@ -200,21 +205,21 @@ class SubStudentsController extends Controller
             throw new NotFoundHttpException(Yii::t('main', 'The requested page does not exist.'));
         }
     }
+
     // TODO gruop view da hal qilish kerak hali
     public function actionInsert()
     {
         $contract = $_POST['Contract']['contract'];
         $group = $_POST['Contract']['fio'];
-        $con = Contract::findOne(['id'=>$contract]);
+        $con = Contract::findOne(['id' => $contract]);
         if ($con) {
-            $student = $con->students_id;
             $save = new SubStudents();
-            $save->students_id = $student;
+            $save->students_id = $con->id;
             $save->begin_date = date('Y-m-d');
             $save->group_id = $group;
-            if($save->save()){
+            if ($save->save()) {
                 return $this->redirect(Yii::$app->request->referrer);
-            }else{
+            } else {
                 return print_r($save->errors);
             }
         } else {

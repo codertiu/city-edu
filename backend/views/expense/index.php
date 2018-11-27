@@ -47,6 +47,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                     'template' => '{update}'
                                 ],
                             ],
+                            'tableOptions' => ['class' => 'table table-hover'],
                         ]); ?>
                         <?php Pjax::end(); ?>
                     </div>

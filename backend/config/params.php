@@ -45,8 +45,8 @@ return [
         2 => \Yii::t('main', 'Individual')
     ],
     'gender' => [
-        0 => \Yii::t('main', 'female'),
-        1 => \Yii::t('main', 'male')
+        1 => \Yii::t('main', 'female'),
+        2 => \Yii::t('main', 'male')
     ],
     'active' => [
         1 => \Yii::t('main', 'Active'),

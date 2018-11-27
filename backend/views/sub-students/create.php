@@ -10,9 +10,7 @@ $this->title = Yii::t('main', 'Create Sub Students');
 $this->params['breadcrumbs'][] = ['label' => Yii::t('main', 'Sub Students'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="sub-students-create">
-
-    <h1><?= Html::encode($this->title) ?></h1>
+<div class="panel">
 
     <?= $this->render('_form', [
         'model' => $model,

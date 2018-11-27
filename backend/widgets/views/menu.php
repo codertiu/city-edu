@@ -22,7 +22,7 @@ use webvimark\modules\UserManagement\models\User;
                             <div class="dropdown-menu">
                                 <div class="site-menu-scroll-wrap is-list scrollable scrollable-inverse is-enabled scrollable-vertical"
                                      style="position: relative;">
-                                    <div class="scrollable-container" style="height: 120px; width: 100px;">
+                                    <div class="scrollable-container" style="height: 80px; width: 100px;">
                                         <div class="scrollable-content" style="width: 100px;">
                                             <ul class="site-menu-sub site-menu-normal-list">
                                                 <li class="site-menu-item">
@@ -115,40 +115,40 @@ use webvimark\modules\UserManagement\models\User;
                             </a>
                         </li>
                         <li class="dropdown site-menu-item has-sub">
-                                <a class="dropdown-toggle waves-effect waves-classic" href="javascript:void(0)"
-                                   data-dropdown-toggle="false">
-                                    <i class="site-menu-icon md-apps" aria-hidden="true"></i>
-                                    <span class="site-menu-title"><?= Yii::t('main', 'Mark') ?></span>
-                                    <span class="site-menu-arrow"></span>
-                                </a>
-                                <div class="dropdown-menu">
-                                    <div class="site-menu-scroll-wrap is-list scrollable scrollable-inverse is-enabled scrollable-vertical"
-                                         style="position: relative;">
-                                        <div class="scrollable-container" style="height: 342px; width: 234px;">
-                                            <div class="scrollable-content" style="width: 217px;">
-                                                <ul class="site-menu-sub site-menu-normal-list">
-                                                    <li class="site-menu-item">
-                                                        <a class="animsition-link waves-effect waves-classic"
-                                                           href="<?= Url::to(['/mark/index']) ?>">
-                                                            <span class="site-menu-title"><?= Yii::t('main', 'Mark') ?></span>
-                                                        </a>
-                                                    </li>
-                                                    <li class="site-menu-item">
-                                                        <a class="animsition-link waves-effect waves-classic"
-                                                           href="<?= Url::to(['/extra-mark/index']) ?>">
-                                                            <span class="site-menu-title"><?= Yii::t('main', 'Extra mark') ?></span>
-                                                        </a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <div class="scrollable-bar scrollable-bar-vertical scrollable-bar-hide is-disabled"
-                                             draggable="false">
-                                            <div class="scrollable-bar-handle"></div>
+                            <a class="dropdown-toggle waves-effect waves-classic" href="javascript:void(0)"
+                               data-dropdown-toggle="false">
+                                <i class="site-menu-icon md-apps" aria-hidden="true"></i>
+                                <span class="site-menu-title"><?= Yii::t('main', 'Mark') ?></span>
+                                <span class="site-menu-arrow"></span>
+                            </a>
+                            <div class="dropdown-menu">
+                                <div class="site-menu-scroll-wrap is-list scrollable scrollable-inverse is-enabled scrollable-vertical"
+                                     style="position: relative;">
+                                    <div class="scrollable-container" style="height: 342px; width: 234px;">
+                                        <div class="scrollable-content" style="width: 217px;">
+                                            <ul class="site-menu-sub site-menu-normal-list">
+                                                <li class="site-menu-item">
+                                                    <a class="animsition-link waves-effect waves-classic"
+                                                       href="<?= Url::to(['/mark/index']) ?>">
+                                                        <span class="site-menu-title"><?= Yii::t('main', 'Mark') ?></span>
+                                                    </a>
+                                                </li>
+                                                <li class="site-menu-item">
+                                                    <a class="animsition-link waves-effect waves-classic"
+                                                       href="<?= Url::to(['/extra-mark/index']) ?>">
+                                                        <span class="site-menu-title"><?= Yii::t('main', 'Extra mark') ?></span>
+                                                    </a>
+                                                </li>
+                                            </ul>
                                         </div>
                                     </div>
+                                    <div class="scrollable-bar scrollable-bar-vertical scrollable-bar-hide is-disabled"
+                                         draggable="false">
+                                        <div class="scrollable-bar-handle"></div>
+                                    </div>
                                 </div>
-                            </li>
+                            </div>
+                        </li>
                         <li class="dropdown site-menu-item has-sub">
                             <a class="dropdown-toggle waves-effect waves-classic" href="javascript:void(0)"
                                data-dropdown-toggle="false">
@@ -214,7 +214,7 @@ use webvimark\modules\UserManagement\models\User;
                                 </div>
                             </div>
                         </li>
-                        <? if (User::hasRole('Admin')) { ?>
+                        <? if (User::hasRole('Admin') || User::hasRole('Reception')) { ?>
                             <li class="dropdown site-menu-item has-sub">
                                 <a class="dropdown-toggle waves-effect waves-classic" href="javascript:void(0)"
                                    data-dropdown-toggle="false">
@@ -225,45 +225,50 @@ use webvimark\modules\UserManagement\models\User;
                                 <div class="dropdown-menu">
                                     <div class="site-menu-scroll-wrap is-list scrollable scrollable-inverse is-enabled scrollable-vertical"
                                          style="position: relative;">
-                                        <div class="scrollable-container" style="height: 342px; width: 234px;">
+                                        <div class="scrollable-container"
+                                             style="<? if (User::hasRole('Admin')) echo 'height: 220px;'; else echo 'height: 40px;' ?> width: 234px;">
                                             <div class="scrollable-content" style="width: 217px;">
                                                 <ul class="site-menu-sub site-menu-normal-list">
-                                                    <li class="site-menu-item">
-                                                        <a class="animsition-link waves-effect waves-classic"
-                                                           href="<?= Url::to(['/expense-category/index']) ?>">
-                                                            <span class="site-menu-title"><?= Yii::t('main', 'Expense Category') ?></span>
-                                                        </a>
-                                                    </li>
-                                                    <li class="site-menu-item">
-                                                        <a class="animsition-link waves-effect waves-classic"
-                                                           href="<?= Url::to(['/expense/index']) ?>">
-                                                            <span class="site-menu-title"><?= Yii::t('main', 'Expense') ?></span>
-                                                        </a>
-                                                    </li>
-                                                    <li class="site-menu-item">
-                                                        <a class="animsition-link waves-effect waves-classic"
-                                                           href="<?= Url::to(['/profit-category/index']) ?>">
-                                                            <span class="site-menu-title"><?= Yii::t('main', 'Profit Category') ?></span>
-                                                        </a>
-                                                    </li>
-                                                    <li class="site-menu-item">
-                                                        <a class="animsition-link waves-effect waves-classic"
-                                                           href="<?= Url::to(['/profit']) ?>">
-                                                            <span class="site-menu-title"><?= Yii::t('main', 'Profit') ?></span>
-                                                        </a>
-                                                    </li>
-                                                    <li class="site-menu-item">
-                                                        <a class="animsition-link waves-effect waves-classic"
-                                                           href="<?= Url::to(['/member-salary/index']) ?>">
-                                                            <span class="site-menu-title"><?= Yii::t('main', 'Members Salary') ?></span>
-                                                        </a>
-                                                    </li>
-                                                    <li class="site-menu-item">
-                                                        <a class="animsition-link waves-effect waves-classic"
-                                                           href="<?= Url::to(['/students-pay/index']) ?>">
-                                                            <span class="site-menu-title"><?= Yii::t('main', 'Students Pay') ?></span>
-                                                        </a>
-                                                    </li>
+                                                    <? if (User::hasRole('Reception')) { ?>
+                                                        <li class="site-menu-item">
+                                                            <a class="animsition-link waves-effect waves-classic"
+                                                               href="<?= Url::to(['/students-pay/index']) ?>">
+                                                                <span class="site-menu-title"><?= Yii::t('main', 'Students Pay') ?></span>
+                                                            </a>
+                                                        </li>
+                                                    <? } ?>
+                                                    <? if (User::hasRole('Admin')) { ?>
+                                                        <li class="site-menu-item">
+                                                            <a class="animsition-link waves-effect waves-classic"
+                                                               href="<?= Url::to(['/expense-category/index']) ?>">
+                                                                <span class="site-menu-title"><?= Yii::t('main', 'Expense Category') ?></span>
+                                                            </a>
+                                                        </li>
+                                                        <li class="site-menu-item">
+                                                            <a class="animsition-link waves-effect waves-classic"
+                                                               href="<?= Url::to(['/expense/index']) ?>">
+                                                                <span class="site-menu-title"><?= Yii::t('main', 'Expense') ?></span>
+                                                            </a>
+                                                        </li>
+                                                        <li class="site-menu-item">
+                                                            <a class="animsition-link waves-effect waves-classic"
+                                                               href="<?= Url::to(['/member-salary/index']) ?>">
+                                                                <span class="site-menu-title"><?= Yii::t('main', 'Members Salary') ?></span>
+                                                            </a>
+                                                        </li>
+                                                        <li class="site-menu-item">
+                                                            <a class="animsition-link waves-effect waves-classic"
+                                                               href="<?= Url::to(['/profit-category/index']) ?>">
+                                                                <span class="site-menu-title"><?= Yii::t('main', 'Profit Category') ?></span>
+                                                            </a>
+                                                        </li>
+                                                        <li class="site-menu-item">
+                                                            <a class="animsition-link waves-effect waves-classic"
+                                                               href="<?= Url::to(['/profit']) ?>">
+                                                                <span class="site-menu-title"><?= Yii::t('main', 'Profit') ?></span>
+                                                            </a>
+                                                        </li>
+                                                    <? } ?>
                                                 </ul>
                                             </div>
                                         </div>

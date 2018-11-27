@@ -66,9 +66,10 @@ $this->params['breadcrumbs'][] = $this->title;
 
                                         [
                                             'class' => 'yii\grid\ActionColumn',
-                                            'template' => ''
+                                            'template'=>''
                                         ],
                                     ],
+                                    'tableOptions' => ['class' => 'table table-hover'],
                                 ]); ?>
                                 <?php Pjax::end(); ?>
                             </div>
